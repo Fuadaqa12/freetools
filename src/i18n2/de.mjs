@@ -1,5 +1,6 @@
 export default {
   s: {
+    favTitle: 'Meine Favoriten', favAdd: 'Zu Favoriten', favOn: 'In Favoriten',
     allTools: 'Alle Tools', newTag: 'Neu', popTag: 'Beliebt', recentTitle: 'Zuletzt verwendet', browseCats: 'Kategorien', nTools: '{n} Tools', newTitle: 'Neue Tools',
     statTools: 'kostenlose Tools', statLangs: 'Sprachen', statUploads: 'Datei-Uploads', statPrice: 'Kosten',
     hiwTitle: 'So funktioniert es', hiw: [['Tool wählen', 'Suchen Sie oder stöbern Sie in {n} Tools nach Kategorie.'], ['Datei oder Daten hinzufügen', 'Alles wird direkt auf Ihrem Gerät verarbeitet.'], ['Ergebnis erhalten', 'In einer Sekunde herunterladen oder kopieren, ohne Anmeldung.']],

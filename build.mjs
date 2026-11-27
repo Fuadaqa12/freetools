@@ -139,6 +139,7 @@ function homePage(l) {
 <div class="wrap">
 <section class="sec" id="cats"><div class="tiles">${tiles}</div></section>
 ${adSlot('top')}
+<section class="sec hide" id="favs"><div class="sec-h"><h2>${svg('star')}${esc(S(l, 'favTitle'))}</h2></div><div class="grid" id="favGrid"></div></section>
 <section class="sec hide" id="recent"><div class="sec-h"><h2>${svg('history')}${esc(S(l, 'recentTitle'))}</h2></div><div class="grid" id="recentGrid"></div></section>
 <section class="sec" id="popular"><div class="sec-h"><h2>🔥 ${esc(S(l, 'popular'))}</h2></div><div class="grid">${pop.map(t => card(l, t, root)).join('')}</div></section>
 <section class="sec" id="fresh"><div class="sec-h"><h2>✨ ${esc(S(l, 'newTitle'))}</h2></div><div class="grid">${fresh.map(t => card(l, t, root)).join('')}</div></section>
@@ -180,7 +181,7 @@ function toolPage(l, t) {
   const body = `<div class="wrap">
 <nav class="crumbs" aria-label="breadcrumb"><a href="${root}${pre(l)}">${esc(S(l, 'home'))}</a><span>/</span><a href="${root}${pre(l)}category/${t.cat}/">${esc(cat[0])}</a><span>/</span><span>${esc(name)}</span></nav>
 <div class="layout"><div>
-<div class="thead" style="--c:${c.color}"><span class="ic lg">${svg(t.icon)}</span><div><h1>${esc(name)}</h1><p>${esc(desc)}</p><div class="tmeta"><span>${svg('shield')}${esc(S(l, 'privacyNote'))}</span><span>${svg('gift')}${esc(S(l, 'freeBadge'))}</span></div></div></div>
+<div class="thead" style="--c:${c.color}"><span class="ic lg">${svg(t.icon)}</span><div><h1>${esc(name)}</h1><p>${esc(desc)}</p><div class="tmeta"><span>${svg('shield')}${esc(S(l, 'privacyNote'))}</span><span>${svg('gift')}${esc(S(l, 'freeBadge'))}</span><button type="button" class="favbtn" data-on="${esc(S(l, 'favOn'))}" data-off="${esc(S(l, 'favAdd'))}">${svg('star')}<b>${esc(S(l, 'favAdd'))}</b></button></div></div></div>
 <div class="tool" id="tool" data-id="${t.id}" data-engine="${t.engine}" data-opts='${esc(JSON.stringify(t.opts))}'><p class="muted">${esc(S(l, 'loading'))}</p><noscript>${esc(S(l, 'needJs'))}</noscript></div>
 ${adSlot('mid')}
 <article class="content">

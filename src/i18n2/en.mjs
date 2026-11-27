@@ -1,5 +1,6 @@
 export default {
   s: {
+    favTitle: 'My favorites', favAdd: 'Add to favorites', favOn: 'In favorites',
     allTools: 'All tools', newTag: 'New', popTag: 'Popular', recentTitle: 'Recently used', browseCats: 'Browse by category', nTools: '{n} tools', newTitle: 'New tools',
     statTools: 'free tools', statLangs: 'languages', statUploads: 'files uploaded', statPrice: 'cost to use',
     hiwTitle: 'How it works', hiw: [['Pick a tool', 'Search or browse {n} tools by category.'], ['Add your file or data', 'Everything is processed right on your device.'], ['Get the result', 'Download or copy it in a second — no sign-up.']],

@@ -1,5 +1,6 @@
 export default {
   s: {
+    favTitle: 'Seçilmişlər', favAdd: 'Seçilmişlərə əlavə et', favOn: 'Seçilmişlərdə',
     allTools: 'Bütün alətlər', newTag: 'Yeni', popTag: 'Populyar', recentTitle: 'Son istifadə olunanlar', browseCats: 'Kateqoriyalar', nTools: '{n} alət', newTitle: 'Yeni alətlər',
     statTools: 'pulsuz alət', statLangs: 'dil', statUploads: 'fayl yükləmə', statPrice: 'qiymət',
     hiwTitle: 'Necə işləyir', hiw: [['Alət seçin', '{n} aləti axtarın və ya kateqoriyalara baxın.'], ['Faylı və ya məlumatı əlavə edin', 'Hər şey birbaşa cihazınızda emal olunur.'], ['Nəticəni alın', 'Bir saniyəyə yükləyin və ya kopyalayın, qeydiyyatsız.']],

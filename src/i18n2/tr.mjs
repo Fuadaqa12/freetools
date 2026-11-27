@@ -1,5 +1,6 @@
 export default {
   s: {
+    favTitle: 'Favorilerim', favAdd: 'Favorilere ekle', favOn: 'Favorilerde',
     allTools: 'Tüm araçlar', newTag: 'Yeni', popTag: 'Popüler', recentTitle: 'Son kullanılanlar', browseCats: 'Kategoriler', nTools: '{n} araç', newTitle: 'Yeni araçlar',
     statTools: 'ücretsiz araç', statLangs: 'dil', statUploads: 'dosya yükleme', statPrice: 'kullanım ücreti',
     hiwTitle: 'Nasıl çalışır', hiw: [['Bir araç seçin', '{n} araç arasında arayın veya kategoriye göz atın.'], ['Dosyanızı veya verinizi ekleyin', 'Her şey doğrudan cihazınızda işlenir.'], ['Sonucu alın', 'Bir saniyede indirin veya kopyalayın — kayıt yok.']],

@@ -16,13 +16,19 @@ TK.register('image', function (root, o, K) {
   var actions = el('<div class="row end"></div>');
   var more = K.dropzone({ accept: 'image/*', multiple: true, mini: true, label: t('add_more'), onFiles: add });
   var clr = el('<button class="btn sec sm" type="button">' + svg('trash') + esc(t('clear')) + '</button>');
-  var all = el('<button class="btn big" type="button">' + svg('download') + esc(t('download_all')) + '</button>');
+  var all = el('<button class="btn big" type="button">' + svg('download') + esc(t('download_all')) + ' (ZIP)</button>');
   actions.append(clr, all);
   work.append(settings, list, more, actions);
   root.append(dz, work);
 
   clr.onclick = function () { items = []; render(); };
-  all.onclick = function () { items.forEach(function (it, i) { if (it.out) setTimeout(function () { K.download(it.out.blob, it.out.name); }, i * 350); }); };
+  all.onclick = function () {
+    var outs = items.filter(function (it) { return it.out; }).map(function (it) { return it.out; });
+    if (!outs.length) return; if (outs.length === 1) { K.download(outs[0].blob, outs[0].name); return; }
+    var used = {};
+    Promise.all(outs.map(function (o) { return K.blobBytes(o.blob).then(function (d) { var n = o.name, k = 1; while (used[n]) n = o.name.replace(/(\.\w+)?$/, '-' + (++k) + '$1'); used[n] = 1; return { name: n, data: d }; }); }))
+      .then(function (fs) { K.download(K.zip(fs), 'toolora-images.zip'); });
+  };
 
   function rng(key, label, min, max, val, unit, onIn) {
     var r = el('<label class="range"><div><span>' + esc(label) + '</span><output>' + val + (unit || '') + '</output></div><input type="range" min="' + min + '" max="' + max + '" value="' + val + '"></label>');
