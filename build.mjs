@@ -205,7 +205,12 @@ function staticPage(l, key) {
   const pg = I[l].pages?.[key] || EN.pages[key];
   const v = { site: CFG.siteName, email: CFG.contactEmail || '', url: SITE, date: CFG.policyDate || new Date().toISOString().slice(0, 10) };
   let html = fill(pg[1], v);
-  if (key === 'contact' && CFG.contactEmail) html += `<p><a class="btn" href="mailto:${esc(CFG.contactEmail)}">${esc(CFG.contactEmail)}</a></p>`;
+  if (key === 'contact') {
+    const b = [];
+    if (CFG.contactEmail) b.push(`<a class="btn" href="mailto:${esc(CFG.contactEmail)}">✉️ ${esc(CFG.contactEmail)}</a>`);
+    if (CFG.contactTelegram) b.push(`<a class="btn" href="https://t.me/${esc(CFG.contactTelegram)}" target="_blank" rel="noopener">✈️ Telegram @${esc(CFG.contactTelegram)}</a>`);
+    if (b.length) html += `<p style="display:flex;flex-wrap:wrap;gap:12px">${b.join('')}</p>`;
+  }
   const body = `<div class="wrap"><article class="page"><h1>${esc(fill(pg[0], v))}</h1>${html}</article></div>`;
   return layout(l, p, { title: fill(pg[0], v) + ' | ' + CFG.siteName, desc: fill(pg[0], v) + ' — ' + CFG.siteName, body, alt: p });
 }
