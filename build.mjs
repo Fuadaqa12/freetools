@@ -14,7 +14,13 @@ const DEF = 'en';
 const VER = Date.now().toString(36);
 
 const I = {};
-for (const l of LANGS) I[l] = (await import(`./src/i18n/${l}.mjs`)).default;
+for (const l of LANGS) {
+  const A = (await import(`./src/i18n/${l}.mjs`)).default;
+  let B = {};
+  if (fs.existsSync(path.join(HERE, 'src/i18n2', l + '.mjs'))) B = (await import(`./src/i18n2/${l}.mjs`)).default;
+  for (const k of ['s', 'cats', 'tools', 'faqx', 'units', 'ui']) A[k] = { ...(A[k] || {}), ...(B[k] || {}) };
+  I[l] = A;
+}
 const EN = I.en;
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -52,7 +58,8 @@ function adSlot(name) {
 
 function card(l, t, root) {
   const [n, d, k] = TN(l, t.id), c = catOf(t.cat);
-  return `<a class="card" href="${root}${pre(l)}${t.id}/" data-q="${esc(n + ' ' + (k || '') + ' ' + d + ' ' + t.id.replace(/-/g, ' '))}"><span class="ic" style="--c:${c.color}">${svg(t.icon)}</span><div><b>${esc(n)}</b><span>${esc(d)}</span></div></a>`;
+  const badge = t.isNew ? `<em class="bdg new">${esc(S(l, 'newTag'))}</em>` : '';
+  return `<a class="card" href="${root}${pre(l)}${t.id}/" data-q="${esc(n + ' ' + (k || '') + ' ' + d + ' ' + t.id.replace(/-/g, ' '))}" style="--c:${c.color}"><span class="ic">${svg(t.icon)}</span><div><b>${esc(n)}${badge}</b><span>${esc(d)}</span></div><i class="go">${svg('arrow')}</i></a>`;
 }
 
 function layout(l, p, { title, desc, body, alt, schema = [], noindex = false, ogType = 'website', tail = '' }) {
@@ -84,6 +91,7 @@ ${head}
 <body>
 <header class="hdr"><div class="wrap">
 <a class="logo" href="${root}${pre(l)}"><i>${svg('wrench')}</i>${esc(CFG.siteName)}</a>
+<div class="mega"><button class="hbtn mbtn" type="button" aria-expanded="false">${svg('grid2')}<span class="lt">${esc(S(l, 'allTools'))}</span></button><nav class="mega-menu"><div class="wrap">${CATS.map(c => `<div class="mcol"><a class="mh" href="${root}${pre(l)}category/${c.id}/" style="--c:${c.color}"><span class="ic">${svg(c.icon)}</span>${esc(CN(l, c.id)[0])}</a>${TOOLS.filter(t => t.cat === c.id).map(t => `<a href="${root}${pre(l)}${t.id}/">${esc(TN(l, t.id)[0])}</a>`).join('')}</div>`).join('')}</div></nav></div>
 <div class="hsearch"><input id="hsearch" type="search" placeholder="${esc(S(l, 'searchPh'))}" autocomplete="off" aria-label="${esc(S(l, 'searchPh'))}">${svg('search')}<div class="sres" id="hsres"></div></div>
 <div class="row tools-actions" style="gap:8px;flex-wrap:nowrap">
 <div class="lang"><button class="hbtn" type="button" aria-label="${esc(S(l, 'language'))}">${svg('globe')}<span class="lt">${esc(M.name)}</span></button><nav class="lang-menu">${langMenu}</nav></div>
@@ -111,29 +119,41 @@ ${tail}
 }
 
 function homePage(l) {
-  const p = '', root = relRoot(pre(l) + p);
-  const pop = TOOLS.filter(t => t.pop);
-  const chips = CATS.map(c => `<a class="chip" href="#${c.id}"><i style="--c:${c.color}"></i>${esc(CN(l, c.id)[0])}</a>`).join('');
+  const p = '', root = relRoot(pre(l) + p), n = TOOLS.length;
+  const pop = TOOLS.filter(t => t.pop).slice(0, 12);
+  const fresh = TOOLS.filter(t => t.isNew).slice(0, 12);
+  const tiles = CATS.map(c => { const cnt = TOOLS.filter(t => t.cat === c.id).length; return `<a class="tile" href="#${c.id}" style="--c:${c.color}"><span class="ic">${svg(c.icon)}</span><b>${esc(CN(l, c.id)[0])}</b><small>${esc(fill(S(l, 'nTools'), { n: cnt }))}</small></a>`; }).join('');
   const secs = CATS.map(c => {
     const ts = TOOLS.filter(t => t.cat === c.id);
-    return `<section class="sec" id="${c.id}" data-cat="${c.id}"><div class="sec-h"><div><h2><span class="ic" style="--c:${c.color};width:34px;height:34px;border-radius:10px">${svg(c.icon)}</span>${esc(CN(l, c.id)[0])}</h2></div><a href="${root}${pre(l)}category/${c.id}/">${esc(S(l, 'seeAll'))} →</a></div><div class="grid">${ts.map(t => card(l, t, root)).join('')}</div></section>`;
+    return `<section class="sec" id="${c.id}" data-cat="${c.id}"><div class="sec-h"><div><h2><span class="ic" style="--c:${c.color}">${svg(c.icon)}</span>${esc(CN(l, c.id)[0])}<small>${ts.length}</small></h2></div><a href="${root}${pre(l)}category/${c.id}/">${esc(S(l, 'seeAll'))} →</a></div><div class="grid">${ts.map(t => card(l, t, root)).join('')}</div></section>`;
   }).join('');
-  const body = `<section class="hero"><div class="wrap">
+  const floatIc = ['compress', 'file', 'qr', 'percent', 'type', 'palette', 'keyboard', 'dollar'].map((k, i) => `<span class="fl f${i}">${svg(k)}</span>`).join('');
+  const hiw = S(l, 'hiw').map((h, i) => `<div class="hiw-i"><span>${i + 1}</span><b>${esc(h[0])}</b><p>${esc(fill(h[1], { n }))}</p></div>`).join('');
+  const body = `<section class="hero"><div class="hero-bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i>${floatIc}</div><div class="wrap">
+<span class="pill">✨ ${esc(fill(S(l, 'nTools'), { n }))} · ${esc(S(l, 'freeBadge'))}</span>
 <h1>${S(l, 'heroH1')}</h1>
-<p>${esc(fill(S(l, 'heroP'), { n: TOOLS.length }))}</p>
-<div class="bigsearch"><input id="bigsearch" type="search" placeholder="${esc(S(l, 'searchPh'))}" autocomplete="off" aria-label="${esc(S(l, 'searchPh'))}">${svg('search')}</div>
-<div class="badges"><span>${svg('check')}${esc(S(l, 'bFree'))}</span><span>${svg('check')}${esc(S(l, 'bNoSignup'))}</span><span>${svg('check')}${esc(S(l, 'bPrivate'))}</span><span>${svg('check')}${esc(S(l, 'bLangs'))}</span></div>
+<p>${esc(fill(S(l, 'heroP'), { n }))}</p>
+<div class="bigsearch"><input id="bigsearch" type="search" placeholder="${esc(S(l, 'searchPh'))}" autocomplete="off" aria-label="${esc(S(l, 'searchPh'))}">${svg('search')}<kbd>/</kbd></div>
+<div class="hstats"><div><b>${n}</b><span>${esc(S(l, 'statTools'))}</span></div><div><b>${LANGS.length}</b><span>${esc(S(l, 'statLangs'))}</span></div><div><b>0</b><span>${esc(S(l, 'statUploads'))}</span></div><div><b>$0</b><span>${esc(S(l, 'statPrice'))}</span></div></div>
 </div></section>
 <div class="wrap">
-<div class="chips">${chips}</div>
+<section class="sec" id="cats"><div class="tiles">${tiles}</div></section>
 ${adSlot('top')}
+<section class="sec hide" id="recent"><div class="sec-h"><h2>${svg('history')}${esc(S(l, 'recentTitle'))}</h2></div><div class="grid" id="recentGrid"></div></section>
 <section class="sec" id="popular"><div class="sec-h"><h2>🔥 ${esc(S(l, 'popular'))}</h2></div><div class="grid">${pop.map(t => card(l, t, root)).join('')}</div></section>
+<section class="sec" id="fresh"><div class="sec-h"><h2>✨ ${esc(S(l, 'newTitle'))}</h2></div><div class="grid">${fresh.map(t => card(l, t, root)).join('')}</div></section>
 ${secs}
 <p class="empty hide" id="noRes">${esc(S(l, 'noResults'))}</p>
-<section class="sec content"><h2>${esc(fill(S(l, 'whyTitle'), { site: CFG.siteName }))}</h2>${features(l)}<p>${esc(fill(S(l, 'homeAbout'), { site: CFG.siteName, n: TOOLS.length }))}</p></section>
+<section class="sec hiw"><h2>${esc(S(l, 'hiwTitle'))}</h2><div class="hiw-g">${hiw}</div></section>
+<section class="sec content why"><h2>${esc(fill(S(l, 'whyTitle'), { site: CFG.siteName }))}</h2>${features(l)}<p>${esc(fill(S(l, 'homeAbout'), { site: CFG.siteName, n }))}</p></section>
+<section class="cta"><div><b>${esc(fill(S(l, 'ctaTitle'), { site: CFG.siteName }))}</b><p>${esc(fill(S(l, 'ctaText'), { n }))}</p></div><span class="cta-k"><kbd>Ctrl</kbd>+<kbd>D</kbd></span></section>
 </div>`;
-  const schema = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: CFG.siteName, url: url(l), inLanguage: l, potentialAction: undefined }];
-  return layout(l, p, { title: fill(S(l, 'homeTitle'), { site: CFG.siteName }), desc: fill(S(l, 'homeDesc'), { n: TOOLS.length }), body, alt: '', schema });
+  const schema = [
+    { '@context': 'https://schema.org', '@type': 'WebSite', name: CFG.siteName, url: url(l), inLanguage: l, description: fill(S(l, 'homeDesc'), { n }) },
+    { '@context': 'https://schema.org', '@type': 'Organization', name: CFG.siteName, url: SITE, logo: SITE + 'assets/apple-touch-icon.png', ...(CFG.contactEmail ? { email: CFG.contactEmail } : {}) },
+    { '@context': 'https://schema.org', '@type': 'ItemList', name: S(l, 'popular'), itemListElement: pop.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: url(l, t.id + '/'), name: TN(l, t.id)[0] })) },
+  ];
+  return layout(l, p, { title: fill(S(l, 'homeTitle'), { site: CFG.siteName }), desc: fill(S(l, 'homeDesc'), { n }), body, alt: '', schema });
 }
 
 function features(l) {
@@ -150,14 +170,18 @@ function toolPage(l, t) {
   const faq = S(l, 'faq_' + (t.kind === 'file' ? 'file' : 'other')).map(q => [fill(q[0], v), fill(q[1], v)]);
   const extra = I[l].faqx?.[t.id] || EN.faqx?.[t.id];
   if (extra) faq.unshift(...extra.map(q => [q[0], q[1]]));
-  const related = TOOLS.filter(x => x.cat === t.cat && x.id !== t.id).slice(0, 6);
-  const popular = TOOLS.filter(x => x.pop && x.id !== t.id && x.cat !== t.cat).slice(0, 7);
+  const sameCat = TOOLS.filter(x => x.cat === t.cat && x.id !== t.id);
+  const ti = TOOLS.indexOf(t);
+  const related = sameCat.slice().sort((a, b) => Math.abs(TOOLS.indexOf(a) - ti) - Math.abs(TOOLS.indexOf(b) - ti)).slice(0, 6);
+  const others = TOOLS.filter(x => x.cat !== t.cat && x.pop && x.id !== t.id);
+  const off = (ti * 5) % Math.max(1, others.length);
+  const popular = others.slice(off).concat(others.slice(0, off)).slice(0, 8);
   const vendor = (t.vendor || []).map(v2 => `<script src="${root}assets/vendor/${v2}" defer></script>`).join('');
   const body = `<div class="wrap">
 <nav class="crumbs" aria-label="breadcrumb"><a href="${root}${pre(l)}">${esc(S(l, 'home'))}</a><span>/</span><a href="${root}${pre(l)}category/${t.cat}/">${esc(cat[0])}</a><span>/</span><span>${esc(name)}</span></nav>
 <div class="layout"><div>
-<div class="thead"><span class="ic lg" style="--c:${c.color}">${svg(t.icon)}</span><div><h1>${esc(name)}</h1><p>${esc(desc)}</p></div></div>
-<div class="tool" id="tool" data-engine="${t.engine}" data-opts='${esc(JSON.stringify(t.opts))}'><p class="muted">${esc(S(l, 'loading'))}</p><noscript>${esc(S(l, 'needJs'))}</noscript></div>
+<div class="thead" style="--c:${c.color}"><span class="ic lg">${svg(t.icon)}</span><div><h1>${esc(name)}</h1><p>${esc(desc)}</p><div class="tmeta"><span>${svg('shield')}${esc(S(l, 'privacyNote'))}</span><span>${svg('gift')}${esc(S(l, 'freeBadge'))}</span></div></div></div>
+<div class="tool" id="tool" data-id="${t.id}" data-engine="${t.engine}" data-opts='${esc(JSON.stringify(t.opts))}'><p class="muted">${esc(S(l, 'loading'))}</p><noscript>${esc(S(l, 'needJs'))}</noscript></div>
 ${adSlot('mid')}
 <article class="content">
 <h2>${esc(fill(S(l, 'howTo'), v))}</h2>
@@ -172,7 +196,7 @@ ${adSlot('bottom')}
 <section class="sec"><div class="sec-h"><h2>${esc(fill(S(l, 'moreIn'), v))}</h2><a href="${root}${pre(l)}category/${t.cat}/">${esc(S(l, 'seeAll'))} →</a></div><div class="grid">${related.map(x => card(l, x, root)).join('')}</div></section>
 </div>
 <aside class="side">
-<div class="box"><h3>${esc(S(l, 'popular'))}</h3><div class="minilist">${popular.map(x => `<a href="${root}${pre(l)}${x.id}/"><span class="ic" style="--c:${catOf(x.cat).color}">${svg(x.icon)}</span>${esc(TN(l, x.id)[0])}</a>`).join('')}</div></div>
+<div class="box"><h3>${esc(S(l, 'relatedTitle'))}</h3><div class="minilist">${popular.map(x => `<a href="${root}${pre(l)}${x.id}/"><span class="ic" style="--c:${catOf(x.cat).color}">${svg(x.icon)}</span>${esc(TN(l, x.id)[0])}</a>`).join('')}</div></div>
 ${adSlot('side')}
 </aside></div>
 </div>`;
@@ -180,6 +204,7 @@ ${adSlot('side')}
   const schema = [
     { '@context': 'https://schema.org', '@type': 'WebApplication', name, description: desc, url: url(l, p), applicationCategory: t.cat === 'calc' ? 'FinanceApplication' : t.cat === 'dev' ? 'DeveloperApplication' : t.cat === 'image' || t.cat === 'media' ? 'MultimediaApplication' : 'UtilitiesApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript', inLanguage: l, isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' } },
     { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: S(l, 'home'), item: url(l) }, { '@type': 'ListItem', position: 2, name: cat[0], item: url(l, `category/${t.cat}/`) }, { '@type': 'ListItem', position: 3, name, item: url(l, p) }] },
+    { '@context': 'https://schema.org', '@type': 'HowTo', name: fill(S(l, 'howTo'), v), step: S(l, 'steps_' + t.kind).map((x, i) => ({ '@type': 'HowToStep', position: i + 1, text: fill(x, v) })) },
     { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(q => ({ '@type': 'Question', name: q[0], acceptedAnswer: { '@type': 'Answer', text: q[1] } })) },
   ];
   return layout(l, p, { title: fill(S(l, 'toolTitle'), v), desc: fill(S(l, 'toolDesc'), { ...v, desc }), body, alt: p, schema, tail });
@@ -191,12 +216,12 @@ function catPage(l, c) {
   const others = CATS.filter(x => x.id !== c.id).map(x => `<a class="chip" href="${root}${pre(l)}category/${x.id}/"><i style="--c:${x.color}"></i>${esc(CN(l, x.id)[0])}</a>`).join('');
   const body = `<div class="wrap">
 <nav class="crumbs"><a href="${root}${pre(l)}">${esc(S(l, 'home'))}</a><span>/</span><span>${esc(cat[0])}</span></nav>
-<div class="thead"><span class="ic lg" style="--c:${c.color}">${svg(c.icon)}</span><div><h1>${esc(cat[0])}</h1><p>${esc(cat[1])}</p></div></div>
+<div class="thead" style="--c:${c.color}"><span class="ic lg">${svg(c.icon)}</span><div><h1>${esc(cat[0])}</h1><p>${esc(cat[1])}</p><div class="tmeta"><span>${svg('grid2')}${esc(fill(S(l, 'nTools'), { n: ts.length }))}</span><span>${svg('shield')}${esc(S(l, 'privacyNote'))}</span></div></div></div>
 <div class="grid">${ts.map(t => card(l, t, root)).join('')}</div>
 ${adSlot('mid')}
 <div class="chips" style="flex-wrap:wrap;margin-top:34px">${others}</div>
 </div>`;
-  const schema = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: cat[0], description: cat[1], url: url(l, p), inLanguage: l }];
+  const schema = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: cat[0], description: cat[1], url: url(l, p), inLanguage: l, mainEntity: { '@type': 'ItemList', itemListElement: ts.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: url(l, t.id + '/'), name: TN(l, t.id)[0] })) } }, { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: S(l, 'home'), item: url(l) }, { '@type': 'ListItem', position: 2, name: cat[0], item: url(l, p) }] }];
   return layout(l, p, { title: fill(S(l, 'catTitle'), { cat: cat[0], site: CFG.siteName }), desc: cat[1], body, alt: p, schema });
 }
 
@@ -231,9 +256,9 @@ for (const l of LANGS) {
   const ui = { ...EN.ui, ...(I[l].ui || {}) };
   const units = { ...EN.units, ...(I[l].units || {}) };
   for (const k in units) ui['u_' + k] = units[k];
-  const idx = TOOLS.map(t => { const [n, d, k] = TN(l, t.id); return { n, d, k: (k || '') + ' ' + TN('en', t.id)[0] + ' ' + t.id.replace(/-/g, ' '), u: pre(l) + t.id + '/', i: t.icon, c: catOf(t.cat).color }; });
+  const idx = TOOLS.map(t => { const [n, d, k] = TN(l, t.id); return { id: t.id, n, d, k: (k || '') + ' ' + TN('en', t.id)[0] + ' ' + t.id.replace(/-/g, ' '), u: pre(l) + t.id + '/', i: t.icon, c: catOf(t.cat).color }; });
   const usedIcons = {}; TOOLS.forEach(t => usedIcons[t.icon] = ICONS[t.icon]);
-  for (const k of ['upload', 'download', 'copy', 'trash', 'x', 'up', 'down', 'plus', 'play', 'pause', 'stop', 'rotate', 'flip', 'convert', 'braces', 'compress', 'dice', 'monitor', 'mic', 'sun', 'moon', 'check', 'search']) usedIcons[k] = ICONS[k];
+  for (const k of ['upload', 'download', 'copy', 'trash', 'x', 'up', 'down', 'plus', 'play', 'pause', 'stop', 'rotate', 'flip', 'convert', 'braces', 'compress', 'dice', 'monitor', 'mic', 'sun', 'moon', 'check', 'search', 'camera', 'keyboard', 'pointer', 'users', 'sparkles', 'lock', 'bell', 'volume', 'clock', 'undo', 'droplet', 'maximize', 'numbers', 'stamp', 'minimize', 'pen', 'arrow', 'history', 'shield', 'grid2']) usedIcons[k] = ICONS[k];
   write(`assets/i18n/${l}.js`, `window.L=${JSON.stringify(ui)};window.IDX=${JSON.stringify(idx)};window.ICONS=${JSON.stringify(usedIcons)};`);
 
   write(pre(l) + 'index.html', homePage(l)); add([l, '']);

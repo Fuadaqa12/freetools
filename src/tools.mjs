@@ -9,6 +9,7 @@ export const CATS = [
   { id: 'gen', icon: 'sparkles', color: '#ec4899' },
   { id: 'time', icon: 'clock', color: '#8b5cf6' },
   { id: 'media', icon: 'video', color: '#14b8a6' },
+  { id: 'test', icon: 'test', color: '#0ea5e9' },
 ];
 
 // kind: file | text | calc | gen  (used for generic how-to and FAQ text)
@@ -81,3 +82,82 @@ export const TOOLS = [
   { id: 'screen-recorder', cat: 'media', icon: 'monitor', engine: 'media', opts: { mode: 'screen' }, kind: 'gen', pop: 1 },
   { id: 'voice-recorder', cat: 'media', icon: 'mic', engine: 'media', opts: { mode: 'voice' }, kind: 'gen' },
 ];
+
+// ---- batch 2 (isNew) ----
+const N = (id, cat, icon, engine, opts, kind, extra = {}) => ({ id, cat, icon, engine, opts, kind, isNew: 1, ...extra });
+const PDFJS = { vendor: ['pdf-lib.min.js'] };
+TOOLS.push(
+  // image
+  N('crop-image', 'image', 'crop', 'img2', { mode: 'crop' }, 'file', { pop: 1 }),
+  N('circle-crop-image', 'image', 'circle', 'img2', { mode: 'crop', shape: 'circle' }, 'file'),
+  N('watermark-image', 'image', 'stamp', 'img2', { mode: 'watermark' }, 'file'),
+  N('meme-generator', 'image', 'smile', 'img2', { mode: 'meme' }, 'file', { pop: 1 }),
+  N('blur-image', 'image', 'droplet', 'img2', { mode: 'blur' }, 'file'),
+  N('black-and-white-image', 'image', 'contrast', 'img2', { mode: 'bw' }, 'file'),
+  N('transparent-background', 'image', 'ghost', 'img2', { mode: 'transparent' }, 'file'),
+  N('image-color-picker', 'image', 'pipette', 'img2', { mode: 'picker' }, 'file'),
+  N('svg-to-png', 'image', 'fileimg', 'img2', { mode: 'svg' }, 'file'),
+  N('favicon-generator', 'image', 'star', 'img2', { mode: 'favicon' }, 'file'),
+  // pdf
+  N('pdf-to-jpg', 'pdf', 'fileimg', 'pdf2', { mode: 'toimg', fmt: 'jpeg' }, 'file', { pop: 1 }),
+  N('pdf-to-png', 'pdf', 'fileimg', 'pdf2', { mode: 'toimg', fmt: 'png' }, 'file'),
+  N('compress-pdf', 'pdf', 'minimize', 'pdf2', { mode: 'compress' }, 'file', { pop: 1, ...PDFJS }),
+  N('pdf-to-text', 'pdf', 'filetext', 'pdf2', { mode: 'text' }, 'file'),
+  N('organize-pdf', 'pdf', 'grid2', 'pdf2', { mode: 'organize' }, 'file', PDFJS),
+  N('add-page-numbers-pdf', 'pdf', 'numbers', 'pdf2', { mode: 'numbers' }, 'file', PDFJS),
+  N('watermark-pdf', 'pdf', 'stamp', 'pdf2', { mode: 'watermark' }, 'file', PDFJS),
+  N('png-to-pdf', 'pdf', 'image', 'pdf', { mode: 'images' }, 'file', PDFJS),
+  // text
+  N('fancy-text-generator', 'text', 'wand', 'text2', { mode: 'fancy' }, 'text', { pop: 1 }),
+  N('text-compare', 'text', 'diff', 'text2', { mode: 'diff' }, 'text'),
+  N('character-counter', 'text', 'hash', 'text', { mode: 'counter' }, 'text'),
+  N('morse-code-translator', 'text', 'radio', 'text2', { mode: 'morse' }, 'text'),
+  N('text-to-binary', 'text', 'binary', 'text2', { mode: 'binary' }, 'text'),
+  N('text-repeater', 'text', 'repeat', 'text2', { mode: 'repeat' }, 'text'),
+  // calculators
+  N('scientific-calculator', 'calc', 'func', 'calc2', { mode: 'sci' }, 'calc', { pop: 1 }),
+  N('mortgage-calculator', 'calc', 'home', 'calc2', { mode: 'mortgage' }, 'calc'),
+  N('gpa-calculator', 'calc', 'grad', 'calc2', { mode: 'gpa' }, 'calc'),
+  N('vat-calculator', 'calc', 'receipt', 'calc2', { mode: 'vat' }, 'calc'),
+  N('profit-margin-calculator', 'calc', 'chart', 'calc2', { mode: 'margin' }, 'calc'),
+  N('salary-calculator', 'calc', 'briefcase', 'calc2', { mode: 'salary' }, 'calc'),
+  N('fuel-cost-calculator', 'calc', 'fuel', 'calc2', { mode: 'fuel' }, 'calc'),
+  N('fraction-calculator', 'calc', 'fraction', 'calc2', { mode: 'fraction' }, 'calc'),
+  N('pregnancy-due-date-calculator', 'calc', 'baby', 'calc2', { mode: 'due' }, 'calc'),
+  // converters
+  N('currency-converter', 'convert', 'dollar', 'calc2', { mode: 'currency' }, 'calc', { pop: 1 }),
+  N('time-zone-converter', 'convert', 'earth', 'calc2', { mode: 'tz' }, 'calc'),
+  N('roman-numeral-converter', 'convert', 'roman', 'calc2', { mode: 'roman' }, 'calc'),
+  N('number-base-converter', 'convert', 'base', 'calc2', { mode: 'base' }, 'calc'),
+  N('pressure-converter', 'convert', 'pressure', 'unit', { cat: 'pressure' }, 'calc'),
+  N('energy-converter', 'convert', 'bolt', 'unit', { cat: 'energy' }, 'calc'),
+  N('power-converter', 'convert', 'battery', 'unit', { cat: 'power' }, 'calc'),
+  N('time-converter', 'convert', 'hourglass', 'unit', { cat: 'time' }, 'calc'),
+  // developer
+  N('jwt-decoder', 'dev', 'ticket', 'dev2', { mode: 'jwt' }, 'text'),
+  N('regex-tester', 'dev', 'regex', 'dev2', { mode: 'regex' }, 'text'),
+  N('csv-to-json', 'dev', 'table', 'dev2', { mode: 'csv', dir: 'c2j' }, 'text'),
+  N('json-to-csv', 'dev', 'table', 'dev2', { mode: 'csv', dir: 'j2c' }, 'text'),
+  N('css-gradient-generator', 'dev', 'gradient', 'dev2', { mode: 'gradient' }, 'gen'),
+  // generators
+  N('barcode-generator', 'gen', 'barcode', 'gen2', { mode: 'barcode' }, 'gen', { vendor: ['JsBarcode.all.min.js'] }),
+  N('random-name-picker', 'gen', 'userpick', 'gen2', { mode: 'picker' }, 'gen'),
+  N('random-team-generator', 'gen', 'users', 'gen2', { mode: 'teams' }, 'gen'),
+  N('dice-roller', 'gen', 'dice', 'gen2', { mode: 'dice' }, 'gen'),
+  N('signature-generator', 'gen', 'pen', 'gen2', { mode: 'sign' }, 'gen', { pop: 1 }),
+  N('color-palette-generator', 'gen', 'swatches', 'gen2', { mode: 'palette' }, 'gen'),
+  // time
+  N('pomodoro-timer', 'time', 'tomato', 'time2', { mode: 'pomodoro' }, 'gen'),
+  N('world-clock', 'time', 'globe', 'time2', { mode: 'world' }, 'gen'),
+  N('online-alarm-clock', 'time', 'bell', 'time2', { mode: 'alarm' }, 'gen'),
+  // media
+  N('metronome', 'media', 'metronome', 'time2', { mode: 'metronome' }, 'gen'),
+  // tests
+  N('typing-speed-test', 'test', 'keyboard', 'test', { mode: 'typing' }, 'gen', { pop: 1 }),
+  N('click-speed-test', 'test', 'pointer', 'test', { mode: 'cps' }, 'gen'),
+  N('reaction-time-test', 'test', 'zap', 'test', { mode: 'reaction' }, 'gen'),
+  N('mic-test', 'test', 'mic', 'test', { mode: 'mic' }, 'gen'),
+  N('webcam-test', 'test', 'camera', 'test', { mode: 'webcam' }, 'gen'),
+  N('keyboard-tester', 'test', 'keyboard', 'test', { mode: 'keys' }, 'gen'),
+  N('screen-resolution-checker', 'test', 'maximize', 'test', { mode: 'screen' }, 'gen'),
+);

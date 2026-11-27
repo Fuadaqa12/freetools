@@ -90,9 +90,67 @@
   }
   function canvasBlob(c, type, q) { return new Promise(function (r) { c.toBlob(r, type, q); }); }
 
+
+  /* shared UI helpers (batch 2) */
+  function rng(label, min, max, val, unit, onIn, step) {
+    var r = el('<label class="range"><div><span>' + esc(label) + '</span><output>' + val + (unit || '') + '</output></div><input type="range" min="' + min + '" max="' + max + '" step="' + (step || 1) + '" value="' + val + '"></label>');
+    var i = r.querySelector('input'), out = r.querySelector('output');
+    i.oninput = function () { out.textContent = i.value + (unit || ''); onIn(+i.value); };
+    r.set = function (v) { i.value = v; out.textContent = v + (unit || ''); };
+    return r;
+  }
+  function sel(label, items, val, onChange) {
+    var f = el('<label class="f"><span>' + esc(label) + '</span><select class="sel">' + items.map(function (x) { return '<option value="' + esc(x[0]) + '"' + (String(x[0]) === String(val) ? ' selected' : '') + '>' + esc(x[1]) + '</option>'; }).join('') + '</select></label>');
+    var s = f.querySelector('select'); s.onchange = function () { onChange(s.value); }; f.input = s; return f;
+  }
+  function field(label, val, onIn, o) {
+    o = o || {};
+    var f = el('<label class="f"><span>' + esc(label) + '</span><div class="inp-u"><input class="inp" ' + (o.type ? 'type="' + o.type + '"' : 'inputmode="' + (o.text ? 'text' : 'decimal') + '"') + (o.ph ? ' placeholder="' + esc(o.ph) + '"' : '') + '>' + (o.unit ? '<em>' + esc(o.unit) + '</em>' : '') + '</div></label>');
+    var i = f.querySelector('input'); i.value = val == null ? '' : val; i.oninput = function () { onIn(i.value); }; f.input = i; return f;
+  }
+  function chk(label, val, onChange) {
+    var c = el('<label class="chk"><input type="checkbox"' + (val ? ' checked' : '') + '> ' + esc(label) + '</label>');
+    c.querySelector('input').onchange = function (e) { onChange(e.target.checked); }; return c;
+  }
+  function btn(icon, label, cls, onClick) {
+    var b = el('<button class="btn ' + (cls || '') + '" type="button">' + (icon ? svg(icon) : '') + '<span>' + esc(label) + '</span></button>');
+    b.onclick = onClick; return b;
+  }
+  /* minimal ZIP (store) */
+  var CRC;
+  function crc32(u) {
+    if (!CRC) { CRC = new Uint32Array(256); for (var n = 0; n < 256; n++) { var c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; CRC[n] = c >>> 0; } }
+    var x = 0xFFFFFFFF; for (var i = 0; i < u.length; i++) x = CRC[(x ^ u[i]) & 255] ^ (x >>> 8); return (x ^ 0xFFFFFFFF) >>> 0;
+  }
+  function zip(files) {
+    var enc = new TextEncoder(), parts = [], cd = [], off = 0;
+    var now = new Date(), dt = ((now.getHours() << 11) | (now.getMinutes() << 5) | (now.getSeconds() >> 1)), dd = (((now.getFullYear() - 1980) << 9) | ((now.getMonth() + 1) << 5) | now.getDate());
+    files.forEach(function (f) {
+      var nm = enc.encode(f.name), d = f.data, c = crc32(d);
+      var h = new DataView(new ArrayBuffer(30));
+      h.setUint32(0, 0x04034b50, true); h.setUint16(4, 20, true); h.setUint16(6, 0x0800, true); h.setUint16(10, dt, true); h.setUint16(12, dd, true); h.setUint32(14, c, true); h.setUint32(18, d.length, true); h.setUint32(22, d.length, true); h.setUint16(26, nm.length, true);
+      parts.push(h.buffer, nm, d);
+      var e = new DataView(new ArrayBuffer(46));
+      e.setUint32(0, 0x02014b50, true); e.setUint16(4, 20, true); e.setUint16(6, 20, true); e.setUint16(8, 0x0800, true); e.setUint16(12, dt, true); e.setUint16(14, dd, true); e.setUint32(16, c, true); e.setUint32(20, d.length, true); e.setUint32(24, d.length, true); e.setUint16(28, nm.length, true); e.setUint32(42, off, true);
+      cd.push(e.buffer, nm); off += 30 + nm.length + d.length;
+    });
+    var size = cd.reduce(function (a, b) { return a + b.byteLength; }, 0);
+    var end = new DataView(new ArrayBuffer(22));
+    end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true); end.setUint32(12, size, true); end.setUint32(16, off, true);
+    return new Blob(parts.concat(cd, [end.buffer]), { type: 'application/zip' });
+  }
+  function blobBytes(b) { return b.arrayBuffer().then(function (a) { return new Uint8Array(a); }); }
+  var pdfjsP;
+  function pdfjs() {
+    if (!pdfjsP) pdfjsP = import(new URL(ROOT + 'assets/vendor/pdf.min.js', location.href).href).then(function (m) {
+      m.GlobalWorkerOptions.workerSrc = new URL(ROOT + 'assets/vendor/pdf.worker.min.js', location.href).href; return m;
+    });
+    return pdfjsP;
+  }
+
   var TK = window.TK = {
     t: t, svg: svg, esc: esc, el: el, $: $, $$: $$, num: num, money: money, bytes: bytes, pnum: pnum, download: download, toast: toast, copy: copy,
-    baseName: baseName, debounce: debounce, dropzone: dropzone, seg: seg, loadImage: loadImage, canvasBlob: canvasBlob, lang: LANG, root: ROOT,
+    baseName: baseName, debounce: debounce, rng: rng, sel: sel, field: field, chk: chk, btn: btn, zip: zip, blobBytes: blobBytes, pdfjs: pdfjs, dropzone: dropzone, seg: seg, loadImage: loadImage, canvasBlob: canvasBlob, lang: LANG, root: ROOT,
     engines: {}, register: function (n, f) { this.engines[n] = f; }
   };
 
@@ -158,6 +216,35 @@
       }
     } catch (e) { }
     var hs = $('#hsearch'); if (hs) bindSearch(hs, $('#hsres'));
+    /* all-tools mega menu */
+    var mg = $('.mega');
+    if (mg) {
+      var mb = $('.mbtn', mg);
+      mb.onclick = function (e) { e.stopPropagation(); var on = !mg.classList.contains('on'); mg.classList.toggle('on', on); mb.setAttribute('aria-expanded', on); };
+      document.addEventListener('click', function (e) { if (!$('.mega-menu', mg).contains(e.target)) { mg.classList.remove('on'); mb.setAttribute('aria-expanded', 'false'); } });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') mg.classList.remove('on'); });
+    }
+    /* "/" focuses search */
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== '/' || /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) || document.activeElement.isContentEditable) return;
+      var hsx = $('.hsearch'), s = $('#bigsearch') || (hsx && getComputedStyle(hsx).display !== 'none' && $('#hsearch'));
+      if (s) { e.preventDefault(); s.focus(); }
+    });
+    /* recently used tools */
+    var RK = 'recentTools', rec = [];
+    try { rec = JSON.parse(localStorage.getItem(RK) || '[]'); } catch (e) { }
+    var th = $('#tool');
+    if (th && th.dataset.id) { rec = [th.dataset.id].concat(rec.filter(function (x) { return x !== th.dataset.id; })).slice(0, 8); try { localStorage.setItem(RK, JSON.stringify(rec)); } catch (e) { } }
+    var rg = $('#recentGrid');
+    if (rg && rec.length && window.IDX) {
+      var html = rec.map(function (id) { var it = (window.IDX || []).filter(function (x) { return x.id === id; })[0]; return it ? '<a class="card mini" href="' + ROOT + it.u + '" style="--c:' + it.c + '"><span class="ic">' + svg(it.i) + '</span><div><b>' + esc(it.n) + '</b></div></a>' : ''; }).join('');
+      if (html) { rg.innerHTML = html; $('#recent').classList.remove('hide'); }
+    }
+    /* reveal on scroll */
+    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var io = new IntersectionObserver(function (es) { es.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); } }); }, { rootMargin: '0px 0px -40px 0px' });
+      $$('.tiles .tile,.hiw-i,.cta').forEach(function (x) { x.classList.add('rv'); io.observe(x); });
+    }
 
     /* home: filter grid */
     var big = $('#bigsearch');
@@ -170,7 +257,8 @@
           $$('[data-q]', s).forEach(function (c) { var ok = !q || q.split(/\s+/).every(function (p) { return norm(c.getAttribute('data-q')).indexOf(p) >= 0; }); c.classList.toggle('hide', !ok); if (ok) vis++; });
           s.classList.toggle('hide', !vis); if (vis) any = true;
         });
-        var pop = $('#popular'); if (pop) pop.classList.toggle('hide', !!q);
+        ['#popular', '#fresh', '#cats'].forEach(function (id) { var x = $(id); if (x) x.classList.toggle('hide', !!q); });
+        var rc = $('#recent'); if (rc && q) rc.classList.add('hide');
         if (empty) empty.classList.toggle('hide', any);
       });
     }
