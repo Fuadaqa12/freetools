@@ -19,6 +19,7 @@ for (const l of LANGS) {
   let B = {};
   if (fs.existsSync(path.join(HERE, 'src/i18n2', l + '.mjs'))) B = (await import(`./src/i18n2/${l}.mjs`)).default;
   for (const k of ['s', 'cats', 'tools', 'faqx', 'units', 'ui']) A[k] = { ...(A[k] || {}), ...(B[k] || {}) };
+  if (fs.existsSync(path.join(HERE, 'src/faq', l + '.mjs'))) A.faqx = { ...(A.faqx || {}), ...(await import(`./src/faq/${l}.mjs`)).default };
   I[l] = A;
 }
 const EN = I.en;
@@ -169,7 +170,7 @@ function toolPage(l, t) {
   const v = { name, site: CFG.siteName, cat: cat[0] };
   const steps = S(l, 'steps_' + t.kind).map(s => `<li>${esc(fill(s, v))}</li>`).join('');
   const faq = S(l, 'faq_' + (t.kind === 'file' ? 'file' : 'other')).map(q => [fill(q[0], v), fill(q[1], v)]);
-  const extra = I[l].faqx?.[t.id] || EN.faqx?.[t.id];
+  const extra = I[l].faqx?.[t.id];
   if (extra) faq.unshift(...extra.map(q => [q[0], q[1]]));
   const sameCat = TOOLS.filter(x => x.cat === t.cat && x.id !== t.id);
   const ti = TOOLS.indexOf(t);
