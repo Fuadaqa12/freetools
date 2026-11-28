@@ -17,8 +17,11 @@ const I = {};
 for (const l of LANGS) {
   const A = (await import(`./src/i18n/${l}.mjs`)).default;
   let B = {};
-  if (fs.existsSync(path.join(HERE, 'src/i18n2', l + '.mjs'))) B = (await import(`./src/i18n2/${l}.mjs`)).default;
-  for (const k of ['s', 'cats', 'tools', 'faqx', 'units', 'ui']) A[k] = { ...(A[k] || {}), ...(B[k] || {}) };
+  for (const dir of ['i18n2', 'i18n3']) {
+    if (!fs.existsSync(path.join(HERE, 'src', dir, l + '.mjs'))) continue;
+    B = (await import(`./src/${dir}/${l}.mjs`)).default;
+    for (const k of ['s', 'cats', 'tools', 'faqx', 'units', 'ui']) A[k] = { ...(A[k] || {}), ...(B[k] || {}) };
+  }
   if (fs.existsSync(path.join(HERE, 'src/faq', l + '.mjs'))) A.faqx = { ...(A.faqx || {}), ...(await import(`./src/faq/${l}.mjs`)).default };
   I[l] = A;
 }

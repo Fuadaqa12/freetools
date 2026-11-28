@@ -1,5 +1,6 @@
 // Categories and tools. Names/descriptions live in src/i18n/<lang>.mjs under tools[id] = [name, description, keywords]
 export const CATS = [
+  { id: 'ai', icon: 'zap', color: '#7c3aed' },
   { id: 'image', icon: 'image', color: '#f97316' },
   { id: 'pdf', icon: 'file', color: '#ef4444' },
   { id: 'text', icon: 'type', color: '#10b981' },
@@ -160,4 +161,9 @@ TOOLS.push(
   N('webcam-test', 'test', 'camera', 'test', { mode: 'webcam' }, 'gen'),
   N('keyboard-tester', 'test', 'keyboard', 'test', { mode: 'keys' }, 'gen'),
   N('screen-resolution-checker', 'test', 'maximize', 'test', { mode: 'screen' }, 'gen'),
+);
+
+// ---- batch 3: AI & media (run fully in the browser) ----
+TOOLS.push(
+  N('image-to-text', 'ai', 'filetext', 'ai', { mode: 'ocr' }, 'file', { pop: 1, vendor: ['ocr/tesseract.min.js'] }),
 );
