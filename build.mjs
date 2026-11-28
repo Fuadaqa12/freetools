@@ -142,6 +142,7 @@ function homePage(l) {
 </div></section>
 <div class="wrap">
 <section class="sec" id="cats"><div class="tiles">${tiles}</div></section>
+<section class="aiban"><div><span class="aitag">${svg('zap')} AI</span><h2>${esc(CN(l, 'ai')[0])}</h2><p>${esc(CN(l, 'ai')[1])}</p></div><div class="aichips">${TOOLS.filter(x => x.cat === 'ai').map(x => `<a href="${root}${pre(l)}${x.id}/">${svg(x.icon)}<span>${esc(TN(l, x.id)[0].replace(/\s*\([^)]*\)$/, ""))}</span></a>`).join('')}</div></section>
 ${adSlot('top')}
 <section class="sec hide" id="favs"><div class="sec-h"><h2>${svg('star')}${esc(S(l, 'favTitle'))}</h2></div><div class="grid" id="favGrid"></div></section>
 <section class="sec hide" id="recent"><div class="sec-h"><h2>${svg('history')}${esc(S(l, 'recentTitle'))}</h2></div><div class="grid" id="recentGrid"></div></section>

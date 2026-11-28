@@ -501,3 +501,12 @@ kbd{font:600 12px/1 var(--font);padding:4px 7px;border-radius:7px;border:1px sol
 .favbtn.on svg{fill:#f59e0b;stroke:#f59e0b}
 @media (prefers-color-scheme:dark){:root:not([data-theme=light]) .favbtn.on{background:#422006;color:#fcd34d;border-color:#92400e}}
 :root[data-theme=dark] .favbtn.on{background:#422006;color:#fcd34d;border-color:#92400e}
+
+/* AI banner */
+.aiban{margin:8px 0 26px;padding:26px;border-radius:22px;color:#fff;background:radial-gradient(circle at 12% 20%,#8b7bff 0,#5b4cf5 40%,#a21caf 85%,#db2777);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:22px;align-items:center;box-shadow:0 14px 40px -14px rgba(91,76,245,.6)}
+.aiban h2{margin:8px 0 6px;font-size:26px;color:#fff}.aiban p{margin:0;opacity:.9;line-height:1.5}
+.aitag{display:inline-flex;gap:6px;align-items:center;font-weight:800;font-size:13px;padding:4px 10px;border-radius:99px;background:rgba(255,255,255,.18)}.aitag svg{width:14px;height:14px}
+.aichips{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px}
+.aichips a{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s,transform .15s}
+.aichips a:hover{background:rgba(255,255,255,.26);transform:translateY(-2px)}.aichips svg{width:20px;height:20px;flex:none}
+@media (max-width:760px){.aiban{grid-template-columns:1fr;padding:20px}.aiban h2{font-size:22px}.aichips{grid-template-columns:1fr 1fr}}
