@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "Die besten kostenlosen KI-Foto-Tools",
+   "Kostenlose KI-Fotobearbeitung im Browser: Hintergrund entfernen, vergrößern, Gesichter verpixeln, Avatare und Sticker erstellen. Ohne Anmeldung und Wasserzeichen.",
+   "Diese KI-Tools laufen direkt auf Handy oder Computer. Das Modell wird einmal geladen und läuft auf Ihrem Gerät, Ihre Fotos werden also nie hochgeladen. Keine Credits, Limits oder Wasserzeichen."
+  ],
+  "pdf-tools": [
+   "Alle kostenlosen PDF-Tools",
+   "Kostenlose PDF-Tools: PDF zu Word, komprimieren, zusammenfügen, teilen, unterschreiben, in JPG umwandeln. Ohne E-Mail und Wasserzeichen.",
+   "Alles, was Sie mit PDFs tun, kostenlos und ohne Anmeldung. Die Dateien werden im Browser verarbeitet und verlassen nie Ihr Gerät."
+  ],
+  "tools-for-students": [
+   "Kostenlose Online-Tools für Studenten",
+   "Kostenlose Lerntools: Vorlesungen transkribieren, Texte zusammenfassen, Notizen-Fotos zu Text, Wörter zählen, Notenschnitt und Pomodoro.",
+   "Ein Werkzeugkasten für Schule und Uni, der auf jedem Handy oder Laptop funktioniert, kostenlos."
+  ],
+  "instagram-tiktok-tools": [
+   "Kostenlose Tools für Instagram & TikTok",
+   "Tools für Creator: Karussell teilen, Profilbild, Sticker, schöne Schriften, GIFs, Video komprimieren und mehr.",
+   "Alles, was Creator zwischen Dreh und Post brauchen, kostenlos."
+  ],
+  "small-business-tools": [
+   "Kostenlose Tools für Selbstständige",
+   "Für Freelancer und kleine Firmen: Rechnungen, PDF unterschreiben, QR- und Barcodes, MwSt., Marge, Produktfotos.",
+   "Sparen Sie Zeit bei Alltagsaufgaben, kostenlos."
+  ],
+  "video-audio-tools": [
+   "Kostenlose Video- & Audio-Tools",
+   "Video komprimieren, Video zu MP3 und GIF, Audio schneiden, Sprache transkribieren, Bildschirm und Stimme aufnehmen.",
+   "Video und Ton bearbeiten ohne App-Installation, kostenlos."
+  ]
+ },
  "ui": {
   "ocr_lang": "Sprache des Textes",
   "ai_local_note": "Das KI-Modell wird einmal geladen und läuft auf Ihrem Gerät. Ihre Dateien werden nie hochgeladen.",

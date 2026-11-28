@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "Meilleurs outils photo IA gratuits",
+   "Outils photo IA gratuits dans le navigateur : supprimer l’arrière-plan, agrandir, flouter les visages, créer avatars et stickers. Sans inscription ni filigrane.",
+   "Ces outils IA fonctionnent sur votre téléphone ou ordinateur. Le modèle est téléchargé une fois et tourne sur votre appareil : vos photos ne sont jamais envoyées, sans crédits, limites ni filigrane."
+  ],
+  "pdf-tools": [
+   "Tous les outils PDF gratuits",
+   "Outils PDF gratuits : PDF en Word, compresser, fusionner, diviser, signer, convertir en JPG. Sans e-mail ni filigrane.",
+   "Tout ce que vous faites avec des PDF, gratuitement et sans inscription. Les fichiers sont traités dans votre navigateur et ne quittent jamais votre appareil."
+  ],
+  "tools-for-students": [
+   "Outils en ligne gratuits pour étudiants",
+   "Outils d’étude gratuits : transcrire des cours, résumer des textes, notes en photo vers texte, compter les mots, moyenne et Pomodoro.",
+   "Une boîte à outils pour le lycée et la fac qui fonctionne sur tout téléphone ou ordinateur, gratuitement."
+  ],
+  "instagram-tiktok-tools": [
+   "Outils gratuits pour Instagram et TikTok",
+   "Outils pour créateurs : carrousel Instagram, photo de profil, stickers, polices stylées, GIF, compression vidéo et plus.",
+   "Tout ce dont un créateur a besoin entre le tournage et la publication, gratuitement."
+  ],
+  "small-business-tools": [
+   "Outils gratuits pour petites entreprises",
+   "Pour indépendants et TPE : factures, signer un PDF, QR codes, codes-barres, TVA, marges, photos produit.",
+   "Gagnez du temps sur les tâches quotidiennes, gratuitement."
+  ],
+  "video-audio-tools": [
+   "Outils vidéo et audio gratuits",
+   "Compresser une vidéo, vidéo en MP3 et GIF, couper un audio, transcrire, enregistrer l’écran et la voix.",
+   "Éditez vidéo et son sans installer d’application, gratuitement."
+  ]
+ },
  "ui": {
   "ocr_lang": "Langue du texte",
   "ai_local_note": "Le modèle IA est téléchargé une fois et fonctionne sur votre appareil. Vos fichiers ne sont jamais envoyés.",

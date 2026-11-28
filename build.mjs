@@ -4,6 +4,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { CATS, TOOLS } from './src/tools.mjs';
 import { ICONS, svg } from './src/icons.mjs';
+import { COLS } from './src/collections.mjs';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const CFG = JSON.parse(fs.readFileSync(path.join(HERE, 'config.json'), 'utf8'));
@@ -20,7 +21,7 @@ for (const l of LANGS) {
   for (const dir of ['i18n2', 'i18n3']) {
     if (!fs.existsSync(path.join(HERE, 'src', dir, l + '.mjs'))) continue;
     B = (await import(`./src/${dir}/${l}.mjs`)).default;
-    for (const k of ['s', 'cats', 'tools', 'faqx', 'units', 'ui']) A[k] = { ...(A[k] || {}), ...(B[k] || {}) };
+    for (const k of ['s', 'cats', 'tools', 'faqx', 'units', 'ui', 'cols']) A[k] = { ...(A[k] || {}), ...(B[k] || {}) };
   }
   if (fs.existsSync(path.join(HERE, 'src/faq', l + '.mjs'))) A.faqx = { ...(A.faqx || {}), ...(await import(`./src/faq/${l}.mjs`)).default };
   I[l] = A;
@@ -141,7 +142,7 @@ function homePage(l) {
 <div class="hstats"><div><b>${n}</b><span>${esc(S(l, 'statTools'))}</span></div><div><b>${LANGS.length}</b><span>${esc(S(l, 'statLangs'))}</span></div><div><b>0</b><span>${esc(S(l, 'statUploads'))}</span></div><div><b>$0</b><span>${esc(S(l, 'statPrice'))}</span></div></div>
 </div></section>
 <div class="wrap">
-<section class="sec" id="cats"><div class="tiles">${tiles}</div></section>
+<section class="sec" id="cats"><div class="tiles">${tiles}</div><div class="chips colchips">${COLS.map(c => `<a class="chip" href="${root}${pre(l)}collection/${c.id}/"><i style="--c:${c.color}"></i>${esc(COLN(l, c.id)[0])}</a>`).join('')}</div></section>
 <section class="aiban"><div><span class="aitag">${svg('zap')} AI</span><h2>${esc(CN(l, 'ai')[0])}</h2><p>${esc(CN(l, 'ai')[1])}</p></div><div class="aichips">${TOOLS.filter(x => x.cat === 'ai').map(x => `<a href="${root}${pre(l)}${x.id}/">${svg(x.icon)}<span>${esc(TN(l, x.id)[0].replace(/\s*\([^)]*\)$/, ""))}</span></a>`).join('')}</div></section>
 ${adSlot('top')}
 <section class="sec hide" id="favs"><div class="sec-h"><h2>${svg('star')}${esc(S(l, 'favTitle'))}</h2></div><div class="grid" id="favGrid"></div></section>
@@ -231,6 +232,24 @@ ${adSlot('mid')}
   return layout(l, p, { title: fill(S(l, 'catTitle'), { cat: cat[0], site: CFG.siteName }), desc: cat[1], body, alt: p, schema });
 }
 
+const COLN = (l, id) => (I[l].cols?.[id] || EN.cols?.[id] || [id, '', '']);
+function colPage(l, c) {
+  const p = `collection/${c.id}/`, root = relRoot(pre(l) + p), [h, d, intro] = COLN(l, c.id);
+  const ts = c.tools.map(id => TOOLS.find(t => t.id === id)).filter(Boolean);
+  const others = COLS.filter(x => x.id !== c.id).map(x => `<a class="chip" href="${root}${pre(l)}collection/${x.id}/"><i style="--c:${x.color}"></i>${esc(COLN(l, x.id)[0])}</a>`).join('');
+  const list = ts.map((t, i) => { const [n, dd] = TN(l, t.id); return `<li><a href="${root}${pre(l)}${t.id}/"><b>${i + 1}. ${esc(n)}</b></a> — ${esc(dd)}</li>`; }).join('');
+  const body = `<div class="wrap">
+<nav class="crumbs"><a href="${root}${pre(l)}">${esc(S(l, 'home'))}</a><span>/</span><span>${esc(h)}</span></nav>
+<div class="thead" style="--c:${c.color}"><span class="ic lg">${svg(c.icon)}</span><div><h1>${esc(h)}</h1><p>${esc(d)}</p><div class="tmeta"><span>${svg('grid2')}${esc(fill(S(l, 'nTools'), { n: ts.length }))}</span><span>${svg('shield')}${esc(S(l, 'privacyNote'))}</span></div></div></div>
+<div class="grid">${ts.map(t => card(l, t, root)).join('')}</div>
+${adSlot('mid')}
+<section class="sec prose"><p>${esc(intro)}</p><ol class="collist">${list}</ol></section>
+<div class="chips" style="flex-wrap:wrap;margin-top:28px">${others}</div>
+</div>`;
+  const schema = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: h, description: d, url: url(l, p), inLanguage: l, mainEntity: { '@type': 'ItemList', itemListElement: ts.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: url(l, t.id + '/'), name: TN(l, t.id)[0] })) } }, { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: S(l, 'home'), item: url(l) }, { '@type': 'ListItem', position: 2, name: h, item: url(l, p) }] }];
+  return layout(l, p, { title: h + ' — ' + CFG.siteName, desc: d, body, alt: p, schema });
+}
+
 function staticPage(l, key) {
   const p = key + '/';
   const pg = I[l].pages?.[key] || EN.pages[key];
@@ -270,6 +289,7 @@ for (const l of LANGS) {
   write(pre(l) + 'index.html', homePage(l)); add([l, '']);
   for (const t of TOOLS) { write(pre(l) + t.id + '/index.html', toolPage(l, t)); add([l, t.id + '/']); }
   for (const c of CATS) { write(pre(l) + `category/${c.id}/index.html`, catPage(l, c)); add([l, `category/${c.id}/`]); }
+  for (const c of COLS) { write(pre(l) + `collection/${c.id}/index.html`, colPage(l, c)); add([l, `collection/${c.id}/`]); }
   for (const k of ['about', 'privacy', 'terms', 'contact']) { write(pre(l) + k + '/index.html', staticPage(l, k)); if (l === l) add([l, k + '/']); }
 }
 write('404.html', notFound());

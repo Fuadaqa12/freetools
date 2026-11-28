@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "Las mejores herramientas de IA para fotos gratis",
+   "Editores de fotos con IA gratis en el navegador: quitar fondo, ampliar, difuminar caras, crear avatares y stickers. Sin registro ni marcas de agua.",
+   "Estas herramientas de IA funcionan en tu móvil u ordenador. El modelo se descarga una vez y corre en tu dispositivo, así que tus fotos nunca se suben y no hay créditos, límites ni marcas de agua."
+  ],
+  "pdf-tools": [
+   "Todas las herramientas PDF gratis",
+   "Herramientas PDF online gratis: PDF a Word, comprimir, unir, dividir, firmar y convertir a JPG. Sin email ni marca de agua.",
+   "Todo lo que haces con PDF, gratis y sin registro. Los archivos se procesan en tu navegador y nunca salen de tu dispositivo."
+  ],
+  "tools-for-students": [
+   "Herramientas online gratis para estudiantes",
+   "Herramientas de estudio gratis: transcribir clases, resumir textos, pasar apuntes a texto, contar palabras, calcular el promedio y Pomodoro.",
+   "Un kit para el colegio y la universidad que funciona en cualquier móvil o portátil, gratis."
+  ],
+  "instagram-tiktok-tools": [
+   "Herramientas gratis para Instagram y TikTok",
+   "Herramientas para creadores: dividir carruseles, foto de perfil, stickers, letras bonitas, GIF, comprimir vídeo y más.",
+   "Todo lo que un creador necesita entre grabar y publicar, gratis."
+  ],
+  "small-business-tools": [
+   "Herramientas gratis para pequeñas empresas",
+   "Para autónomos y pymes: facturas, firmar PDF, códigos QR y de barras, IVA, márgenes y fotos de producto.",
+   "Ahorra tiempo en tareas diarias del negocio, gratis."
+  ],
+  "video-audio-tools": [
+   "Herramientas gratis de vídeo y audio",
+   "Comprimir vídeo, vídeo a MP3 y GIF, cortar audio, transcribir voz, grabar pantalla y voz.",
+   "Edita vídeo y sonido sin instalar apps, gratis."
+  ]
+ },
  "ui": {
   "ocr_lang": "Idioma del texto",
   "ai_local_note": "El modelo de IA se descarga una vez y funciona en tu dispositivo. Tus archivos nunca se suben.",

@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "Najlepsze darmowe narzędzia AI do zdjęć",
+   "Darmowe narzędzia AI do zdjęć w przeglądarce: usuwanie tła, powiększanie, rozmycie twarzy, awatary i naklejki. Bez rejestracji i znaków wodnych.",
+   "Te narzędzia AI działają na telefonie lub komputerze. Model pobiera się raz i działa na urządzeniu, więc zdjęcia nie są wysyłane, a limitów i znaków wodnych brak."
+  ],
+  "pdf-tools": [
+   "Wszystkie darmowe narzędzia PDF",
+   "Darmowe narzędzia PDF: PDF na Word, kompresja, łączenie, dzielenie, podpis, konwersja do JPG. Bez e-maila i znaków wodnych.",
+   "Wszystko, co robisz z PDF, za darmo i bez rejestracji. Pliki są przetwarzane w przeglądarce i nie opuszczają urządzenia."
+  ],
+  "tools-for-students": [
+   "Darmowe narzędzia online dla studentów",
+   "Darmowe narzędzia do nauki: transkrypcja wykładów, streszczenia, tekst ze zdjęć notatek, licznik słów, średnia ocen i Pomodoro.",
+   "Zestaw do szkoły i na studia, który działa na każdym telefonie i laptopie, za darmo."
+  ],
+  "instagram-tiktok-tools": [
+   "Darmowe narzędzia na Instagram i TikTok",
+   "Narzędzia dla twórców: karuzele, zdjęcie profilowe, naklejki, ozdobne czcionki, GIF, kompresja wideo i więcej.",
+   "Wszystko, czego twórca potrzebuje między nagraniem a publikacją, za darmo."
+  ],
+  "small-business-tools": [
+   "Darmowe narzędzia dla małych firm",
+   "Dla freelancerów i małych firm: faktury, podpis PDF, kody QR i kreskowe, VAT, marża, zdjęcia produktów.",
+   "Oszczędzaj czas na codziennych zadaniach, za darmo."
+  ],
+  "video-audio-tools": [
+   "Darmowe narzędzia wideo i audio",
+   "Kompresja wideo, wideo na MP3 i GIF, przycinanie audio, transkrypcja, nagrywanie ekranu i głosu.",
+   "Edytuj wideo i dźwięk bez instalowania aplikacji, za darmo."
+  ]
+ },
  "ui": {
   "ocr_lang": "Język tekstu",
   "ai_local_note": "Model AI pobiera się raz i działa na Twoim urządzeniu. Pliki nigdy nie są wysyłane.",

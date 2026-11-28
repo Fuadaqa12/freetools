@@ -530,3 +530,9 @@ kbd{font:600 12px/1 var(--font);padding:4px 7px;border-radius:7px;border:1px sol
 .nextbox .grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
 @media (max-width:600px){.nextbox .grid{grid-template-columns:1fr 1fr}}
 .nextbox .card{padding:12px;gap:10px}.nextbox .card b{font-size:14px}
+
+.colchips{flex-wrap:wrap;margin-top:14px;justify-content:center}
+.prose p{font-size:16px;line-height:1.7;color:var(--text);max-width:820px}
+.collist{padding-inline-start:0;list-style:none;display:grid;gap:10px;max-width:820px}
+.collist li{color:var(--muted);line-height:1.55}.collist b{color:var(--text)}.collist a{text-decoration:none}
+.colchips .chip{white-space:normal;max-width:100%;text-align:start}

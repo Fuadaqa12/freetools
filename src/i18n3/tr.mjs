@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "En iyi ücretsiz yapay zekâ fotoğraf araçları",
+   "Tarayıcıda ücretsiz yapay zekâ fotoğraf araçları: arka plan silme, büyütme, yüz bulanıklaştırma, avatar ve çıkartma. Kayıt ve filigran yok.",
+   "Bu araçlar telefonunuzda veya bilgisayarınızda çalışır. Model bir kez iner ve cihazınızda çalışır; fotoğraflarınız yüklenmez, kredi, limit veya filigran yoktur."
+  ],
+  "pdf-tools": [
+   "Tüm ücretsiz PDF araçları",
+   "Ücretsiz PDF araçları: PDF’den Word’e, sıkıştır, birleştir, böl, imzala, JPG’ye çevir. E-posta ve filigran yok.",
+   "PDF ile yaptığınız her şey ücretsiz ve kayıtsız. Dosyalar tarayıcıda işlenir ve cihazınızdan çıkmaz."
+  ],
+  "tools-for-students": [
+   "Öğrenciler için ücretsiz online araçlar",
+   "Ücretsiz ders araçları: ders kaydını yazıya dökme, metin özetleme, not fotoğrafından metin, kelime sayma, not ortalaması ve Pomodoro.",
+   "Okul ve üniversite için her telefonda ve dizüstünde çalışan ücretsiz bir araç seti."
+  ],
+  "instagram-tiktok-tools": [
+   "Instagram ve TikTok için ücretsiz araçlar",
+   "İçerik üreticileri için: kaydırmalı gönderi bölücü, profil fotoğrafı, çıkartma, süslü yazı, GIF, video sıkıştırma ve daha fazlası.",
+   "Çekim ile paylaşım arasında gereken her şey, ücretsiz."
+  ],
+  "small-business-tools": [
+   "Küçük işletmeler için ücretsiz araçlar",
+   "Serbest çalışanlar ve KOBİ’ler için: fatura, PDF imzalama, QR ve barkod, KDV ve kâr marjı, ürün fotoğrafı.",
+   "Günlük işlerde zaman kazanın, ücretsiz."
+  ],
+  "video-audio-tools": [
+   "Ücretsiz video ve ses araçları",
+   "Video sıkıştır, videodan MP3 ve GIF, ses kes, konuşmayı yazıya dök, ekran ve ses kaydet.",
+   "Uygulama kurmadan video ve ses düzenleyin, ücretsiz."
+  ]
+ },
  "ui": {
   "ocr_lang": "Metin dili",
   "ai_local_note": "Yapay zekâ modeli bir kez indirilir ve cihazınızda çalışır. Dosyalarınız asla yüklenmez.",

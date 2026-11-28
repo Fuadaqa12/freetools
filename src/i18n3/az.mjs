@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "Ən yaxşı pulsuz Sİ foto alətləri",
+   "Brauzerdə pulsuz Sİ foto alətləri: fonu silmək, böyütmək, üzləri bulanıqlaşdırmaq, avatar və stiker. Qeydiyyat və su nişanı yoxdur.",
+   "Bu alətlər telefon və ya kompüterdə işləyir. Model bir dəfə yüklənir və cihazınızda işləyir, ona görə şəkilləriniz heç yerə göndərilmir, limit və su nişanı yoxdur."
+  ],
+  "pdf-tools": [
+   "Bütün pulsuz PDF alətləri",
+   "Pulsuz PDF alətləri: PDF-dən Word-ə, sıx, birləşdir, böl, imzala, JPG-yə çevir. Poçt və su nişanı yoxdur.",
+   "PDF ilə etdiyiniz hər şey pulsuz və qeydiyyatsız. Fayllar brauzerdə işlənir və cihazınızdan çıxmır."
+  ],
+  "tools-for-students": [
+   "Tələbələr üçün pulsuz onlayn alətlər",
+   "Pulsuz təhsil alətləri: mühazirəni mətnə çevirmə, mətni qısaltma, konspekt şəklindən mətn, söz sayğacı, orta bal və Pomodoro.",
+   "Məktəb və universitet üçün istənilən telefon və noutbukda işləyən pulsuz alətlər dəsti."
+  ],
+  "instagram-tiktok-tools": [
+   "Instagram və TikTok üçün pulsuz alətlər",
+   "Blogerlər üçün: karusel bölmə, profil şəkli, stikerlər, gözəl şriftlər, GIF, video sıxma və s.",
+   "Çəkiliş ilə paylaşım arasında lazım olan hər şey, pulsuz."
+  ],
+  "small-business-tools": [
+   "Kiçik biznes üçün pulsuz alətlər",
+   "Frilanserlər və kiçik biznes üçün: hesab-faktura, PDF imzalama, QR və ştrix kod, ƏDV və marja, məhsul şəkilləri.",
+   "Gündəlik işlərdə vaxta qənaət edin, pulsuz."
+  ],
+  "video-audio-tools": [
+   "Pulsuz video və audio alətləri",
+   "Videonu sıx, videodan MP3 və GIF, səsi kəs, nitqi mətnə çevir, ekranı və səsi yaz.",
+   "Proqram yükləmədən video və səslə işləyin, pulsuz."
+  ]
+ },
  "ui": {
   "ocr_lang": "Mətnin dili",
   "ai_local_note": "Sİ modeli bir dəfə yüklənir və cihazınızda işləyir. Fayllarınız heç yerə göndərilmir.",

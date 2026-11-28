@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "Best Free AI Photo Tools",
+   "Free AI photo editor tools that run in your browser: remove background, upscale, blur faces, make avatars and stickers. No sign-up, no watermark.",
+   "These AI photo tools work right on your phone or computer. The AI model downloads once and runs on your device, so your photos are never uploaded and there are no credits, limits or watermarks. Start with background removal and upscaling, the two most popular edits."
+  ],
+  "pdf-tools": [
+   "All Free PDF Tools in One Place",
+   "Free online PDF tools: PDF to Word, compress, merge, split, sign, convert to JPG and back. No email, no watermark, files stay on your device.",
+   "Everything you usually do with PDFs, free and without sign-up. Files are processed in your browser, so contracts and documents never leave your device. The most used tools are PDF to Word, Compress PDF and Sign PDF."
+  ],
+  "tools-for-students": [
+   "Free Online Tools for Students",
+   "Free study tools: transcribe lectures, summarize texts, scan notes to text, count words, calculate GPA and stay focused with Pomodoro.",
+   "A toolkit for school and university that works on any phone or laptop. Turn a lecture recording into text, shorten long readings, copy text from photos of the board and check word counts for essays, all for free."
+  ],
+  "instagram-tiktok-tools": [
+   "Free Tools for Instagram & TikTok Creators",
+   "Free tools for creators: Instagram carousel splitter, profile picture maker, stickers, fancy fonts, GIFs, video compressor and more.",
+   "Everything a creator needs between shooting and posting: cut panoramas into seamless carousels, make a clean avatar, write in fancy fonts for your bio, turn clips into GIFs and shrink videos before uploading."
+  ],
+  "small-business-tools": [
+   "Free Tools for Small Business",
+   "Free tools for freelancers and small businesses: invoice generator, sign PDF, QR codes, barcodes, VAT and margin calculators, product photos.",
+   "Save time on everyday business tasks: send a professional invoice in a minute, sign contracts without printing, make QR codes for your menu or shop and prepare clean product photos with a white background."
+  ],
+  "video-audio-tools": [
+   "Free Video & Audio Tools",
+   "Free online video and audio tools: compress video, video to MP3 and GIF, cut audio, transcribe speech, record screen and voice.",
+   "Edit video and sound without installing apps. Shrink a video for WhatsApp, pull the music out of a clip, make a ringtone, turn a voice message into text or record your screen, all in the browser."
+  ]
+ },
  "ui": {
   "ocr_lang": "Text language",
   "ai_local_note": "The AI model is downloaded once and runs on your device. Your files are never uploaded.",

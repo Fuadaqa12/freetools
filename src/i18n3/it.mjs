@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "I migliori strumenti foto IA gratuiti",
+   "Strumenti foto IA gratuiti nel browser: rimuovere lo sfondo, ingrandire, sfocare volti, creare avatar e sticker. Senza registrazione né filigrana.",
+   "Questi strumenti IA funzionano su telefono o computer. Il modello si scarica una volta e gira sul tuo dispositivo: le foto non vengono caricate e non ci sono limiti o filigrane."
+  ],
+  "pdf-tools": [
+   "Tutti gli strumenti PDF gratis",
+   "Strumenti PDF gratuiti: PDF in Word, comprimere, unire, dividere, firmare, convertire in JPG. Senza email né filigrana.",
+   "Tutto ciò che fai con i PDF, gratis e senza registrazione. I file vengono elaborati nel browser e non lasciano il dispositivo."
+  ],
+  "tools-for-students": [
+   "Strumenti online gratis per studenti",
+   "Strumenti di studio gratuiti: trascrivere lezioni, riassumere testi, appunti in foto in testo, contare parole, media voti e Pomodoro.",
+   "Un kit per scuola e università che funziona su qualsiasi telefono o portatile, gratis."
+  ],
+  "instagram-tiktok-tools": [
+   "Strumenti gratis per Instagram e TikTok",
+   "Strumenti per creator: dividere caroselli, foto profilo, sticker, font particolari, GIF, comprimere video e altro.",
+   "Tutto ciò che serve a un creator tra le riprese e la pubblicazione, gratis."
+  ],
+  "small-business-tools": [
+   "Strumenti gratis per piccole imprese",
+   "Per freelance e PMI: fatture, firma PDF, QR e codici a barre, IVA, margini, foto prodotto.",
+   "Risparmia tempo nelle attività quotidiane, gratis."
+  ],
+  "video-audio-tools": [
+   "Strumenti video e audio gratis",
+   "Comprimere video, video in MP3 e GIF, tagliare audio, trascrivere, registrare schermo e voce.",
+   "Modifica video e audio senza installare app, gratis."
+  ]
+ },
  "ui": {
   "ocr_lang": "Lingua del testo",
   "ai_local_note": "Il modello IA viene scaricato una volta e funziona sul tuo dispositivo. I file non vengono mai caricati.",

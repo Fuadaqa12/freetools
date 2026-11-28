@@ -180,6 +180,38 @@ export default {
    ]
   ]
  },
+ "cols": {
+  "ai-photo-tools": [
+   "Melhores ferramentas de IA para fotos grátis",
+   "Editores de fotos com IA grátis no navegador: remover fundo, ampliar, desfocar rostos, criar avatares e figurinhas. Sem cadastro nem marca d’água.",
+   "Essas ferramentas de IA funcionam no celular ou computador. O modelo é baixado uma vez e roda no seu aparelho, então suas fotos nunca são enviadas e não há créditos, limites ou marca d’água."
+  ],
+  "pdf-tools": [
+   "Todas as ferramentas PDF grátis",
+   "Ferramentas PDF online grátis: PDF para Word, comprimir, juntar, dividir, assinar e converter para JPG. Sem e-mail nem marca d’água.",
+   "Tudo o que você faz com PDF, grátis e sem cadastro. Os arquivos são processados no navegador e nunca saem do seu aparelho."
+  ],
+  "tools-for-students": [
+   "Ferramentas online grátis para estudantes",
+   "Ferramentas de estudo grátis: transcrever aulas, resumir textos, foto de anotações para texto, contar palavras, calcular média e Pomodoro.",
+   "Um kit para escola e faculdade que funciona em qualquer celular ou notebook, grátis."
+  ],
+  "instagram-tiktok-tools": [
+   "Ferramentas grátis para Instagram e TikTok",
+   "Ferramentas para criadores: dividir carrossel, foto de perfil, figurinhas, letras bonitas, GIF, comprimir vídeo e mais.",
+   "Tudo o que um criador precisa entre gravar e postar, grátis."
+  ],
+  "small-business-tools": [
+   "Ferramentas grátis para pequenas empresas",
+   "Para autônomos e pequenas empresas: faturas, assinar PDF, QR code, código de barras, impostos, margem e fotos de produto.",
+   "Economize tempo nas tarefas do dia a dia, grátis."
+  ],
+  "video-audio-tools": [
+   "Ferramentas grátis de vídeo e áudio",
+   "Comprimir vídeo, vídeo para MP3 e GIF, cortar áudio, transcrever fala, gravar tela e voz.",
+   "Edite vídeo e som sem instalar apps, grátis."
+  ]
+ },
  "ui": {
   "ocr_lang": "Idioma do texto",
   "ai_local_note": "O modelo de IA é baixado uma vez e roda no seu dispositivo. Seus arquivos nunca são enviados.",
