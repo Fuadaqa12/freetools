@@ -136,6 +136,26 @@ export default {
    "Quel âge je fais ? (IA)",
    "Importez une photo et l’IA devine l’âge, le genre et l’humeur de chaque visage.",
    "quel âge je fais détecteur âge ia"
+  ],
+  "remove-exif-data": [
+   "Supprimer les métadonnées photo (EXIF et GPS)",
+   "Voyez et supprimez les données cachées : position GPS, appareil et date.",
+   "supprimer exif gps photo"
+  ],
+  "wifi-qr-code-generator": [
+   "Générateur de QR code Wi-Fi",
+   "Un QR code pour connecter vos invités au Wi-Fi en un scan, plus une carte à imprimer.",
+   "qr code wifi"
+  ],
+  "new-year-countdown": [
+   "Compte à rebours du Nouvel An",
+   "Combien de jours avant le Nouvel An ? Compte à rebours en direct avec neige.",
+   "compte à rebours nouvel an"
+  ],
+  "text-to-handwriting": [
+   "Texte en écriture manuscrite",
+   "Transformez du texte en écriture manuscrite réaliste sur papier ligné, quadrillé ou blanc.",
+   "texte en écriture manuscrite"
   ]
  },
  "faqx": {
@@ -325,6 +345,28 @@ export default {
   "emo_angry": "Colère",
   "emo_fearful": "Peur",
   "emo_disgusted": "Dégoût",
-  "emo_surprised": "Surprise"
+  "emo_surprised": "Surprise",
+  "share": "Partager",
+  "exif_note": "Les JPG sont nettoyés sans perte. Les autres formats sont réenregistrés.",
+  "exif_found": "Données cachées trouvées :",
+  "exif_gps": "Position",
+  "exif_clean": "Métadonnées supprimées",
+  "wifi_name": "Nom du réseau (SSID)",
+  "wifi_pass": "Mot de passe",
+  "wifi_open": "Sans mot de passe",
+  "wifi_hidden": "Réseau masqué",
+  "wifi_scan": "Scannez pour vous connecter",
+  "wifi_card": "Carte à imprimer",
+  "wifi_note": "Le mot de passe reste sur votre appareil : le QR est créé dans le navigateur.",
+  "ny_until": "Avant le Nouvel An {y}",
+  "ny_days": "jours",
+  "ny_hours": "heures",
+  "ny_min": "minutes",
+  "ny_sec": "secondes",
+  "ny_happy": "Bonne année !",
+  "hw_lines": "Ligné",
+  "hw_grid": "Quadrillé",
+  "hw_plain": "Blanc",
+  "hw_sample": "Bonjour ! Ce texte semble écrit à la main.\nTapez ou collez vos notes ici."
  }
 };

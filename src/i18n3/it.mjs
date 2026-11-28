@@ -136,6 +136,26 @@ export default {
    "Quanti anni dimostro? (IA)",
    "Carica una foto e l’IA indovina età, genere e umore di ogni volto.",
    "quanti anni dimostro rilevatore età"
+  ],
+  "remove-exif-data": [
+   "Rimuovi metadati foto (EXIF e GPS)",
+   "Vedi e cancella i dati nascosti: posizione GPS, fotocamera e data.",
+   "rimuovere exif gps foto"
+  ],
+  "wifi-qr-code-generator": [
+   "Generatore QR Wi-Fi",
+   "Un QR per far connettere gli ospiti al Wi-Fi con una scansione, più una card da stampare.",
+   "qr code wifi"
+  ],
+  "new-year-countdown": [
+   "Conto alla rovescia per Capodanno",
+   "Quanti giorni mancano a Capodanno? Countdown dal vivo con neve.",
+   "quanti giorni a capodanno"
+  ],
+  "text-to-handwriting": [
+   "Testo in scrittura a mano",
+   "Trasforma il testo in scrittura a mano realistica su foglio a righe, quadretti o bianco.",
+   "testo in scrittura a mano"
   ]
  },
  "faqx": {
@@ -325,6 +345,28 @@ export default {
   "emo_angry": "Rabbia",
   "emo_fearful": "Paura",
   "emo_disgusted": "Disgusto",
-  "emo_surprised": "Sorpresa"
+  "emo_surprised": "Sorpresa",
+  "share": "Condividi",
+  "exif_note": "I JPG vengono puliti senza perdita di qualità, gli altri formati risalvati.",
+  "exif_found": "Dati nascosti trovati:",
+  "exif_gps": "Posizione",
+  "exif_clean": "Metadati rimossi",
+  "wifi_name": "Nome rete (SSID)",
+  "wifi_pass": "Password",
+  "wifi_open": "Senza password",
+  "wifi_hidden": "Rete nascosta",
+  "wifi_scan": "Scansiona per connetterti",
+  "wifi_card": "Card da stampare",
+  "wifi_note": "La password resta sul tuo dispositivo: il QR è creato nel browser.",
+  "ny_until": "A Capodanno {y}",
+  "ny_days": "giorni",
+  "ny_hours": "ore",
+  "ny_min": "minuti",
+  "ny_sec": "secondi",
+  "ny_happy": "Buon anno!",
+  "hw_lines": "Righe",
+  "hw_grid": "Quadretti",
+  "hw_plain": "Bianco",
+  "hw_sample": "Ciao! Questo testo sembra scritto a mano.\nScrivi o incolla qui i tuoi appunti."
  }
 };

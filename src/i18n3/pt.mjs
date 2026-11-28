@@ -136,6 +136,26 @@ export default {
    "Quantos anos eu pareço? (IA)",
    "Envie uma foto e a IA adivinha idade, gênero e humor de cada rosto.",
    "quantos anos eu pareço detector idade ia"
+  ],
+  "remove-exif-data": [
+   "Remover metadados de fotos (EXIF e GPS)",
+   "Veja e apague dados ocultos: localização GPS, câmera e data. Proteja sua privacidade.",
+   "remover exif localização foto"
+  ],
+  "wifi-qr-code-generator": [
+   "Gerador de QR para Wi-Fi",
+   "Crie um QR para os convidados entrarem no Wi-Fi com um escaneamento, mais um cartão para imprimir.",
+   "qr code wifi gerador"
+  ],
+  "new-year-countdown": [
+   "Contagem regressiva para o Ano Novo",
+   "Quantos dias faltam para o Ano Novo? Contagem ao vivo com neve.",
+   "quantos dias faltam para o ano novo"
+  ],
+  "text-to-handwriting": [
+   "Texto para letra cursiva",
+   "Transforme texto digitado em letra manuscrita realista em papel pautado, quadriculado ou liso.",
+   "texto para letra de mão"
   ]
  },
  "faqx": {
@@ -325,6 +345,28 @@ export default {
   "emo_angry": "Raiva",
   "emo_fearful": "Medo",
   "emo_disgusted": "Nojo",
-  "emo_surprised": "Surpresa"
+  "emo_surprised": "Surpresa",
+  "share": "Compartilhar",
+  "exif_note": "JPG são limpos sem perda de qualidade. Outros formatos são salvos de novo.",
+  "exif_found": "Dados ocultos encontrados:",
+  "exif_gps": "Localização",
+  "exif_clean": "Metadados removidos",
+  "wifi_name": "Nome da rede (SSID)",
+  "wifi_pass": "Senha",
+  "wifi_open": "Sem senha",
+  "wifi_hidden": "Rede oculta",
+  "wifi_scan": "Escaneie para conectar",
+  "wifi_card": "Cartão para imprimir",
+  "wifi_note": "A senha fica no seu aparelho: o QR é criado no navegador.",
+  "ny_until": "Até o Ano Novo de {y}",
+  "ny_days": "dias",
+  "ny_hours": "horas",
+  "ny_min": "minutos",
+  "ny_sec": "segundos",
+  "ny_happy": "Feliz Ano Novo!",
+  "hw_lines": "Pautado",
+  "hw_grid": "Quadriculado",
+  "hw_plain": "Liso",
+  "hw_sample": "Olá! Este texto parece escrito à mão.\nDigite ou cole aqui suas anotações."
  }
 };

@@ -136,6 +136,26 @@ export default {
    "Age & Emotion Detector (AI)",
    "Upload a photo and AI guesses the age, gender and mood of every face. Just for fun, fully private.",
    "age detector how old do i look emotion detector ai face"
+  ],
+  "remove-exif-data": [
+   "Remove Photo Metadata (EXIF & GPS)",
+   "See and remove hidden data from photos: GPS location, camera model and date. Protect your privacy before posting.",
+   "remove exif data remove gps location from photo metadata remover"
+  ],
+  "wifi-qr-code-generator": [
+   "Wi-Fi QR Code Generator",
+   "Make a QR code that connects guests to your Wi-Fi in one scan, plus a printable card for the wall.",
+   "wifi qr code generator share wifi password qr"
+  ],
+  "new-year-countdown": [
+   "New Year Countdown",
+   "How many days until New Year? A live countdown to midnight with snow, ready to share.",
+   "new year countdown how many days until new year"
+  ],
+  "text-to-handwriting": [
+   "Text to Handwriting",
+   "Turn typed text into realistic handwriting on lined, grid or plain paper. Download as image or PDF.",
+   "text to handwriting converter handwritten notes generator"
   ]
  },
  "faqx": {
@@ -325,6 +345,28 @@ export default {
   "emo_angry": "Angry",
   "emo_fearful": "Fear",
   "emo_disgusted": "Disgust",
-  "emo_surprised": "Surprise"
+  "emo_surprised": "Surprise",
+  "share": "Share",
+  "exif_note": "JPG files are cleaned without quality loss. Other formats are re-saved.",
+  "exif_found": "Hidden data found:",
+  "exif_gps": "Location",
+  "exif_clean": "Metadata removed",
+  "wifi_name": "Network name (SSID)",
+  "wifi_pass": "Password",
+  "wifi_open": "No password",
+  "wifi_hidden": "Hidden network",
+  "wifi_scan": "Scan to join Wi-Fi",
+  "wifi_card": "Printable card",
+  "wifi_note": "The password stays on your device: the QR code is made right in the browser.",
+  "ny_until": "Until New Year {y}",
+  "ny_days": "days",
+  "ny_hours": "hours",
+  "ny_min": "minutes",
+  "ny_sec": "seconds",
+  "ny_happy": "Happy New Year!",
+  "hw_lines": "Lined",
+  "hw_grid": "Grid",
+  "hw_plain": "Plain",
+  "hw_sample": "Hello! This text looks like it was written by hand.\nType or paste your notes here."
  }
 };

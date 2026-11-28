@@ -136,6 +136,26 @@ export default {
    "Kaç yaşında görünüyorum? (YZ)",
    "Fotoğraf yükleyin, yapay zekâ her yüzün yaşını, cinsiyetini ve ruh halini tahmin etsin.",
    "kaç yaşında görünüyorum yaş tahmini"
+  ],
+  "remove-exif-data": [
+   "Fotoğraf meta verisini sil (EXIF ve GPS)",
+   "Gizli verileri görün ve silin: GPS konumu, kamera modeli ve tarih.",
+   "exif silme fotoğraf konum"
+  ],
+  "wifi-qr-code-generator": [
+   "Wi-Fi QR kod oluşturucu",
+   "Misafirlerin tek taramayla Wi-Fi’ye bağlanacağı QR kod ve yazdırılabilir kart.",
+   "wifi qr kod oluştur"
+  ],
+  "new-year-countdown": [
+   "Yılbaşına geri sayım",
+   "Yılbaşına kaç gün kaldı? Karlı canlı geri sayım.",
+   "yılbaşına kaç gün kaldı"
+  ],
+  "text-to-handwriting": [
+   "Metni el yazısına çevir",
+   "Yazılan metni çizgili, kareli veya düz kâğıtta gerçekçi el yazısına dönüştürün.",
+   "metni el yazısına çevirme"
   ]
  },
  "faqx": {
@@ -325,6 +345,28 @@ export default {
   "emo_angry": "Kızgın",
   "emo_fearful": "Korku",
   "emo_disgusted": "İğrenme",
-  "emo_surprised": "Şaşkın"
+  "emo_surprised": "Şaşkın",
+  "share": "Paylaş",
+  "exif_note": "JPG dosyaları kalite kaybı olmadan temizlenir; diğerleri yeniden kaydedilir.",
+  "exif_found": "Gizli veri bulundu:",
+  "exif_gps": "Konum",
+  "exif_clean": "Meta veriler silindi",
+  "wifi_name": "Ağ adı (SSID)",
+  "wifi_pass": "Şifre",
+  "wifi_open": "Şifresiz",
+  "wifi_hidden": "Gizli ağ",
+  "wifi_scan": "Bağlanmak için tara",
+  "wifi_card": "Yazdırılabilir kart",
+  "wifi_note": "Şifre cihazınızda kalır: QR kod tarayıcıda oluşturulur.",
+  "ny_until": "{y} yılbaşına",
+  "ny_days": "gün",
+  "ny_hours": "saat",
+  "ny_min": "dakika",
+  "ny_sec": "saniye",
+  "ny_happy": "Mutlu yıllar!",
+  "hw_lines": "Çizgili",
+  "hw_grid": "Kareli",
+  "hw_plain": "Düz",
+  "hw_sample": "Merhaba! Bu metin elle yazılmış gibi görünüyor.\nNotlarınızı buraya yazın veya yapıştırın."
  }
 };

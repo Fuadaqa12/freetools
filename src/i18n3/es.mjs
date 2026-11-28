@@ -136,6 +136,26 @@ export default {
    "¿Cuántos años aparento? (IA)",
    "Sube una foto y la IA adivina edad, sexo y estado de ánimo de cada cara.",
    "cuantos años aparento detector edad ia"
+  ],
+  "remove-exif-data": [
+   "Eliminar metadatos de fotos (EXIF y GPS)",
+   "Mira y borra los datos ocultos: ubicación GPS, cámara y fecha. Protege tu privacidad.",
+   "eliminar exif quitar ubicacion foto"
+  ],
+  "wifi-qr-code-generator": [
+   "Generador de QR para Wi-Fi",
+   "Crea un QR para que tus invitados se conecten al Wi-Fi con un escaneo, más una tarjeta para imprimir.",
+   "qr wifi generador"
+  ],
+  "new-year-countdown": [
+   "Cuenta atrás para Año Nuevo",
+   "¿Cuántos días faltan para Año Nuevo? Cuenta atrás en vivo con nieve.",
+   "cuantos dias faltan para año nuevo"
+  ],
+  "text-to-handwriting": [
+   "Texto a letra manuscrita",
+   "Convierte texto en letra manuscrita realista sobre papel rayado, cuadriculado o liso.",
+   "texto a letra a mano"
   ]
  },
  "faqx": {
@@ -325,6 +345,28 @@ export default {
   "emo_angry": "Enfado",
   "emo_fearful": "Miedo",
   "emo_disgusted": "Asco",
-  "emo_surprised": "Sorpresa"
+  "emo_surprised": "Sorpresa",
+  "share": "Compartir",
+  "exif_note": "Los JPG se limpian sin perder calidad. Otros formatos se vuelven a guardar.",
+  "exif_found": "Datos ocultos encontrados:",
+  "exif_gps": "Ubicación",
+  "exif_clean": "Metadatos eliminados",
+  "wifi_name": "Nombre de red (SSID)",
+  "wifi_pass": "Contraseña",
+  "wifi_open": "Sin contraseña",
+  "wifi_hidden": "Red oculta",
+  "wifi_scan": "Escanea para conectarte",
+  "wifi_card": "Tarjeta para imprimir",
+  "wifi_note": "La contraseña se queda en tu dispositivo: el QR se crea en el navegador.",
+  "ny_until": "Hasta Año Nuevo {y}",
+  "ny_days": "días",
+  "ny_hours": "horas",
+  "ny_min": "minutos",
+  "ny_sec": "segundos",
+  "ny_happy": "¡Feliz Año Nuevo!",
+  "hw_lines": "Rayado",
+  "hw_grid": "Cuadrícula",
+  "hw_plain": "Liso",
+  "hw_sample": "¡Hola! Este texto parece escrito a mano.\nEscribe o pega aquí tus apuntes."
  }
 };

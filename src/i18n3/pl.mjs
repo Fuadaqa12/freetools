@@ -136,6 +136,26 @@ export default {
    "Ile mam lat na zdjęciu? (AI)",
    "Wgraj zdjęcie, a AI zgadnie wiek, płeć i nastrój każdej twarzy.",
    "ile mam lat na zdjęciu wiek ai"
+  ],
+  "remove-exif-data": [
+   "Usuń metadane zdjęcia (EXIF i GPS)",
+   "Zobacz i usuń ukryte dane: lokalizację GPS, model aparatu i datę.",
+   "usuń exif lokalizacja zdjęcie"
+  ],
+  "wifi-qr-code-generator": [
+   "Generator kodu QR do Wi-Fi",
+   "Kod QR, którym goście łączą się z Wi-Fi jednym skanem, plus karta do druku.",
+   "kod qr wifi"
+  ],
+  "new-year-countdown": [
+   "Odliczanie do Nowego Roku",
+   "Ile dni do Nowego Roku? Odliczanie na żywo ze śniegiem.",
+   "ile dni do nowego roku"
+  ],
+  "text-to-handwriting": [
+   "Tekst na pismo odręczne",
+   "Zamień wpisany tekst w realistyczne pismo odręczne w linie, kratkę lub na czystej kartce.",
+   "tekst na pismo odręczne"
   ]
  },
  "faqx": {
@@ -325,6 +345,28 @@ export default {
   "emo_angry": "Złość",
   "emo_fearful": "Strach",
   "emo_disgusted": "Obrzydzenie",
-  "emo_surprised": "Zaskoczenie"
+  "emo_surprised": "Zaskoczenie",
+  "share": "Udostępnij",
+  "exif_note": "JPG są czyszczone bez utraty jakości, inne formaty zapisywane ponownie.",
+  "exif_found": "Znaleziono ukryte dane:",
+  "exif_gps": "Lokalizacja",
+  "exif_clean": "Metadane usunięte",
+  "wifi_name": "Nazwa sieci (SSID)",
+  "wifi_pass": "Hasło",
+  "wifi_open": "Bez hasła",
+  "wifi_hidden": "Ukryta sieć",
+  "wifi_scan": "Zeskanuj, aby się połączyć",
+  "wifi_card": "Karta do druku",
+  "wifi_note": "Hasło zostaje na urządzeniu: kod QR powstaje w przeglądarce.",
+  "ny_until": "Do Nowego Roku {y}",
+  "ny_days": "dni",
+  "ny_hours": "godz.",
+  "ny_min": "min",
+  "ny_sec": "sek",
+  "ny_happy": "Szczęśliwego Nowego Roku!",
+  "hw_lines": "Linia",
+  "hw_grid": "Kratka",
+  "hw_plain": "Czysta",
+  "hw_sample": "Cześć! Ten tekst wygląda na pisany ręcznie.\nWpisz lub wklej tu swoje notatki."
  }
 };

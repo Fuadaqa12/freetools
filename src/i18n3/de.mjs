@@ -136,6 +136,26 @@ export default {
    "Wie alt sehe ich aus? (KI)",
    "Foto hochladen, KI schätzt Alter, Geschlecht und Stimmung jedes Gesichts.",
    "wie alt sehe ich aus alter schätzen ki"
+  ],
+  "remove-exif-data": [
+   "Foto-Metadaten entfernen (EXIF & GPS)",
+   "Versteckte Daten sehen und löschen: GPS-Standort, Kameramodell und Datum.",
+   "exif entfernen gps foto metadaten"
+  ],
+  "wifi-qr-code-generator": [
+   "WLAN-QR-Code-Generator",
+   "QR-Code, mit dem Gäste sich per Scan ins WLAN verbinden, plus Karte zum Ausdrucken.",
+   "wlan qr code erstellen"
+  ],
+  "new-year-countdown": [
+   "Countdown bis Silvester",
+   "Wie viele Tage bis Neujahr? Live-Countdown mit Schnee.",
+   "countdown silvester tage bis neujahr"
+  ],
+  "text-to-handwriting": [
+   "Text in Handschrift",
+   "Getippten Text in realistische Handschrift auf liniertem, kariertem oder leerem Papier verwandeln.",
+   "text in handschrift umwandeln"
   ]
  },
  "faqx": {
@@ -325,6 +345,28 @@ export default {
   "emo_angry": "Wütend",
   "emo_fearful": "Angst",
   "emo_disgusted": "Ekel",
-  "emo_surprised": "Überrascht"
+  "emo_surprised": "Überrascht",
+  "share": "Teilen",
+  "exif_note": "JPGs werden verlustfrei bereinigt, andere Formate neu gespeichert.",
+  "exif_found": "Versteckte Daten gefunden:",
+  "exif_gps": "Standort",
+  "exif_clean": "Metadaten entfernt",
+  "wifi_name": "Netzwerkname (SSID)",
+  "wifi_pass": "Passwort",
+  "wifi_open": "Ohne Passwort",
+  "wifi_hidden": "Verstecktes Netzwerk",
+  "wifi_scan": "Scannen zum Verbinden",
+  "wifi_card": "Karte zum Drucken",
+  "wifi_note": "Das Passwort bleibt auf Ihrem Gerät: Der QR-Code entsteht im Browser.",
+  "ny_until": "Bis Neujahr {y}",
+  "ny_days": "Tage",
+  "ny_hours": "Stunden",
+  "ny_min": "Minuten",
+  "ny_sec": "Sekunden",
+  "ny_happy": "Frohes neues Jahr!",
+  "hw_lines": "Liniert",
+  "hw_grid": "Kariert",
+  "hw_plain": "Leer",
+  "hw_sample": "Hallo! Dieser Text sieht handgeschrieben aus.\nTippen oder fügen Sie Ihre Notizen hier ein."
  }
 };
