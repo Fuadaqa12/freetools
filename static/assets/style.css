@@ -513,3 +513,14 @@ kbd{font:600 12px/1 var(--font);padding:4px 7px;border-radius:7px;border:1px sol
 .acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;align-items:center;margin-top:4px}
 .acts .btn{min-height:46px;margin:0}
 @media (max-width:560px){.acts .btn{flex:1 1 100%;justify-content:center}}
+
+/* mobile polish */
+@media (max-width:600px){
+ .hstats{grid-template-columns:repeat(4,1fr);gap:6px;margin-top:22px}.hstats b{font-size:22px}.hstats span{font-size:11px;line-height:1.25}
+ .tiles{grid-template-columns:repeat(2,1fr);gap:10px}.tile{padding:14px 12px}
+ .home .grid,.sec .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .sec .card{flex-direction:column;align-items:flex-start;gap:10px;padding:14px}
+ .sec .card div>span{font-size:12.5px;-webkit-line-clamp:2}
+ .sec .card b{font-size:14.5px}.sec .card .go{display:none}
+ .hero .pill{font-size:12px}
+}

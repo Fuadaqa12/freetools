@@ -126,7 +126,7 @@ function homePage(l) {
   const p = '', root = relRoot(pre(l) + p), n = TOOLS.length;
   const pop = TOOLS.filter(t => t.pop).slice(0, 12);
   const fresh = TOOLS.filter(t => t.isNew).slice(0, 12);
-  const tiles = CATS.map(c => { const cnt = TOOLS.filter(t => t.cat === c.id).length; return `<a class="tile" href="#${c.id}" style="--c:${c.color}"><span class="ic">${svg(c.icon)}</span><b>${esc(CN(l, c.id)[0])}</b><small>${esc(fill(S(l, 'nTools'), { n: cnt }))}</small></a>`; }).join('');
+  const tiles = CATS.map(c => { const cnt = TOOLS.filter(t => t.cat === c.id).length; return `<a class="tile" href="#${c.id}" style="--c:${c.color}"><span class="ic">${svg(c.icon)}</span><b>${esc(CN(l, c.id)[0])}</b><small>${esc(fill(S(l, 'nTools'), { n: cnt }))}</small></a>`; }).join('') + `<a class="tile" href="#popular" style="--c:#f97316"><span class="ic">${svg('zap')}</span><b>🔥 ${esc(S(l, 'popular'))}</b><small>${esc(fill(S(l, 'nTools'), { n: pop.length }))}</small></a>`;
   const secs = CATS.map(c => {
     const ts = TOOLS.filter(t => t.cat === c.id);
     return `<section class="sec" id="${c.id}" data-cat="${c.id}"><div class="sec-h"><div><h2><span class="ic" style="--c:${c.color}">${svg(c.icon)}</span>${esc(CN(l, c.id)[0])}<small>${ts.length}</small></h2></div><a href="${root}${pre(l)}category/${c.id}/">${esc(S(l, 'seeAll'))} →</a></div><div class="grid">${ts.map(t => card(l, t, root)).join('')}</div></section>`;
