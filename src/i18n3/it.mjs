@@ -56,6 +56,31 @@ export default {
    "Da video a GIF",
    "Trasforma una clip video in GIF animata: scegli inizio, durata, dimensione e fps.",
    "video in gif mp4 in gif"
+  ],
+  "heic-to-jpg": [
+   "Da HEIC a JPG",
+   "Converti le foto HEIC dell’iPhone in JPG o PNG in blocco. Nulla viene caricato.",
+   "heic in jpg convertire foto iphone"
+  ],
+  "qr-code-scanner": [
+   "Scanner QR code",
+   "Scansiona un QR code con la fotocamera o da un’immagine. Vedi il link prima di aprirlo.",
+   "scanner qr code lettore online"
+  ],
+  "sign-pdf": [
+   "Firma PDF",
+   "Disegna o scrivi la tua firma e posizionala ovunque nel PDF. Gratis e privato.",
+   "firmare pdf online firma"
+  ],
+  "audio-cutter": [
+   "Taglia audio e crea suonerie",
+   "Taglia canzoni o vocali, aggiungi dissolvenza e salva in MP3 o WAV.",
+   "tagliare audio mp3 suoneria"
+  ],
+  "photo-collage-maker": [
+   "Crea collage di foto",
+   "Unisci fino a 12 foto in un collage per Instagram, Storie o stampa.",
+   "collage foto online"
   ]
  },
  "faqx": {
@@ -137,6 +162,30 @@ export default {
   "vc_bigger": "Il video è già ben compresso. Prova una risoluzione più bassa.",
   "make_gif": "Crea GIF",
   "start_sec": "Inizio",
-  "length_sec": "Durata"
+  "length_sec": "Durata",
+  "drop_hint_heic": "o trascina qui le foto HEIC",
+  "drop_hint_audio": "o trascina una canzone, un vocale o un video",
+  "qr_camera": "Scansiona con fotocamera",
+  "qr_none": "Nessun QR trovato. Prova un’immagine più nitida.",
+  "qr_result": "Contenuto del QR",
+  "qr_open": "Apri link",
+  "qr_again": "Scansiona di nuovo",
+  "qr_warn": "Controlla l’indirizzo prima di aprirlo: i QR possono portare a siti falsi.",
+  "play": "Ascolta",
+  "end_sec": "Fine",
+  "fade": "Dissolvenza in entrata e uscita",
+  "collage_add": "Aggiungi foto",
+  "collage_grid": "Griglia",
+  "collage_rows": "Righe",
+  "collage_cols": "Colonne",
+  "collage_gap": "Spaziatura",
+  "collage_round": "Angoli arrotondati",
+  "sign_draw": "Disegna",
+  "sign_typed": "Scrivi",
+  "sign_type_ph": "Il tuo nome",
+  "sign_tip": "Tocca la pagina per inserire la firma, tocca di nuovo per toglierla. ‹ › cambia pagina.",
+  "sign_first": "Prima disegna o scrivi la firma sopra.",
+  "sign_place": "Tocca la pagina per inserire la firma.",
+  "sign_save": "Salva PDF firmato"
  }
 };

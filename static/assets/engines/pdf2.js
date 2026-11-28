@@ -29,7 +29,7 @@ TK.register('pdf2', function (root, o, K) {
       doc = d; busy(false); work.classList.remove('hide');
       head.innerHTML = '<div class="th">PDF</div><div class="meta"><div class="nm">' + esc(f.name) + '</div><div class="sz"><bdi>' + K.bytes(f.size) + '</bdi> · ' + esc(t('n_pages', { n: d.numPages })) + '</div></div>';
       var x = el('<button class="ibtn" type="button" aria-label="remove">' + svg('x') + '</button>'); x.onclick = reset; head.appendChild(x);
-      ({ toimg: setupImg, compress: setupCompress, text: setupText, organize: setupOrganize, numbers: setupNumbers, watermark: setupWatermark })[mode]();
+      ({ toimg: setupImg, compress: setupCompress, text: setupText, organize: setupOrganize, numbers: setupNumbers, watermark: setupWatermark, sign: setupSign })[mode]();
     }).catch(fail);
   }
   function renderPage(n, scale, type, q) {
@@ -259,6 +259,73 @@ TK.register('pdf2', function (root, o, K) {
             return savePdf(pdf, '-watermarked');
           });
         });
+      }).catch(fail);
+    }));
+  }
+
+  /* ---------- Sign PDF ---------- */
+  function setupSign() {
+    var page = 1, sig = null, place = [], size = 30, view = null, kind = 'draw', typed = '', color = '#1e3a8a';
+    var pad = el('<canvas width="900" height="300" style="width:100%;height:150px;border:1.5px dashed var(--line);border-radius:12px;background:#fff;touch-action:none;cursor:crosshair"></canvas>');
+    var px = pad.getContext('2d'), drawing = false, last = null, dirty = false;
+    function pos(e) { var r = pad.getBoundingClientRect(); return [(e.clientX - r.left) * pad.width / r.width, (e.clientY - r.top) * pad.height / r.height]; }
+    pad.addEventListener('pointerdown', function (e) { drawing = true; last = pos(e); pad.setPointerCapture(e.pointerId); });
+    pad.addEventListener('pointermove', function (e) { if (!drawing) return; var p2 = pos(e); px.strokeStyle = color; px.lineWidth = 5; px.lineCap = px.lineJoin = 'round'; px.beginPath(); px.moveTo(last[0], last[1]); px.lineTo(p2[0], p2[1]); px.stroke(); last = p2; dirty = true; });
+    pad.addEventListener('pointerup', function () { drawing = false; if (dirty) makeSig(); });
+    var txt = el('<input type="text" class="inp" placeholder="' + esc(t('sign_type_ph')) + '" style="font-size:18px">');
+    txt.oninput = function () { typed = txt.value; makeSig(); };
+    var drawBox = el('<div class="stack" style="gap:6px"></div>'), typeBox = el('<div class="stack hide" style="gap:6px"></div>');
+    drawBox.append(pad, K.btn('x', t('clear'), 'sm sec', function () { px.clearRect(0, 0, pad.width, pad.height); dirty = false; sig = null; }));
+    typeBox.append(txt);
+    var cols = el('<div class="row" style="gap:8px"></div>');
+    ['#1e3a8a', '#111111', '#2563eb'].forEach(function (c) { var b = el('<button type="button" style="width:30px;height:30px;border-radius:50%;border:2px solid var(--line);background:' + c + ';cursor:pointer"></button>'); b.onclick = function () { color = c; recolor(); }; cols.appendChild(b); });
+    settings.append(
+      K.seg([['draw', t('sign_draw')], ['type', t('sign_typed')]], 'draw', function (v) { kind = v; drawBox.classList.toggle('hide', v !== 'draw'); typeBox.classList.toggle('hide', v !== 'type'); makeSig(); }),
+      drawBox, typeBox, cols,
+      K.rng(t('size'), 10, 60, size, '%', function (v) { size = v; paint(); }),
+      el('<p class="muted" style="margin:0;font-size:13px">' + esc(t('sign_tip')) + '</p>'));
+    function recolor() { if (kind === 'draw' && dirty) { px.globalCompositeOperation = 'source-in'; px.fillStyle = color; px.fillRect(0, 0, pad.width, pad.height); px.globalCompositeOperation = 'source-over'; } makeSig(); }
+    function makeSig() {
+      var c = document.createElement('canvas'), x;
+      if (kind === 'type') { if (!typed.trim()) { sig = null; return paint(); } c.width = 1000; c.height = 260; x = c.getContext('2d'); x.font = 'italic 140px "Brush Script MT","Segoe Script","Snell Roundhand",cursive'; x.fillStyle = color; x.textBaseline = 'middle'; var w = x.measureText(typed).width; c.width = Math.ceil(w + 40); x = c.getContext('2d'); x.font = 'italic 140px "Brush Script MT","Segoe Script","Snell Roundhand",cursive'; x.fillStyle = color; x.textBaseline = 'middle'; x.fillText(typed, 20, 130); }
+      else { if (!dirty) { sig = null; return paint(); } c.width = pad.width; c.height = pad.height; c.getContext('2d').drawImage(pad, 0, 0); }
+      sig = trim(c); paint();
+    }
+    function trim(c) {
+      var d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data, x0 = c.width, y0 = c.height, x1 = -1, y1 = -1;
+      for (var y = 0; y < c.height; y++) for (var i = 0; i < c.width; i++) if (d[(y * c.width + i) * 4 + 3] > 10) { if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+      if (x1 < 0) return null; var o2 = document.createElement('canvas'); o2.width = x1 - x0 + 9; o2.height = y1 - y0 + 9; o2.getContext('2d').drawImage(c, x0 - 4, y0 - 4, o2.width, o2.height, 0, 0, o2.width, o2.height); return o2;
+    }
+    var nav = el('<div class="row" style="justify-content:center;gap:10px;align-items:center"></div>'), lbl = el('<b></b>');
+    nav.append(K.btn('', '‹', 'sm sec', function () { if (page > 1) { page--; load(); } }), lbl, K.btn('', '›', 'sm sec', function () { if (page < doc.numPages) { page++; load(); } }));
+    var cv = el('<canvas style="width:100%;max-width:640px;align-self:center;box-shadow:var(--shadow-lg);border-radius:6px;cursor:copy;touch-action:manipulation"></canvas>');
+    var wrap = el('<div class="stack" style="margin-top:14px"></div>'); wrap.append(nav, cv); body.append(wrap);
+    cv.addEventListener('click', function (e) {
+      if (!sig) { K.toast(t('sign_first')); return; }
+      var r = cv.getBoundingClientRect(), fx = (e.clientX - r.left) / r.width, fy = (e.clientY - r.top) / r.height;
+      for (var i = place.length - 1; i >= 0; i--) { var q = place[i]; if (q.page === page && fx >= q.x && fx <= q.x + q.w && fy >= q.y && fy <= q.y + q.h) { place.splice(i, 1); return paint(); } }
+      var w = size / 100, h = w * sig.height / sig.width * (cv.width / cv.height);
+      place.push({ page: page, x: fx - w / 2, y: fy - h / 2, w: w, h: h, img: sig }); paint();
+    });
+    function load() { lbl.textContent = page + ' / ' + doc.numPages; renderPage(page, 1.6).then(function (r) { view = r.canvas; paint(); }); }
+    function paint() {
+      if (!view) return; cv.width = view.width; cv.height = view.height; var x = cv.getContext('2d'); x.drawImage(view, 0, 0);
+      place.forEach(function (q) { if (q.page === page) x.drawImage(q.img, q.x * cv.width, q.y * cv.height, q.w * cv.width, q.h * cv.height); });
+    }
+    load();
+    actions.append(K.btn('download', t('sign_save'), 'big', function () {
+      if (!place.length) { K.toast(t('sign_place')); return; }
+      var L = lib();
+      L.PDFDocument.load(bytes, { ignoreEncryption: true }).then(function (pdf) {
+        var cache = new Map();
+        return Promise.all(place.map(function (q) {
+          if (!cache.has(q.img)) cache.set(q.img, fetch(q.img.toDataURL('image/png')).then(function (r) { return r.arrayBuffer(); }).then(function (ab) { return pdf.embedPng(ab); }));
+          return cache.get(q.img).then(function (im) {
+            var pg = pdf.getPage(q.page - 1), sz = pg.getSize(), rot = pg.getRotation().angle % 360;
+            if (rot) { } // rendered view matches cropbox; rotation is rare for forms
+            pg.drawImage(im, { x: q.x * sz.width, y: sz.height - (q.y + q.h) * sz.height, width: q.w * sz.width, height: q.h * sz.height });
+          });
+        })).then(function () { return savePdf(pdf, '-signed'); });
       }).catch(fail);
     }));
   }

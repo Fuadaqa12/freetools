@@ -56,6 +56,31 @@ export default {
    "Wideo na GIF",
    "Zamień fragment wideo w animowany GIF: wybierz początek, długość, rozmiar i fps.",
    "wideo na gif mp4 na gif"
+  ],
+  "heic-to-jpg": [
+   "HEIC na JPG",
+   "Konwertuj zdjęcia HEIC z iPhone’a na JPG lub PNG hurtowo. Nic nie jest wysyłane.",
+   "heic na jpg konwerter zdjęć iphone"
+  ],
+  "qr-code-scanner": [
+   "Skaner kodów QR",
+   "Zeskanuj kod QR aparatem lub z obrazka. Zobacz link przed otwarciem.",
+   "skaner kodów qr czytnik online"
+  ],
+  "sign-pdf": [
+   "Podpisz PDF",
+   "Narysuj lub wpisz podpis i umieść go w dowolnym miejscu PDF. Za darmo i prywatnie.",
+   "podpisać pdf online podpis"
+  ],
+  "audio-cutter": [
+   "Przycinanie audio i dzwonki",
+   "Przytnij piosenkę lub nagranie, dodaj wyciszenie i zapisz jako MP3 lub WAV.",
+   "przycinanie mp3 dzwonek"
+  ],
+  "photo-collage-maker": [
+   "Kolaż ze zdjęć",
+   "Połącz do 12 zdjęć w kolaż na Instagram, relacje lub do druku.",
+   "kolaż ze zdjęć online"
   ]
  },
  "faqx": {
@@ -137,6 +162,30 @@ export default {
   "vc_bigger": "Wideo jest już dobrze skompresowane. Spróbuj niższej rozdzielczości.",
   "make_gif": "Utwórz GIF",
   "start_sec": "Początek",
-  "length_sec": "Długość"
+  "length_sec": "Długość",
+  "drop_hint_heic": "lub przeciągnij tu zdjęcia HEIC",
+  "drop_hint_audio": "lub przeciągnij piosenkę, nagranie lub wideo",
+  "qr_camera": "Skanuj aparatem",
+  "qr_none": "Nie znaleziono kodu QR. Spróbuj ostrzejszego zdjęcia.",
+  "qr_result": "Zawartość kodu QR",
+  "qr_open": "Otwórz link",
+  "qr_again": "Skanuj ponownie",
+  "qr_warn": "Sprawdź adres przed otwarciem: kody QR mogą prowadzić do fałszywych stron.",
+  "play": "Odtwórz",
+  "end_sec": "Koniec",
+  "fade": "Płynne wejście i wyjście",
+  "collage_add": "Dodaj zdjęcia",
+  "collage_grid": "Siatka",
+  "collage_rows": "Wiersze",
+  "collage_cols": "Kolumny",
+  "collage_gap": "Odstęp",
+  "collage_round": "Zaokrąglenie",
+  "sign_draw": "Narysuj",
+  "sign_typed": "Wpisz",
+  "sign_type_ph": "Twoje imię",
+  "sign_tip": "Dotknij strony, aby wstawić podpis, dotknij ponownie, aby usunąć. ‹ › zmienia stronę.",
+  "sign_first": "Najpierw narysuj lub wpisz podpis powyżej.",
+  "sign_place": "Dotknij strony, aby wstawić podpis.",
+  "sign_save": "Zapisz podpisany PDF"
  }
 };

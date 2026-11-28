@@ -56,6 +56,31 @@ export default {
    "Video to GIF",
    "Turn a video clip into an animated GIF: pick the start, length, size and frame rate.",
    "video to gif mp4 to gif animated gif maker"
+  ],
+  "heic-to-jpg": [
+   "HEIC to JPG",
+   "Convert iPhone HEIC photos to JPG or PNG in bulk. Works offline, nothing is uploaded.",
+   "heic to jpg iphone photo convert heif to jpg png"
+  ],
+  "qr-code-scanner": [
+   "QR Code Scanner",
+   "Scan a QR code with your camera or from a picture or screenshot. See the link before you open it.",
+   "qr code scanner reader scan qr online camera image"
+  ],
+  "sign-pdf": [
+   "Sign PDF",
+   "Draw or type your signature and place it anywhere on a PDF. Free, private, no account.",
+   "sign pdf online add signature to pdf esign free"
+  ],
+  "audio-cutter": [
+   "Audio Cutter & Ringtone Maker",
+   "Trim any song or voice note, add fade in/out and save as MP3 or WAV ringtone.",
+   "audio cutter mp3 cutter trim audio ringtone maker"
+  ],
+  "photo-collage-maker": [
+   "Photo Collage Maker",
+   "Combine up to 12 photos into a collage for Instagram, Stories or print. Pick layout, gaps and corners.",
+   "photo collage maker combine photos grid instagram"
   ]
  },
  "faqx": {
@@ -137,6 +162,30 @@ export default {
   "vc_bigger": "This video is already well compressed. Try a lower resolution or “Smallest file”.",
   "make_gif": "Make GIF",
   "start_sec": "Start",
-  "length_sec": "Length"
+  "length_sec": "Length",
+  "drop_hint_heic": "or drag & drop HEIC photos here",
+  "drop_hint_audio": "or drag & drop a song, voice note or video",
+  "qr_camera": "Scan with camera",
+  "qr_none": "No QR code found. Try a sharper or closer picture.",
+  "qr_result": "QR code content",
+  "qr_open": "Open link",
+  "qr_again": "Scan again",
+  "qr_warn": "Check the address before opening: QR codes can lead to fake sites.",
+  "play": "Play",
+  "end_sec": "End",
+  "fade": "Fade in and out",
+  "collage_add": "Add photos",
+  "collage_grid": "Grid",
+  "collage_rows": "Rows",
+  "collage_cols": "Columns",
+  "collage_gap": "Spacing",
+  "collage_round": "Rounded corners",
+  "sign_draw": "Draw",
+  "sign_typed": "Type",
+  "sign_type_ph": "Your name",
+  "sign_tip": "Tap the page to place the signature. Tap it again to remove. Use ‹ › to switch pages.",
+  "sign_first": "First draw or type your signature above.",
+  "sign_place": "Tap the page to place your signature.",
+  "sign_save": "Save signed PDF"
  }
 };

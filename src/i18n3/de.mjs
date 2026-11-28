@@ -56,6 +56,31 @@ export default {
    "Video zu GIF",
    "Machen Sie aus einem Videoclip ein animiertes GIF: Start, Länge, Größe und fps wählbar.",
    "video zu gif mp4 zu gif"
+  ],
+  "heic-to-jpg": [
+   "HEIC zu JPG",
+   "iPhone-HEIC-Fotos stapelweise in JPG oder PNG umwandeln. Nichts wird hochgeladen.",
+   "heic zu jpg iphone foto umwandeln"
+  ],
+  "qr-code-scanner": [
+   "QR-Code-Scanner",
+   "QR-Code mit der Kamera oder aus einem Bild scannen. Link sehen, bevor Sie ihn öffnen.",
+   "qr code scanner leser online"
+  ],
+  "sign-pdf": [
+   "PDF unterschreiben",
+   "Unterschrift zeichnen oder tippen und überall im PDF platzieren. Kostenlos und privat.",
+   "pdf unterschreiben online signatur"
+  ],
+  "audio-cutter": [
+   "Audio schneiden & Klingelton",
+   "Song oder Sprachnachricht kürzen, ein-/ausblenden und als MP3 oder WAV speichern.",
+   "audio schneiden mp3 klingelton erstellen"
+  ],
+  "photo-collage-maker": [
+   "Fotocollage erstellen",
+   "Bis zu 12 Fotos zu einer Collage für Instagram, Stories oder Druck kombinieren.",
+   "fotocollage online erstellen"
   ]
  },
  "faqx": {
@@ -137,6 +162,30 @@ export default {
   "vc_bigger": "Das Video ist schon gut komprimiert. Versuchen Sie eine niedrigere Auflösung.",
   "make_gif": "GIF erstellen",
   "start_sec": "Start",
-  "length_sec": "Länge"
+  "length_sec": "Länge",
+  "drop_hint_heic": "oder HEIC-Fotos hierher ziehen",
+  "drop_hint_audio": "oder Song, Sprachnachricht oder Video hierher ziehen",
+  "qr_camera": "Mit Kamera scannen",
+  "qr_none": "Kein QR-Code gefunden. Versuchen Sie ein schärferes Bild.",
+  "qr_result": "Inhalt des QR-Codes",
+  "qr_open": "Link öffnen",
+  "qr_again": "Erneut scannen",
+  "qr_warn": "Prüfen Sie die Adresse vor dem Öffnen: QR-Codes können auf gefälschte Seiten führen.",
+  "play": "Abspielen",
+  "end_sec": "Ende",
+  "fade": "Ein- und ausblenden",
+  "collage_add": "Fotos hinzufügen",
+  "collage_grid": "Raster",
+  "collage_rows": "Zeilen",
+  "collage_cols": "Spalten",
+  "collage_gap": "Abstand",
+  "collage_round": "Abgerundete Ecken",
+  "sign_draw": "Zeichnen",
+  "sign_typed": "Tippen",
+  "sign_type_ph": "Ihr Name",
+  "sign_tip": "Tippen Sie auf die Seite, um zu unterschreiben, erneut tippen zum Entfernen. ‹ › wechselt die Seite.",
+  "sign_first": "Zuerst oben die Unterschrift zeichnen oder tippen.",
+  "sign_place": "Tippen Sie auf die Seite, um die Unterschrift zu platzieren.",
+  "sign_save": "Unterschriebenes PDF speichern"
  }
 };

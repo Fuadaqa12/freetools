@@ -56,6 +56,31 @@ export default {
    "Vidéo en GIF",
    "Transformez un extrait vidéo en GIF animé : début, durée, taille et fps au choix.",
    "vidéo en gif mp4 en gif"
+  ],
+  "heic-to-jpg": [
+   "HEIC en JPG",
+   "Convertissez les photos HEIC de l’iPhone en JPG ou PNG par lot. Rien n’est envoyé.",
+   "heic en jpg convertir photo iphone"
+  ],
+  "qr-code-scanner": [
+   "Scanner de QR code",
+   "Scannez un QR code avec la caméra ou depuis une image. Voyez le lien avant de l’ouvrir.",
+   "scanner qr code lecteur en ligne"
+  ],
+  "sign-pdf": [
+   "Signer un PDF",
+   "Dessinez ou tapez votre signature et placez-la n’importe où dans le PDF. Gratuit et privé.",
+   "signer pdf en ligne ajouter signature"
+  ],
+  "audio-cutter": [
+   "Couper un audio et créer une sonnerie",
+   "Coupez une chanson ou un vocal, ajoutez un fondu et enregistrez en MP3 ou WAV.",
+   "couper audio mp3 créer sonnerie"
+  ],
+  "photo-collage-maker": [
+   "Créateur de collage photo",
+   "Assemblez jusqu’à 12 photos en un collage pour Instagram, Stories ou impression.",
+   "collage photo en ligne"
   ]
  },
  "faqx": {
@@ -137,6 +162,30 @@ export default {
   "vc_bigger": "La vidéo est déjà bien compressée. Essayez une résolution plus basse.",
   "make_gif": "Créer le GIF",
   "start_sec": "Début",
-  "length_sec": "Durée"
+  "length_sec": "Durée",
+  "drop_hint_heic": "ou glissez des photos HEIC ici",
+  "drop_hint_audio": "ou glissez une chanson, un vocal ou une vidéo",
+  "qr_camera": "Scanner avec la caméra",
+  "qr_none": "Aucun QR code trouvé. Essayez une image plus nette.",
+  "qr_result": "Contenu du QR code",
+  "qr_open": "Ouvrir le lien",
+  "qr_again": "Scanner à nouveau",
+  "qr_warn": "Vérifiez l’adresse avant d’ouvrir : un QR peut mener à un faux site.",
+  "play": "Écouter",
+  "end_sec": "Fin",
+  "fade": "Fondu au début et à la fin",
+  "collage_add": "Ajouter des photos",
+  "collage_grid": "Grille",
+  "collage_rows": "Lignes",
+  "collage_cols": "Colonnes",
+  "collage_gap": "Espacement",
+  "collage_round": "Coins arrondis",
+  "sign_draw": "Dessiner",
+  "sign_typed": "Taper",
+  "sign_type_ph": "Votre nom",
+  "sign_tip": "Touchez la page pour placer la signature, retouchez pour l’enlever. ‹ › change de page.",
+  "sign_first": "Dessinez ou tapez d’abord votre signature.",
+  "sign_place": "Touchez la page pour placer votre signature.",
+  "sign_save": "Enregistrer le PDF signé"
  }
 };

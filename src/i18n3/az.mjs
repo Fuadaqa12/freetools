@@ -56,6 +56,31 @@ export default {
    "Videodan GIF",
    "Video parçasını animasiyalı GIF-ə çevirin: başlanğıc, uzunluq, ölçü və fps seçin.",
    "videodan gif mp4 gif"
+  ],
+  "heic-to-jpg": [
+   "HEIC-dən JPG-yə",
+   "iPhone HEIC şəkillərini toplu şəkildə JPG və ya PNG-yə çevirin. Heç nə yüklənmir.",
+   "heic jpg çevir iphone şəkil"
+  ],
+  "qr-code-scanner": [
+   "QR kod skaneri",
+   "QR kodu kamera ilə və ya şəkildən oxuyun. Linki açmazdan əvvəl görün.",
+   "qr kod skaner oxuyucu"
+  ],
+  "sign-pdf": [
+   "PDF imzala",
+   "İmzanızı çəkin və ya yazın və PDF-də istədiyiniz yerə qoyun. Pulsuz və məxfi.",
+   "pdf imzala onlayn imza"
+  ],
+  "audio-cutter": [
+   "Səsi kəs və zəng səsi düzəlt",
+   "Mahnı və ya səsli mesajı kəsin, yumşaq keçid əlavə edin, MP3 və ya WAV saxlayın.",
+   "səs kəsmə mp3 zəng səsi"
+  ],
+  "photo-collage-maker": [
+   "Foto kollaj",
+   "12-yə qədər şəkli Instagram, story və ya çap üçün kollaja birləşdirin.",
+   "foto kollaj düzəlt"
   ]
  },
  "faqx": {
@@ -137,6 +162,30 @@ export default {
   "vc_bigger": "Video artıq yaxşı sıxılıb. Daha kiçik ölçü seçin.",
   "make_gif": "GIF yarat",
   "start_sec": "Başlanğıc",
-  "length_sec": "Uzunluq"
+  "length_sec": "Uzunluq",
+  "drop_hint_heic": "və ya HEIC şəkilləri bura sürüşdürün",
+  "drop_hint_audio": "və ya mahnı, səsli mesaj və ya video sürüşdürün",
+  "qr_camera": "Kamera ilə skan et",
+  "qr_none": "QR kod tapılmadı. Daha aydın şəkil yoxlayın.",
+  "qr_result": "QR kodun məzmunu",
+  "qr_open": "Linki aç",
+  "qr_again": "Yenidən skan et",
+  "qr_warn": "Açmazdan əvvəl ünvanı yoxlayın: QR kodlar saxta saytlara apara bilər.",
+  "play": "Dinlə",
+  "end_sec": "Son",
+  "fade": "Yumşaq başlanğıc və son",
+  "collage_add": "Şəkil əlavə et",
+  "collage_grid": "Tor",
+  "collage_rows": "Sətirlər",
+  "collage_cols": "Sütunlar",
+  "collage_gap": "Aralıq",
+  "collage_round": "Yuvarlaq künclər",
+  "sign_draw": "Çək",
+  "sign_typed": "Yaz",
+  "sign_type_ph": "Adınız",
+  "sign_tip": "İmzanı qoymaq üçün səhifəyə toxunun, silmək üçün yenə toxunun. ‹ › səhifəni dəyişir.",
+  "sign_first": "Əvvəlcə yuxarıda imzanı çəkin və ya yazın.",
+  "sign_place": "İmzanı qoymaq üçün səhifəyə toxunun.",
+  "sign_save": "İmzalı PDF-i saxla"
  }
 };

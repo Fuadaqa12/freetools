@@ -56,6 +56,31 @@ export default {
    "Videodan GIF",
    "Video parçasını hareketli GIF’e çevirin: başlangıç, süre, boyut ve fps seçin.",
    "videodan gif mp4 gif yapma"
+  ],
+  "heic-to-jpg": [
+   "HEIC’den JPG’ye",
+   "iPhone HEIC fotoğraflarını toplu olarak JPG veya PNG’ye çevirin. Hiçbir şey yüklenmez.",
+   "heic jpg çevir iphone fotoğraf"
+  ],
+  "qr-code-scanner": [
+   "QR kod okuyucu",
+   "QR kodu kamerayla veya bir resimden okutun. Bağlantıyı açmadan önce görün.",
+   "qr kod okuyucu tarayıcı online"
+  ],
+  "sign-pdf": [
+   "PDF imzala",
+   "İmzanızı çizin veya yazın ve PDF’te istediğiniz yere koyun. Ücretsiz ve gizli.",
+   "pdf imzala online imza ekle"
+  ],
+  "audio-cutter": [
+   "Ses kesici ve zil sesi yapıcı",
+   "Şarkı veya ses kaydını kesin, geçiş efekti ekleyin, MP3 ya da WAV kaydedin.",
+   "ses kesme mp3 zil sesi yapma"
+  ],
+  "photo-collage-maker": [
+   "Fotoğraf kolajı",
+   "12 fotoğrafa kadar Instagram, hikâye veya baskı için kolaj yapın.",
+   "fotoğraf kolajı yapma online"
   ]
  },
  "faqx": {
@@ -137,6 +162,30 @@ export default {
   "vc_bigger": "Video zaten iyi sıkıştırılmış. Daha düşük çözünürlük deneyin.",
   "make_gif": "GIF oluştur",
   "start_sec": "Başlangıç",
-  "length_sec": "Süre"
+  "length_sec": "Süre",
+  "drop_hint_heic": "veya HEIC fotoğrafları buraya sürükleyin",
+  "drop_hint_audio": "veya şarkı, ses kaydı ya da video sürükleyin",
+  "qr_camera": "Kamerayla tara",
+  "qr_none": "QR kod bulunamadı. Daha net bir resim deneyin.",
+  "qr_result": "QR kod içeriği",
+  "qr_open": "Bağlantıyı aç",
+  "qr_again": "Tekrar tara",
+  "qr_warn": "Açmadan önce adresi kontrol edin: QR kodlar sahte sitelere yönlendirebilir.",
+  "play": "Dinle",
+  "end_sec": "Bitiş",
+  "fade": "Giriş ve çıkışta yumuşak geçiş",
+  "collage_add": "Fotoğraf ekle",
+  "collage_grid": "Izgara",
+  "collage_rows": "Satırlar",
+  "collage_cols": "Sütunlar",
+  "collage_gap": "Boşluk",
+  "collage_round": "Yuvarlak köşeler",
+  "sign_draw": "Çiz",
+  "sign_typed": "Yaz",
+  "sign_type_ph": "Adınız",
+  "sign_tip": "İmzayı koymak için sayfaya dokunun, kaldırmak için tekrar dokunun. ‹ › sayfa değiştirir.",
+  "sign_first": "Önce yukarıda imzanızı çizin veya yazın.",
+  "sign_place": "İmzanızı koymak için sayfaya dokunun.",
+  "sign_save": "İmzalı PDF’i kaydet"
  }
 };
