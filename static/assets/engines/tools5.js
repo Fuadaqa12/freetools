@@ -3,7 +3,7 @@ TK.register('tools5', function (root, o, K) {
   var t = K.t, el = K.el, esc = K.esc;
   var V = new URL(K.root + 'assets/vendor/', location.href).href;
   function script(src) { return new Promise(function (res, rej) { if (document.querySelector('script[data-s="' + src + '"]')) return res(); var x = document.createElement('script'); x.src = V + src; x.dataset.s = src; x.onload = res; x.onerror = rej; document.head.appendChild(x); }); }
-  ({ exif: exif, wifi: wifi, newyear: newyear, hand: hand, social: social, word2pdf: word2pdf, vtrim: vtrim, cv: cv, notepad: notepad, emoji: emoji, translit: translit, scan: scan, split: split, sleep: sleep, ovul: ovul })[o.mode]();
+  ({ exif: exif, wifi: wifi, newyear: newyear, hand: hand, social: social, word2pdf: word2pdf, vtrim: vtrim, cv: cv, notepad: notepad, emoji: emoji, translit: translit, scan: scan, split: split, sleep: sleep, ovul: ovul, pwchk: pwchk, zodiac: zodiac, water: water })[o.mode]();
 
   /* ---------- remove EXIF / GPS ---------- */
   function exif() {
@@ -496,6 +496,50 @@ TK.register('tools5', function (root, o, K) {
         rows.push('<div style="padding:10px 0;border-bottom:1px solid var(--line)"><div><b>' + esc(t('ov_ovul')) + ':</b> <span style="color:var(--brand);font-weight:700">' + fmt(ov) + '</span></div><div class="muted">' + esc(t('ov_fertile')) + ': ' + fmt(add(ov, -5)) + ' – ' + fmt(add(ov, 1)) + '</div><div class="muted">' + esc(t('ov_next')) + ': ' + fmt(add(st, D.cyc)) + '</div></div>');
       }
       res.innerHTML = rows.join('');
+    }
+    calc();
+  }
+  function pwchk() {
+    var w = el('<div class="panel stack"></div>'), i = el('<input class="inp" type="text" autocomplete="off" spellcheck="false" style="font-size:18px">'); i.placeholder = t('pw_ph');
+    var bar = el('<div style="height:10px;border-radius:6px;background:var(--line);overflow:hidden"><div style="height:100%;width:0;transition:.2s"></div></div>'), fill = bar.firstChild;
+    var res = el('<div></div>'), note = el('<p class="muted"></p>'); note.textContent = t('pw_local');
+    w.append(i, bar, res); root.append(w, note);
+    var common = /^(123456|password|qwerty|111111|abc123|iloveyou|admin|welcome|monkey|dragon|letmein|football|000000|qwerty123|1q2w3e)/i;
+    function tm(sec) { var u = [[31536e6, 'pw_cent'], [31536e3, 'pw_years'], [86400, 'pw_days'], [3600, 'pw_hours'], [60, 'pw_mins']]; for (var k = 0; k < u.length; k++) if (sec >= u[k][0]) { var v = sec / u[k][0]; return (v > 1e6 ? '∞' : Math.floor(v).toLocaleString(K.lang)) + ' ' + t(u[k][1]); } return t('pw_instant'); }
+    i.oninput = function () {
+      var v = i.value, pool = 0;
+      if (/[a-z]/.test(v)) pool += 26; if (/[A-Z]/.test(v)) pool += 26; if (/\d/.test(v)) pool += 10; if (/[^a-zA-Z0-9]/.test(v)) pool += 33;
+      var bits = v.length * Math.log2(pool || 1); if (common.test(v) || /^(.)\1+$/.test(v)) bits = Math.min(bits, 10);
+      var lvl = bits < 28 ? 0 : bits < 45 ? 1 : bits < 65 ? 2 : 3, col = ['#e5484d', '#f5a524', '#3b82f6', '#16a34a'][lvl];
+      fill.style.width = (v ? Math.min(100, bits / 0.9) : 0) + '%'; fill.style.background = col;
+      if (!v) { res.innerHTML = ''; return; }
+      var tips = []; if (v.length < 12) tips.push(t('pw_t_len')); if (!/[A-Z]/.test(v) || !/[a-z]/.test(v)) tips.push(t('pw_t_case')); if (!/\d/.test(v)) tips.push(t('pw_t_num')); if (!/[^a-zA-Z0-9]/.test(v)) tips.push(t('pw_t_sym'));
+      res.innerHTML = '<b style="font-size:22px;color:' + col + '">' + esc(t(['pw_l0', 'pw_l1', 'pw_l2', 'pw_l3'][lvl])) + '</b><div class="muted">' + esc(t('pw_crack')) + ': <b>' + esc(tm(Math.pow(2, bits) / 1e10)) + '</b> · ' + Math.round(bits) + ' bit</div>' + (tips.length ? '<ul>' + tips.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' : '');
+    };
+  }
+  function zodiac() {
+    var Z = [['♑', 'Capricorn', 120], ['♒', 'Aquarius', 219], ['♓', 'Pisces', 320], ['♈', 'Aries', 420], ['♉', 'Taurus', 521], ['♊', 'Gemini', 621], ['♋', 'Cancer', 722], ['♌', 'Leo', 823], ['♍', 'Virgo', 923], ['♎', 'Libra', 1023], ['♏', 'Scorpio', 1122], ['♐', 'Sagittarius', 1222], ['♑', 'Capricorn', 1232]];
+    var CH = ['Rat', 'Ox', 'Tiger', 'Rabbit', 'Dragon', 'Snake', 'Horse', 'Goat', 'Monkey', 'Rooster', 'Dog', 'Pig'], CE = '🐀🐂🐅🐇🐉🐍🐎🐐🐒🐓🐕🐖';
+    var EL = { Aries: 'fire', Leo: 'fire', Sagittarius: 'fire', Taurus: 'earth', Virgo: 'earth', Capricorn: 'earth', Gemini: 'air', Libra: 'air', Aquarius: 'air', Cancer: 'water', Scorpio: 'water', Pisces: 'water' };
+    var w = el('<div class="panel stack"></div>'), i = el('<input class="inp" type="date" style="max-width:220px">'); i.value = '2000-01-01';
+    var res = el('<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;text-align:center"></div>');
+    w.append(el('<b>' + esc(t('zo_bd')) + '</b>'), i); root.append(w, res);
+    function calc() {
+      var d = new Date(i.value + 'T12:00:00'); if (isNaN(d)) return; var md = (d.getMonth() + 1) * 100 + d.getDate(), z = Z.find(function (x) { return md < x[2]; });
+      var cy = d.getFullYear() - (md < 205 ? 1 : 0), ci = ((cy - 2020) % 12 + 12) % 12;
+      res.innerHTML = [[z[0], t('zo_' + z[1].toLowerCase()), t('zo_sign') + ' · ' + t('zo_' + EL[z[1]])], [Array.from(CE)[ci], t('zo_c' + ci), t('zo_chinese') + ' · ' + cy]].map(function (c) { return '<div class="panel"><div style="font-size:54px;line-height:1.1">' + c[0] + '</div><b style="font-size:22px">' + esc(c[1]) + '</b><div class="muted">' + esc(c[2]) + '</div></div>'; }).join('');
+    }
+    i.oninput = calc; calc();
+  }
+  function water() {
+    var D = { kg: 70, act: 30, hot: 0 };
+    var g = el('<div class="panel stack"></div>');
+    g.append(K.rng(t('wa_weight'), 30, 160, 70, 'kg', function (v) { D.kg = v; calc(); }), K.rng(t('wa_act'), 0, 180, 30, t('sl_min'), function (v) { D.act = v; calc(); }, 15), K.chk(t('wa_hot'), false, function (v) { D.hot = v ? 1 : 0; calc(); }));
+    var res = el('<div class="panel" style="text-align:center"></div>'), note = el('<p class="muted"></p>'); note.textContent = t('wa_note');
+    root.append(g, res, note);
+    function calc() {
+      var ml = D.kg * 33 + D.act / 30 * 350 + D.hot * 500, l = ml / 1000, gl = Math.round(ml / 250);
+      res.innerHTML = '<div class="muted">' + esc(t('wa_daily')) + '</div><b style="font-size:44px;color:var(--brand)">' + l.toLocaleString(K.lang, { maximumFractionDigits: 1 }) + ' L</b><div style="font-size:26px;letter-spacing:2px;margin:8px 0">' + '🥛'.repeat(Math.min(gl, 16)) + '</div><div class="muted">≈ ' + gl + ' × 250 ml</div>';
     }
     calc();
   }
