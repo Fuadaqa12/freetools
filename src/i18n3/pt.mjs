@@ -33,6 +33,48 @@ export default {
    "desfocar fundo modo retrato bokeh foto ia"
   ]
  },
+ "faqx": {
+  "remove-background": [
+   [
+    "Remover o fundo é mesmo grátis?",
+    "Sim. Sem limites, marcas d’água ou créditos — a IA roda no seu dispositivo."
+   ],
+   [
+    "Quais fotos funcionam melhor?",
+    "Fotos com um objeto claro: pessoas, produtos, animais ou carros. Depois escolha fundo transparente, branco ou colorido."
+   ]
+  ],
+  "image-to-text": [
+   [
+    "Quais idiomas ele reconhece?",
+    "Mais de 20, incluindo português, inglês, espanhol, russo, árabe, chinês, japonês e coreano. O inglês é sempre reconhecido junto com o idioma escolhido."
+   ],
+   [
+    "Reconhece texto manuscrito?",
+    "Funciona melhor com texto impresso. Letra caprichada às vezes é reconhecida, mas não é garantido."
+   ]
+  ],
+  "upscale-image": [
+   [
+    "Qual o tamanho máximo da foto?",
+    "Para 2× a foto é limitada a 1400 px no lado maior e para 4× a 700 px, para funcionar bem até no celular."
+   ],
+   [
+    "Por que a primeira vez demora mais?",
+    "O modelo de IA é baixado uma vez e depois tudo fica bem mais rápido."
+   ]
+  ],
+  "passport-photo-maker": [
+   [
+    "Quais tamanhos existem?",
+    "35×45 mm (UE, Reino Unido, Turquia, Índia), 30×40 mm (3×4), 2×2 pol. para os EUA, 33×48 mm para a China e 50×70 mm para o Canadá."
+   ],
+   [
+    "Como imprimo as fotos?",
+    "Toque em «Folha 10×15 para imprimir»: você recebe uma foto padrão com várias cópias para imprimir em qualquer loja ou em casa."
+   ]
+  ]
+ },
  "ui": {
   "ocr_lang": "Idioma do texto",
   "ai_local_note": "O modelo de IA é baixado uma vez e roda no seu dispositivo. Seus arquivos nunca são enviados.",

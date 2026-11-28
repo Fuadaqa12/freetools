@@ -33,6 +33,48 @@ export default {
    "rozmycie tła tryb portretowy bokeh zdjęcie ai"
   ]
  },
+ "faqx": {
+  "remove-background": [
+   [
+    "Czy usuwanie tła jest naprawdę darmowe?",
+    "Tak. Bez limitów, znaków wodnych i kredytów — AI działa na Twoim urządzeniu."
+   ],
+   [
+    "Jakie zdjęcia sprawdzają się najlepiej?",
+    "Zdjęcia z wyraźnym obiektem: ludzie, produkty, zwierzęta, auta. Potem wybierz tło przezroczyste, białe lub kolorowe."
+   ]
+  ],
+  "image-to-text": [
+   [
+    "Jakie języki rozpoznaje?",
+    "Ponad 20, m.in. polski, angielski, hiszpański, rosyjski, arabski, chiński, japoński i koreański. Angielski jest zawsze rozpoznawany razem z wybranym językiem."
+   ],
+   [
+    "Czy czyta pismo odręczne?",
+    "Najlepiej działa z tekstem drukowanym. Staranne pismo bywa rozpoznawane, ale bez gwarancji."
+   ]
+  ],
+  "upscale-image": [
+   [
+    "Jak duże może być zdjęcie?",
+    "Dla 2× zdjęcie jest najpierw ograniczane do 1400 px na dłuższym boku, dla 4× do 700 px, aby działało też na telefonie."
+   ],
+   [
+    "Dlaczego pierwsze uruchomienie trwa dłużej?",
+    "Model AI pobiera się raz, potem wszystko działa dużo szybciej."
+   ]
+  ],
+  "passport-photo-maker": [
+   [
+    "Jakie rozmiary są dostępne?",
+    "35×45 mm (UE, Wielka Brytania, Turcja, Indie), 30×40 mm, 2×2 cale dla USA, 33×48 mm dla Chin i 50×70 mm dla Kanady."
+   ],
+   [
+    "Jak wydrukować zdjęcia?",
+    "Kliknij „Arkusz 10×15” — dostaniesz standardową odbitkę z kilkoma kopiami do druku w zakładzie lub w domu."
+   ]
+  ]
+ },
  "ui": {
   "ocr_lang": "Język tekstu",
   "ai_local_note": "Model AI pobiera się raz i działa na Twoim urządzeniu. Pliki nigdy nie są wysyłane.",

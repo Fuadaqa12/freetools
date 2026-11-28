@@ -33,6 +33,48 @@ export default {
    "hintergrund unscharf porträtmodus bokeh foto ki"
   ]
  },
+ "faqx": {
+  "remove-background": [
+   [
+    "Ist das Entfernen des Hintergrunds wirklich kostenlos?",
+    "Ja. Ohne Limits, Wasserzeichen oder Credits – die KI läuft auf Ihrem Gerät."
+   ],
+   [
+    "Welche Fotos eignen sich am besten?",
+    "Fotos mit klarem Motiv: Personen, Produkte, Tiere oder Autos. Danach wählen Sie einen transparenten, weißen oder farbigen Hintergrund."
+   ]
+  ],
+  "image-to-text": [
+   [
+    "Welche Sprachen werden erkannt?",
+    "Über 20, darunter Deutsch, Englisch, Spanisch, Russisch, Arabisch, Chinesisch, Japanisch und Koreanisch. Englisch wird immer zusammen mit der gewählten Sprache erkannt."
+   ],
+   [
+    "Erkennt es Handschrift?",
+    "Gedruckter Text funktioniert am besten. Saubere Handschrift wird manchmal erkannt, aber ohne Garantie."
+   ]
+  ],
+  "upscale-image": [
+   [
+    "Wie groß darf das Foto sein?",
+    "Für 2× wird das Foto zuerst auf 1400 px an der langen Seite begrenzt, für 4× auf 700 px – so läuft es auch auf dem Handy."
+   ],
+   [
+    "Warum dauert der erste Durchlauf länger?",
+    "Das KI-Modell wird einmal geladen, danach geht es deutlich schneller."
+   ]
+  ],
+  "passport-photo-maker": [
+   [
+    "Welche Formate gibt es?",
+    "35×45 mm (EU, UK, Türkei, Indien), 30×40 mm, 2×2 Zoll für die USA, 33×48 mm für China und 50×70 mm für Kanada."
+   ],
+   [
+    "Wie drucke ich die Fotos?",
+    "Klicken Sie auf „Druckbogen 10×15“ – Sie erhalten einen Standardabzug mit mehreren Kopien für jedes Fotolabor oder den Drucker zu Hause."
+   ]
+  ]
+ },
  "ui": {
   "ocr_lang": "Sprache des Textes",
   "ai_local_note": "Das KI-Modell wird einmal geladen und läuft auf Ihrem Gerät. Ihre Dateien werden nie hochgeladen.",

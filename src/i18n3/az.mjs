@@ -33,6 +33,48 @@ export default {
    "fonu bulanıqlaşdırma portret rejimi bokeh"
   ]
  },
+ "faqx": {
+  "remove-background": [
+   [
+    "Fonu silmək həqiqətən pulsuzdur?",
+    "Bəli. Limit, su nişanı və ya kredit yoxdur — Sİ cihazınızda işləyir."
+   ],
+   [
+    "Hansı şəkillər daha yaxşı alınır?",
+    "Aydın obyekti olan şəkillər: insanlar, məhsullar, heyvanlar, maşınlar. Sonra şəffaf, ağ və ya rəngli fon seçə bilərsiniz."
+   ]
+  ],
+  "image-to-text": [
+   [
+    "Hansı dilləri tanıyır?",
+    "20-dən çox: azərbaycan, rus, ingilis, türk, ərəb, çin, yapon, koreya və s. İngilis dili həmişə seçilmiş dillə birlikdə tanınır."
+   ],
+   [
+    "Əl yazısını oxuyurmu?",
+    "Ən yaxşı çap mətni tanınır. Səliqəli əl yazısı bəzən tanınır, amma zəmanət yoxdur."
+   ]
+  ],
+  "upscale-image": [
+   [
+    "Şəkil nə qədər böyük ola bilər?",
+    "2× üçün şəkil əvvəlcə uzun tərəfdə 1400 px-ə, 4× üçün 700 px-ə qədər kiçildilir ki, telefonda da işləsin."
+   ],
+   [
+    "Niyə ilk dəfə daha uzun çəkir?",
+    "Sİ modeli bir dəfə yüklənir, sonra hər şey daha sürətli işləyir."
+   ]
+  ],
+  "passport-photo-maker": [
+   [
+    "Hansı ölçülər var?",
+    "35×45 mm (Avropa, Azərbaycan, Türkiyə, Hindistan), 30×40 mm (3×4), ABŞ üçün 2×2 düym, Çin üçün 33×48 mm və Kanada üçün 50×70 mm."
+   ],
+   [
+    "Şəkilləri necə çap edim?",
+    "«10×15 çap vərəqi» düyməsini basın — bir neçə nüsxəli standart şəkil alınır, istənilən foto salonda və ya evdə çap etmək olar."
+   ]
+  ]
+ },
  "ui": {
   "ocr_lang": "Mətnin dili",
   "ai_local_note": "Sİ modeli bir dəfə yüklənir və cihazınızda işləyir. Fayllarınız heç yerə göndərilmir.",

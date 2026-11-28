@@ -33,6 +33,48 @@ export default {
    "arka plan bulanıklaştırma portre modu bokeh"
   ]
  },
+ "faqx": {
+  "remove-background": [
+   [
+    "Arka plan silme gerçekten ücretsiz mi?",
+    "Evet. Limit, filigran veya kredi yok — yapay zekâ cihazınızda çalışır."
+   ],
+   [
+    "Hangi fotoğraflar en iyi sonucu verir?",
+    "Net bir nesne içeren fotoğraflar: insanlar, ürünler, hayvanlar veya arabalar. Sonra şeffaf, beyaz ya da renkli arka plan seçin."
+   ]
+  ],
+  "image-to-text": [
+   [
+    "Hangi dilleri tanır?",
+    "Türkçe, İngilizce, Rusça, Arapça, Çince, Japonca ve Korece dahil 20’den fazla dil. İngilizce her zaman seçilen dille birlikte tanınır."
+   ],
+   [
+    "El yazısını okur mu?",
+    "En iyi sonuç basılı metinle alınır. Düzgün el yazısı bazen tanınır ama garanti edilmez."
+   ]
+  ],
+  "upscale-image": [
+   [
+    "Fotoğraf ne kadar büyük olabilir?",
+    "2× için fotoğraf önce uzun kenarda 1400 px’e, 4× için 700 px’e sınırlanır; böylece telefonda da sorunsuz çalışır."
+   ],
+   [
+    "İlk çalıştırma neden daha uzun?",
+    "Yapay zekâ modeli bir kez indirilir, sonra çok daha hızlı çalışır."
+   ]
+  ],
+  "passport-photo-maker": [
+   [
+    "Hangi boyutlar var?",
+    "35×45 mm (AB, İngiltere, Türkiye, Hindistan), 30×40 mm, ABD için 2×2 inç, Çin için 33×48 mm ve Kanada için 50×70 mm."
+   ],
+   [
+    "Fotoğrafları nasıl basarım?",
+    "«10×15 baskı sayfası»na basın: birkaç kopya içeren standart bir fotoğraf alırsınız, her fotoğrafçıda veya evde basılabilir."
+   ]
+  ]
+ },
  "ui": {
   "ocr_lang": "Metin dili",
   "ai_local_note": "Yapay zekâ modeli bir kez indirilir ve cihazınızda çalışır. Dosyalarınız asla yüklenmez.",

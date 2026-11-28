@@ -33,6 +33,48 @@ export default {
    "sfocare sfondo modalità ritratto bokeh foto ia"
   ]
  },
+ "faqx": {
+  "remove-background": [
+   [
+    "Rimuovere lo sfondo è davvero gratis?",
+    "Sì. Nessun limite, filigrana o crediti: l’IA funziona sul tuo dispositivo."
+   ],
+   [
+    "Quali foto funzionano meglio?",
+    "Foto con un soggetto chiaro: persone, prodotti, animali o auto. Poi scegli sfondo trasparente, bianco o colorato."
+   ]
+  ],
+  "image-to-text": [
+   [
+    "Quali lingue riconosce?",
+    "Oltre 20, tra cui italiano, inglese, spagnolo, russo, arabo, cinese, giapponese e coreano. L’inglese è sempre riconosciuto insieme alla lingua scelta."
+   ],
+   [
+    "Legge la scrittura a mano?",
+    "Funziona meglio con testo stampato. Una calligrafia ordinata a volte viene riconosciuta, senza garanzia."
+   ]
+  ],
+  "upscale-image": [
+   [
+    "Quanto può essere grande la foto?",
+    "Per 2× la foto viene limitata a 1400 px sul lato lungo, per 4× a 700 px, così funziona anche su smartphone."
+   ],
+   [
+    "Perché la prima volta è più lenta?",
+    "Il modello IA viene scaricato una volta, poi è molto più veloce."
+   ]
+  ],
+  "passport-photo-maker": [
+   [
+    "Quali formati ci sono?",
+    "35×45 mm (UE, Regno Unito, Turchia, India), 30×40 mm, 2×2 pollici per gli USA, 33×48 mm per la Cina e 50×70 mm per il Canada."
+   ],
+   [
+    "Come stampo le foto?",
+    "Premi «Foglio 10×15»: ottieni una stampa standard con più copie, stampabile in qualsiasi negozio o a casa."
+   ]
+  ]
+ },
  "ui": {
   "ocr_lang": "Lingua del testo",
   "ai_local_note": "Il modello IA viene scaricato una volta e funziona sul tuo dispositivo. I file non vengono mai caricati.",
