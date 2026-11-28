@@ -11,6 +11,11 @@ export default {
    "Resimden metne (OCR)",
    "Fotoğraf, ekran görüntüsü ve taramalardaki metni yapay zekâ ile 20+ dilde çıkarın.",
    "ocr metin tanıma resim fotoğraf"
+  ],
+  "remove-background": [
+   "Arka planı kaldır (YZ)",
+   "Herhangi bir fotoğrafın arka planını yapay zekâ ile otomatik silin ve şeffaf PNG indirin.",
+   "arka plan silme dekupe şeffaf png yapay zeka"
   ]
  },
  "ui": {
@@ -18,6 +23,7 @@ export default {
   "ai_local_note": "Yapay zekâ modeli bir kez indirilir ve cihazınızda çalışır. Dosyalarınız asla yüklenmez.",
   "ai_loading_model": "Yapay zekâ modeli yükleniyor…",
   "ocr_reading": "Metin tanınıyor…",
-  "ocr_nothing": "Bu resimde metin bulunamadı."
+  "ocr_nothing": "Bu resimde metin bulunamadı.",
+  "ai_working": "Yapay zekâ çalışıyor…"
  }
 };

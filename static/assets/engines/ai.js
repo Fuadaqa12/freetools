@@ -10,7 +10,7 @@ TK.register('ai', function (root, o, K) {
     return w;
   }
 
-  ({ ocr: ocr })[o.mode]();
+  ({ ocr: ocr, bg: bg })[o.mode]();
 
   /* ---------- OCR ---------- */
   function ocr() {
@@ -54,6 +54,56 @@ TK.register('ai', function (root, o, K) {
         prog.hide(); out.value = (r.data.text || '').trim();
         if (!out.value) out.value = t('ocr_nothing');
         view.classList.remove('hide');
+      }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- background removal (IS-Net, onnxruntime-web) ---------- */
+  function bg() {
+    var lib = null, file = null, cut = null, bgMode = 'none', bgCol = '#ffffff';
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
+    var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + '</p>');
+    var prog = progress();
+    var view = el('<div class="stack hide"></div>');
+    var cmp = el('<div class="row" style="gap:12px;align-items:stretch;flex-wrap:wrap"></div>');
+    var a = el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px"></figcaption><img alt="" style="width:100%;max-height:420px;object-fit:contain;border-radius:12px;background:var(--soft)"></figure>');
+    var b = el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px"></figcaption><canvas style="width:100%;max-height:420px;object-fit:contain;border-radius:12px;background:repeating-conic-gradient(#e5e7eb 0 25%,#fff 0 50%) 0 0/20px 20px"></canvas></figure>');
+    a.querySelector('figcaption').textContent = t('f_original');
+    b.querySelector('figcaption').textContent = t('result');
+    cmp.append(a, b);
+    var opts = el('<div class="panel stack"></div>');
+    var colIn = el('<input type="color" value="#ffffff" style="width:44px;height:36px;border:0;background:none;cursor:pointer">');
+    var colWrap = el('<div class="row hide" style="gap:8px;align-items:center"></div>'); colWrap.append(colIn);
+    opts.append(K.seg([['none', t('transparent')], ['white', t('white')], ['color', t('bg_color')]], 'none', function (v) { bgMode = v; colWrap.classList.toggle('hide', v !== 'color'); draw(); }), colWrap);
+    colIn.oninput = function () { bgCol = colIn.value; draw(); };
+    var bar = el('<div class="row end"></div>');
+    bar.append(
+      K.btn('upload', t('start_over'), 'sec', function () { file = cut = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
+      K.btn('download', t('download') + ' PNG', '', function () { var c = b.querySelector('canvas'); K.canvasBlob(c, 'image/png').then(function (bl) { K.download(bl, K.baseName(file.name) + '-no-bg.png'); }); })
+    );
+    view.append(cmp, opts, bar);
+    root.append(note, dz, prog, view);
+
+    function draw() {
+      if (!cut) return;
+      var c = b.querySelector('canvas'); c.width = cut.width; c.height = cut.height;
+      var x = c.getContext('2d'); x.clearRect(0, 0, c.width, c.height);
+      if (bgMode !== 'none') { x.fillStyle = bgMode === 'white' ? '#ffffff' : bgCol; x.fillRect(0, 0, c.width, c.height); }
+      x.drawImage(cut, 0, 0);
+    }
+    function load(f) {
+      if (!/^image\//.test(f.type)) { K.toast(t('cannot_read')); return; }
+      file = f; dz.classList.add('hide'); view.classList.add('hide'); a.querySelector('img').src = URL.createObjectURL(f);
+      prog.set(t('ai_loading_model'), 0);
+      (lib ? Promise.resolve(lib) : import(V + 'bg/bgr.js').then(function (m) { lib = m; return m; })).then(function (m) {
+        return m.removeBackground(f, {
+          publicPath: V + 'bg/', model: 'isnet_quint8', output: { format: 'image/png' },
+          progress: function (key, cur, total) { if (/fetch/.test(key)) prog.set(t('ai_loading_model'), total ? cur / total : 0); else prog.set(t('ai_working'), total ? cur / total : 0.5); }
+        });
+      }).then(function (blob) {
+        return createImageBitmap(blob);
+      }).then(function (bmp) {
+        cut = bmp; prog.hide(); draw(); view.classList.remove('hide');
       }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
     }
   }

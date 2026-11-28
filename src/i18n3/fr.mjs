@@ -11,6 +11,11 @@ export default {
    "Image en texte (OCR)",
    "Extrayez le texte de photos, captures et scans grâce à la reconnaissance IA dans plus de 20 langues.",
    "ocr reconnaissance texte image photo scan"
+  ],
+  "remove-background": [
+   "Supprimer l’arrière-plan (IA)",
+   "Supprimez automatiquement l’arrière-plan de n’importe quelle photo grâce à l’IA et téléchargez un PNG transparent.",
+   "supprimer fond détourer png transparent ia"
   ]
  },
  "ui": {
@@ -18,6 +23,7 @@ export default {
   "ai_local_note": "Le modèle IA est téléchargé une fois et fonctionne sur votre appareil. Vos fichiers ne sont jamais envoyés.",
   "ai_loading_model": "Chargement du modèle IA…",
   "ocr_reading": "Reconnaissance du texte…",
-  "ocr_nothing": "Aucun texte trouvé dans cette image."
+  "ocr_nothing": "Aucun texte trouvé dans cette image.",
+  "ai_working": "L’IA travaille…"
  }
 };

@@ -165,5 +165,6 @@ TOOLS.push(
 
 // ---- batch 3: AI & media (run fully in the browser) ----
 TOOLS.push(
+  N('remove-background', 'ai', 'eraser', 'ai', { mode: 'bg' }, 'file', { pop: 1 }),
   N('image-to-text', 'ai', 'filetext', 'ai', { mode: 'ocr' }, 'file', { pop: 1, vendor: ['ocr/tesseract.min.js'] }),
 );
