@@ -111,6 +111,31 @@ export default {
    "Profil şəkli düzəldici (Sİ)",
    "Sİ sizi şəkildən kəsir və gözəl qradiyentə qoyur: Instagram, Telegram üçün hazır avatar.",
    "profil şəkli avatar düzəlt"
+  ],
+  "screenshot-beautifier": [
+   "Gözəl skrinşot",
+   "Peşəkar skrinşot: qradiyent fon, macOS və ya Windows pəncərə çərçivəsi, künclər və kölgə.",
+   "gözəl skrinşot çərçivə fon"
+  ],
+  "instagram-grid-splitter": [
+   "Instagram üçün şəkli böl",
+   "Panoramanı fasiləsiz Instagram karuselinə və ya profil torуna bölün.",
+   "instagram şəkil bölmə karusel"
+  ],
+  "youtube-thumbnail-downloader": [
+   "YouTube önizləməsini yüklə",
+   "YouTube və ya Shorts linkini yapışdırın və örtük şəklini HD saxlayın.",
+   "youtube önizləmə yüklə"
+  ],
+  "text-summarizer": [
+   "Mətni qısalt",
+   "Uzun məqalə, qeyd və ya hesabatı bir kliklə əsas cümlələrə qədər qısaldın.",
+   "mətni qısalt xülasə"
+  ],
+  "age-and-emotion-detector": [
+   "Neçə yaşında görünürəm? (Sİ)",
+   "Şəkil yükləyin, Sİ hər üzün yaşını, cinsini və əhvalını təxmin etsin.",
+   "neçə yaş görünürəm yaş təxmini"
   ]
  },
  "faqx": {
@@ -245,6 +270,29 @@ export default {
   "inv_price": "Qiymət",
   "inv_sub": "Ara cəm",
   "inv_total": "Cəmi",
-  "inv_note": "Qeydlər və rekvizitlər"
+  "inv_note": "Qeydlər və rekvizitlər",
+  "next_title": "Bəs sonra? Davam edin",
+  "shot_hint": "və ya Ctrl+V ilə skrinşot yapışdırın",
+  "shot_noframe": "Çərçivəsiz",
+  "ig_carousel": "Karusel",
+  "ig_grid": "Profil toru",
+  "ig_tip": "Tor: şəklin profildə birləşməsi üçün sonuncudan birinciyə paylaşın.",
+  "yt_get": "Al",
+  "yt_bad": "Bu YouTube linkinə oxşamır.",
+  "sum_ph": "Uzun mətni bura yapışdırın…",
+  "sum_short": "Qısa",
+  "sum_medium": "Orta",
+  "sum_long": "Ətraflı",
+  "sum_bullets": "Siyahı şəklində",
+  "sum_info": "{a} söz → {b} (−{p}%)",
+  "age_note": "Təxmin təqribidir və əyləncə üçündür. Şəkil cihazınızdan çıxmır.",
+  "age_years": "təxminən {n} yaş",
+  "emo_neutral": "Sakit",
+  "emo_happy": "Sevinc",
+  "emo_sad": "Kədər",
+  "emo_angry": "Qəzəb",
+  "emo_fearful": "Qorxu",
+  "emo_disgusted": "İkrah",
+  "emo_surprised": "Təəccüb"
  }
 };

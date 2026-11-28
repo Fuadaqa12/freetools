@@ -111,6 +111,31 @@ export default {
    "Crea foto profilo (IA)",
    "L’IA ti scontorna da qualsiasi foto e ti mette su un gradiente elegante: avatar pronto.",
    "foto profilo avatar ia"
+  ],
+  "screenshot-beautifier": [
+   "Abbellisci screenshot",
+   "Screenshot professionali: sfondo sfumato, cornice macOS o Windows, angoli e ombra.",
+   "abbellire screenshot cornice"
+  ],
+  "instagram-grid-splitter": [
+   "Dividi foto per Instagram",
+   "Taglia un panorama in un carosello continuo o in una griglia profilo.",
+   "dividere foto instagram carosello griglia"
+  ],
+  "youtube-thumbnail-downloader": [
+   "Scarica miniatura YouTube",
+   "Incolla un link YouTube o Shorts e salva la miniatura in HD.",
+   "scaricare miniatura youtube"
+  ],
+  "text-summarizer": [
+   "Riassunto di testo",
+   "Riassumi articoli, appunti o report lunghi nelle frasi chiave con un clic.",
+   "riassumere testo online"
+  ],
+  "age-and-emotion-detector": [
+   "Quanti anni dimostro? (IA)",
+   "Carica una foto e l’IA indovina età, genere e umore di ogni volto.",
+   "quanti anni dimostro rilevatore età"
   ]
  },
  "faqx": {
@@ -245,6 +270,29 @@ export default {
   "inv_price": "Prezzo",
   "inv_sub": "Subtotale",
   "inv_total": "Totale",
-  "inv_note": "Note e dati di pagamento"
+  "inv_note": "Note e dati di pagamento",
+  "next_title": "E adesso? Continua con",
+  "shot_hint": "o incolla uno screenshot con Ctrl+V",
+  "shot_noframe": "Senza cornice",
+  "ig_carousel": "Carosello",
+  "ig_grid": "Griglia profilo",
+  "ig_tip": "Griglia: pubblica dall’ultimo pezzo al primo per ricomporre l’immagine.",
+  "yt_get": "Ottieni",
+  "yt_bad": "Non sembra un link YouTube.",
+  "sum_ph": "Incolla qui un testo lungo…",
+  "sum_short": "Breve",
+  "sum_medium": "Medio",
+  "sum_long": "Dettagliato",
+  "sum_bullets": "Come elenco",
+  "sum_info": "{a} parole → {b} (−{p}%)",
+  "age_note": "La stima è approssimativa e solo per gioco. La foto resta sul tuo dispositivo.",
+  "age_years": "circa {n} anni",
+  "emo_neutral": "Neutro",
+  "emo_happy": "Felice",
+  "emo_sad": "Triste",
+  "emo_angry": "Rabbia",
+  "emo_fearful": "Paura",
+  "emo_disgusted": "Disgusto",
+  "emo_surprised": "Sorpresa"
  }
 };

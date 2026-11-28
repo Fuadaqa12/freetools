@@ -111,6 +111,31 @@ export default {
    "Profile Picture Maker (AI)",
    "AI cuts you out of any photo and puts you on a stylish gradient: a ready avatar for Instagram, Telegram, LinkedIn or Discord.",
    "profile picture maker pfp avatar maker ai background"
+  ],
+  "screenshot-beautifier": [
+   "Screenshot Beautifier",
+   "Make screenshots look pro: gradient background, macOS or Windows window frame, rounded corners and shadow.",
+   "screenshot beautifier mockup pretty screenshot frame background"
+  ],
+  "instagram-grid-splitter": [
+   "Instagram Carousel & Grid Splitter",
+   "Cut a panorama into a seamless Instagram carousel or a 3-column profile grid in 1080 px.",
+   "instagram carousel splitter grid maker panorama split image"
+  ],
+  "youtube-thumbnail-downloader": [
+   "YouTube Thumbnail Downloader",
+   "Paste a YouTube or Shorts link and save the video thumbnail in HD, SD or HQ.",
+   "youtube thumbnail downloader download thumbnail hd"
+  ],
+  "text-summarizer": [
+   "Text Summarizer",
+   "Shorten long articles, notes or reports to the key sentences in one click. Works in any language.",
+   "summarize text summarizer shorten article tldr"
+  ],
+  "age-and-emotion-detector": [
+   "Age & Emotion Detector (AI)",
+   "Upload a photo and AI guesses the age, gender and mood of every face. Just for fun, fully private.",
+   "age detector how old do i look emotion detector ai face"
   ]
  },
  "faqx": {
@@ -245,6 +270,29 @@ export default {
   "inv_price": "Price",
   "inv_sub": "Subtotal",
   "inv_total": "Total",
-  "inv_note": "Notes and payment details"
+  "inv_note": "Notes and payment details",
+  "next_title": "What next? Continue with",
+  "shot_hint": "or paste a screenshot with Ctrl+V",
+  "shot_noframe": "No frame",
+  "ig_carousel": "Carousel",
+  "ig_grid": "Profile grid",
+  "ig_tip": "Grid: post from the last piece to the first so the picture comes together on your profile.",
+  "yt_get": "Get",
+  "yt_bad": "This does not look like a YouTube link.",
+  "sum_ph": "Paste a long text here…",
+  "sum_short": "Short",
+  "sum_medium": "Medium",
+  "sum_long": "Detailed",
+  "sum_bullets": "As a bullet list",
+  "sum_info": "{a} words → {b} words (−{p}%)",
+  "age_note": "AI estimates are approximate and just for fun. The photo never leaves your device.",
+  "age_years": "about {n} years",
+  "emo_neutral": "Neutral",
+  "emo_happy": "Happy",
+  "emo_sad": "Sad",
+  "emo_angry": "Angry",
+  "emo_fearful": "Fear",
+  "emo_disgusted": "Disgust",
+  "emo_surprised": "Surprise"
  }
 };

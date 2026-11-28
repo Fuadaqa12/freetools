@@ -111,6 +111,31 @@ export default {
    "Profil fotoğrafı yapıcı (YZ)",
    "Yapay zekâ sizi fotoğraftan keser ve şık bir gradyana yerleştirir: Instagram, LinkedIn için hazır avatar.",
    "profil fotoğrafı yapma avatar"
+  ],
+  "screenshot-beautifier": [
+   "Ekran görüntüsü güzelleştirici",
+   "Profesyonel ekran görüntüleri: gradyan arka plan, macOS veya Windows çerçevesi, köşe ve gölge.",
+   "ekran görüntüsü güzelleştirme çerçeve"
+  ],
+  "instagram-grid-splitter": [
+   "Instagram kaydırmalı ve ızgara bölücü",
+   "Panoramayı kesintisiz Instagram kaydırmalı gönderisine veya profil ızgarasına bölün.",
+   "instagram ızgara bölme kaydırmalı"
+  ],
+  "youtube-thumbnail-downloader": [
+   "YouTube kapak resmi indir",
+   "YouTube veya Shorts bağlantısını yapıştırın, kapak resmini HD kaydedin.",
+   "youtube kapak fotoğrafı indir"
+  ],
+  "text-summarizer": [
+   "Metin özetleyici",
+   "Uzun makale, not veya raporları tek tıkla ana cümlelere indirin.",
+   "metin özetleme online"
+  ],
+  "age-and-emotion-detector": [
+   "Kaç yaşında görünüyorum? (YZ)",
+   "Fotoğraf yükleyin, yapay zekâ her yüzün yaşını, cinsiyetini ve ruh halini tahmin etsin.",
+   "kaç yaşında görünüyorum yaş tahmini"
   ]
  },
  "faqx": {
@@ -245,6 +270,29 @@ export default {
   "inv_price": "Fiyat",
   "inv_sub": "Ara toplam",
   "inv_total": "Toplam",
-  "inv_note": "Notlar ve ödeme bilgileri"
+  "inv_note": "Notlar ve ödeme bilgileri",
+  "next_title": "Sırada ne var? Devam edin",
+  "shot_hint": "veya Ctrl+V ile ekran görüntüsü yapıştırın",
+  "shot_noframe": "Çerçevesiz",
+  "ig_carousel": "Kaydırmalı",
+  "ig_grid": "Profil ızgarası",
+  "ig_tip": "Izgara: resmin profilde birleşmesi için sondan başa doğru paylaşın.",
+  "yt_get": "Getir",
+  "yt_bad": "Bu bir YouTube bağlantısı gibi görünmüyor.",
+  "sum_ph": "Uzun bir metni buraya yapıştırın…",
+  "sum_short": "Kısa",
+  "sum_medium": "Orta",
+  "sum_long": "Ayrıntılı",
+  "sum_bullets": "Madde listesi",
+  "sum_info": "{a} kelime → {b} (−%{p})",
+  "age_note": "Tahminler yaklaşıktır, sadece eğlence için. Fotoğraf cihazınızdan çıkmaz.",
+  "age_years": "yaklaşık {n} yaş",
+  "emo_neutral": "Nötr",
+  "emo_happy": "Mutlu",
+  "emo_sad": "Üzgün",
+  "emo_angry": "Kızgın",
+  "emo_fearful": "Korku",
+  "emo_disgusted": "İğrenme",
+  "emo_surprised": "Şaşkın"
  }
 };

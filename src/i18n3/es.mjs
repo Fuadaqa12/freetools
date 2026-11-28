@@ -111,6 +111,31 @@ export default {
    "Creador de foto de perfil (IA)",
    "La IA te recorta de cualquier foto y te pone sobre un degradado con estilo: avatar listo para Instagram o LinkedIn.",
    "foto de perfil avatar ia"
+  ],
+  "screenshot-beautifier": [
+   "Embellecer capturas de pantalla",
+   "Capturas con aspecto profesional: fondo degradado, marco de ventana macOS o Windows, esquinas y sombra.",
+   "embellecer captura de pantalla marco"
+  ],
+  "instagram-grid-splitter": [
+   "Dividir foto para Instagram",
+   "Corta una panorámica en un carrusel continuo o una cuadrícula de perfil de Instagram.",
+   "dividir foto instagram carrusel cuadricula"
+  ],
+  "youtube-thumbnail-downloader": [
+   "Descargar miniatura de YouTube",
+   "Pega un enlace de YouTube o Shorts y guarda la miniatura en HD.",
+   "descargar miniatura youtube"
+  ],
+  "text-summarizer": [
+   "Resumidor de textos",
+   "Resume artículos, apuntes o informes largos a las frases clave en un clic.",
+   "resumir texto online resumidor"
+  ],
+  "age-and-emotion-detector": [
+   "¿Cuántos años aparento? (IA)",
+   "Sube una foto y la IA adivina edad, sexo y estado de ánimo de cada cara.",
+   "cuantos años aparento detector edad ia"
   ]
  },
  "faqx": {
@@ -245,6 +270,29 @@ export default {
   "inv_price": "Precio",
   "inv_sub": "Subtotal",
   "inv_total": "Total",
-  "inv_note": "Notas y datos de pago"
+  "inv_note": "Notas y datos de pago",
+  "next_title": "¿Y ahora? Continúa con",
+  "shot_hint": "o pega una captura con Ctrl+V",
+  "shot_noframe": "Sin marco",
+  "ig_carousel": "Carrusel",
+  "ig_grid": "Cuadrícula",
+  "ig_tip": "Cuadrícula: publica de la última pieza a la primera para que se forme en tu perfil.",
+  "yt_get": "Obtener",
+  "yt_bad": "No parece un enlace de YouTube.",
+  "sum_ph": "Pega aquí un texto largo…",
+  "sum_short": "Corto",
+  "sum_medium": "Medio",
+  "sum_long": "Detallado",
+  "sum_bullets": "Como lista",
+  "sum_info": "{a} palabras → {b} (−{p}%)",
+  "age_note": "La estimación es aproximada y solo por diversión. La foto no sale de tu dispositivo.",
+  "age_years": "unos {n} años",
+  "emo_neutral": "Neutral",
+  "emo_happy": "Feliz",
+  "emo_sad": "Triste",
+  "emo_angry": "Enfado",
+  "emo_fearful": "Miedo",
+  "emo_disgusted": "Asco",
+  "emo_surprised": "Sorpresa"
  }
 };

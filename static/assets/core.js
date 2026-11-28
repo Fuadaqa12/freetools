@@ -36,6 +36,25 @@
     a.href = typeof blob === 'string' ? blob : URL.createObjectURL(blob);
     a.download = name; document.body.appendChild(a); a.click();
     setTimeout(function () { a.remove(); if (typeof blob !== 'string') URL.revokeObjectURL(a.href); }, 4000);
+    try { nextSteps(name); } catch (e) { }
+  }
+  var NEXT = {
+    img: ['compress-image', 'compress-image-to-kb', 'resize-image', 'crop-image', 'remove-background', 'jpg-to-pdf', 'watermark-image', 'upscale-image'],
+    pdf: ['compress-pdf', 'sign-pdf', 'merge-pdf', 'pdf-to-word', 'add-page-numbers-pdf', 'pdf-to-jpg'],
+    vid: ['compress-video', 'video-to-mp3', 'video-to-gif'],
+    aud: ['audio-cutter', 'speech-to-text'],
+    doc: ['word-counter', 'pdf-to-word']
+  }, nextShown = false;
+  function nextSteps(name) {
+    var th = document.getElementById('tool'); if (nextShown || !th || !window.IDX) return;
+    var ext = String(name || '').split('.').pop().toLowerCase();
+    var k = /^(jpe?g|png|webp|gif|svg|ico|bmp|avif)$/.test(ext) ? 'img' : ext === 'pdf' ? 'pdf' : /^(mp4|webm|mov)$/.test(ext) ? 'vid' : /^(mp3|wav|m4a|ogg)$/.test(ext) ? 'aud' : /^(docx|txt|srt)$/.test(ext) ? 'doc' : '';
+    if (!k) return;
+    var ids = NEXT[k].filter(function (x) { return x !== th.dataset.id; }).slice(0, 4);
+    var html = ids.map(function (id) { var it = window.IDX.filter(function (x) { return x.id === id; })[0]; return it ? '<a class="card mini" href="' + ROOT + it.u + '" style="--c:' + it.c + '"><span class="ic">' + svg(it.i) + '</span><div><b>' + esc(it.n) + '</b></div></a>' : ''; }).join('');
+    if (!html) return; nextShown = true;
+    var box = el('<section class="nextbox"><h3>✨ ' + esc(t('next_title')) + '</h3><div class="grid">' + html + '</div></section>');
+    th.insertAdjacentElement('afterend', box);
   }
   var toastEl, toastT;
   function toast(msg) {

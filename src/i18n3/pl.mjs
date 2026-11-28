@@ -111,6 +111,31 @@ export default {
    "Kreator zdjęcia profilowego (AI)",
    "AI wycina Cię z dowolnego zdjęcia i umieszcza na stylowym gradiencie: gotowy awatar.",
    "zdjęcie profilowe awatar ai"
+  ],
+  "screenshot-beautifier": [
+   "Upiększ zrzut ekranu",
+   "Profesjonalne zrzuty: gradientowe tło, ramka okna macOS lub Windows, zaokrąglenia i cień.",
+   "upiększ zrzut ekranu ramka"
+  ],
+  "instagram-grid-splitter": [
+   "Dzielenie zdjęć na Instagram",
+   "Potnij panoramę na płynną karuzelę lub siatkę profilu Instagram.",
+   "podziel zdjęcie instagram karuzela siatka"
+  ],
+  "youtube-thumbnail-downloader": [
+   "Pobierz miniaturę z YouTube",
+   "Wklej link do YouTube lub Shorts i zapisz miniaturę w HD.",
+   "pobierz miniaturkę youtube"
+  ],
+  "text-summarizer": [
+   "Streszczenie tekstu",
+   "Skróć długi artykuł, notatki lub raport do kluczowych zdań jednym kliknięciem.",
+   "streszczenie tekstu online"
+  ],
+  "age-and-emotion-detector": [
+   "Ile mam lat na zdjęciu? (AI)",
+   "Wgraj zdjęcie, a AI zgadnie wiek, płeć i nastrój każdej twarzy.",
+   "ile mam lat na zdjęciu wiek ai"
   ]
  },
  "faqx": {
@@ -245,6 +270,29 @@ export default {
   "inv_price": "Cena",
   "inv_sub": "Suma częściowa",
   "inv_total": "Razem",
-  "inv_note": "Uwagi i dane do płatności"
+  "inv_note": "Uwagi i dane do płatności",
+  "next_title": "Co dalej? Kontynuuj w",
+  "shot_hint": "lub wklej zrzut przez Ctrl+V",
+  "shot_noframe": "Bez ramki",
+  "ig_carousel": "Karuzela",
+  "ig_grid": "Siatka profilu",
+  "ig_tip": "Siatka: publikuj od ostatniej części do pierwszej, by obraz złożył się w profilu.",
+  "yt_get": "Pobierz",
+  "yt_bad": "To nie wygląda na link YouTube.",
+  "sum_ph": "Wklej tutaj długi tekst…",
+  "sum_short": "Krótko",
+  "sum_medium": "Średnio",
+  "sum_long": "Szczegółowo",
+  "sum_bullets": "Jako lista",
+  "sum_info": "{a} słów → {b} (−{p}%)",
+  "age_note": "Szacunek jest przybliżony i dla zabawy. Zdjęcie nie opuszcza urządzenia.",
+  "age_years": "około {n} lat",
+  "emo_neutral": "Neutralny",
+  "emo_happy": "Radość",
+  "emo_sad": "Smutek",
+  "emo_angry": "Złość",
+  "emo_fearful": "Strach",
+  "emo_disgusted": "Obrzydzenie",
+  "emo_surprised": "Zaskoczenie"
  }
 };

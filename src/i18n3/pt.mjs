@@ -111,6 +111,31 @@ export default {
    "Criador de foto de perfil (IA)",
    "A IA recorta você de qualquer foto e coloca num degradê estiloso: avatar pronto para Instagram ou LinkedIn.",
    "foto de perfil avatar ia"
+  ],
+  "screenshot-beautifier": [
+   "Embelezar capturas de tela",
+   "Capturas com visual profissional: fundo degradê, moldura macOS ou Windows, cantos e sombra.",
+   "embelezar captura de tela moldura"
+  ],
+  "instagram-grid-splitter": [
+   "Dividir foto para Instagram",
+   "Corte uma panorâmica em carrossel contínuo ou grade de perfil do Instagram.",
+   "dividir foto instagram carrossel grade"
+  ],
+  "youtube-thumbnail-downloader": [
+   "Baixar thumbnail do YouTube",
+   "Cole um link do YouTube ou Shorts e salve a thumbnail em HD.",
+   "baixar thumbnail youtube capa"
+  ],
+  "text-summarizer": [
+   "Resumidor de texto",
+   "Resuma artigos, anotações ou relatórios longos nas frases principais em um clique.",
+   "resumir texto online"
+  ],
+  "age-and-emotion-detector": [
+   "Quantos anos eu pareço? (IA)",
+   "Envie uma foto e a IA adivinha idade, gênero e humor de cada rosto.",
+   "quantos anos eu pareço detector idade ia"
   ]
  },
  "faqx": {
@@ -245,6 +270,29 @@ export default {
   "inv_price": "Preço",
   "inv_sub": "Subtotal",
   "inv_total": "Total",
-  "inv_note": "Observações e dados de pagamento"
+  "inv_note": "Observações e dados de pagamento",
+  "next_title": "E agora? Continue com",
+  "shot_hint": "ou cole uma captura com Ctrl+V",
+  "shot_noframe": "Sem moldura",
+  "ig_carousel": "Carrossel",
+  "ig_grid": "Grade do perfil",
+  "ig_tip": "Grade: publique da última parte para a primeira para a imagem se formar no perfil.",
+  "yt_get": "Obter",
+  "yt_bad": "Não parece um link do YouTube.",
+  "sum_ph": "Cole aqui um texto longo…",
+  "sum_short": "Curto",
+  "sum_medium": "Médio",
+  "sum_long": "Detalhado",
+  "sum_bullets": "Em lista",
+  "sum_info": "{a} palavras → {b} (−{p}%)",
+  "age_note": "A estimativa é aproximada e só por diversão. A foto não sai do seu aparelho.",
+  "age_years": "cerca de {n} anos",
+  "emo_neutral": "Neutro",
+  "emo_happy": "Feliz",
+  "emo_sad": "Triste",
+  "emo_angry": "Raiva",
+  "emo_fearful": "Medo",
+  "emo_disgusted": "Nojo",
+  "emo_surprised": "Surpresa"
  }
 };

@@ -524,3 +524,9 @@ kbd{font:600 12px/1 var(--font);padding:4px 7px;border-radius:7px;border:1px sol
  .sec .card b{font-size:14.5px}.sec .card .go{display:none}
  .hero .pill{font-size:12px}
 }
+
+.nextbox{margin:18px 0 0;padding:18px;border-radius:20px;background:linear-gradient(135deg,var(--brand-soft),transparent);border:1px solid var(--line);animation:mfade .35s ease}
+.nextbox h3{margin:0 0 12px;font-size:17px}
+.nextbox .grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+@media (max-width:600px){.nextbox .grid{grid-template-columns:1fr 1fr}}
+.nextbox .card{padding:12px;gap:10px}.nextbox .card b{font-size:14px}

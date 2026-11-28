@@ -111,6 +111,31 @@ export default {
    "Profilbild-Ersteller (KI)",
    "KI schneidet Sie aus jedem Foto aus und setzt Sie auf einen stylischen Verlauf: fertiges Profilbild.",
    "profilbild erstellen avatar ki"
+  ],
+  "screenshot-beautifier": [
+   "Screenshot verschönern",
+   "Screenshots wie vom Profi: Verlaufshintergrund, macOS- oder Windows-Rahmen, runde Ecken, Schatten.",
+   "screenshot verschönern rahmen hintergrund"
+  ],
+  "instagram-grid-splitter": [
+   "Instagram-Karussell & Raster",
+   "Panorama in ein nahtloses Instagram-Karussell oder 3er-Profilraster schneiden.",
+   "instagram karussell raster bild teilen"
+  ],
+  "youtube-thumbnail-downloader": [
+   "YouTube-Thumbnail herunterladen",
+   "YouTube- oder Shorts-Link einfügen und Vorschaubild in HD speichern.",
+   "youtube thumbnail herunterladen"
+  ],
+  "text-summarizer": [
+   "Text zusammenfassen",
+   "Lange Artikel, Notizen oder Berichte mit einem Klick auf die Kernsätze kürzen.",
+   "text zusammenfassen online"
+  ],
+  "age-and-emotion-detector": [
+   "Wie alt sehe ich aus? (KI)",
+   "Foto hochladen, KI schätzt Alter, Geschlecht und Stimmung jedes Gesichts.",
+   "wie alt sehe ich aus alter schätzen ki"
   ]
  },
  "faqx": {
@@ -245,6 +270,29 @@ export default {
   "inv_price": "Preis",
   "inv_sub": "Zwischensumme",
   "inv_total": "Gesamt",
-  "inv_note": "Hinweise und Zahlungsdaten"
+  "inv_note": "Hinweise und Zahlungsdaten",
+  "next_title": "Wie weiter? Weiter mit",
+  "shot_hint": "oder Screenshot mit Strg+V einfügen",
+  "shot_noframe": "Ohne Rahmen",
+  "ig_carousel": "Karussell",
+  "ig_grid": "Profilraster",
+  "ig_tip": "Raster: vom letzten zum ersten Teil posten, damit das Bild im Profil entsteht.",
+  "yt_get": "Holen",
+  "yt_bad": "Das sieht nicht nach einem YouTube-Link aus.",
+  "sum_ph": "Langen Text hier einfügen…",
+  "sum_short": "Kurz",
+  "sum_medium": "Mittel",
+  "sum_long": "Ausführlich",
+  "sum_bullets": "Als Liste",
+  "sum_info": "{a} Wörter → {b} (−{p} %)",
+  "age_note": "Die Schätzung ist ungefähr und nur zum Spaß. Das Foto bleibt auf Ihrem Gerät.",
+  "age_years": "etwa {n} Jahre",
+  "emo_neutral": "Neutral",
+  "emo_happy": "Fröhlich",
+  "emo_sad": "Traurig",
+  "emo_angry": "Wütend",
+  "emo_fearful": "Angst",
+  "emo_disgusted": "Ekel",
+  "emo_surprised": "Überrascht"
  }
 };

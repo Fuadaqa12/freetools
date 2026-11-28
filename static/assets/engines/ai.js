@@ -26,7 +26,7 @@ TK.register('ai', function (root, o, K) {
     return el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px">' + esc(label) + '</figcaption><canvas style="width:100%;max-height:440px;object-fit:contain;border-radius:12px;' + (checker ? 'background:repeating-conic-gradient(#e5e7eb 0 25%,#fff 0 50%) 0 0/20px 20px' : 'background:var(--soft)') + '"></canvas></figure>');
   }
 
-  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport, faces: faces, sticker: sticker, stt: stt, pfp: pfp })[o.mode]();
+  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport, faces: faces, sticker: sticker, stt: stt, pfp: pfp, ageemo: ageemo })[o.mode]();
 
   /* ---------- OCR ---------- */
   function ocr() {
@@ -500,6 +500,39 @@ TK.register('ai', function (root, o, K) {
         for (var y = 0; y < c.height; y += 2) for (var i = 0; i < c.width; i += 2) if (d[(y * c.width + i) * 4 + 3] > 30) { if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y; }
         cut = { c: c, box: x1 > x0 ? { x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 } : { x: 0, y: 0, w: c.width, h: c.height } };
         prog.hide(); draw(); view.classList.remove('hide');
+      }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- AI age, gender & emotion ---------- */
+  function ageemo() {
+    var EM = { neutral: '😐', happy: '😄', sad: '😢', angry: '😠', fearful: '😨', disgusted: '🤢', surprised: '😲' }, ready = null;
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
+    var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + '</p>');
+    var prog = progress(), view = el('<div class="stack hide" style="margin-top:14px"></div>');
+    var cv = el('<canvas style="width:100%;max-height:520px;object-fit:contain;border-radius:12px;background:var(--soft)"></canvas>'), list = el('<div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))"></div>');
+    var bar = el('<div class="acts"></div>'), file = null;
+    bar.append(K.btn('upload', t('start_over'), 'sec', function () { view.classList.add('hide'); dz.classList.remove('hide'); }), K.btn('download', t('download'), '', function () { K.canvasBlob(cv, 'image/jpeg', 0.92).then(function (b) { K.download(b, K.baseName(file.name) + '-ai.jpg'); }); }));
+    view.append(cv, list, el('<p class="muted" style="margin:0;font-size:13px">' + esc(t('age_note')) + '</p>'), bar); root.append(note, dz, prog, view);
+    function load(f) {
+      if (!/^image\//.test(f.type)) { K.toast(t('cannot_read')); return; }
+      file = f; dz.classList.add('hide'); prog.set(t('ai_loading_model'), 0.1);
+      if (!ready) ready = scripts(['face/face-api.js']).then(function () { prog.set(t('ai_loading_model'), 0.4); return Promise.all([faceapi.nets.ssdMobilenetv1.loadFromUri(V + 'face/'), faceapi.nets.ageGenderNet.loadFromUri(V + 'face/'), faceapi.nets.faceExpressionNet.loadFromUri(V + 'face/')]); });
+      Promise.all([ready, K.loadImage(f)]).then(function (r) {
+        var img = r[1]; prog.set(t('ai_working'), 0.8);
+        var k = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight)), c = document.createElement('canvas'); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k); c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        return faceapi.detectAllFaces(c, new faceapi.SsdMobilenetv1Options({ minConfidence: 0.4 })).withAgeAndGender().withFaceExpressions().then(function (res) {
+          cv.width = c.width; cv.height = c.height; var x = cv.getContext('2d'); x.drawImage(c, 0, 0); list.innerHTML = '';
+          res.sort(function (a, b) { return a.detection.box.x - b.detection.box.x; }).forEach(function (d, i) {
+            var b = d.detection.box, ex = Object.keys(d.expressions).sort(function (p, q) { return d.expressions[q] - d.expressions[p]; })[0], lw = Math.max(3, c.width / 300);
+            x.strokeStyle = '#a78bfa'; x.lineWidth = lw; x.strokeRect(b.x, b.y, b.width, b.height);
+            var fs = Math.max(16, b.width / 5); x.font = '700 ' + fs + 'px sans-serif'; var lab = (i + 1) + ' ' + EM[ex]; var tw = x.measureText(lab).width;
+            x.fillStyle = '#7c3aed'; x.fillRect(b.x, b.y - fs * 1.3, tw + fs * 0.6, fs * 1.3); x.fillStyle = '#fff'; x.fillText(lab, b.x + fs * 0.3, b.y - fs * 0.3);
+            var g = d.gender === 'male' ? t('male') : t('female');
+            list.append(el('<div class="panel" style="display:flex;gap:12px;align-items:center"><span style="font-size:40px">' + EM[ex] + '</span><div><b>#' + (i + 1) + ' · ' + esc(t('age_years', { n: Math.round(d.age) })) + '</b><div class="muted" style="font-size:14px">' + esc(g) + ' · ' + esc(t('emo_' + ex)) + ' ' + Math.round(d.expressions[ex] * 100) + '%</div></div></div>'));
+          });
+          prog.hide(); view.classList.remove('hide'); if (!res.length) K.toast(t('faces_none').split('.')[0] + '.');
+        });
       }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
     }
   }
