@@ -73,7 +73,7 @@ function layout(l, p, { title, desc, body, alt, schema = [], noindex = false, og
   const footerCats = CATS.map(c => `<a href="${root}${pre(l)}category/${c.id}/">${esc(CN(l, c.id)[0])}</a>`).join('');
   const footerPop = TOOLS.filter(t => t.pop).slice(0, 6).map(t => `<a href="${root}${pre(l)}${t.id}/">${esc(TN(l, t.id)[0])}</a>`).join('');
   const head = [
-    `<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">`,
+    `<meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"><meta name="referrer" content="strict-origin-when-cross-origin"><meta name="viewport" content="width=device-width,initial-scale=1">`,
     `<title>${esc(title)}</title><meta name="description" content="${esc(desc)}">`,
     `<meta name="root" content="${root}">`,
     noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url(l, p)}">`,
