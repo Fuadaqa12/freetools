@@ -252,7 +252,9 @@ export default {
   "tr1": "Les fichiers restent sur votre appareil",
   "tr2": "Connexion HTTPS sécurisée",
   "tr3": "Sans inscription ni limite",
-  "tr4": "12 langues, tout appareil"
+  "tr4": "12 langues, tout appareil",
+  "tgTitle": "Toolora sur Telegram",
+  "tgText": "Envoyez au bot une photo, un PDF ou un vocal et choisissez un outil. Gratuit."
  },
  "ui": {
   "ocr_lang": "Langue du texte",

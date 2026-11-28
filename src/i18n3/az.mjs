@@ -252,7 +252,9 @@ export default {
   "tr1": "Fayllar cihazınızda qalır",
   "tr2": "Təhlükəsiz HTTPS bağlantısı",
   "tr3": "Qeydiyyat və limit yoxdur",
-  "tr4": "12 dil, istənilən cihaz"
+  "tr4": "12 dil, istənilən cihaz",
+  "tgTitle": "Toolora Telegram-da",
+  "tgText": "Bota şəkil, PDF və ya səsli mesaj göndərin və alət seçin. Pulsuz."
  },
  "ui": {
   "ocr_lang": "Mətnin dili",

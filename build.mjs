@@ -153,6 +153,7 @@ function homePage(l) {
 ${adSlot('top')}
 <section class="sec hide" id="favs"><div class="sec-h"><h2>${svg('star')}${esc(S(l, 'favTitle'))}</h2></div><div class="grid" id="favGrid"></div></section>
 <section class="sec hide" id="recent"><div class="sec-h"><h2>${svg('history')}${esc(S(l, 'recentTitle'))}</h2></div><div class="grid" id="recentGrid"></div></section>
+${CFG.telegramBot ? `<a class="tgban" href="https://t.me/${esc(CFG.telegramBot)}" rel="noopener" target="_blank"><span class="tgi"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13 1.4 11.5c-1-.3-1.1-1 .2-1.5L20.5 2.7c.9-.3 1.6.2 1.4 1.6z"/></svg></span><span><b>${esc(S(l, 'tgTitle'))}</b><small>${esc(S(l, 'tgText'))}</small></span><em>@${esc(CFG.telegramBot)} →</em></a>` : ''}
 <section class="sec" id="popular"><div class="sec-h"><h2>🔥 ${esc(S(l, 'popular'))}</h2></div><div class="grid">${pop.map(t => card(l, t, root)).join('')}</div></section>
 <section class="sec" id="fresh"><div class="sec-h"><h2>✨ ${esc(S(l, 'newTitle'))}</h2></div><div class="grid">${fresh.map(t => card(l, t, root)).join('')}</div></section>
 ${secs}
@@ -311,12 +312,13 @@ for (const [l, p] of urls) {
 sm += '</urlset>\n';
 write('sitemap.xml', sm);
 write('manifest.webmanifest', JSON.stringify({ name: CFG.siteName + ' — Free Online Tools', short_name: CFG.siteName, start_url: '/', scope: '/', display: 'standalone', background_color: '#ffffff', theme_color: '#5b4cf5', description: EN.s.homeDesc.replace('{n}', TOOLS.length), icons: [{ src: '/assets/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/assets/icon-512.png', sizes: '512x512', type: 'image/png' }, { src: '/assets/icon-512m.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }] }));
-write('sw.js', `const V='t-${VER}';
+write('sw.js', `const V='t-${VER}',VV='tv-1';
 self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(V).then(c=>c.addAll(['/','/assets/style.css?v=${VER}','/assets/core.js?v=${VER}']).catch(()=>{})))});
-self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V&&k!==VV).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;
 if(r.mode==='navigate'){e.respondWith(fetch(r).then(res=>{const c=res.clone();caches.open(V).then(x=>x.put(r,c));return res}).catch(()=>caches.match(r).then(m=>m||caches.match('/'))));return}
-e.respondWith(caches.match(r).then(m=>m||fetch(r).then(res=>{if(res.ok){const c=res.clone();caches.open(V).then(x=>x.put(r,c))}return res})))});
+if(r.headers.has('range'))return;const K=u.pathname.indexOf('/assets/vendor/')>=0?VV:V;
+e.respondWith(caches.match(r).then(m=>m||fetch(r).then(res=>{if(res.status===200){const c=res.clone();caches.open(K).then(x=>x.put(r,c)).catch(()=>{})}return res})))});
 `);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}sitemap.xml\n`);
 if (ADS) write('ads.txt', `google.com, ${CFG.adsenseClient.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`);

@@ -542,3 +542,10 @@ kbd{font:600 12px/1 var(--font);padding:4px 7px;border-radius:7px;border:1px sol
 .trust svg{width:18px;height:18px;color:#16a34a}
 .ftr .cols{grid-template-columns:1.4fr repeat(4,1fr)}
 @media (max-width:900px){.ftr .cols{grid-template-columns:1fr 1fr}.ftr .cols>div:first-child{grid-column:1/-1}}
+
+.tgban{display:flex;align-items:center;gap:14px;margin:0 0 26px;padding:16px 18px;border-radius:18px;background:linear-gradient(135deg,#229ed9,#1d7fc1);color:#fff;text-decoration:none;box-shadow:0 12px 30px -14px rgba(34,158,217,.7);transition:transform .15s}
+.tgban:hover{transform:translateY(-2px)}
+.tgban .tgi{flex:none;width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.18);display:grid;place-items:center}.tgban .tgi svg{width:24px;height:24px}
+.tgban b{display:block;font-size:16px}.tgban small{display:block;opacity:.9;font-size:13.5px;line-height:1.4}
+.tgban em{margin-inline-start:auto;font-style:normal;font-weight:700;white-space:nowrap}
+@media (max-width:600px){.tgban em{display:none}}
