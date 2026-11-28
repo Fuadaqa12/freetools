@@ -24,6 +24,10 @@ for (const l of LANGS) {
     for (const k of ['s', 'cats', 'tools', 'faqx', 'units', 'ui', 'cols']) A[k] = { ...(A[k] || {}), ...(B[k] || {}) };
   }
   if (fs.existsSync(path.join(HERE, 'src/faq', l + '.mjs'))) A.faqx = { ...(A.faqx || {}), ...(await import(`./src/faq/${l}.mjs`)).default };
+  for (const k of ['bLangs', 'footerText', 'about']) {
+    const fix = v => typeof v === 'string' ? v.replace(/(^|[^\d])(10|20|١٠|१०)(?!\d)/g, (m, a) => a + LANGS.length) : v;
+    if (A.s?.[k] != null) A.s[k] = Array.isArray(A.s[k]) ? A.s[k].map(fix) : fix(A.s[k]);
+  }
   I[l] = A;
 }
 const EN = I.en;

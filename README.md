@@ -1,6 +1,6 @@
 # Toolora — free online tools (static site)
 
-58 client-side tools × 10 languages = 720 SEO pages (hreflang, sitemap, JSON-LD), no backend.
+58 client-side tools × 12 languages = 720 SEO pages (hreflang, sitemap, JSON-LD), no backend.
 
 - `node build.mjs` → builds `dist/` (no npm install needed, Node 18+)
 - `config.json` — site name, URL, custom domain, languages, AdSense client and slot ids, GA id, Search Console code, contact email
