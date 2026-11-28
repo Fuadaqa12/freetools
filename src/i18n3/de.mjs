@@ -176,6 +176,31 @@ export default {
    "Lebenslauf erstellen kostenlos",
    "Erstellen Sie in Minuten einen professionellen Lebenslauf mit Foto als PDF. Ohne Anmeldung und Wasserzeichen.",
    "lebenslauf erstellen kostenlos pdf"
+  ],
+  "online-notepad": [
+   "Online-Notizblock",
+   "Schneller Notizblock: mehrere Notizen, Autospeichern, Wortzähler und TXT-Download.",
+   "online notizblock"
+  ],
+  "emoji-copy-paste": [
+   "Emojis kopieren & einfügen",
+   "Alle beliebten Emojis: antippen zum Kopieren, Nachricht zusammenstellen.",
+   "emoji kopieren"
+  ],
+  "transliteration": [
+   "Transliteration Kyrillisch-Latein",
+   "Kyrillisch in Latein und zurück: Russisch, Reisepass, Aserbaidschanisch, Ukrainisch.",
+   "transliteration kyrillisch"
+  ],
+  "document-scanner": [
+   "Dokumentenscanner zu PDF",
+   "Dokumente mit der Handykamera scannen: automatische Bereinigung, Schwarz-Weiß, mehrseitiges PDF.",
+   "dokument scannen pdf handy"
+  ],
+  "split-bill-calculator": [
+   "Rechnung teilen Rechner",
+   "Restaurantrechnung mit Trinkgeld unter Freunden aufteilen.",
+   "rechnung teilen trinkgeld"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Mit Seitenleiste",
   "cv_tpl_classic": "Klassisch",
   "cv_del": "Entfernen",
-  "cv_skills_h": "Fähigkeiten"
+  "cv_skills_h": "Fähigkeiten",
+  "np_new": "Neue Notiz",
+  "np_empty": "Leere Notiz",
+  "np_words": "{w} Wörter · {c} Zeichen",
+  "np_saved": "Gespeichert",
+  "np_note": "Notizen bleiben nur in diesem Browser. Wichtige herunterladen.",
+  "em_ph": "Emojis antippen, um sie hinzuzufügen",
+  "em_tip": "Jedes Antippen kopiert das Emoji auch.",
+  "tl_ph": "Text eingeben oder einfügen…",
+  "tl_ru": "Russisch",
+  "tl_pass": "Reisepass (ICAO)",
+  "scan_take": "Foto aufnehmen",
+  "scan_upload": "Oder Fotos hochladen",
+  "scan_doc": "Dokument",
+  "scan_bw": "Schwarz-Weiß",
+  "scan_color": "Farbe",
+  "scan_tip": "Tipp: von oben bei gutem Licht fotografieren, das Blatt füllt das Bild.",
+  "sb_total": "Rechnungsbetrag",
+  "sb_people": "Personen",
+  "sb_tip": "Trinkgeld",
+  "sb_each": "Jeder zahlt",
+  "sb_tipamt": "Trinkgeld",
+  "sb_all": "Gesamt mit Trinkgeld"
  }
 };

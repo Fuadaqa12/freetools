@@ -176,6 +176,31 @@ export default {
    "Ücretsiz CV oluşturucu",
    "Fotoğraflı profesyonel CV’nizi dakikalar içinde oluşturup PDF indirin. Kayıt ve filigran yok.",
    "cv hazırlama ücretsiz özgeçmiş pdf"
+  ],
+  "online-notepad": [
+   "Online not defteri",
+   "Hızlı not defteri: birden çok not, otomatik kayıt, kelime sayacı ve TXT indirme.",
+   "online not defteri"
+  ],
+  "emoji-copy-paste": [
+   "Emoji kopyala yapıştır",
+   "Tüm popüler emojiler: kopyalamak için dokunun, mesajınızı oluşturun.",
+   "emoji kopyala"
+  ],
+  "transliteration": [
+   "Kiril-Latin harf çevirici",
+   "Kiril alfabesini Latin’e ve tersine çevirin: Rusça, pasaport, Azerice, Ukraynaca.",
+   "kiril latin çevirici"
+  ],
+  "document-scanner": [
+   "Belge tarayıcı (PDF)",
+   "Telefon kamerasıyla belge tarayın: otomatik temizleme, siyah-beyaz ve çok sayfalı PDF.",
+   "belge tarama pdf telefon"
+  ],
+  "split-bill-calculator": [
+   "Hesap bölme hesaplayıcı",
+   "Restoran hesabını bahşişle birlikte arkadaşlar arasında bölün.",
+   "hesap bölme bahşiş"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Yan panelli",
   "cv_tpl_classic": "Klasik",
   "cv_del": "Sil",
-  "cv_skills_h": "Beceriler"
+  "cv_skills_h": "Beceriler",
+  "np_new": "Yeni not",
+  "np_empty": "Boş not",
+  "np_words": "{w} kelime · {c} karakter",
+  "np_saved": "Kaydedildi",
+  "np_note": "Notlar yalnızca bu tarayıcıda saklanır. Önemlileri indirin.",
+  "em_ph": "Eklemek için emojilere dokunun",
+  "em_tip": "Her dokunuş emojiyi de kopyalar.",
+  "tl_ph": "Metin yazın veya yapıştırın…",
+  "tl_ru": "Rusça",
+  "tl_pass": "Pasaport (ICAO)",
+  "scan_take": "Fotoğraf çek",
+  "scan_upload": "Veya fotoğraf yükleyin",
+  "scan_doc": "Belge",
+  "scan_bw": "Siyah-beyaz",
+  "scan_color": "Renkli",
+  "scan_tip": "İpucu: iyi ışıkta yukarıdan çekin, sayfa kadrayı doldursun.",
+  "sb_total": "Hesap tutarı",
+  "sb_people": "Kişi",
+  "sb_tip": "Bahşiş",
+  "sb_each": "Kişi başı",
+  "sb_tipamt": "Bahşiş",
+  "sb_all": "Bahşişli toplam"
  }
 };

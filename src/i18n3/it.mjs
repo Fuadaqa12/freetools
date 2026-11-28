@@ -176,6 +176,31 @@ export default {
    "Crea curriculum (CV) gratis",
    "Crea un curriculum professionale con foto in pochi minuti e scaricalo in PDF. Senza registrazione né filigrana.",
    "creare curriculum gratis cv pdf"
+  ],
+  "online-notepad": [
+   "Blocco note online",
+   "Blocco note veloce: più note, salvataggio automatico, conteggio parole e TXT.",
+   "blocco note online"
+  ],
+  "emoji-copy-paste": [
+   "Emoji da copiare e incollare",
+   "Tutte le emoji più usate: tocca per copiare e componi il messaggio.",
+   "emoji copia incolla"
+  ],
+  "transliteration": [
+   "Traslitterazione cirillico-latino",
+   "Cirillico in latino e viceversa: russo, passaporto, azero e ucraino.",
+   "traslitterazione cirillico"
+  ],
+  "document-scanner": [
+   "Scanner documenti in PDF",
+   "Scansiona fogli con la fotocamera: pulizia automatica, bianco e nero e PDF multipagina.",
+   "scanner documenti pdf telefono"
+  ],
+  "split-bill-calculator": [
+   "Calcolatore per dividere il conto",
+   "Dividi il conto del ristorante tra amici, mancia inclusa.",
+   "dividere il conto mancia"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Con barra laterale",
   "cv_tpl_classic": "Classico",
   "cv_del": "Rimuovi",
-  "cv_skills_h": "Competenze"
+  "cv_skills_h": "Competenze",
+  "np_new": "Nuova nota",
+  "np_empty": "Nota vuota",
+  "np_words": "{w} parole · {c} caratteri",
+  "np_saved": "Salvato",
+  "np_note": "Le note restano solo in questo browser. Scarica quelle importanti.",
+  "em_ph": "Tocca le emoji per aggiungerle",
+  "em_tip": "Ogni tocco copia anche l’emoji.",
+  "tl_ph": "Scrivi o incolla il testo…",
+  "tl_ru": "Russo",
+  "tl_pass": "Passaporto (ICAO)",
+  "scan_take": "Scatta foto",
+  "scan_upload": "Oppure carica foto",
+  "scan_doc": "Documento",
+  "scan_bw": "Bianco e nero",
+  "scan_color": "Colore",
+  "scan_tip": "Consiglio: scatta dall’alto con buona luce, il foglio deve riempire l’inquadratura.",
+  "sb_total": "Totale del conto",
+  "sb_people": "Persone",
+  "sb_tip": "Mancia",
+  "sb_each": "Ciascuno paga",
+  "sb_tipamt": "Mancia",
+  "sb_all": "Totale con mancia"
  }
 };

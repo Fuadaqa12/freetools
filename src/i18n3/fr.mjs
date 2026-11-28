@@ -176,6 +176,31 @@ export default {
    "Créer un CV gratuit",
    "Créez un CV professionnel avec photo en quelques minutes et téléchargez-le en PDF. Sans inscription ni filigrane.",
    "créer cv gratuit pdf"
+  ],
+  "online-notepad": [
+   "Bloc-notes en ligne",
+   "Bloc-notes rapide : plusieurs notes, sauvegarde auto, compteur de mots et export TXT.",
+   "bloc notes en ligne"
+  ],
+  "emoji-copy-paste": [
+   "Emojis à copier-coller",
+   "Tous les emojis populaires : touchez pour copier et composez votre message.",
+   "emoji copier coller"
+  ],
+  "transliteration": [
+   "Translittération cyrillique-latin",
+   "Cyrillique vers latin et inversement : russe, passeport, azéri et ukrainien.",
+   "translittération cyrillique"
+  ],
+  "document-scanner": [
+   "Scanner de documents en PDF",
+   "Scannez des papiers avec l’appareil photo : nettoyage auto, noir et blanc et PDF multipage.",
+   "scanner document pdf téléphone"
+  ],
+  "split-bill-calculator": [
+   "Calculateur pour partager l’addition",
+   "Partagez l’addition entre amis, pourboire compris.",
+   "partager addition calcul pourboire"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Avec colonne",
   "cv_tpl_classic": "Classique",
   "cv_del": "Supprimer",
-  "cv_skills_h": "Compétences"
+  "cv_skills_h": "Compétences",
+  "np_new": "Nouvelle note",
+  "np_empty": "Note vide",
+  "np_words": "{w} mots · {c} caractères",
+  "np_saved": "Enregistré",
+  "np_note": "Les notes restent dans ce navigateur. Téléchargez les importantes.",
+  "em_ph": "Touchez les emojis pour les ajouter",
+  "em_tip": "Chaque toucher copie aussi l’emoji.",
+  "tl_ph": "Tapez ou collez du texte…",
+  "tl_ru": "Russe",
+  "tl_pass": "Passeport (OACI)",
+  "scan_take": "Prendre une photo",
+  "scan_upload": "Ou importez des photos",
+  "scan_doc": "Document",
+  "scan_bw": "Noir et blanc",
+  "scan_color": "Couleur",
+  "scan_tip": "Astuce : photographiez d’en haut, bien éclairé, la page remplissant le cadre.",
+  "sb_total": "Montant de l’addition",
+  "sb_people": "Personnes",
+  "sb_tip": "Pourboire",
+  "sb_each": "Chacun paie",
+  "sb_tipamt": "Pourboire",
+  "sb_all": "Total avec pourboire"
  }
 };

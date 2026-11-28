@@ -176,6 +176,31 @@ export default {
    "Pulsuz CV (rezüme) hazırla",
    "Şəkilli peşəkar CV-ni bir neçə dəqiqəyə hazırlayın və PDF yükləyin. Qeydiyyat və su nişanı yoxdur.",
    "cv hazırla pulsuz rezüme pdf"
+  ],
+  "online-notepad": [
+   "Onlayn bloknot",
+   "Sürətli bloknot: bir neçə qeyd, avtomatik saxlama, söz sayğacı və TXT.",
+   "onlayn bloknot qeydlər"
+  ],
+  "emoji-copy-paste": [
+   "Emoji kopyala və yapışdır",
+   "Bütün populyar emojilər: kopyalamaq üçün toxunun, mesajınızı yığın.",
+   "emoji kopyala"
+  ],
+  "transliteration": [
+   "Kiril-latın transliterasiya",
+   "Kiril əlifbasını latına və əksinə çevirin: rus, pasport, Azərbaycan və Ukrayna.",
+   "kiril latın çevirmə transliterasiya"
+  ],
+  "document-scanner": [
+   "Sənəd skaneri (PDF)",
+   "Telefon kamerası ilə sənəd skan edin: avtomatik təmizləmə, ağ-qara rejim və çoxsəhifəli PDF.",
+   "sənəd skan pdf telefon"
+  ],
+  "split-bill-calculator": [
+   "Hesabı böl kalkulyatoru",
+   "Restoran hesabını çayvulla birlikə dostlar arasında bölün.",
+   "hesabı böl çayvul"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Yan panelli",
   "cv_tpl_classic": "Klassik",
   "cv_del": "Sil",
-  "cv_skills_h": "Bacarıqlar"
+  "cv_skills_h": "Bacarıqlar",
+  "np_new": "Yeni qeyd",
+  "np_empty": "Boş qeyd",
+  "np_words": "{w} söz · {c} simvol",
+  "np_saved": "Saxlanıldı",
+  "np_note": "Qeydlər yalnız bu brauzerdə saxlanılır. Vaciblərini yükləyin.",
+  "em_ph": "Əlavə etmək üçün emojilərə toxunun",
+  "em_tip": "Hər toxunuş emojini həm də kopyalayır.",
+  "tl_ph": "Mətn yazın və ya yapışdırın…",
+  "tl_ru": "Rus",
+  "tl_pass": "Pasport (ICAO)",
+  "scan_take": "Şəkil çək",
+  "scan_upload": "Və ya şəkil yükləyin",
+  "scan_doc": "Sənəd",
+  "scan_bw": "Ağ-qara",
+  "scan_color": "Rəngli",
+  "scan_tip": "Məsləhət: yaxşı işıqda yuxarıdan çəkin, vərəq kadrı doldursun.",
+  "sb_total": "Hesabın məbləği",
+  "sb_people": "Nəfər",
+  "sb_tip": "Çayvul",
+  "sb_each": "Hər nəfər",
+  "sb_tipamt": "Çayvul",
+  "sb_all": "Çayvulla cəmi"
  }
 };

@@ -176,6 +176,31 @@ export default {
    "Kreator CV za darmo",
    "Stwórz profesjonalne CV ze zdjęciem w kilka minut i pobierz PDF. Bez rejestracji i znaków wodnych.",
    "kreator cv za darmo pdf"
+  ],
+  "online-notepad": [
+   "Notatnik online",
+   "Szybki notatnik: wiele notatek, autozapis, licznik słów i pobieranie TXT.",
+   "notatnik online"
+  ],
+  "emoji-copy-paste": [
+   "Emoji do skopiowania",
+   "Wszystkie popularne emoji: dotknij, aby skopiować, i ułóż wiadomość.",
+   "emoji kopiuj wklej"
+  ],
+  "transliteration": [
+   "Transliteracja cyrylica-łacinka",
+   "Cyrylica na łacinkę i odwrotnie: rosyjski, paszportowy, azerski i ukraiński.",
+   "transliteracja cyrylica"
+  ],
+  "document-scanner": [
+   "Skaner dokumentów do PDF",
+   "Skanuj kartki aparatem telefonu: automatyczne czyszczenie, tryb czarno-biały i wielostronicowy PDF.",
+   "skaner dokumentów pdf telefon"
+  ],
+  "split-bill-calculator": [
+   "Kalkulator podziału rachunku",
+   "Podziel rachunek w restauracji między znajomych, z napiwkiem.",
+   "podział rachunku napiwek"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Z paskiem bocznym",
   "cv_tpl_classic": "Klasyczny",
   "cv_del": "Usuń",
-  "cv_skills_h": "Umiejętności"
+  "cv_skills_h": "Umiejętności",
+  "np_new": "Nowa notatka",
+  "np_empty": "Pusta notatka",
+  "np_words": "{w} słów · {c} znaków",
+  "np_saved": "Zapisano",
+  "np_note": "Notatki są tylko w tej przeglądarce. Pobierz ważne.",
+  "em_ph": "Dotknij emoji, aby dodać",
+  "em_tip": "Każde dotknięcie kopiuje też emoji.",
+  "tl_ph": "Wpisz lub wklej tekst…",
+  "tl_ru": "Rosyjski",
+  "tl_pass": "Paszport (ICAO)",
+  "scan_take": "Zrób zdjęcie",
+  "scan_upload": "Lub wgraj zdjęcia",
+  "scan_doc": "Dokument",
+  "scan_bw": "Czarno-biały",
+  "scan_color": "Kolor",
+  "scan_tip": "Wskazówka: rób zdjęcie z góry przy dobrym świetle, kartka ma wypełniać kadr.",
+  "sb_total": "Kwota rachunku",
+  "sb_people": "Osoby",
+  "sb_tip": "Napiwek",
+  "sb_each": "Każdy płaci",
+  "sb_tipamt": "Napiwek",
+  "sb_all": "Razem z napiwkiem"
  }
 };

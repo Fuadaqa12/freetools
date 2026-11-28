@@ -176,6 +176,31 @@ export default {
    "Criar currículo (CV) grátis",
    "Crie um currículo profissional com foto em minutos e baixe em PDF. Sem cadastro nem marca d’água.",
    "criar currículo grátis cv pdf"
+  ],
+  "online-notepad": [
+   "Bloco de notas online",
+   "Bloco de notas rápido: várias notas, salvamento automático, contador de palavras e TXT.",
+   "bloco de notas online"
+  ],
+  "emoji-copy-paste": [
+   "Emojis para copiar e colar",
+   "Todos os emojis populares: toque para copiar e monte sua mensagem.",
+   "emojis copiar e colar"
+  ],
+  "transliteration": [
+   "Transliteração cirílico para latino",
+   "Converta cirílico em latino e vice-versa: russo, passaporte, azerbaijano e ucraniano.",
+   "transliteração cirílico"
+  ],
+  "document-scanner": [
+   "Scanner de documentos para PDF",
+   "Escaneie papéis com a câmera do celular: limpeza automática, preto e branco e PDF de várias páginas.",
+   "scanner de documentos pdf celular"
+  ],
+  "split-bill-calculator": [
+   "Calculadora para dividir a conta",
+   "Divida a conta do restaurante entre amigos, com gorjeta.",
+   "dividir conta calculadora gorjeta"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Com barra lateral",
   "cv_tpl_classic": "Clássico",
   "cv_del": "Remover",
-  "cv_skills_h": "Habilidades"
+  "cv_skills_h": "Habilidades",
+  "np_new": "Nova nota",
+  "np_empty": "Nota vazia",
+  "np_words": "{w} palavras · {c} caracteres",
+  "np_saved": "Salvo",
+  "np_note": "As notas ficam só neste navegador. Baixe as importantes.",
+  "em_ph": "Toque nos emojis para adicioná-los",
+  "em_tip": "Cada toque também copia o emoji.",
+  "tl_ph": "Digite ou cole texto…",
+  "tl_ru": "Russo",
+  "tl_pass": "Passaporte (ICAO)",
+  "scan_take": "Tirar foto",
+  "scan_upload": "Ou envie fotos",
+  "scan_doc": "Documento",
+  "scan_bw": "Preto e branco",
+  "scan_color": "Colorido",
+  "scan_tip": "Dica: fotografe de cima com boa luz e a folha ocupando o quadro.",
+  "sb_total": "Total da conta",
+  "sb_people": "Pessoas",
+  "sb_tip": "Gorjeta",
+  "sb_each": "Cada um paga",
+  "sb_tipamt": "Gorjeta",
+  "sb_all": "Total com gorjeta"
  }
 };

@@ -176,6 +176,31 @@ export default {
    "Free Resume (CV) Builder",
    "Create a professional resume with photo in minutes and download it as PDF. Two clean templates, no sign-up, no watermark.",
    "resume builder cv maker free resume template pdf"
+  ],
+  "online-notepad": [
+   "Online Notepad",
+   "A fast notepad in your browser: several notes, autosave, word count and TXT download. Notes stay on your device.",
+   "online notepad notes online text editor save notes"
+  ],
+  "emoji-copy-paste": [
+   "Emoji Copy & Paste",
+   "All popular emojis in one place: tap to copy, build a message, recent emojis saved.",
+   "emoji copy paste emoji keyboard emojis list"
+  ],
+  "transliteration": [
+   "Cyrillic to Latin Transliteration",
+   "Convert Cyrillic to Latin and back: Russian, passport (ICAO) style, Azerbaijani and Ukrainian.",
+   "transliteration cyrillic to latin russian translit passport"
+  ],
+  "document-scanner": [
+   "Document Scanner to PDF",
+   "Scan papers with your phone camera: auto-clean background, black-and-white mode and multi-page PDF. No app needed.",
+   "document scanner scan to pdf phone camera scanner online"
+  ],
+  "split-bill-calculator": [
+   "Split the Bill Calculator",
+   "Split a restaurant bill between friends, with tip, in one second.",
+   "split bill calculator split check tip per person"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Sidebar",
   "cv_tpl_classic": "Classic",
   "cv_del": "Remove",
-  "cv_skills_h": "Skills"
+  "cv_skills_h": "Skills",
+  "np_new": "New note",
+  "np_empty": "Empty note",
+  "np_words": "{w} words · {c} characters",
+  "np_saved": "Saved",
+  "np_note": "Notes are saved only in this browser. Clearing site data deletes them, so download important ones.",
+  "em_ph": "Tap emojis to add them here",
+  "em_tip": "Each tap also copies the emoji, so you can paste it right away.",
+  "tl_ph": "Type or paste text…",
+  "tl_ru": "Russian",
+  "tl_pass": "Passport (ICAO)",
+  "scan_take": "Take photo",
+  "scan_upload": "Or upload photos",
+  "scan_doc": "Document",
+  "scan_bw": "Black & white",
+  "scan_color": "Color",
+  "scan_tip": "Tip: shoot from above in good light, the page should fill the frame.",
+  "sb_total": "Bill total",
+  "sb_people": "People",
+  "sb_tip": "Tip",
+  "sb_each": "Each pays",
+  "sb_tipamt": "Tip amount",
+  "sb_all": "Total with tip"
  }
 };

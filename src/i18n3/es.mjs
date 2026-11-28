@@ -176,6 +176,31 @@ export default {
    "Crear currículum (CV) gratis",
    "Crea un currículum profesional con foto en minutos y descárgalo en PDF. Sin registro ni marca de agua.",
    "crear curriculum gratis cv pdf"
+  ],
+  "online-notepad": [
+   "Bloc de notas online",
+   "Bloc de notas rápido: varias notas, autoguardado, contador de palabras y descarga TXT.",
+   "bloc de notas online"
+  ],
+  "emoji-copy-paste": [
+   "Emojis para copiar y pegar",
+   "Todos los emojis populares: toca para copiar y arma tu mensaje.",
+   "emojis copiar y pegar"
+  ],
+  "transliteration": [
+   "Transliteración cirílico a latino",
+   "Convierte cirílico a latino y viceversa: ruso, pasaporte, azerí y ucraniano.",
+   "transliteracion cirilico latino"
+  ],
+  "document-scanner": [
+   "Escáner de documentos a PDF",
+   "Escanea papeles con la cámara del móvil: limpieza automática, blanco y negro y PDF de varias páginas.",
+   "escaner de documentos pdf movil"
+  ],
+  "split-bill-calculator": [
+   "Calculadora para dividir la cuenta",
+   "Divide la cuenta del restaurante entre amigos, con propina.",
+   "dividir cuenta calculadora propina"
   ]
  },
  "faqx": {
@@ -428,6 +453,28 @@ export default {
   "cv_tpl_side": "Con barra lateral",
   "cv_tpl_classic": "Clásico",
   "cv_del": "Eliminar",
-  "cv_skills_h": "Habilidades"
+  "cv_skills_h": "Habilidades",
+  "np_new": "Nueva nota",
+  "np_empty": "Nota vacía",
+  "np_words": "{w} palabras · {c} caracteres",
+  "np_saved": "Guardado",
+  "np_note": "Las notas se guardan solo en este navegador. Descarga las importantes.",
+  "em_ph": "Toca emojis para añadirlos aquí",
+  "em_tip": "Cada toque también copia el emoji.",
+  "tl_ph": "Escribe o pega texto…",
+  "tl_ru": "Ruso",
+  "tl_pass": "Pasaporte (ICAO)",
+  "scan_take": "Tomar foto",
+  "scan_upload": "O sube fotos",
+  "scan_doc": "Documento",
+  "scan_bw": "Blanco y negro",
+  "scan_color": "Color",
+  "scan_tip": "Consejo: fotografía desde arriba con buena luz y que la hoja llene el encuadre.",
+  "sb_total": "Total de la cuenta",
+  "sb_people": "Personas",
+  "sb_tip": "Propina",
+  "sb_each": "Cada uno paga",
+  "sb_tipamt": "Propina",
+  "sb_all": "Total con propina"
  }
 };
