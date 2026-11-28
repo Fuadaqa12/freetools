@@ -76,7 +76,7 @@ function layout(l, p, { title, desc, body, alt, schema = [], noindex = false, og
     noindex ? '<meta name="robots" content="noindex">' : `<link rel="canonical" href="${url(l, p)}">`,
     alts,
     `<meta property="og:type" content="${ogType}"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(desc)}"><meta property="og:url" content="${url(l, p)}"><meta property="og:site_name" content="${esc(CFG.siteName)}"><meta property="og:locale" content="${M.locale}"><meta property="og:image" content="${SITE}assets/og.png"><meta name="twitter:card" content="summary_large_image">`,
-    `<meta name="theme-color" content="#5b4cf5"><link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="${root}assets/apple-touch-icon.png">`,
+    `<meta name="theme-color" content="#5b4cf5"><link rel="icon" href="${root}assets/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="${root}assets/apple-touch-icon.png"><link rel="manifest" href="${root}manifest.webmanifest">`,
     CFG.gscVerification ? `<meta name="google-site-verification" content="${esc(CFG.gscVerification)}">` : '',
     `<script>try{var t=localStorage.getItem('theme');if(t||matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.setAttribute('data-theme',t||'dark')}catch(e){}</script>`,
     `<link rel="stylesheet" href="${root}assets/style.css?v=${VER}">`,
@@ -280,6 +280,14 @@ for (const [l, p] of urls) {
 }
 sm += '</urlset>\n';
 write('sitemap.xml', sm);
+write('manifest.webmanifest', JSON.stringify({ name: CFG.siteName + ' — Free Online Tools', short_name: CFG.siteName, start_url: '/', scope: '/', display: 'standalone', background_color: '#ffffff', theme_color: '#5b4cf5', description: EN.s.homeDesc.replace('{n}', TOOLS.length), icons: [{ src: '/assets/icon-192.png', sizes: '192x192', type: 'image/png' }, { src: '/assets/icon-512.png', sizes: '512x512', type: 'image/png' }, { src: '/assets/icon-512m.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }] }));
+write('sw.js', `const V='t-${VER}';
+self.addEventListener('install',e=>{self.skipWaiting();e.waitUntil(caches.open(V).then(c=>c.addAll(['/','/assets/style.css?v=${VER}','/assets/core.js?v=${VER}']).catch(()=>{})))});
+self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(ks=>Promise.all(ks.filter(k=>k!==V).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',e=>{const r=e.request;if(r.method!=='GET')return;const u=new URL(r.url);if(u.origin!==location.origin)return;
+if(r.mode==='navigate'){e.respondWith(fetch(r).then(res=>{const c=res.clone();caches.open(V).then(x=>x.put(r,c));return res}).catch(()=>caches.match(r).then(m=>m||caches.match('/'))));return}
+e.respondWith(caches.match(r).then(m=>m||fetch(r).then(res=>{if(res.ok){const c=res.clone();caches.open(V).then(x=>x.put(r,c))}return res})))});
+`);
 write('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}sitemap.xml\n`);
 if (ADS) write('ads.txt', `google.com, ${CFG.adsenseClient.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n`);
 if (CFG.customDomain) write('CNAME', CFG.customDomain + '\n');

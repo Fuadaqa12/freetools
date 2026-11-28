@@ -285,6 +285,7 @@
       if (f) { host.innerHTML = ''; try { f(host, opts, TK); } catch (e) { host.innerHTML = '<p class="err">' + esc(t('error')) + '</p>'; console.error(e); } }
     }
 
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) navigator.serviceWorker.register('/sw.js').catch(function () { });
     /* ads */
     if (window.ADS_CLIENT) $$('ins.adsbygoogle').forEach(function () { try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) { } });
   });
