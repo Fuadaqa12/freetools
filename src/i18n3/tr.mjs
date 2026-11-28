@@ -36,6 +36,16 @@ export default {
    "Videoyu MP3’e dönüştür",
    "Herhangi bir videonun (MP4, MOV, WEBM, MKV) sesini çıkarıp MP3 olarak kaydedin, yükleme yok.",
    "mp4 mp3 videodan ses çıkarma dönüştürücü"
+  ],
+  "sticker-maker": [
+   "Telegram ve WhatsApp çıkartma yapıcı (YZ)",
+   "Her fotoğrafı çıkartmaya çevirin: yapay zekâ nesneyi keser, beyaz kenarlık ekler, 512×512 WEBP/PNG verir.",
+   "çıkartma yap telegram whatsapp sticker fotoğraf"
+  ],
+  "auto-blur-faces": [
+   "Fotoğrafta yüz bulanıklaştır (YZ)",
+   "Yapay zekâ tüm yüzleri bulur ve bulanıklık, piksel, siyah kutu veya emojiyle gizler.",
+   "yüz bulanıklaştırma fotoğraf pikselleştir"
   ]
  },
  "faqx": {
@@ -98,6 +108,13 @@ export default {
   "drop_hint_video": "veya videoyu buraya sürükleyin · MP4, MOV, WEBM, MKV",
   "reading_file": "Dosya okunuyor…",
   "converting": "Dönüştürülüyor…",
-  "no_audio_track": "Bu dosyadan ses okunamadı. Başka bir video deneyin."
+  "no_audio_track": "Bu dosyadan ses okunamadı. Başka bir video deneyin.",
+  "outline": "Kenarlık",
+  "outline_color": "Kenarlık rengi",
+  "shadow": "Gölge",
+  "sticker_tip": "Telegram: WEBP dosyasını @Stickers botuna gönderin. WhatsApp: bir çıkartma uygulamasıyla ekleyin.",
+  "faces_found": "Gizlenen yüz: {n}",
+  "faces_none": "Yüz bulunamadı. Alan eklemek için fotoğrafa dokunun.",
+  "faces_tip": "Göstermek veya gizlemek için yüze dokunun. Yeni alan için boş bir yere dokunun."
  }
 };

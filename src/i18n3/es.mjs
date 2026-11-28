@@ -36,6 +36,16 @@ export default {
    "Convertir video a MP3",
    "Extrae el audio de cualquier vídeo (MP4, MOV, WEBM, MKV) y guárdalo en MP3, sin subir nada.",
    "mp4 a mp3 extraer audio de video convertir"
+  ],
+  "sticker-maker": [
+   "Creador de stickers para Telegram y WhatsApp (IA)",
+   "Convierte cualquier foto en sticker: la IA recorta el sujeto, añade borde blanco y exporta 512×512 WEBP/PNG.",
+   "crear stickers telegram whatsapp foto webp"
+  ],
+  "auto-blur-faces": [
+   "Difuminar caras en fotos (IA)",
+   "La IA detecta cada cara y la oculta con desenfoque, píxeles, recuadro negro o emoji.",
+   "difuminar caras foto pixelar anonimizar"
   ]
  },
  "faqx": {
@@ -98,6 +108,13 @@ export default {
   "drop_hint_video": "o arrastra un vídeo aquí · MP4, MOV, WEBM, MKV",
   "reading_file": "Leyendo archivo…",
   "converting": "Convirtiendo…",
-  "no_audio_track": "No se pudo leer el audio de este archivo. Prueba otro vídeo."
+  "no_audio_track": "No se pudo leer el audio de este archivo. Prueba otro vídeo.",
+  "outline": "Borde",
+  "outline_color": "Color del borde",
+  "shadow": "Sombra",
+  "sticker_tip": "Telegram: envía el WEBP a @Stickers. WhatsApp: añádelo con cualquier app de stickers.",
+  "faces_found": "Caras ocultas: {n}",
+  "faces_none": "No se encontraron caras. Toca la foto para añadir zonas.",
+  "faces_tip": "Toca una cara para mostrarla u ocultarla. Toca un punto vacío para añadir una zona."
  }
 };

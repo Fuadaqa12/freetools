@@ -36,6 +36,16 @@ export default {
    "Video in MP3 umwandeln",
    "Extrahieren Sie den Ton aus jedem Video (MP4, MOV, WEBM, MKV) als MP3 – ohne Upload.",
    "mp4 zu mp3 audio aus video extrahieren konvertieren"
+  ],
+  "sticker-maker": [
+   "Sticker-Maker für Telegram & WhatsApp (KI)",
+   "Machen Sie aus jedem Foto einen Sticker: KI schneidet das Motiv aus, fügt eine weiße Kontur hinzu, Export 512×512 WEBP/PNG.",
+   "sticker erstellen telegram whatsapp foto webp"
+  ],
+  "auto-blur-faces": [
+   "Gesichter unkenntlich machen (KI)",
+   "KI findet jedes Gesicht und verbirgt es mit Unschärfe, Pixeln, schwarzem Balken oder Emoji.",
+   "gesichter verpixeln unscharf foto anonymisieren"
   ]
  },
  "faqx": {
@@ -98,6 +108,13 @@ export default {
   "drop_hint_video": "oder Video hierher ziehen · MP4, MOV, WEBM, MKV",
   "reading_file": "Datei wird gelesen…",
   "converting": "Konvertierung…",
-  "no_audio_track": "Ton konnte nicht gelesen werden. Versuchen Sie ein anderes Video."
+  "no_audio_track": "Ton konnte nicht gelesen werden. Versuchen Sie ein anderes Video.",
+  "outline": "Kontur",
+  "outline_color": "Konturfarbe",
+  "shadow": "Schatten",
+  "sticker_tip": "Telegram: WEBP an @Stickers senden. WhatsApp: mit einer Sticker-App hinzufügen.",
+  "faces_found": "Verborgene Gesichter: {n}",
+  "faces_none": "Keine Gesichter gefunden. Tippen Sie aufs Foto, um Bereiche hinzuzufügen.",
+  "faces_tip": "Tippen Sie auf ein Gesicht, um es ein- oder auszublenden. Tippen Sie auf eine leere Stelle für einen neuen Bereich."
  }
 };

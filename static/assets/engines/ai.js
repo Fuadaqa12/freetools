@@ -26,7 +26,7 @@ TK.register('ai', function (root, o, K) {
     return el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px">' + esc(label) + '</figcaption><canvas style="width:100%;max-height:440px;object-fit:contain;border-radius:12px;' + (checker ? 'background:repeating-conic-gradient(#e5e7eb 0 25%,#fff 0 50%) 0 0/20px 20px' : 'background:var(--soft)') + '"></canvas></figure>');
   }
 
-  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport })[o.mode]();
+  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport, faces: faces, sticker: sticker })[o.mode]();
 
   /* ---------- OCR ---------- */
   function ocr() {
@@ -296,6 +296,121 @@ TK.register('ai', function (root, o, K) {
       file = f; dz.classList.add('hide'); view.classList.add('hide'); zoom = 1; dx = dy = 0; zr.set(100); yr.set(0); xr.set(0);
       segment(f, prog).then(function (bmp) { cut = harden(bmp); auto = analyse(); prog.hide(); draw(); view.classList.remove('hide'); })
         .catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- auto face blur (SSD MobileNet, face-api) ---------- */
+  function faces() {
+    var file = null, img = null, boxes = [], mode = 'blur', amt = 60, ready = null;
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
+    var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + '</p>');
+    var prog = progress();
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
+    var info = el('<div class="row" style="gap:8px;flex-wrap:wrap;align-items:center"></div>');
+    var cv = el('<canvas style="width:100%;max-height:560px;object-fit:contain;border-radius:12px;background:var(--soft);cursor:crosshair;touch-action:manipulation"></canvas>');
+    var opts = el('<div class="panel stack"></div>');
+    opts.append(K.seg([['blur', t('blur')], ['pixel', t('pixelate')], ['black', t('black')], ['emoji', '😀 Emoji']], 'blur', function (v) { mode = v; draw(); }),
+      K.rng(t('strength'), 10, 100, amt, '%', function (v) { amt = v; draw(); }),
+      el('<p class="muted" style="margin:0;font-size:13px">' + esc(t('faces_tip')) + '</p>'));
+    var bar = el('<div class="acts"></div>');
+    bar.append(
+      K.btn('upload', t('start_over'), 'sec', function () { file = img = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
+      K.btn('download', t('download'), '', function () { draw(true); K.canvasBlob(cv, 'image/jpeg', 0.93).then(function (b) { K.download(b, K.baseName(file.name) + '-blurred.jpg'); draw(); }); })
+    );
+    view.append(info, cv, opts, bar);
+    root.append(note, dz, prog, view);
+
+    cv.addEventListener('click', function (e) {
+      var r = cv.getBoundingClientRect(), sc = Math.min(r.width / cv.width, r.height / cv.height), ox = (r.width - cv.width * sc) / 2, oy = (r.height - cv.height * sc) / 2;
+      var x = (e.clientX - r.left - ox) / sc, y = (e.clientY - r.top - oy) / sc;
+      for (var i = 0; i < boxes.length; i++) { var b = boxes[i]; if (x >= b.x && x <= b.x + b.w && y >= b.y && y <= b.y + b.h) { b.on = !b.on; draw(); count(); return; } }
+      var avg = boxes.length ? boxes.reduce(function (a, b) { return a + b.w; }, 0) / boxes.length : Math.min(cv.width, cv.height) * 0.18;
+      boxes.push({ x: x - avg / 2, y: y - avg * 0.6, w: avg, h: avg * 1.2, on: true, manual: true }); draw(); count();
+    });
+    function count() { var n = boxes.filter(function (b) { return b.on; }).length; info.innerHTML = '<span class="chip" style="font-weight:700">' + esc(t('faces_found', { n: n })) + '</span>'; }
+    function draw(final) {
+      if (!img) return;
+      var w = img.naturalWidth, h = img.naturalHeight; cv.width = w; cv.height = h;
+      var x = cv.getContext('2d'); x.drawImage(img, 0, 0);
+      boxes.forEach(function (b) {
+        if (!b.on) { if (!final) { x.save(); x.setLineDash([8, 6]); x.lineWidth = Math.max(2, w / 400); x.strokeStyle = 'rgba(255,255,255,.9)'; x.strokeRect(b.x, b.y, b.w, b.h); x.restore(); } return; }
+        x.save(); x.beginPath(); x.ellipse(b.x + b.w / 2, b.y + b.h / 2, b.w / 2, b.h / 2, 0, 0, Math.PI * 2); x.clip();
+        if (mode === 'blur') { x.filter = 'blur(' + Math.max(4, b.w * amt / 400) + 'px)'; x.drawImage(img, b.x - b.w * .3, b.y - b.h * .3, b.w * 1.6, b.h * 1.6, b.x - b.w * .3, b.y - b.h * .3, b.w * 1.6, b.h * 1.6); x.filter = 'none'; }
+        else if (mode === 'pixel') { var n = Math.max(3, Math.round(22 - amt / 5)), t2 = document.createElement('canvas'); t2.width = n; t2.height = Math.max(3, Math.round(n * b.h / b.w)); t2.getContext('2d').drawImage(img, b.x, b.y, b.w, b.h, 0, 0, t2.width, t2.height); x.imageSmoothingEnabled = false; x.drawImage(t2, b.x, b.y, b.w, b.h); }
+        else if (mode === 'black') { x.fillStyle = '#111'; x.fillRect(b.x, b.y, b.w, b.h); }
+        else { x.restore(); x.save(); x.font = Math.round(b.h * 1.05) + 'px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif'; x.textAlign = 'center'; x.textBaseline = 'middle'; x.fillText('😀', b.x + b.w / 2, b.y + b.h / 2 + b.h * .05); }
+        x.restore();
+      });
+    }
+    function load(f) {
+      if (!/^image\//.test(f.type)) { K.toast(t('cannot_read')); return; }
+      file = f; dz.classList.add('hide'); view.classList.add('hide'); prog.set(t('ai_loading_model'), 0.1);
+      if (!ready) ready = scripts(['face/face-api.js']).then(function () { prog.set(t('ai_loading_model'), 0.5); return faceapi.nets.ssdMobilenetv1.loadFromUri(V + 'face/'); });
+      Promise.all([ready, K.loadImage(f)]).then(function (r) {
+        img = r[1]; prog.set(t('ai_working'), 0.8);
+        var c = document.createElement('canvas'), k = Math.min(1, 1600 / Math.max(img.naturalWidth, img.naturalHeight)); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+        c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+        return faceapi.detectAllFaces(c, new faceapi.SsdMobilenetv1Options({ minConfidence: 0.35 })).then(function (d) {
+          boxes = d.map(function (q) { var b = q.box, pw = b.width * 0.18, ph = b.height * 0.2; return { x: (b.x - pw) / k, y: (b.y - ph * 1.3) / k, w: (b.width + 2 * pw) / k, h: (b.height + 2 * ph) / k, on: true }; });
+        });
+      }).then(function () { prog.hide(); draw(); count(); view.classList.remove('hide'); if (!boxes.length) K.toast(t('faces_none')); })
+        .catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- sticker maker (cut-out + outline, 512 px WEBP/PNG) ---------- */
+  function sticker() {
+    var file = null, cut = null, outline = 14, oc = '#ffffff', shadow = true;
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
+    var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + '</p>');
+    var prog = progress();
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
+    var wrap = el('<div class="row" style="gap:16px;align-items:center;flex-wrap:wrap;justify-content:center"></div>');
+    var cv = el('<canvas width="512" height="512" style="width:280px;max-width:100%;border-radius:16px;background:repeating-conic-gradient(#e5e7eb 0 25%,#fff 0 50%) 0 0/20px 20px"></canvas>');
+    var cv2 = el('<div style="width:280px;max-width:100%;border-radius:16px;padding:18px;background:#7ba7c9;display:flex;justify-content:flex-end"><canvas width="512" height="512" style="width:160px;height:160px"></canvas></div>');
+    wrap.append(cv, cv2);
+    var opts = el('<div class="panel stack"></div>');
+    var colIn = el('<input type="color" value="#ffffff" style="width:44px;height:36px;border:0;background:none;cursor:pointer">'); colIn.oninput = function () { oc = colIn.value; draw(); };
+    var crow = el('<label class="f" style="flex-direction:row;align-items:center;gap:10px"><span>' + esc(t('outline_color')) + '</span></label>'); crow.append(colIn);
+    opts.append(K.rng(t('outline'), 0, 30, outline, 'px', function (v) { outline = v; draw(); }), crow, K.chk(t('shadow'), shadow, function (v) { shadow = v; draw(); }));
+    var bar = el('<div class="acts"></div>');
+    bar.append(
+      K.btn('upload', t('start_over'), 'sec', function () { file = cut = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
+      K.btn('download', 'PNG', 'sec', function () { K.canvasBlob(cv, 'image/png').then(function (b) { K.download(b, K.baseName(file.name) + '-sticker.png'); }); }),
+      K.btn('download', 'WEBP — Telegram / WhatsApp', '', function () { webp().then(function (b) { K.download(b, K.baseName(file.name) + '-sticker.webp'); }); })
+    );
+    view.append(wrap, opts, el('<p class="muted" style="margin:0;font-size:13px">' + esc(t('sticker_tip')) + '</p>'), bar);
+    root.append(note, dz, prog, view);
+
+    function webp() {
+      var q = 0.9;
+      return (function tryQ() { return K.canvasBlob(cv, 'image/webp', q).then(function (b) { if (b && b.size > 100 * 1024 && q > 0.3) { q -= 0.15; return tryQ(); } return b || K.canvasBlob(cv, 'image/png'); }); })();
+    }
+    function bbox(c) {
+      var x = c.getContext('2d'), d = x.getImageData(0, 0, c.width, c.height).data, x0 = c.width, y0 = c.height, x1 = 0, y1 = 0;
+      for (var y = 0; y < c.height; y++) for (var i = 0; i < c.width; i++) if (d[(y * c.width + i) * 4 + 3] > 24) { if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+      return x1 < x0 ? { x: 0, y: 0, w: c.width, h: c.height } : { x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 };
+    }
+    function draw() {
+      if (!cut) return;
+      var S = 512, pad = outline + (shadow ? 14 : 4), b = cut.box, k = Math.min((S - 2 * pad) / b.w, (S - 2 * pad) / b.h);
+      var w = b.w * k, h = b.h * k, ox = (S - w) / 2, oy = (S - h) / 2;
+      var x = cv.getContext('2d'); x.clearRect(0, 0, S, S);
+      // silhouette for outline
+      var sil = document.createElement('canvas'); sil.width = S; sil.height = S; var sx = sil.getContext('2d');
+      sx.drawImage(cut.c, b.x, b.y, b.w, b.h, ox, oy, w, h); sx.globalCompositeOperation = 'source-in'; sx.fillStyle = oc; sx.fillRect(0, 0, S, S);
+      if (shadow) { x.save(); x.shadowColor = 'rgba(0,0,0,.35)'; x.shadowBlur = 12; x.shadowOffsetY = 4; x.drawImage(sil, 0, 0); x.restore(); }
+      if (outline > 0) { var steps = Math.max(16, outline * 3); for (var i = 0; i < steps; i++) { var a = i / steps * Math.PI * 2; x.drawImage(sil, Math.cos(a) * outline, Math.sin(a) * outline); } }
+      x.drawImage(cut.c, b.x, b.y, b.w, b.h, ox, oy, w, h);
+      var c2 = cv2.querySelector('canvas'), x2 = c2.getContext('2d'); x2.clearRect(0, 0, S, S); x2.drawImage(cv, 0, 0);
+    }
+    function load(f) {
+      if (!/^image\//.test(f.type)) { K.toast(t('cannot_read')); return; }
+      file = f; dz.classList.add('hide'); view.classList.add('hide');
+      segment(f, prog).then(function (bmp) {
+        var c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height; c.getContext('2d').drawImage(bmp, 0, 0);
+        cut = { c: c, box: bbox(c) }; prog.hide(); draw(); view.classList.remove('hide');
+      }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
     }
   }
 });

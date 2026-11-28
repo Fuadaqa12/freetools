@@ -36,6 +36,16 @@ export default {
    "Videonu MP3-ə çevir",
    "İstənilən videodan (MP4, MOV, WEBM, MKV) səsi çıxarıb MP3 kimi saxlayın, serverə yükləmədən.",
    "mp4 mp3 videodan səs çıxarmaq çevirici"
+  ],
+  "sticker-maker": [
+   "Telegram və WhatsApp üçün stiker (Sİ)",
+   "İstənilən şəkildən stiker düzəldin: Sİ obyekti kəsir, ağ kontur əlavə edir və 512×512 WEBP/PNG saxlayır.",
+   "stiker düzəlt telegram whatsapp şəkil webp"
+  ],
+  "auto-blur-faces": [
+   "Şəkildə üzləri bulanıqlaşdır (Sİ)",
+   "Sİ bütün üzləri tapır və bulanıqlıq, piksel, qara qutu və ya emoji ilə gizlədir.",
+   "üzü bulanıqlaşdır şəkil piksel gizlət"
   ]
  },
  "faqx": {
@@ -98,6 +108,13 @@ export default {
   "drop_hint_video": "və ya videonu bura sürüşdürün · MP4, MOV, WEBM, MKV",
   "reading_file": "Fayl oxunur…",
   "converting": "Çevrilir…",
-  "no_audio_track": "Bu fayldan səs oxunmadı. Başqa video yoxlayın."
+  "no_audio_track": "Bu fayldan səs oxunmadı. Başqa video yoxlayın.",
+  "outline": "Kontur",
+  "outline_color": "Kontur rəngi",
+  "shadow": "Kölgə",
+  "sticker_tip": "Telegram: WEBP faylını @Stickers botuna göndərin. WhatsApp: istənilən stiker tətbiqi ilə əlavə edin.",
+  "faces_found": "Gizlədilən üz: {n}",
+  "faces_none": "Üz tapılmadı. Sahə əlavə etmək üçün şəklə toxunun.",
+  "faces_tip": "Göstərmək və ya gizlətmək üçün üzə toxunun. Yeni sahə üçün boş yerə toxunun."
  }
 };

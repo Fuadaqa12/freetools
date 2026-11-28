@@ -36,6 +36,16 @@ export default {
    "Wideo na MP3",
    "Wyodrębnij dźwięk z dowolnego wideo (MP4, MOV, WEBM, MKV) i zapisz jako MP3 — bez wysyłania.",
    "mp4 na mp3 wyodrębnij dźwięk z wideo konwerter"
+  ],
+  "sticker-maker": [
+   "Kreator naklejek do Telegrama i WhatsAppa (AI)",
+   "Zrób naklejkę z dowolnego zdjęcia: AI wycina obiekt, dodaje białą obwódkę i zapisuje 512×512 WEBP/PNG.",
+   "naklejki whatsapp telegram ze zdjęcia webp"
+  ],
+  "auto-blur-faces": [
+   "Rozmyj twarze na zdjęciu (AI)",
+   "AI znajduje każdą twarz i ukrywa ją rozmyciem, pikselami, czarnym paskiem lub emoji.",
+   "rozmycie twarzy zdjęcie pikselizacja anonimizacja"
   ]
  },
  "faqx": {
@@ -98,6 +108,13 @@ export default {
   "drop_hint_video": "lub przeciągnij wideo tutaj · MP4, MOV, WEBM, MKV",
   "reading_file": "Odczyt pliku…",
   "converting": "Konwertowanie…",
-  "no_audio_track": "Nie udało się odczytać dźwięku. Spróbuj innego wideo."
+  "no_audio_track": "Nie udało się odczytać dźwięku. Spróbuj innego wideo.",
+  "outline": "Obwódka",
+  "outline_color": "Kolor obwódki",
+  "shadow": "Cień",
+  "sticker_tip": "Telegram: wyślij plik WEBP do @Stickers. WhatsApp: dodaj przez dowolną aplikację z naklejkami.",
+  "faces_found": "Ukryte twarze: {n}",
+  "faces_none": "Nie znaleziono twarzy. Dotknij zdjęcia, aby dodać obszar.",
+  "faces_tip": "Dotknij twarzy, aby ją pokazać lub ukryć. Dotknij pustego miejsca, aby dodać obszar."
  }
 };

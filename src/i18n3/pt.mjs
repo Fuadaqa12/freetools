@@ -36,6 +36,16 @@ export default {
    "Converter vídeo em MP3",
    "Extraia o áudio de qualquer vídeo (MP4, MOV, WEBM, MKV) e salve em MP3, sem enviar nada.",
    "mp4 para mp3 extrair áudio de vídeo converter"
+  ],
+  "sticker-maker": [
+   "Criador de figurinhas para Telegram e WhatsApp (IA)",
+   "Transforme qualquer foto em figurinha: a IA recorta o objeto, adiciona contorno branco e exporta 512×512 WEBP/PNG.",
+   "criar figurinhas whatsapp telegram foto webp"
+  ],
+  "auto-blur-faces": [
+   "Desfocar rostos na foto (IA)",
+   "A IA encontra cada rosto e o esconde com desfoque, pixels, tarja preta ou emoji.",
+   "desfocar rosto foto pixelar anonimizar"
   ]
  },
  "faqx": {
@@ -98,6 +108,13 @@ export default {
   "drop_hint_video": "ou arraste um vídeo aqui · MP4, MOV, WEBM, MKV",
   "reading_file": "Lendo arquivo…",
   "converting": "Convertendo…",
-  "no_audio_track": "Não foi possível ler o áudio deste arquivo. Tente outro vídeo."
+  "no_audio_track": "Não foi possível ler o áudio deste arquivo. Tente outro vídeo.",
+  "outline": "Contorno",
+  "outline_color": "Cor do contorno",
+  "shadow": "Sombra",
+  "sticker_tip": "Telegram: envie o WEBP para @Stickers. WhatsApp: adicione com qualquer app de figurinhas.",
+  "faces_found": "Rostos ocultos: {n}",
+  "faces_none": "Nenhum rosto encontrado. Toque na foto para adicionar áreas.",
+  "faces_tip": "Toque num rosto para mostrar ou ocultar. Toque num ponto vazio para adicionar uma área."
  }
 };
