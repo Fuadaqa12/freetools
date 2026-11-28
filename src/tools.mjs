@@ -167,5 +167,7 @@ TOOLS.push(
 TOOLS.push(
   N('remove-background', 'ai', 'eraser', 'ai', { mode: 'bg' }, 'file', { pop: 1 }),
   N('upscale-image', 'ai', 'maximize', 'ai', { mode: 'up' }, 'file', { pop: 1 }),
+  N('passport-photo-maker', 'ai', 'id', 'ai', { mode: 'passport' }, 'file', { pop: 1 }),
+  N('blur-background', 'ai', 'droplet', 'ai', { mode: 'blurbg' }, 'file'),
   N('image-to-text', 'ai', 'filetext', 'ai', { mode: 'ocr' }, 'file', { pop: 1, vendor: ['ocr/tesseract.min.js'] }),
 );

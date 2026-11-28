@@ -21,6 +21,16 @@ export default {
    "Agrandir une image (IA)",
    "Agrandissez vos photos 2× ou 4× grâce à l’IA tout en restant net, sans flou ni pixels.",
    "agrandir image augmenter résolution améliorer photo hd ia"
+  ],
+  "passport-photo-maker": [
+   "Photo d’identité (IA)",
+   "Créez une photo d’identité ou de passeport depuis un selfie : l’IA retire le fond, recadre en 35×45 mm, 2×2 po et plus, avec planche 10×15 à imprimer.",
+   "photo identité passeport visa 35x45 fond blanc"
+  ],
+  "blur-background": [
+   "Flouter l’arrière-plan (IA)",
+   "Effet mode portrait : l’IA détecte la personne ou l’objet et floute uniquement l’arrière-plan.",
+   "flouter arrière-plan mode portrait bokeh photo ia"
   ]
  },
  "ui": {
@@ -29,6 +39,14 @@ export default {
   "ai_loading_model": "Chargement du modèle IA…",
   "ocr_reading": "Reconnaissance du texte…",
   "ocr_nothing": "Aucun texte trouvé dans cette image.",
-  "ai_working": "L’IA travaille…"
+  "ai_working": "L’IA travaille…",
+  "passport_tip": "Utilisez une photo de face, bien éclairée, visage neutre. Ajustez le zoom et la position si besoin.",
+  "light_blue": "Bleu clair",
+  "light_gray": "Gris clair",
+  "zoom": "Zoom",
+  "move_v": "Déplacer haut / bas",
+  "move_h": "Déplacer gauche / droite",
+  "photo_size": "Format de photo",
+  "print_sheet": "Planche 10×15"
  }
 };

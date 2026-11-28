@@ -21,6 +21,16 @@ export default {
    "Ampliar imagem com IA",
    "Amplie fotos 2× ou 4× com IA mantendo a nitidez, sem borrões nem pixels.",
    "ampliar imagem aumentar resolução melhorar foto hd ia"
+  ],
+  "passport-photo-maker": [
+   "Foto 3x4 e passaporte (IA)",
+   "Crie foto para passaporte ou documento a partir de uma selfie: a IA remove o fundo, recorta em 35×45 mm, 2×2 pol. e mais, com folha 10×15 para imprimir.",
+   "foto passaporte foto documento 3x4 visto fundo branco"
+  ],
+  "blur-background": [
+   "Desfocar fundo (IA)",
+   "Efeito modo retrato: a IA encontra a pessoa ou objeto e desfoca só o fundo.",
+   "desfocar fundo modo retrato bokeh foto ia"
   ]
  },
  "ui": {
@@ -29,6 +39,14 @@ export default {
   "ai_loading_model": "Carregando modelo de IA…",
   "ocr_reading": "Reconhecendo texto…",
   "ocr_nothing": "Nenhum texto encontrado nesta imagem.",
-  "ai_working": "A IA está trabalhando…"
+  "ai_working": "A IA está trabalhando…",
+  "passport_tip": "Use uma foto de frente com luz uniforme e expressão neutra. Ajuste o zoom e a posição se necessário.",
+  "light_blue": "Azul claro",
+  "light_gray": "Cinza claro",
+  "zoom": "Zoom",
+  "move_v": "Mover para cima / baixo",
+  "move_h": "Mover esquerda / direita",
+  "photo_size": "Tamanho da foto",
+  "print_sheet": "Folha 10×15 para imprimir"
  }
 };

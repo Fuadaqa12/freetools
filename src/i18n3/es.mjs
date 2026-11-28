@@ -21,6 +21,16 @@ export default {
    "Ampliar imagen con IA",
    "Amplía fotos 2× o 4× con IA manteniéndolas nítidas, sin desenfoque ni píxeles.",
    "ampliar imagen aumentar resolución mejorar foto hd ia"
+  ],
+  "passport-photo-maker": [
+   "Foto para pasaporte (IA)",
+   "Crea una foto de pasaporte o DNI desde un selfie: la IA quita el fondo, recorta a 35×45 mm, 2×2 in y más, con hoja 10×15 para imprimir.",
+   "foto pasaporte foto dni carnet visa 35x45 fondo blanco"
+  ],
+  "blur-background": [
+   "Desenfocar fondo (IA)",
+   "Efecto modo retrato: la IA detecta a la persona u objeto y desenfoca solo el fondo.",
+   "desenfocar fondo modo retrato bokeh foto ia"
   ]
  },
  "ui": {
@@ -29,6 +39,14 @@ export default {
   "ai_loading_model": "Cargando modelo de IA…",
   "ocr_reading": "Reconociendo texto…",
   "ocr_nothing": "No se encontró texto en esta imagen.",
-  "ai_working": "La IA está trabajando…"
+  "ai_working": "La IA está trabajando…",
+  "passport_tip": "Usa una foto de frente con luz uniforme y expresión neutra. Ajusta el zoom y la posición si hace falta.",
+  "light_blue": "Azul claro",
+  "light_gray": "Gris claro",
+  "zoom": "Zoom",
+  "move_v": "Mover arriba / abajo",
+  "move_h": "Mover izquierda / derecha",
+  "photo_size": "Tamaño de foto",
+  "print_sheet": "Hoja 10×15 para imprimir"
  }
 };

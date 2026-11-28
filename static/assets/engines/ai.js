@@ -12,7 +12,21 @@ TK.register('ai', function (root, o, K) {
 
   function scripts(list) { return list.reduce(function (p, src) { return p.then(function () { return new Promise(function (res, rej) { if (document.querySelector('script[data-s="' + src + '"]')) return res(); var x = document.createElement('script'); x.src = V + src; x.dataset.s = src; x.onload = res; x.onerror = rej; document.head.appendChild(x); }); }); }, Promise.resolve()); }
 
-  ({ ocr: ocr, bg: bg, up: up })[o.mode]();
+  var bgLib = null;
+  function segment(f, prog) {
+    prog.set(t('ai_loading_model'), 0);
+    return (bgLib ? Promise.resolve(bgLib) : import(V + 'bg/bgr.js').then(function (m) { bgLib = m; return m; })).then(function (m) {
+      return m.removeBackground(f, {
+        publicPath: V + 'bg/', model: 'isnet_quint8', output: { format: 'image/png' },
+        progress: function (key, cur, total) { if (/fetch/.test(key)) prog.set(t('ai_loading_model'), total ? cur / total : 0); else prog.set(t('ai_working'), total ? cur / total : 0.5); }
+      });
+    }).then(function (blob) { return createImageBitmap(blob); });
+  }
+  function imgBox(label, checker) {
+    return el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px">' + esc(label) + '</figcaption><canvas style="width:100%;max-height:440px;object-fit:contain;border-radius:12px;' + (checker ? 'background:repeating-conic-gradient(#e5e7eb 0 25%,#fff 0 50%) 0 0/20px 20px' : 'background:var(--soft)') + '"></canvas></figure>');
+  }
+
+  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport })[o.mode]();
 
   /* ---------- OCR ---------- */
   function ocr() {
@@ -156,6 +170,132 @@ TK.register('ai', function (root, o, K) {
         info.innerHTML = '<span class="chip">' + w + '×' + h + ' px</span><span class="chip">→</span><span class="chip" style="font-weight:700">' + outC.width + '×' + outC.height + ' px</span>';
         view.classList.remove('hide');
       }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- portrait mode: blur the background ---------- */
+  function blurbg() {
+    var file = null, src = null, cut = null, amt = 12;
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
+    var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + '</p>');
+    var prog = progress();
+    var view = el('<div class="stack hide"></div>');
+    var out = imgBox(t('result'));
+    var opts = el('<div class="panel stack"></div>');
+    opts.append(K.rng(t('strength'), 2, 40, amt, 'px', function (v) { amt = v; draw(); }));
+    var bar = el('<div class="row end"></div>');
+    bar.append(
+      K.btn('upload', t('start_over'), 'sec', function () { file = cut = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
+      K.btn('download', t('download') + ' JPG', '', function () { K.canvasBlob(out.querySelector('canvas'), 'image/jpeg', 0.92).then(function (b) { K.download(b, K.baseName(file.name) + '-portrait.jpg'); }); })
+    );
+    view.append(out, opts, bar);
+    root.append(note, dz, prog, view);
+    function draw() {
+      var c = out.querySelector('canvas'), w = src.naturalWidth, h = src.naturalHeight; c.width = w; c.height = h;
+      var x = c.getContext('2d'), k = Math.max(w, h) / 1000;
+      x.filter = 'blur(' + Math.round(amt * k) + 'px)'; x.drawImage(src, -amt * k, -amt * k, w + 2 * amt * k, h + 2 * amt * k); x.filter = 'none';
+      x.drawImage(cut, 0, 0, w, h);
+    }
+    function load(f) {
+      if (!/^image\//.test(f.type)) { K.toast(t('cannot_read')); return; }
+      file = f; dz.classList.add('hide'); view.classList.add('hide');
+      K.loadImage(f).then(function (i) { src = i; return segment(f, prog); }).then(function (bmp) { cut = bmp; prog.hide(); draw(); view.classList.remove('hide'); })
+        .catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- passport / ID photo ---------- */
+  function passport() {
+    var SIZES = [['35x45', '35×45 mm — EU, UK, AZ, TR, IN'], ['30x40', '30×40 mm (3×4) — RU, AZ, KZ'], ['51x51', '2×2 in (51×51 mm) — USA, IN visa'], ['33x48', '33×48 mm — China'], ['50x70', '50×70 mm — Canada']];
+    var file = null, cut = null, size = '35x45', bgc = '#ffffff', zoom = 1, dy = 0, dx = 0, auto = null;
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
+    var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('passport_tip')) + '</p>');
+    var prog = progress();
+    var view = el('<div class="stack hide"></div>');
+    var wrap = el('<div class="row" style="gap:16px;align-items:flex-start;flex-wrap:wrap"></div>');
+    var pc = el('<canvas style="width:220px;max-width:100%;border-radius:6px;box-shadow:0 4px 18px rgba(0,0,0,.15)"></canvas>');
+    var opts = el('<div class="stack" style="flex:1 1 260px"></div>');
+    var colIn = el('<input type="color" value="#ffffff" style="width:44px;height:36px;border:0;background:none;cursor:pointer">');
+    var bgRow = el('<div class="row" style="gap:8px;align-items:center;flex-wrap:wrap"></div>');
+    [['#ffffff', t('white')], ['#e8eef7', t('light_blue')], ['#d9dde3', t('light_gray')]].forEach(function (c) {
+      var b = el('<button type="button" class="btn sec sm" style="gap:6px"><i style="display:inline-block;width:14px;height:14px;border-radius:4px;border:1px solid #ccc;background:' + c[0] + '"></i>' + esc(c[1]) + '</button>');
+      b.onclick = function () { bgc = c[0]; colIn.value = c[0]; draw(); }; bgRow.append(b);
+    });
+    bgRow.append(colIn); colIn.oninput = function () { bgc = colIn.value; draw(); };
+    var zr = K.rng(t('zoom'), 70, 140, 100, '%', function (v) { zoom = v / 100; draw(); });
+    var yr = K.rng(t('move_v'), -20, 20, 0, '', function (v) { dy = v / 100; draw(); });
+    var xr = K.rng(t('move_h'), -20, 20, 0, '', function (v) { dx = v / 100; draw(); });
+    opts.append(K.sel(t('photo_size'), SIZES, size, function (v) { size = v; draw(); }), el('<b style="font-size:14px">' + esc(t('bg_color')) + '</b>'), bgRow, zr, yr, xr);
+    wrap.append(pc, opts);
+    var bar = el('<div class="row end"></div>');
+    bar.append(
+      K.btn('upload', t('start_over'), 'sec', function () { file = cut = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
+      K.btn('grid2', t('print_sheet'), 'sec', function () { sheet().then(function (b) { K.download(b, 'passport-photos-10x15.jpg'); }); }),
+      K.btn('download', t('download') + ' JPG', '', function () { K.canvasBlob(pc, 'image/jpeg', 0.95).then(function (b) { K.download(b, 'passport-photo-' + size + 'mm.jpg'); }); })
+    );
+    view.append(wrap, bar);
+    root.append(note, dz, prog, view);
+
+    function harden(bmp) {
+      var c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height; var x = c.getContext('2d'); x.drawImage(bmp, 0, 0);
+      var im = x.getImageData(0, 0, c.width, c.height), d = im.data;
+      for (var i = 3; i < d.length; i += 4) d[i] = Math.max(0, Math.min(255, (d[i] - 90) * 2.2));
+      // keep only the largest connected blob (removes stray specks)
+      var W = c.width, H = c.height, lab = new Int32Array(W * H), best = 0, bestN = 0, id = 0, st = [];
+      for (var p0 = 0; p0 < W * H; p0++) {
+        if (lab[p0] || d[p0 * 4 + 3] < 128) continue;
+        id++; var n = 0; st.push(p0); lab[p0] = id;
+        while (st.length) { var q = st.pop(); n++; var qx = q % W, qy = (q - qx) / W;
+          if (qx > 0 && !lab[q - 1] && d[(q - 1) * 4 + 3] >= 128) { lab[q - 1] = id; st.push(q - 1); }
+          if (qx < W - 1 && !lab[q + 1] && d[(q + 1) * 4 + 3] >= 128) { lab[q + 1] = id; st.push(q + 1); }
+          if (qy > 0 && !lab[q - W] && d[(q - W) * 4 + 3] >= 128) { lab[q - W] = id; st.push(q - W); }
+          if (qy < H - 1 && !lab[q + W] && d[(q + W) * 4 + 3] >= 128) { lab[q + W] = id; st.push(q + W); } }
+        if (n > bestN) { bestN = n; best = id; }
+      }
+      // pixels not near the main blob are cleared (keep soft edge within 3px)
+      var keep = new Uint8Array(W * H);
+      for (var y = 0; y < H; y++) for (var xx = 0; xx < W; xx++) if (lab[y * W + xx] === best) for (var oy = -3; oy <= 3; oy += 3) for (var ox = -3; ox <= 3; ox += 3) { var yy = y + oy, x2 = xx + ox; if (yy >= 0 && yy < H && x2 >= 0 && x2 < W) keep[yy * W + x2] = 1; }
+      for (var k2 = 0; k2 < W * H; k2++) if (!keep[k2] && lab[k2] !== best) d[k2 * 4 + 3] = 0;
+      x.putImageData(im, 0, 0); return c;
+    }
+    function dims() { var p = size.split('x'); return [+p[0], +p[1]]; }
+    function analyse() {
+      var w = cut.width, h = cut.height, c = document.createElement('canvas'), sc = Math.min(1, 400 / Math.max(w, h));
+      c.width = Math.round(w * sc); c.height = Math.round(h * sc); var x = c.getContext('2d'); x.drawImage(cut, 0, 0, c.width, c.height);
+      var d = x.getImageData(0, 0, c.width, c.height).data, rows = [];
+      for (var y = 0; y < c.height; y++) { var l = -1, r = -1; for (var i = 0; i < c.width; i++) if (d[(y * c.width + i) * 4 + 3] > 128) { if (l < 0) l = i; r = i; } rows.push([l, r]); }
+      var top = rows.findIndex(function (q) { return q[0] >= 0; }); if (top < 0) return null;
+      // head width: median of widths in the band 10%..30% of the remaining height
+      var span = c.height - top, ws = [], cx = [];
+      for (var yy = top + Math.round(span * 0.06); yy < top + Math.round(span * 0.22); yy++) if (rows[yy] && rows[yy][0] >= 0) { ws.push(rows[yy][1] - rows[yy][0]); cx.push((rows[yy][1] + rows[yy][0]) / 2); }
+      ws.sort(function (a, b) { return a - b; }); cx.sort(function (a, b) { return a - b; });
+      var hw = ws[Math.floor(ws.length * 0.7)] || c.width * 0.3, mid = cx[Math.floor(cx.length / 2)] || c.width / 2;
+      return { top: top / sc, hw: hw / sc, cx: mid / sc };
+    }
+    function draw(target, pw, ph) {
+      var md = dims(), W = pw || Math.round(md[0] / 25.4 * 600), H = ph || Math.round(md[1] / 25.4 * 600);
+      var c = target || pc; c.width = W; c.height = H; var x = c.getContext('2d');
+      x.fillStyle = bgc; x.fillRect(0, 0, W, H);
+      var a = auto || { top: 0, hw: cut.width * 0.4, cx: cut.width / 2 };
+      var headH = a.hw * 1.45, cropH = headH / 0.72 / zoom, cropW = cropH * W / H;
+      var sx = a.cx - cropW / 2 - dx * cropW, sy = a.top - cropH * 0.07 - dy * cropH;
+      x.drawImage(cut, sx, sy, cropW, cropH, 0, 0, W, H);
+    }
+    function sheet() {
+      var md = dims(), dpi = 300, SW = Math.round(152.4 / 25.4 * dpi), SH = Math.round(101.6 / 25.4 * dpi), pw = Math.round(md[0] / 25.4 * dpi), ph = Math.round(md[1] / 25.4 * dpi), gap = Math.round(dpi * 0.12);
+      var s = document.createElement('canvas'); s.width = SW; s.height = SH; var x = s.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, SW, SH);
+      var one = document.createElement('canvas'); draw(one, pw, ph);
+      var cols = Math.floor((SW - gap) / (pw + gap)), rws = Math.floor((SH - gap) / (ph + gap));
+      var ox = (SW - cols * (pw + gap) + gap) / 2, oy = (SH - rws * (ph + gap) + gap) / 2;
+      x.strokeStyle = '#bbb'; x.lineWidth = 1;
+      for (var r = 0; r < rws; r++) for (var q = 0; q < cols; q++) { var px = ox + q * (pw + gap), py = oy + r * (ph + gap); x.drawImage(one, px, py); x.strokeRect(px - 0.5, py - 0.5, pw + 1, ph + 1); }
+      return K.canvasBlob(s, 'image/jpeg', 0.95);
+    }
+    function load(f) {
+      if (!/^image\//.test(f.type)) { K.toast(t('cannot_read')); return; }
+      file = f; dz.classList.add('hide'); view.classList.add('hide'); zoom = 1; dx = dy = 0; zr.set(100); yr.set(0); xr.set(0);
+      segment(f, prog).then(function (bmp) { cut = harden(bmp); auto = analyse(); prog.hide(); draw(); view.classList.remove('hide'); })
+        .catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
     }
   }
 });

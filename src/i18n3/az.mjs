@@ -21,6 +21,16 @@ export default {
    "Şəkli böyüt (Sİ)",
    "Şəkilləri Sİ ilə 2× və ya 4× böyüdün, bulanıqlıq və piksel olmadan.",
    "şəkli böyütmə keyfiyyət artırma hd"
+  ],
+  "passport-photo-maker": [
+   "Sənəd üçün foto (Sİ)",
+   "Selfidən pasport və ya vəsiqə fotosu hazırlayın: Sİ fonu silir, 35×45 mm, 3×4, 2×2 düym ölçüsünə kəsir və 10×15 çap vərəqi hazırlayır.",
+   "pasport fotosu vəsiqə foto viza 35x45 3x4 ağ fon"
+  ],
+  "blur-background": [
+   "Fonu bulanıqlaşdır (Sİ)",
+   "Portret rejimi effekti: Sİ insanı və ya obyekti tapır və yalnız fonu bulanıqlaşdırır.",
+   "fonu bulanıqlaşdırma portret rejimi bokeh"
   ]
  },
  "ui": {
@@ -29,6 +39,14 @@ export default {
   "ai_loading_model": "Sİ modeli yüklənir…",
   "ocr_reading": "Mətn tanınır…",
   "ocr_nothing": "Bu şəkildə mətn tapılmadı.",
-  "ai_working": "Sİ işləyir…"
+  "ai_working": "Sİ işləyir…",
+  "passport_tip": "Bərabər işıqda, öndən və neytral üzlə çəkilmiş foto istifadə edin. Lazım olsa miqyas və mövqeyi düzəldin.",
+  "light_blue": "Açıq mavi",
+  "light_gray": "Açıq boz",
+  "zoom": "Miqyas",
+  "move_v": "Yuxarı / aşağı",
+  "move_h": "Sola / sağa",
+  "photo_size": "Foto ölçüsü",
+  "print_sheet": "10×15 çap vərəqi"
  }
 };
