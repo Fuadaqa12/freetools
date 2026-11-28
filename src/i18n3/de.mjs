@@ -201,6 +201,16 @@ export default {
    "Rechnung teilen Rechner",
    "Restaurantrechnung mit Trinkgeld unter Freunden aufteilen.",
    "rechnung teilen trinkgeld"
+  ],
+  "sleep-calculator": [
+   "Schlafrechner",
+   "Finde die beste Zeit zum Schlafengehen oder Aufwachen nach 90-Minuten-Schlafzyklen.",
+   "schlafrechner schlafzyklus"
+  ],
+  "ovulation-calculator": [
+   "Eisprungrechner",
+   "Berechne Eisprung, fruchtbare Tage und nächste Periode für 3 Zyklen.",
+   "eisprungrechner fruchtbare tage"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Trinkgeld",
   "sb_each": "Jeder zahlt",
   "sb_tipamt": "Trinkgeld",
-  "sb_all": "Gesamt mit Trinkgeld"
+  "sb_all": "Gesamt mit Trinkgeld",
+  "sl_wake": "Ich will aufwachen um",
+  "sl_bed": "Ich gehe schlafen um",
+  "sl_min": "Min",
+  "sl_tip": "Inklusive ~15 Minuten Einschlafzeit. Ideal sind 5–6 Zyklen.",
+  "ov_last": "Erster Tag der letzten Periode",
+  "ov_cycle": "Zykluslänge (Tage)",
+  "ov_ovul": "Eisprung",
+  "ov_fertile": "Fruchtbare Tage",
+  "ov_next": "Nächste Periode",
+  "ov_note": "Nur eine Schätzung, keine Verhütung und kein medizinischer Rat."
  }
 };

@@ -201,6 +201,16 @@ export default {
    "Calcolatore per dividere il conto",
    "Dividi il conto del ristorante tra amici, mancia inclusa.",
    "dividere il conto mancia"
+  ],
+  "sleep-calculator": [
+   "Calcolatore del sonno",
+   "Trova l’ora migliore per dormire o svegliarti in base a cicli di 90 minuti.",
+   "calcolatore sonno cicli"
+  ],
+  "ovulation-calculator": [
+   "Calcolatore ovulazione",
+   "Stima ovulazione, giorni fertili e prossimo ciclo per 3 cicli.",
+   "calcolo ovulazione giorni fertili"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Mancia",
   "sb_each": "Ciascuno paga",
   "sb_tipamt": "Mancia",
-  "sb_all": "Totale con mancia"
+  "sb_all": "Totale con mancia",
+  "sl_wake": "Voglio svegliarmi alle",
+  "sl_bed": "Vado a letto alle",
+  "sl_min": "min",
+  "sl_tip": "Include ~15 minuti per addormentarsi. L’ideale è 5–6 cicli.",
+  "ov_last": "Primo giorno dell’ultimo ciclo",
+  "ov_cycle": "Durata del ciclo (giorni)",
+  "ov_ovul": "Ovulazione",
+  "ov_fertile": "Giorni fertili",
+  "ov_next": "Prossimo ciclo",
+  "ov_note": "Solo una stima, non è contraccezione né consiglio medico."
  }
 };

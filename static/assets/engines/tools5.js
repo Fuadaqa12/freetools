@@ -3,7 +3,7 @@ TK.register('tools5', function (root, o, K) {
   var t = K.t, el = K.el, esc = K.esc;
   var V = new URL(K.root + 'assets/vendor/', location.href).href;
   function script(src) { return new Promise(function (res, rej) { if (document.querySelector('script[data-s="' + src + '"]')) return res(); var x = document.createElement('script'); x.src = V + src; x.dataset.s = src; x.onload = res; x.onerror = rej; document.head.appendChild(x); }); }
-  ({ exif: exif, wifi: wifi, newyear: newyear, hand: hand, social: social, word2pdf: word2pdf, vtrim: vtrim, cv: cv, notepad: notepad, emoji: emoji, translit: translit, scan: scan, split: split })[o.mode]();
+  ({ exif: exif, wifi: wifi, newyear: newyear, hand: hand, social: social, word2pdf: word2pdf, vtrim: vtrim, cv: cv, notepad: notepad, emoji: emoji, translit: translit, scan: scan, split: split, sleep: sleep, ovul: ovul })[o.mode]();
 
   /* ---------- remove EXIF / GPS ---------- */
   function exif() {
@@ -460,6 +460,45 @@ TK.register('tools5', function (root, o, K) {
   }
 
   /* ---------- split the bill ---------- */
+  function sleep() {
+    var mode = 'wake', tm = '07:00';
+    var top = el('<div class="panel stack"></div>');
+    var inp = el('<input class="inp" type="time" style="max-width:180px">'); inp.value = tm; inp.oninput = function () { tm = inp.value; calc(); };
+    top.append(K.seg([['wake', t('sl_wake')], ['bed', t('sl_bed')]], mode, function (v) { mode = v; calc(); }), inp);
+    var res = el('<div class="panel" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;text-align:center"></div>');
+    var note = el('<p class="muted"></p>'); note.textContent = t('sl_tip');
+    root.append(top, res, note);
+    function hm(m) { m = ((m % 1440) + 1440) % 1440; return String(Math.floor(m / 60)).padStart(2, '0') + ':' + String(m % 60).padStart(2, '0'); }
+    function calc() {
+      var p = (tm || '07:00').split(':'), base = +p[0] * 60 + +p[1], out = [];
+      for (var c = 6; c >= 3; c--) out.push([mode === 'wake' ? base - c * 90 - 15 : base + 15 + c * 90, c]);
+      if (mode === 'bed') out.reverse();
+      res.innerHTML = out.map(function (o) { return '<div><b style="font-size:26px;' + (o[1] >= 5 ? 'color:var(--brand)' : '') + '">' + hm(o[0]) + '</b><div class="muted" style="font-size:13px">' + o[1] + ' × 90 ' + esc(t('sl_min')) + ' · ' + (o[1] * 1.5) + ' h</div></div>'; }).join('');
+    }
+    calc();
+  }
+  function ovul() {
+    var d = new Date(); d.setDate(d.getDate() - 7);
+    var D = { last: d.toISOString().slice(0, 10), cyc: 28 };
+    var g = el('<div class="fields"></div>');
+    var a = el('<label class="f"><span>' + esc(t('ov_last')) + '</span></label>'), ai = el('<input class="inp" type="date">'); ai.value = D.last; ai.oninput = function () { D.last = ai.value; calc(); }; a.append(ai);
+    var b = el('<label class="f"><span>' + esc(t('ov_cycle')) + '</span></label>'), bi = el('<input class="inp" type="number" min="20" max="45">'); bi.value = 28; bi.oninput = function () { D.cyc = Math.min(45, Math.max(20, +bi.value || 28)); calc(); }; b.append(bi);
+    g.append(a, b);
+    var res = el('<div class="panel stack"></div>');
+    var note = el('<p class="muted"></p>'); note.textContent = t('ov_note');
+    root.append(g, res, note);
+    function fmt(x) { return x.toLocaleDateString(K.lang, { day: 'numeric', month: 'long', weekday: 'short' }); }
+    function add(x, n) { var y = new Date(x); y.setDate(y.getDate() + n); return y; }
+    function calc() {
+      if (!D.last) return; var L = new Date(D.last + 'T12:00:00'), rows = [];
+      for (var k = 0; k < 3; k++) {
+        var st = add(L, k * D.cyc), ov = add(st, D.cyc - 14);
+        rows.push('<div style="padding:10px 0;border-bottom:1px solid var(--line)"><div><b>' + esc(t('ov_ovul')) + ':</b> <span style="color:var(--brand);font-weight:700">' + fmt(ov) + '</span></div><div class="muted">' + esc(t('ov_fertile')) + ': ' + fmt(add(ov, -5)) + ' – ' + fmt(add(ov, 1)) + '</div><div class="muted">' + esc(t('ov_next')) + ': ' + fmt(add(st, D.cyc)) + '</div></div>');
+      }
+      res.innerHTML = rows.join('');
+    }
+    calc();
+  }
   function split() {
     var D = { total: '', ppl: 2, tip: 10, cur: '' };
     var g = el('<div class="fields"></div>');

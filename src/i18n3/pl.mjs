@@ -201,6 +201,16 @@ export default {
    "Kalkulator podziału rachunku",
    "Podziel rachunek w restauracji między znajomych, z napiwkiem.",
    "podział rachunku napiwek"
+  ],
+  "sleep-calculator": [
+   "Kalkulator snu",
+   "Sprawdź, kiedy iść spać lub wstać według 90-minutowych cykli snu.",
+   "kalkulator snu cykle"
+  ],
+  "ovulation-calculator": [
+   "Kalkulator owulacji",
+   "Oblicz owulację, dni płodne i następną miesiączkę na 3 cykle.",
+   "kalkulator owulacji dni płodne"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Napiwek",
   "sb_each": "Każdy płaci",
   "sb_tipamt": "Napiwek",
-  "sb_all": "Razem z napiwkiem"
+  "sb_all": "Razem z napiwkiem",
+  "sl_wake": "Chcę wstać o",
+  "sl_bed": "Idę spać o",
+  "sl_min": "min",
+  "sl_tip": "Uwzględnia ~15 minut na zaśnięcie. Idealnie 5–6 cykli.",
+  "ov_last": "Pierwszy dzień ostatniej miesiączki",
+  "ov_cycle": "Długość cyklu (dni)",
+  "ov_ovul": "Owulacja",
+  "ov_fertile": "Dni płodne",
+  "ov_next": "Następna miesiączka",
+  "ov_note": "Tylko szacunek, nie antykoncepcja ani porada medyczna."
  }
 };

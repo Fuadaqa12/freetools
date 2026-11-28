@@ -201,6 +201,16 @@ export default {
    "Split the Bill Calculator",
    "Split a restaurant bill between friends, with tip, in one second.",
    "split bill calculator split check tip per person"
+  ],
+  "sleep-calculator": [
+   "Sleep Calculator",
+   "Find the best time to go to bed or wake up based on 90-minute sleep cycles, so you wake up refreshed.",
+   "sleep calculator when to go to bed wake up time sleep cycles"
+  ],
+  "ovulation-calculator": [
+   "Ovulation Calculator",
+   "Estimate your ovulation day, fertile window and next period for the next 3 cycles.",
+   "ovulation calculator fertile window fertile days next period"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Tip",
   "sb_each": "Each pays",
   "sb_tipamt": "Tip amount",
-  "sb_all": "Total with tip"
+  "sb_all": "Total with tip",
+  "sl_wake": "I want to wake up at",
+  "sl_bed": "I go to bed at",
+  "sl_min": "min",
+  "sl_tip": "Includes ~15 minutes to fall asleep. 5–6 cycles is ideal for adults.",
+  "ov_last": "First day of last period",
+  "ov_cycle": "Cycle length (days)",
+  "ov_ovul": "Ovulation",
+  "ov_fertile": "Fertile window",
+  "ov_next": "Next period",
+  "ov_note": "An estimate only, not a contraceptive method or medical advice."
  }
 };

@@ -201,6 +201,16 @@ export default {
    "Calculadora para dividir a conta",
    "Divida a conta do restaurante entre amigos, com gorjeta.",
    "dividir conta calculadora gorjeta"
+  ],
+  "sleep-calculator": [
+   "Calculadora do sono",
+   "Descubra a hora ideal para dormir ou acordar com ciclos de 90 minutos.",
+   "calculadora do sono ciclos"
+  ],
+  "ovulation-calculator": [
+   "Calculadora de ovulação",
+   "Calcule o dia da ovulação, período fértil e próxima menstruação para 3 ciclos.",
+   "calculadora ovulação período fértil"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Gorjeta",
   "sb_each": "Cada um paga",
   "sb_tipamt": "Gorjeta",
-  "sb_all": "Total com gorjeta"
+  "sb_all": "Total com gorjeta",
+  "sl_wake": "Quero acordar às",
+  "sl_bed": "Vou dormir às",
+  "sl_min": "min",
+  "sl_tip": "Inclui ~15 minutos para adormecer. O ideal são 5–6 ciclos.",
+  "ov_last": "Primeiro dia da última menstruação",
+  "ov_cycle": "Duração do ciclo (dias)",
+  "ov_ovul": "Ovulação",
+  "ov_fertile": "Período fértil",
+  "ov_next": "Próxima menstruação",
+  "ov_note": "Apenas uma estimativa, não é método contraceptivo nem conselho médico."
  }
 };

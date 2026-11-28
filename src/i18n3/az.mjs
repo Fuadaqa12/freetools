@@ -201,6 +201,16 @@ export default {
    "Hesabı böl kalkulyatoru",
    "Restoran hesabını çayvulla birlikə dostlar arasında bölün.",
    "hesabı böl çayvul"
+  ],
+  "sleep-calculator": [
+   "Yuxu kalkulyatoru",
+   "90 dəqiqəlik yuxu dövrlərinə görə nə vaxt yatmaq və ya oyanmaq lazım olduğunu öyrənin.",
+   "yuxu kalkulyatoru"
+  ],
+  "ovulation-calculator": [
+   "Ovulyasiya kalkulyatoru",
+   "3 dövr üçün ovulyasiya gününü, məhsuldar günləri və növbəti aybaşını hesablayın.",
+   "ovulyasiya kalkulyatoru"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Çayvul",
   "sb_each": "Hər nəfər",
   "sb_tipamt": "Çayvul",
-  "sb_all": "Çayvulla cəmi"
+  "sb_all": "Çayvulla cəmi",
+  "sl_wake": "Bu saatda oyanmaq istəyirəm",
+  "sl_bed": "Bu saatda yatıram",
+  "sl_min": "dəq",
+  "sl_tip": "Yuxuya getmək üçün ~15 dəq nəzərə alınıb. İdeal: 5–6 dövr.",
+  "ov_last": "Son aybaşının ilk günü",
+  "ov_cycle": "Dövrün uzunluğu (gün)",
+  "ov_ovul": "Ovulyasiya",
+  "ov_fertile": "Məhsuldar günlər",
+  "ov_next": "Növbəti aybaşı",
+  "ov_note": "Yalnız təxminidir; kontrasepsiya və ya tibbi məsləhət deyil."
  }
 };

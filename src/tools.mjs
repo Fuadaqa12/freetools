@@ -181,6 +181,8 @@ TOOLS.push(
   N('remove-exif-data', 'image', 'shield', 'tools5', { mode: 'exif' }, 'file', { pop: 1 }),
   N('wifi-qr-code-generator', 'gen', 'qr', 'tools5', { mode: 'wifi' }, 'gen', { pop: 1 }),
   N('new-year-countdown', 'time', 'gift', 'tools5', { mode: 'newyear' }, 'gen', { pop: 1 }),
+  N('sleep-calculator', 'calc', 'clock', 'tools5', { mode: 'sleep' }, 'calc', { pop: 1 }),
+  N('ovulation-calculator', 'calc', 'calendar', 'tools5', { mode: 'ovul' }, 'calc', { pop: 1 }),
   N('document-scanner', 'pdf', 'camera', 'tools5', { mode: 'scan' }, 'file', { pop: 1 }),
   N('split-bill-calculator', 'calc', 'users', 'tools5', { mode: 'split' }, 'calc', { pop: 1 }),
   N('online-notepad', 'text', 'filetext', 'tools5', { mode: 'notepad' }, 'text', { pop: 1 }),

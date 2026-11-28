@@ -201,6 +201,16 @@ export default {
    "Hesap bölme hesaplayıcı",
    "Restoran hesabını bahşişle birlikte arkadaşlar arasında bölün.",
    "hesap bölme bahşiş"
+  ],
+  "sleep-calculator": [
+   "Uyku hesaplayıcı",
+   "90 dakikalık uyku döngülerine göre en iyi yatma veya uyanma saatini bulun.",
+   "uyku hesaplama döngü"
+  ],
+  "ovulation-calculator": [
+   "Yumurtlama hesaplayıcı",
+   "3 döngü için yumurtlama gününü, doğurgan dönemi ve sonraki adeti hesaplayın.",
+   "yumurtlama hesaplama"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Bahşiş",
   "sb_each": "Kişi başı",
   "sb_tipamt": "Bahşiş",
-  "sb_all": "Bahşişli toplam"
+  "sb_all": "Bahşişli toplam",
+  "sl_wake": "Şu saatte uyanmak istiyorum",
+  "sl_bed": "Şu saatte yatıyorum",
+  "sl_min": "dk",
+  "sl_tip": "Uykuya dalmak için ~15 dk dahil. İdeal: 5–6 döngü.",
+  "ov_last": "Son adetin ilk günü",
+  "ov_cycle": "Döngü süresi (gün)",
+  "ov_ovul": "Yumurtlama",
+  "ov_fertile": "Doğurgan dönem",
+  "ov_next": "Sonraki adet",
+  "ov_note": "Yalnızca tahmindir; doğum kontrolü veya tıbbi tavsiye değildir."
  }
 };

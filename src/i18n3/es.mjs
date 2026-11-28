@@ -201,6 +201,16 @@ export default {
    "Calculadora para dividir la cuenta",
    "Divide la cuenta del restaurante entre amigos, con propina.",
    "dividir cuenta calculadora propina"
+  ],
+  "sleep-calculator": [
+   "Calculadora de sueño",
+   "Descubre a qué hora acostarte o despertar según ciclos de sueño de 90 minutos.",
+   "calculadora de sueño ciclos"
+  ],
+  "ovulation-calculator": [
+   "Calculadora de ovulación",
+   "Calcula tu día de ovulación, días fértiles y próximo periodo para 3 ciclos.",
+   "calculadora ovulación días fértiles"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Propina",
   "sb_each": "Cada uno paga",
   "sb_tipamt": "Propina",
-  "sb_all": "Total con propina"
+  "sb_all": "Total con propina",
+  "sl_wake": "Quiero despertar a las",
+  "sl_bed": "Me acuesto a las",
+  "sl_min": "min",
+  "sl_tip": "Incluye ~15 minutos para dormirse. Lo ideal son 5–6 ciclos.",
+  "ov_last": "Primer día del último periodo",
+  "ov_cycle": "Duración del ciclo (días)",
+  "ov_ovul": "Ovulación",
+  "ov_fertile": "Días fértiles",
+  "ov_next": "Próximo periodo",
+  "ov_note": "Solo una estimación, no es método anticonceptivo ni consejo médico."
  }
 };

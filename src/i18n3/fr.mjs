@@ -201,6 +201,16 @@ export default {
    "Calculateur pour partager l’addition",
    "Partagez l’addition entre amis, pourboire compris.",
    "partager addition calcul pourboire"
+  ],
+  "sleep-calculator": [
+   "Calculateur de sommeil",
+   "Trouvez l’heure idéale pour vous coucher ou vous réveiller selon des cycles de 90 minutes.",
+   "calculateur sommeil cycles"
+  ],
+  "ovulation-calculator": [
+   "Calculateur d’ovulation",
+   "Estimez votre ovulation, période fertile et prochaines règles sur 3 cycles.",
+   "calcul ovulation période fertile"
   ]
  },
  "faqx": {
@@ -475,6 +485,16 @@ export default {
   "sb_tip": "Pourboire",
   "sb_each": "Chacun paie",
   "sb_tipamt": "Pourboire",
-  "sb_all": "Total avec pourboire"
+  "sb_all": "Total avec pourboire",
+  "sl_wake": "Je veux me réveiller à",
+  "sl_bed": "Je me couche à",
+  "sl_min": "min",
+  "sl_tip": "Inclut ~15 minutes d’endormissement. 5–6 cycles, c’est idéal.",
+  "ov_last": "Premier jour des dernières règles",
+  "ov_cycle": "Durée du cycle (jours)",
+  "ov_ovul": "Ovulation",
+  "ov_fertile": "Période fertile",
+  "ov_next": "Prochaines règles",
+  "ov_note": "Simple estimation, ni contraception ni avis médical."
  }
 };
