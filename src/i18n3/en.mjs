@@ -81,6 +81,11 @@ export default {
    "Photo Collage Maker",
    "Combine up to 12 photos into a collage for Instagram, Stories or print. Pick layout, gaps and corners.",
    "photo collage maker combine photos grid instagram"
+  ],
+  "speech-to-text": [
+   "Speech to Text (AI)",
+   "Transcribe voice messages, audio and video to text with Whisper AI in 90+ languages. Export TXT or SRT subtitles.",
+   "speech to text transcribe audio voice message to text whisper subtitles srt"
   ]
  },
  "faqx": {
@@ -186,6 +191,12 @@ export default {
   "sign_tip": "Tap the page to place the signature. Tap it again to remove. Use ‹ › to switch pages.",
   "sign_first": "First draw or type your signature above.",
   "sign_place": "Tap the page to place your signature.",
-  "sign_save": "Save signed PDF"
+  "sign_save": "Save signed PDF",
+  "auto_detect": "Detect automatically",
+  "stt_fast": "Fast",
+  "stt_accurate": "More accurate",
+  "stt_note": "First run downloads ~80 MB (or ~250 MB for “More accurate”).",
+  "stt_working": "Transcribing…",
+  "stt_nothing": "No speech found in this file."
  }
 };

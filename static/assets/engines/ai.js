@@ -26,7 +26,7 @@ TK.register('ai', function (root, o, K) {
     return el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px">' + esc(label) + '</figcaption><canvas style="width:100%;max-height:440px;object-fit:contain;border-radius:12px;' + (checker ? 'background:repeating-conic-gradient(#e5e7eb 0 25%,#fff 0 50%) 0 0/20px 20px' : 'background:var(--soft)') + '"></canvas></figure>');
   }
 
-  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport, faces: faces, sticker: sticker })[o.mode]();
+  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport, faces: faces, sticker: sticker, stt: stt })[o.mode]();
 
   /* ---------- OCR ---------- */
   function ocr() {
@@ -411,6 +411,57 @@ TK.register('ai', function (root, o, K) {
         var c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height; c.getContext('2d').drawImage(bmp, 0, 0);
         cut = { c: c, box: bbox(c) }; prog.hide(); draw(); view.classList.remove('hide');
       }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- speech to text (Whisper via transformers.js, in a worker) ---------- */
+  function stt() {
+    var file = null, lang = 'auto', model = 'onnx-community/whisper-base', out = null, w = null;
+    var LG = [['auto', t('auto_detect')], ['en', 'English'], ['ru', 'Русский'], ['es', 'Español'], ['pt', 'Português'], ['fr', 'Français'], ['de', 'Deutsch'], ['tr', 'Türkçe'], ['az', 'Azərbaycanca'], ['ar', 'العربية'], ['hi', 'हिन्दी'], ['it', 'Italiano'], ['pl', 'Polski'], ['uk', 'Українська'], ['kk', 'Қазақша'], ['uz', 'Oʻzbekcha'], ['zh', '中文'], ['ja', '日本語'], ['ko', '한국어'], ['id', 'Indonesia'], ['nl', 'Nederlands']];
+    var cur = (K.lang || 'en').slice(0, 2); if (LG.some(function (x) { return x[0] === cur; })) lang = cur;
+    var top = el('<div class="panel stack"></div>');
+    top.append(K.sel(t('ocr_lang'), LG, lang, function (v) { lang = v; }),
+      K.seg([['onnx-community/whisper-base', t('stt_fast')], ['onnx-community/whisper-small', t('stt_accurate')]], model, function (v) { model = v; }));
+    var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + ' ' + esc(t('stt_note')) + '</p>');
+    var dz = K.dropzone({ accept: 'audio/*,video/*,.m4a,.ogg,.opus,.oga,.wav,.mp3,.mp4,.webm', hint: t('drop_hint_audio'), onFiles: function (f) { run(f[0]); } });
+    var prog = progress();
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
+    var ta = el('<textarea class="inp" style="min-height:240px"></textarea>');
+    var bar = el('<div class="acts"></div>');
+    bar.append(K.btn('upload', t('start_over'), 'sec', function () { view.classList.add('hide'); dz.classList.remove('hide'); }),
+      K.btn('copy', t('copy'), 'sec', function () { K.copy(ta.value); }),
+      K.btn('download', 'TXT', 'sec', function () { K.download(new Blob([ta.value], { type: 'text/plain' }), K.baseName(file.name) + '.txt'); }),
+      K.btn('download', 'SRT', '', function () { K.download(new Blob([srt()], { type: 'text/plain' }), K.baseName(file.name) + '.srt'); }));
+    view.append(ta, bar);
+    root.append(note, top, dz, prog, view);
+    function ts(s) { s = Math.max(0, s || 0); var h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = Math.floor(s % 60), ms = Math.round((s % 1) * 1000); function z(n, l) { return String(n).padStart(l || 2, '0'); } return z(h) + ':' + z(m) + ':' + z(x) + ',' + z(ms, 3); }
+    function srt() { return (out.chunks || []).map(function (c, i) { var a = c.timestamp || [0, 0]; return (i + 1) + '\n' + ts(a[0]) + ' --> ' + ts(a[1] == null ? a[0] + 3 : a[1]) + '\n' + c.text.trim() + '\n'; }).join('\n'); }
+    function decode(f) {
+      return f.arrayBuffer().then(function (ab) {
+        var C = window.AudioContext || window.webkitAudioContext, ac = new C({ sampleRate: 16000 });
+        return new Promise(function (r, j) { ac.decodeAudioData(ab, r, j); }).then(function (b) {
+          try { ac.close(); } catch (e) { }
+          if (b.sampleRate === 16000 && b.numberOfChannels === 1) return b.getChannelData(0);
+          var oc = new OfflineAudioContext(1, Math.ceil(b.duration * 16000), 16000), s = oc.createBufferSource(); s.buffer = b; s.connect(oc.destination); s.start();
+          return oc.startRendering().then(function (r) { return r.getChannelData(0); });
+        });
+      });
+    }
+    function run(f) {
+      file = f; dz.classList.add('hide'); view.classList.add('hide'); prog.set(t('reading_file'), 0.02);
+      decode(f).then(function (audio) {
+        if (!w) w = new Worker(V + 'stt/worker.mjs', { type: 'module' });
+        var t0 = 0, dur = audio.length / 16000, tick = null;
+        prog.set(t('ai_loading_model'), 0.05);
+        w.onmessage = function (e) {
+          var d = e.data;
+          if (d.type === 'load') prog.set(t('ai_loading_model'), 0.05 + d.p * 0.45);
+          else if (d.type === 'run') { t0 = Date.now(); var est = Math.max(8, dur * (model.indexOf('small') > 0 ? 0.9 : 0.35)); tick = setInterval(function () { prog.set(t('stt_working'), Math.min(0.97, 0.5 + (Date.now() - t0) / 1000 / est * 0.5)); }, 400); }
+          else if (d.type === 'done') { clearInterval(tick); out = d; prog.hide(); ta.value = (d.text || '').trim(); view.classList.remove('hide'); if (!ta.value) K.toast(t('stt_nothing')); }
+          else if (d.type === 'error') { clearInterval(tick); console.error(d.msg); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); }
+        };
+        w.postMessage({ audio: audio, lang: lang, model: model }, [audio.buffer]);
+      }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('no_audio_track')); dz.classList.remove('hide'); });
     }
   }
 });

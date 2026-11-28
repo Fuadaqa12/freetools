@@ -81,6 +81,11 @@ export default {
    "Kolaż ze zdjęć",
    "Połącz do 12 zdjęć w kolaż na Instagram, relacje lub do druku.",
    "kolaż ze zdjęć online"
+  ],
+  "speech-to-text": [
+   "Mowa na tekst (AI)",
+   "Transkrybuj wiadomości głosowe, audio i wideo z AI Whisper w ponad 90 językach. Eksport TXT lub SRT.",
+   "mowa na tekst transkrypcja whisper napisy"
   ]
  },
  "faqx": {
@@ -186,6 +191,12 @@ export default {
   "sign_tip": "Dotknij strony, aby wstawić podpis, dotknij ponownie, aby usunąć. ‹ › zmienia stronę.",
   "sign_first": "Najpierw narysuj lub wpisz podpis powyżej.",
   "sign_place": "Dotknij strony, aby wstawić podpis.",
-  "sign_save": "Zapisz podpisany PDF"
+  "sign_save": "Zapisz podpisany PDF",
+  "auto_detect": "Wykryj automatycznie",
+  "stt_fast": "Szybko",
+  "stt_accurate": "Dokładniej",
+  "stt_note": "Za pierwszym razem pobiera ~80 MB (~250 MB dla „Dokładniej”).",
+  "stt_working": "Transkrypcja…",
+  "stt_nothing": "Nie znaleziono mowy."
  }
 };

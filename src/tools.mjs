@@ -169,6 +169,7 @@ TOOLS.push(
   N('upscale-image', 'ai', 'maximize', 'ai', { mode: 'up' }, 'file', { pop: 1 }),
   N('passport-photo-maker', 'ai', 'id', 'ai', { mode: 'passport' }, 'file', { pop: 1 }),
   N('blur-background', 'ai', 'droplet', 'ai', { mode: 'blurbg' }, 'file'),
+  N('speech-to-text', 'ai', 'mic', 'ai', { mode: 'stt' }, 'file', { pop: 1 }),
   N('sticker-maker', 'ai', 'smile', 'ai', { mode: 'sticker' }, 'file', { pop: 1 }),
   N('auto-blur-faces', 'ai', 'nouser', 'ai', { mode: 'faces' }, 'file'),
   N('image-to-text', 'ai', 'filetext', 'ai', { mode: 'ocr' }, 'file', { pop: 1, vendor: ['ocr/tesseract.min.js'] }),

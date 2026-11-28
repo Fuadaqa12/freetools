@@ -81,6 +81,11 @@ export default {
    "Foto kollaj",
    "12-yə qədər şəkli Instagram, story və ya çap üçün kollaja birləşdirin.",
    "foto kollaj düzəlt"
+  ],
+  "speech-to-text": [
+   "Səsi mətnə çevir (Sİ)",
+   "Səsli mesajları, audio və videonu Whisper Sİ ilə 90+ dildə mətnə çevirin. TXT və ya SRT yükləyin.",
+   "səsi mətnə çevir transkripsiya whisper"
   ]
  },
  "faqx": {
@@ -186,6 +191,12 @@ export default {
   "sign_tip": "İmzanı qoymaq üçün səhifəyə toxunun, silmək üçün yenə toxunun. ‹ › səhifəni dəyişir.",
   "sign_first": "Əvvəlcə yuxarıda imzanı çəkin və ya yazın.",
   "sign_place": "İmzanı qoymaq üçün səhifəyə toxunun.",
-  "sign_save": "İmzalı PDF-i saxla"
+  "sign_save": "İmzalı PDF-i saxla",
+  "auto_detect": "Avtomatik təyin et",
+  "stt_fast": "Sürətli",
+  "stt_accurate": "Daha dəqiq",
+  "stt_note": "İlk dəfə ~80 MB yüklənir (“Daha dəqiq” üçün ~250 MB).",
+  "stt_working": "Mətnə çevrilir…",
+  "stt_nothing": "Bu faylda nitq tapılmadı."
  }
 };

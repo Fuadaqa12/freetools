@@ -81,6 +81,11 @@ export default {
    "Criador de colagem",
    "Junte até 12 fotos em uma colagem para Instagram, Stories ou impressão.",
    "colagem de fotos online"
+  ],
+  "speech-to-text": [
+   "Áudio para texto (IA)",
+   "Transcreva áudios, mensagens de voz e vídeos com a IA Whisper em mais de 90 idiomas. Exporte TXT ou SRT.",
+   "audio para texto transcrever whisper legendas"
   ]
  },
  "faqx": {
@@ -186,6 +191,12 @@ export default {
   "sign_tip": "Toque na página para colocar a assinatura. Toque de novo para remover. ‹ › muda de página.",
   "sign_first": "Primeiro desenhe ou digite sua assinatura acima.",
   "sign_place": "Toque na página para colocar sua assinatura.",
-  "sign_save": "Salvar PDF assinado"
+  "sign_save": "Salvar PDF assinado",
+  "auto_detect": "Detectar automaticamente",
+  "stt_fast": "Rápido",
+  "stt_accurate": "Mais preciso",
+  "stt_note": "Na primeira vez baixa ~80 MB (ou ~250 MB no “Mais preciso”).",
+  "stt_working": "Transcrevendo…",
+  "stt_nothing": "Nenhuma fala encontrada."
  }
 };

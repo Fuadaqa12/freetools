@@ -81,6 +81,11 @@ export default {
    "Crea collage di foto",
    "Unisci fino a 12 foto in un collage per Instagram, Storie o stampa.",
    "collage foto online"
+  ],
+  "speech-to-text": [
+   "Da audio a testo (IA)",
+   "Trascrivi vocali, audio e video in testo con l’IA Whisper in oltre 90 lingue. Esporta TXT o SRT.",
+   "audio in testo trascrizione whisper sottotitoli"
   ]
  },
  "faqx": {
@@ -186,6 +191,12 @@ export default {
   "sign_tip": "Tocca la pagina per inserire la firma, tocca di nuovo per toglierla. ‹ › cambia pagina.",
   "sign_first": "Prima disegna o scrivi la firma sopra.",
   "sign_place": "Tocca la pagina per inserire la firma.",
-  "sign_save": "Salva PDF firmato"
+  "sign_save": "Salva PDF firmato",
+  "auto_detect": "Rileva automaticamente",
+  "stt_fast": "Veloce",
+  "stt_accurate": "Più preciso",
+  "stt_note": "Al primo avvio scarica ~80 MB (~250 MB per “Più preciso”).",
+  "stt_working": "Trascrizione…",
+  "stt_nothing": "Nessun parlato trovato."
  }
 };

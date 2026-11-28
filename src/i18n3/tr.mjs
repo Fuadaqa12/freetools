@@ -81,6 +81,11 @@ export default {
    "Fotoğraf kolajı",
    "12 fotoğrafa kadar Instagram, hikâye veya baskı için kolaj yapın.",
    "fotoğraf kolajı yapma online"
+  ],
+  "speech-to-text": [
+   "Sesi yazıya çevir (YZ)",
+   "Sesli mesajları, ses ve videoları Whisper yapay zekâsıyla 90+ dilde yazıya dökün. TXT veya SRT indirin.",
+   "sesi yazıya çevirme transkript whisper altyazı"
   ]
  },
  "faqx": {
@@ -186,6 +191,12 @@ export default {
   "sign_tip": "İmzayı koymak için sayfaya dokunun, kaldırmak için tekrar dokunun. ‹ › sayfa değiştirir.",
   "sign_first": "Önce yukarıda imzanızı çizin veya yazın.",
   "sign_place": "İmzanızı koymak için sayfaya dokunun.",
-  "sign_save": "İmzalı PDF’i kaydet"
+  "sign_save": "İmzalı PDF’i kaydet",
+  "auto_detect": "Otomatik algıla",
+  "stt_fast": "Hızlı",
+  "stt_accurate": "Daha doğru",
+  "stt_note": "İlk çalıştırmada ~80 MB iner (“Daha doğru” için ~250 MB).",
+  "stt_working": "Yazıya dökülüyor…",
+  "stt_nothing": "Bu dosyada konuşma bulunamadı."
  }
 };

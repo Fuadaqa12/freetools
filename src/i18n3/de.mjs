@@ -81,6 +81,11 @@ export default {
    "Fotocollage erstellen",
    "Bis zu 12 Fotos zu einer Collage für Instagram, Stories oder Druck kombinieren.",
    "fotocollage online erstellen"
+  ],
+  "speech-to-text": [
+   "Sprache zu Text (KI)",
+   "Sprachnachrichten, Audio und Video mit Whisper-KI in über 90 Sprachen transkribieren. Export als TXT oder SRT.",
+   "sprache zu text transkribieren whisper untertitel"
   ]
  },
  "faqx": {
@@ -186,6 +191,12 @@ export default {
   "sign_tip": "Tippen Sie auf die Seite, um zu unterschreiben, erneut tippen zum Entfernen. ‹ › wechselt die Seite.",
   "sign_first": "Zuerst oben die Unterschrift zeichnen oder tippen.",
   "sign_place": "Tippen Sie auf die Seite, um die Unterschrift zu platzieren.",
-  "sign_save": "Unterschriebenes PDF speichern"
+  "sign_save": "Unterschriebenes PDF speichern",
+  "auto_detect": "Automatisch erkennen",
+  "stt_fast": "Schnell",
+  "stt_accurate": "Genauer",
+  "stt_note": "Beim ersten Mal werden ~80 MB geladen (~250 MB für „Genauer“).",
+  "stt_working": "Transkribiere…",
+  "stt_nothing": "Keine Sprache gefunden."
  }
 };
