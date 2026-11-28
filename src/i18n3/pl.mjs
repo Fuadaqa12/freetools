@@ -156,6 +156,21 @@ export default {
    "Tekst na pismo odręczne",
    "Zamień wpisany tekst w realistyczne pismo odręczne w linie, kratkę lub na czystej kartce.",
    "tekst na pismo odręczne"
+  ],
+  "social-media-image-resizer": [
+   "Rozmiary zdjęć do social media",
+   "Dopasuj zdjęcie do dokładnych rozmiarów Instagram, TikTok, YouTube, Facebook, X i LinkedIn.",
+   "rozmiar zdjęcia instagram"
+  ],
+  "word-to-pdf": [
+   "Word na PDF",
+   "Zamień dokument Word (DOCX) na PDF z tekstem, nagłówkami, tabelami i obrazami.",
+   "word na pdf docx"
+  ],
+  "video-trimmer": [
+   "Przytnij wideo",
+   "Wytnij potrzebny fragment: ustaw początek i koniec, obejrzyj i pobierz. Bez znaku wodnego.",
+   "przytnij wideo online"
   ]
  },
  "faqx": {
@@ -231,6 +246,13 @@ export default {
    "Kompresja wideo, wideo na MP3 i GIF, przycinanie audio, transkrypcja, nagrywanie ekranu i głosu.",
    "Edytuj wideo i dźwięk bez instalowania aplikacji, za darmo."
   ]
+ },
+ "s": {
+  "colsTitle": "Zestawy",
+  "tr1": "Pliki zostają na urządzeniu",
+  "tr2": "Bezpieczne połączenie HTTPS",
+  "tr3": "Bez rejestracji i limitów",
+  "tr4": "12 języków, każde urządzenie"
  },
  "ui": {
   "ocr_lang": "Język tekstu",
@@ -367,6 +389,15 @@ export default {
   "hw_lines": "Linia",
   "hw_grid": "Kratka",
   "hw_plain": "Czysta",
-  "hw_sample": "Cześć! Ten tekst wygląda na pisany ręcznie.\nWpisz lub wklej tu swoje notatki."
+  "hw_sample": "Cześć! Ten tekst wygląda na pisany ręcznie.\nWpisz lub wklej tu swoje notatki.",
+  "soc_fill": "Wypełnij",
+  "soc_fit": "Dopasuj",
+  "soc_blur": "Dopasuj + rozmyte tło",
+  "drop_hint_docx": "lub przeciągnij plik .docx",
+  "w2p_save": "Zapisz jako PDF",
+  "w2p_note": "W oknie drukowania wybierz „Zapisz jako PDF”.",
+  "w2p_only": "Wybierz plik .docx (stary .doc nie jest obsługiwany).",
+  "vt_cut": "Przytnij",
+  "vt_working": "Przycinanie…"
  }
 };

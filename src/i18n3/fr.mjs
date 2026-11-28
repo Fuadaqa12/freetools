@@ -156,6 +156,21 @@ export default {
    "Texte en écriture manuscrite",
    "Transformez du texte en écriture manuscrite réaliste sur papier ligné, quadrillé ou blanc.",
    "texte en écriture manuscrite"
+  ],
+  "social-media-image-resizer": [
+   "Redimensionner pour les réseaux sociaux",
+   "Adaptez une photo aux tailles exactes d’Instagram, TikTok, YouTube, Facebook, X et LinkedIn.",
+   "taille image instagram réseaux sociaux"
+  ],
+  "word-to-pdf": [
+   "Word en PDF",
+   "Convertissez un document Word (DOCX) en PDF avec texte, titres, tableaux et images.",
+   "word en pdf docx"
+  ],
+  "video-trimmer": [
+   "Couper une vidéo",
+   "Coupez la partie voulue : début, fin, aperçu et téléchargement. Sans filigrane.",
+   "couper vidéo en ligne"
   ]
  },
  "faqx": {
@@ -231,6 +246,13 @@ export default {
    "Compresser une vidéo, vidéo en MP3 et GIF, couper un audio, transcrire, enregistrer l’écran et la voix.",
    "Éditez vidéo et son sans installer d’application, gratuitement."
   ]
+ },
+ "s": {
+  "colsTitle": "Sélections",
+  "tr1": "Les fichiers restent sur votre appareil",
+  "tr2": "Connexion HTTPS sécurisée",
+  "tr3": "Sans inscription ni limite",
+  "tr4": "12 langues, tout appareil"
  },
  "ui": {
   "ocr_lang": "Langue du texte",
@@ -367,6 +389,15 @@ export default {
   "hw_lines": "Ligné",
   "hw_grid": "Quadrillé",
   "hw_plain": "Blanc",
-  "hw_sample": "Bonjour ! Ce texte semble écrit à la main.\nTapez ou collez vos notes ici."
+  "hw_sample": "Bonjour ! Ce texte semble écrit à la main.\nTapez ou collez vos notes ici.",
+  "soc_fill": "Remplir",
+  "soc_fit": "Ajuster",
+  "soc_blur": "Ajuster + fond flou",
+  "drop_hint_docx": "ou glissez un fichier .docx ici",
+  "w2p_save": "Enregistrer en PDF",
+  "w2p_note": "Dans la fenêtre d’impression, choisissez « Enregistrer au format PDF ».",
+  "w2p_only": "Choisissez un fichier .docx (.doc n’est pas pris en charge).",
+  "vt_cut": "Couper",
+  "vt_working": "Découpe…"
  }
 };

@@ -115,8 +115,10 @@ ${body}
 <div><a class="logo" href="${root}${pre(l)}" style="margin-bottom:10px"><i>${svg('wrench')}</i>${esc(CFG.siteName)}</a><p style="margin:10px 0 0;max-width:340px">${esc(S(l, 'footerText'))}</p></div>
 <div><h4>${esc(S(l, 'categories'))}</h4>${footerCats}</div>
 <div><h4>${esc(S(l, 'popular'))}</h4>${footerPop}</div>
-<div><h4>${esc(CFG.siteName)}</h4><a href="${root}${pre(l)}about/">${esc(S(l, 'about'))}</a><a href="${root}${pre(l)}privacy/">${esc(S(l, 'privacy'))}</a><a href="${root}${pre(l)}terms/">${esc(S(l, 'terms'))}</a><a href="${root}${pre(l)}contact/">${esc(S(l, 'contact'))}</a></div>
+<div><h4>${esc(S(l, 'colsTitle'))}</h4>${COLS.map(c => `<a href="${root}${pre(l)}collection/${c.id}/">${esc(COLN(l, c.id)[0])}</a>`).join('')}</div>
+<div><h4>${esc(CFG.siteName)}</h4>${CFG.telegramBot ? `<a href="https://t.me/${esc(CFG.telegramBot)}" rel="noopener">Telegram bot</a>` : ''}<a href="${root}${pre(l)}about/">${esc(S(l, 'about'))}</a><a href="${root}${pre(l)}privacy/">${esc(S(l, 'privacy'))}</a><a href="${root}${pre(l)}terms/">${esc(S(l, 'terms'))}</a><a href="${root}${pre(l)}contact/">${esc(S(l, 'contact'))}</a></div>
 </div>
+<div class="trust">${['tr1', 'tr2', 'tr3', 'tr4'].map((k, i) => `<span>${svg(['shield', 'lock', 'zap', 'globe'][i])}${esc(S(l, k))}</span>`).join('')}</div>
 <div class="langs">${svg('globe').replace('<svg', '<svg style="width:16px;height:16px;vertical-align:-3px"')} ${LANGS.map(x => `<a href="${root}${pre(x)}${alt ?? ''}" hreflang="${x}">${esc(I[x].meta.name)}</a>`).join('')}</div>
 <p style="margin:16px 0 0">© ${new Date().getFullYear()} ${esc(CFG.siteName)}. ${esc(S(l, 'rights'))}</p>
 </div></footer>
@@ -161,7 +163,7 @@ ${secs}
 </div>`;
   const schema = [
     { '@context': 'https://schema.org', '@type': 'WebSite', name: CFG.siteName, url: url(l), inLanguage: l, description: fill(S(l, 'homeDesc'), { n }) },
-    { '@context': 'https://schema.org', '@type': 'Organization', name: CFG.siteName, url: SITE, logo: SITE + 'assets/apple-touch-icon.png', ...(CFG.contactEmail ? { email: CFG.contactEmail } : {}) },
+    { '@context': 'https://schema.org', '@type': 'Organization', name: CFG.siteName, url: SITE, logo: SITE + 'assets/icon-512.png', ...(CFG.telegramBot ? { sameAs: ['https://t.me/' + CFG.telegramBot] } : {}), ...(CFG.contactEmail ? { email: CFG.contactEmail } : {}) },
     { '@context': 'https://schema.org', '@type': 'ItemList', name: S(l, 'popular'), itemListElement: pop.map((t, i) => ({ '@type': 'ListItem', position: i + 1, url: url(l, t.id + '/'), name: TN(l, t.id)[0] })) },
   ];
   return layout(l, p, { title: fill(S(l, 'homeTitle'), { site: CFG.siteName }), desc: fill(S(l, 'homeDesc'), { n }), body, alt: '', schema });

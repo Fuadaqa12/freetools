@@ -156,6 +156,21 @@ export default {
    "Text in Handschrift",
    "Getippten Text in realistische Handschrift auf liniertem, kariertem oder leerem Papier verwandeln.",
    "text in handschrift umwandeln"
+  ],
+  "social-media-image-resizer": [
+   "Bildgrößen für Social Media",
+   "Ein Foto auf die genauen Größen für Instagram, TikTok, YouTube, Facebook, X und LinkedIn bringen.",
+   "bildgröße instagram social media"
+  ],
+  "word-to-pdf": [
+   "Word zu PDF",
+   "Word-Dokument (DOCX) mit Text, Überschriften, Tabellen und Bildern in PDF umwandeln.",
+   "word zu pdf docx"
+  ],
+  "video-trimmer": [
+   "Video schneiden",
+   "Schneiden Sie den gewünschten Teil: Start und Ende wählen, ansehen, herunterladen. Ohne Wasserzeichen.",
+   "video schneiden online"
   ]
  },
  "faqx": {
@@ -231,6 +246,13 @@ export default {
    "Video komprimieren, Video zu MP3 und GIF, Audio schneiden, Sprache transkribieren, Bildschirm und Stimme aufnehmen.",
    "Video und Ton bearbeiten ohne App-Installation, kostenlos."
   ]
+ },
+ "s": {
+  "colsTitle": "Sammlungen",
+  "tr1": "Dateien bleiben auf Ihrem Gerät",
+  "tr2": "Sichere HTTPS-Verbindung",
+  "tr3": "Ohne Anmeldung und Limits",
+  "tr4": "12 Sprachen, jedes Gerät"
  },
  "ui": {
   "ocr_lang": "Sprache des Textes",
@@ -367,6 +389,15 @@ export default {
   "hw_lines": "Liniert",
   "hw_grid": "Kariert",
   "hw_plain": "Leer",
-  "hw_sample": "Hallo! Dieser Text sieht handgeschrieben aus.\nTippen oder fügen Sie Ihre Notizen hier ein."
+  "hw_sample": "Hallo! Dieser Text sieht handgeschrieben aus.\nTippen oder fügen Sie Ihre Notizen hier ein.",
+  "soc_fill": "Füllen",
+  "soc_fit": "Einpassen",
+  "soc_blur": "Einpassen + unscharfer Hintergrund",
+  "drop_hint_docx": "oder .docx-Datei hierher ziehen",
+  "w2p_save": "Als PDF speichern",
+  "w2p_note": "Im Druckfenster „Als PDF speichern“ wählen.",
+  "w2p_only": "Bitte .docx wählen (altes .doc wird nicht unterstützt).",
+  "vt_cut": "Schneiden",
+  "vt_working": "Schneide…"
  }
 };

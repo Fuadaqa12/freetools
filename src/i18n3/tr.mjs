@@ -156,6 +156,21 @@ export default {
    "Metni el yazısına çevir",
    "Yazılan metni çizgili, kareli veya düz kâğıtta gerçekçi el yazısına dönüştürün.",
    "metni el yazısına çevirme"
+  ],
+  "social-media-image-resizer": [
+   "Sosyal medya görsel boyutlandırıcı",
+   "Bir fotoğrafı Instagram, TikTok, YouTube, Facebook, X ve LinkedIn ölçülerine getirin.",
+   "instagram fotoğraf boyutu sosyal medya"
+  ],
+  "word-to-pdf": [
+   "Word’den PDF’ye",
+   "Word belgesini (DOCX) metin, başlık, tablo ve resimlerle PDF’ye çevirin.",
+   "word pdf çevirme"
+  ],
+  "video-trimmer": [
+   "Video kesici",
+   "İhtiyacınız olan kısmı kesin: başlangıç ve bitişi seçin, izleyin ve indirin. Filigransız.",
+   "video kesme online"
   ]
  },
  "faqx": {
@@ -231,6 +246,13 @@ export default {
    "Video sıkıştır, videodan MP3 ve GIF, ses kes, konuşmayı yazıya dök, ekran ve ses kaydet.",
    "Uygulama kurmadan video ve ses düzenleyin, ücretsiz."
   ]
+ },
+ "s": {
+  "colsTitle": "Koleksiyonlar",
+  "tr1": "Dosyalar cihazınızda kalır",
+  "tr2": "Güvenli HTTPS bağlantısı",
+  "tr3": "Kayıt ve limit yok",
+  "tr4": "12 dil, her cihaz"
  },
  "ui": {
   "ocr_lang": "Metin dili",
@@ -367,6 +389,15 @@ export default {
   "hw_lines": "Çizgili",
   "hw_grid": "Kareli",
   "hw_plain": "Düz",
-  "hw_sample": "Merhaba! Bu metin elle yazılmış gibi görünüyor.\nNotlarınızı buraya yazın veya yapıştırın."
+  "hw_sample": "Merhaba! Bu metin elle yazılmış gibi görünüyor.\nNotlarınızı buraya yazın veya yapıştırın.",
+  "soc_fill": "Doldur",
+  "soc_fit": "Sığdır",
+  "soc_blur": "Sığdır + bulanık arka plan",
+  "drop_hint_docx": "veya .docx dosyasını buraya sürükleyin",
+  "w2p_save": "PDF olarak kaydet",
+  "w2p_note": "Yazdırma penceresinde “PDF olarak kaydet” seçin.",
+  "w2p_only": "Lütfen .docx seçin (eski .doc desteklenmez).",
+  "vt_cut": "Kes",
+  "vt_working": "Kesiliyor…"
  }
 };

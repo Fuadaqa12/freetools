@@ -156,6 +156,21 @@ export default {
    "Text to Handwriting",
    "Turn typed text into realistic handwriting on lined, grid or plain paper. Download as image or PDF.",
    "text to handwriting converter handwritten notes generator"
+  ],
+  "social-media-image-resizer": [
+   "Social Media Image Resizer",
+   "Resize one photo to the exact sizes for Instagram, TikTok, YouTube, Facebook, X, LinkedIn and Telegram.",
+   "social media image resizer instagram size youtube thumbnail size story 1080x1920"
+  ],
+  "word-to-pdf": [
+   "Word to PDF",
+   "Convert a Word document (DOCX) to PDF with text, headings, tables and images. Free, files stay on your device.",
+   "word to pdf docx to pdf convert word document"
+  ],
+  "video-trimmer": [
+   "Video Trimmer",
+   "Cut the part of a video you need: set start and end, preview and download. No app, no watermark.",
+   "trim video cut video online video cutter"
   ]
  },
  "faqx": {
@@ -231,6 +246,13 @@ export default {
    "Free online video and audio tools: compress video, video to MP3 and GIF, cut audio, transcribe speech, record screen and voice.",
    "Edit video and sound without installing apps. Shrink a video for WhatsApp, pull the music out of a clip, make a ringtone, turn a voice message into text or record your screen, all in the browser."
   ]
+ },
+ "s": {
+  "colsTitle": "Collections",
+  "tr1": "Files stay on your device",
+  "tr2": "Secure HTTPS connection",
+  "tr3": "No sign-up, no limits",
+  "tr4": "12 languages, any device"
  },
  "ui": {
   "ocr_lang": "Text language",
@@ -367,6 +389,15 @@ export default {
   "hw_lines": "Lined",
   "hw_grid": "Grid",
   "hw_plain": "Plain",
-  "hw_sample": "Hello! This text looks like it was written by hand.\nType or paste your notes here."
+  "hw_sample": "Hello! This text looks like it was written by hand.\nType or paste your notes here.",
+  "soc_fill": "Fill",
+  "soc_fit": "Fit",
+  "soc_blur": "Fit + blurred background",
+  "drop_hint_docx": "or drag & drop a .docx file here",
+  "w2p_save": "Save as PDF",
+  "w2p_note": "In the print window choose “Save as PDF” as the printer.",
+  "w2p_only": "Please choose a .docx file (old .doc is not supported).",
+  "vt_cut": "Cut video",
+  "vt_working": "Cutting…"
  }
 };

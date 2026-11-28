@@ -156,6 +156,21 @@ export default {
    "Testo in scrittura a mano",
    "Trasforma il testo in scrittura a mano realistica su foglio a righe, quadretti o bianco.",
    "testo in scrittura a mano"
+  ],
+  "social-media-image-resizer": [
+   "Ridimensiona immagini per i social",
+   "Adatta una foto alle misure esatte di Instagram, TikTok, YouTube, Facebook, X e LinkedIn.",
+   "dimensioni immagine instagram social"
+  ],
+  "word-to-pdf": [
+   "Da Word a PDF",
+   "Converti un documento Word (DOCX) in PDF con testo, titoli, tabelle e immagini.",
+   "word in pdf docx"
+  ],
+  "video-trimmer": [
+   "Taglia video",
+   "Taglia la parte che ti serve: scegli inizio e fine, guarda e scarica. Senza filigrana.",
+   "tagliare video online"
   ]
  },
  "faqx": {
@@ -231,6 +246,13 @@ export default {
    "Comprimere video, video in MP3 e GIF, tagliare audio, trascrivere, registrare schermo e voce.",
    "Modifica video e audio senza installare app, gratis."
   ]
+ },
+ "s": {
+  "colsTitle": "Raccolte",
+  "tr1": "I file restano sul dispositivo",
+  "tr2": "Connessione HTTPS sicura",
+  "tr3": "Senza registrazione né limiti",
+  "tr4": "12 lingue, qualsiasi dispositivo"
  },
  "ui": {
   "ocr_lang": "Lingua del testo",
@@ -367,6 +389,15 @@ export default {
   "hw_lines": "Righe",
   "hw_grid": "Quadretti",
   "hw_plain": "Bianco",
-  "hw_sample": "Ciao! Questo testo sembra scritto a mano.\nScrivi o incolla qui i tuoi appunti."
+  "hw_sample": "Ciao! Questo testo sembra scritto a mano.\nScrivi o incolla qui i tuoi appunti.",
+  "soc_fill": "Riempi",
+  "soc_fit": "Adatta",
+  "soc_blur": "Adatta + sfondo sfocato",
+  "drop_hint_docx": "o trascina qui un file .docx",
+  "w2p_save": "Salva come PDF",
+  "w2p_note": "Nella finestra di stampa scegli “Salva come PDF”.",
+  "w2p_only": "Scegli un file .docx (.doc non supportato).",
+  "vt_cut": "Taglia",
+  "vt_working": "Taglio…"
  }
 };

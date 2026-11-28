@@ -156,6 +156,21 @@ export default {
    "Mətni əl yazısına çevir",
    "Yazılmış mətni xətli, damalı və ya ağ vərəqdə real əl yazısına çevirin.",
    "mətni əl yazısına çevir"
+  ],
+  "social-media-image-resizer": [
+   "Sosial şəbəkələr üçün şəkil ölçüsü",
+   "Şəkli Instagram, TikTok, YouTube, Facebook, X və LinkedIn ölçülərinə uyğunlaşdırın.",
+   "instagram şəkil ölçüsü"
+  ],
+  "word-to-pdf": [
+   "Word-dən PDF-ə",
+   "Word sənədini (DOCX) mətn, başlıq, cədvəl və şəkillərlə PDF-ə çevirin.",
+   "word pdf çevir"
+  ],
+  "video-trimmer": [
+   "Videonu kəs",
+   "Lazım olan hissəni kəsin: başlanğıc və sonu seçin, baxın və yükləyin. Su nişanı yoxdur.",
+   "videonu kəs onlayn"
   ]
  },
  "faqx": {
@@ -231,6 +246,13 @@ export default {
    "Videonu sıx, videodan MP3 və GIF, səsi kəs, nitqi mətnə çevir, ekranı və səsi yaz.",
    "Proqram yükləmədən video və səslə işləyin, pulsuz."
   ]
+ },
+ "s": {
+  "colsTitle": "Toplular",
+  "tr1": "Fayllar cihazınızda qalır",
+  "tr2": "Təhlükəsiz HTTPS bağlantısı",
+  "tr3": "Qeydiyyat və limit yoxdur",
+  "tr4": "12 dil, istənilən cihaz"
  },
  "ui": {
   "ocr_lang": "Mətnin dili",
@@ -367,6 +389,15 @@ export default {
   "hw_lines": "Xətli",
   "hw_grid": "Damalı",
   "hw_plain": "Ağ",
-  "hw_sample": "Salam! Bu mətn əllə yazılmış kimi görünür.\nQeydlərinizi bura yazın və ya yapışdırın."
+  "hw_sample": "Salam! Bu mətn əllə yazılmış kimi görünür.\nQeydlərinizi bura yazın və ya yapışdırın.",
+  "soc_fill": "Doldur",
+  "soc_fit": "Sığdır",
+  "soc_blur": "Sığdır + bulanıq fon",
+  "drop_hint_docx": "və ya .docx faylını bura sürüşdürün",
+  "w2p_save": "PDF kimi saxla",
+  "w2p_note": "Çap pəncərəsində “PDF kimi saxla” seçin.",
+  "w2p_only": ".docx faylı seçin (köhnə .doc dəstəklənmir).",
+  "vt_cut": "Kəs",
+  "vt_working": "Kəsilir…"
  }
 };
