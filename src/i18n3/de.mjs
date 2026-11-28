@@ -16,6 +16,11 @@ export default {
    "Hintergrund entfernen (KI)",
    "Entfernen Sie den Hintergrund jedes Fotos automatisch mit KI und laden Sie ein transparentes PNG herunter.",
    "hintergrund entfernen freistellen png transparent ki"
+  ],
+  "upscale-image": [
+   "Bild vergrößern (KI)",
+   "Vergrößern Sie Fotos 2× oder 4× mit KI – scharf, ohne Unschärfe oder Pixel.",
+   "bild vergrößern auflösung erhöhen foto verbessern hd ki"
   ]
  },
  "ui": {

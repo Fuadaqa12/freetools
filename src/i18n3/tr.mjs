@@ -16,6 +16,11 @@ export default {
    "Arka planı kaldır (YZ)",
    "Herhangi bir fotoğrafın arka planını yapay zekâ ile otomatik silin ve şeffaf PNG indirin.",
    "arka plan silme dekupe şeffaf png yapay zeka"
+  ],
+  "upscale-image": [
+   "Fotoğraf büyütme (YZ)",
+   "Fotoğrafları yapay zekâ ile 2× veya 4× büyütün, bulanıklık ve piksel olmadan.",
+   "fotoğraf büyütme çözünürlük artırma kalite iyileştirme hd"
   ]
  },
  "ui": {

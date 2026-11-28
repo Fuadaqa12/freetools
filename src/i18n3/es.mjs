@@ -16,6 +16,11 @@ export default {
    "Quitar fondo (IA)",
    "Elimina el fondo de cualquier foto automáticamente con IA y descarga un PNG transparente.",
    "quitar fondo eliminar fondo recortar png transparente ia"
+  ],
+  "upscale-image": [
+   "Ampliar imagen con IA",
+   "Amplía fotos 2× o 4× con IA manteniéndolas nítidas, sin desenfoque ni píxeles.",
+   "ampliar imagen aumentar resolución mejorar foto hd ia"
   ]
  },
  "ui": {

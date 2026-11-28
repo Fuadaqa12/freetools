@@ -16,6 +16,11 @@ export default {
    "Rimuovi sfondo (IA)",
    "Rimuovi automaticamente lo sfondo da qualsiasi foto con l’IA e scarica un PNG trasparente.",
    "rimuovere sfondo scontornare png trasparente ia"
+  ],
+  "upscale-image": [
+   "Ingrandisci immagine (IA)",
+   "Ingrandisci le foto 2× o 4× con l’IA mantenendole nitide, senza sfocature né pixel.",
+   "ingrandire immagine aumentare risoluzione migliorare foto hd ia"
   ]
  },
  "ui": {

@@ -16,6 +16,11 @@ export default {
    "Usuń tło (AI)",
    "Automatycznie usuń tło z dowolnego zdjęcia dzięki AI i pobierz przezroczysty PNG.",
    "usuń tło wycięcie png przezroczysty ai"
+  ],
+  "upscale-image": [
+   "Powiększ zdjęcie (AI)",
+   "Powiększ zdjęcia 2× lub 4× dzięki AI, bez rozmycia i pikseli.",
+   "powiększ zdjęcie zwiększ rozdzielczość popraw jakość hd ai"
   ]
  },
  "ui": {

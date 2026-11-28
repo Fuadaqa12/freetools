@@ -10,7 +10,9 @@ TK.register('ai', function (root, o, K) {
     return w;
   }
 
-  ({ ocr: ocr, bg: bg })[o.mode]();
+  function scripts(list) { return list.reduce(function (p, src) { return p.then(function () { return new Promise(function (res, rej) { if (document.querySelector('script[data-s="' + src + '"]')) return res(); var x = document.createElement('script'); x.src = V + src; x.dataset.s = src; x.onload = res; x.onerror = rej; document.head.appendChild(x); }); }); }, Promise.resolve()); }
+
+  ({ ocr: ocr, bg: bg, up: up })[o.mode]();
 
   /* ---------- OCR ---------- */
   function ocr() {
@@ -104,6 +106,55 @@ TK.register('ai', function (root, o, K) {
         return createImageBitmap(blob);
       }).then(function (bmp) {
         cut = bmp; prog.hide(); draw(); view.classList.remove('hide');
+      }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- photo upscaler (ESRGAN slim, TensorFlow.js) ---------- */
+  function up() {
+    var file = null, img = null, scale = 2, ups = {}, outC = null;
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
+    var top = el('<div class="panel stack"></div>');
+    top.append(K.seg([['2', '2×'], ['4', '4×']], '2', function (v) { scale = +v; if (img) run(); }), el('<p class="muted" style="margin:0;font-size:13px">' + esc(t('ai_local_note')) + '</p>'));
+    var prog = progress();
+    var view = el('<div class="stack hide"></div>');
+    var info = el('<div class="row" style="gap:10px;flex-wrap:wrap"></div>');
+    var box = el('<div style="overflow:auto;max-height:520px;border-radius:12px;background:var(--soft)"></div>');
+    var bar = el('<div class="row end"></div>');
+    bar.append(
+      K.btn('upload', t('start_over'), 'sec', function () { file = img = outC = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
+      K.btn('download', t('download') + ' PNG', '', function () { K.canvasBlob(outC, 'image/png').then(function (b) { K.download(b, K.baseName(file.name) + '-' + scale + 'x.png'); }); })
+    );
+    view.append(info, box, bar);
+    root.append(top, dz, prog, view);
+
+    function load(f) {
+      if (!/^image\//.test(f.type)) { K.toast(t('cannot_read')); return; }
+      file = f; dz.classList.add('hide');
+      K.loadImage(f).then(function (i) { img = i; run(); }).catch(function () { K.toast(t('cannot_read')); dz.classList.remove('hide'); });
+    }
+    function getUp() {
+      if (ups[scale]) return Promise.resolve(ups[scale]);
+      return scripts(['up/tf.min.js', 'up/upscaler.min.js', 'up/m' + scale + '.js']).then(function () {
+        var def = window['ESRGANSlim' + scale + 'x']; def = Object.assign({}, def, { path: V + 'up/x' + scale + '/model.json' }); delete def._internals;
+        ups[scale] = new window.Upscaler({ model: def }); return ups[scale];
+      });
+    }
+    function run() {
+      view.classList.add('hide'); prog.set(t('ai_loading_model'), 0);
+      var max = scale === 4 ? 700 : 1400, w = img.naturalWidth, h = img.naturalHeight, k = Math.min(1, max / Math.max(w, h));
+      var src = document.createElement('canvas'); src.width = Math.round(w * k); src.height = Math.round(h * k);
+      src.getContext('2d').drawImage(img, 0, 0, src.width, src.height);
+      getUp().then(function (u) {
+        prog.set(t('ai_working'), 0);
+        return u.execute(src, { patchSize: 64, padding: 4, output: 'tensor', progress: function (p) { prog.set(t('ai_working'), p); } });
+      }).then(function (tensor) {
+        outC = document.createElement('canvas');
+        return window.tf.browser.toPixels(tensor.div(255).clipByValue(0, 1), outC).then(function () { tensor.dispose(); });
+      }).then(function () {
+        prog.hide(); box.innerHTML = ''; outC.style.cssText = 'display:block;max-width:100%;height:auto;margin:auto'; box.append(outC);
+        info.innerHTML = '<span class="chip">' + w + '×' + h + ' px</span><span class="chip">→</span><span class="chip" style="font-weight:700">' + outC.width + '×' + outC.height + ' px</span>';
+        view.classList.remove('hide');
       }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
     }
   }

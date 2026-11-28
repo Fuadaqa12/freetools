@@ -16,6 +16,11 @@ export default {
    "Fonu sil (Sİ)",
    "İstənilən şəklin fonunu Sİ ilə avtomatik silin və şəffaf PNG yükləyin.",
    "fon silmə şəffaf png süni intellekt"
+  ],
+  "upscale-image": [
+   "Şəkli böyüt (Sİ)",
+   "Şəkilləri Sİ ilə 2× və ya 4× böyüdün, bulanıqlıq və piksel olmadan.",
+   "şəkli böyütmə keyfiyyət artırma hd"
   ]
  },
  "ui": {

@@ -16,6 +16,11 @@ export default {
    "Supprimer l’arrière-plan (IA)",
    "Supprimez automatiquement l’arrière-plan de n’importe quelle photo grâce à l’IA et téléchargez un PNG transparent.",
    "supprimer fond détourer png transparent ia"
+  ],
+  "upscale-image": [
+   "Agrandir une image (IA)",
+   "Agrandissez vos photos 2× ou 4× grâce à l’IA tout en restant net, sans flou ni pixels.",
+   "agrandir image augmenter résolution améliorer photo hd ia"
   ]
  },
  "ui": {

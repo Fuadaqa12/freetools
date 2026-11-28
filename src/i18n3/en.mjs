@@ -16,6 +16,11 @@ export default {
    "Remove Background (AI)",
    "Remove the background from any photo automatically with AI and download a transparent PNG.",
    "remove bg background remover cut out transparent png ai"
+  ],
+  "upscale-image": [
+   "AI Image Upscaler",
+   "Enlarge photos 2× or 4× with AI and keep them sharp — no blur or pixels.",
+   "upscale enlarge image increase resolution enhance photo hd ai"
   ]
  },
  "ui": {
