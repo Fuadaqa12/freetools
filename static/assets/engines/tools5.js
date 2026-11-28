@@ -3,7 +3,7 @@ TK.register('tools5', function (root, o, K) {
   var t = K.t, el = K.el, esc = K.esc;
   var V = new URL(K.root + 'assets/vendor/', location.href).href;
   function script(src) { return new Promise(function (res, rej) { if (document.querySelector('script[data-s="' + src + '"]')) return res(); var x = document.createElement('script'); x.src = V + src; x.dataset.s = src; x.onload = res; x.onerror = rej; document.head.appendChild(x); }); }
-  ({ exif: exif, wifi: wifi, newyear: newyear, hand: hand, social: social, word2pdf: word2pdf, vtrim: vtrim })[o.mode]();
+  ({ exif: exif, wifi: wifi, newyear: newyear, hand: hand, social: social, word2pdf: word2pdf, vtrim: vtrim, cv: cv })[o.mode]();
 
   /* ---------- remove EXIF / GPS ---------- */
   function exif() {
@@ -254,5 +254,78 @@ TK.register('tools5', function (root, o, K) {
       vid.onseeked = function () { vid.onseeked = null; rec.start(500); vid.play(); prog.classList.remove('hide');
         (function chk() { prog.textContent = t('vt_working') + ' ' + fmt(vid.currentTime) + ' / ' + fmt(b); if (vid.currentTime >= b || vid.ended) { vid.pause(); rec.stop(); } else requestAnimationFrame(chk); })(); };
     }
+  }
+
+  /* ---------- resume / CV builder ---------- */
+  function cv() {
+    var LS = 'tk_cv', D;
+    try { D = JSON.parse(localStorage.getItem(LS)); } catch (e) { }
+    D = D || { name: '', title: '', email: '', phone: '', city: '', link: '', about: '', skills: '', langs: '', photo: '', tpl: 'side', color: '#4f46e5',
+      exp: [{ a: '', b: '', c: '', d: '' }], edu: [{ a: '', b: '', c: '' }] };
+    var form = el('<div class="stack"></div>'), photoImg = null;
+    function save() { try { localStorage.setItem(LS, JSON.stringify(D)); } catch (e) { } redraw(); }
+    function inp(label, obj, key, ta) { var w = el('<label class="f"><span>' + esc(label) + '</span></label>'), i = el(ta ? '<textarea class="inp" style="min-height:80px"></textarea>' : '<input class="inp">'); i.value = obj[key] || ''; i.oninput = function () { obj[key] = i.value; save(); }; w.append(i); return w; }
+    var g1 = el('<div class="fields"></div>');
+    g1.append(inp(t('cv_name'), D, 'name'), inp(t('cv_title'), D, 'title'), inp('Email', D, 'email'), inp(t('cv_phone'), D, 'phone'), inp(t('cv_city'), D, 'city'), inp(t('cv_link'), D, 'link'));
+    var ph = K.dropzone({ accept: 'image/*', mini: true, label: t('cv_photo'), onFiles: function (f) { K.loadImage(f[0]).then(function (im) { var c = document.createElement('canvas'), s2 = Math.min(im.naturalWidth, im.naturalHeight); c.width = c.height = 400; c.getContext('2d').drawImage(im, (im.naturalWidth - s2) / 2, (im.naturalHeight - s2) / 3, s2, s2, 0, 0, 400, 400); D.photo = c.toDataURL('image/jpeg', 0.85); loadPhoto(); save(); }); } });
+    function list(key, fields, title) {
+      var box = el('<div class="stack" style="gap:10px"><b>' + esc(title) + '</b></div>'), wrap = el('<div class="stack" style="gap:10px"></div>');
+      function render() { wrap.innerHTML = ''; D[key].forEach(function (it, i) { var c = el('<div class="panel stack" style="gap:8px"></div>'), g = el('<div class="fields"></div>'); fields.forEach(function (f) { g.append(inp(f[1], it, f[0], f[2])); }); var x = K.btn('trash', t('cv_del'), 'sm sec', function () { D[key].splice(i, 1); render(); save(); }); c.append(g, x); wrap.append(c); }); }
+      render(); box.append(wrap, K.btn('plus', t('cv_add'), 'sm sec', function () { var o2 = {}; fields.forEach(function (f) { o2[f[0]] = ''; }); D[key].push(o2); render(); save(); })); return box;
+    }
+    var cols = el('<div class="row" style="gap:8px;align-items:center"></div>');
+    ['#4f46e5', '#0f766e', '#be123c', '#1e293b', '#b45309', '#7c3aed'].forEach(function (c) { var b = el('<button type="button" aria-label="color" style="width:32px;height:32px;border-radius:50%;border:2px solid var(--line);cursor:pointer;background:' + c + '"></button>'); b.onclick = function () { D.color = c; save(); }; cols.append(b); });
+    form.append(K.seg([['side', t('cv_tpl_side')], ['classic', t('cv_tpl_classic')]], D.tpl, function (v) { D.tpl = v; save(); }), cols, g1, ph,
+      inp(t('cv_about'), D, 'about', 1),
+      list('exp', [['a', t('cv_role')], ['b', t('cv_company')], ['c', t('cv_period')], ['d', t('cv_duties'), 1]], t('cv_exp')),
+      list('edu', [['a', t('cv_school')], ['b', t('cv_degree')], ['c', t('cv_period')]], t('cv_edu')),
+      inp(t('cv_skills'), D, 'skills'), inp(t('cv_langs'), D, 'langs'));
+    var pv = el('<div class="stack" style="gap:12px;margin-top:12px"></div>');
+    var bar = el('<div class="acts"></div>');
+    bar.append(K.btn('trash', t('clear'), 'sec', function () { try { localStorage.removeItem(LS); } catch (e) { } location.reload(); }), K.btn('download', t('download') + ' PDF', 'big', pdf));
+    root.append(form, pv, bar);
+    function loadPhoto() { if (!D.photo) { photoImg = null; return; } var im = new Image(); im.onload = function () { photoImg = im; redraw(); }; im.src = D.photo; }
+    var pages = [], tm;
+    function redraw() { clearTimeout(tm); tm = setTimeout(render, 150); }
+    function render() {
+      var W = 1240, H = 1754, F = '"Inter","Segoe UI",Roboto,Arial,sans-serif', C = D.color, side = D.tpl === 'side', SW = side ? 420 : 0, M = 70;
+      pages = []; pv.innerHTML = '';
+      var x, y, X0 = SW + M, XW = W - SW - 2 * M;
+      function page() { var c = document.createElement('canvas'); c.width = W; c.height = H; c.style.cssText = 'width:100%;max-width:620px;align-self:center;box-shadow:var(--shadow-lg);border-radius:4px'; x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, W, H); if (side) { x.fillStyle = C; x.fillRect(0, 0, SW, H); } pages.push(c); pv.append(c); y = M; }
+      function font(sz, w) { x.font = (w || 400) + ' ' + sz + 'px ' + F; }
+      function wrap(txt, X, maxW, sz, col, w, lh) { font(sz, w); x.fillStyle = col; var out = [], lines = String(txt || '').split('\n'); lines.forEach(function (ln) { var words = ln.split(' '), cur = ''; words.forEach(function (wd) { var tt = cur ? cur + ' ' + wd : wd; if (x.measureText(tt).width > maxW && cur) { out.push(cur); cur = wd; } else cur = tt; }); out.push(cur); }); return { lines: out, h: out.length * sz * (lh || 1.45), sz: sz, X: X, w: w, col: col, lh: lh || 1.45 }; }
+      function put(b) { if (y + b.h > H - M) { page(); if (side) sidebar(false); } font(b.sz, b.w); x.fillStyle = b.col; b.lines.forEach(function (l2, i) { x.fillText(l2, b.X, y + b.sz + i * b.sz * b.lh); }); y += b.h; }
+      function head(txt) { y += 26; if (y > H - M - 80) { page(); if (side) sidebar(false); } font(30, 700); x.fillStyle = C; x.fillText(txt.toUpperCase(), X0, y + 30); y += 44; x.fillStyle = C; x.globalAlpha = .25; x.fillRect(X0, y, XW, 3); x.globalAlpha = 1; y += 18; }
+      function sidebar(first) {
+        var sy = M; x.fillStyle = '#fff';
+        if (first && photoImg) { x.save(); x.beginPath(); x.arc(SW / 2, sy + 130, 130, 0, 7); x.clip(); x.drawImage(photoImg, SW / 2 - 130, sy, 260, 260); x.restore(); sy += 300; }
+        if (!first) return;
+        function blk(title, txt) { if (!txt) return; font(26, 700); x.fillStyle = '#fff'; x.fillText(title.toUpperCase(), 50, sy + 26); sy += 46; var b = wrap(txt, 50, SW - 100, 25, 'rgba(255,255,255,.92)', 400, 1.5); b.lines.forEach(function (l2, i) { x.fillText(l2, 50, sy + 25 + i * 37.5); }); sy += b.h + 30; }
+        blk(t('cv_contacts'), [D.email, D.phone, D.city, D.link].filter(Boolean).join('\n'));
+        blk(t('cv_skills_h'), (D.skills || '').split(',').map(function (s2) { return s2.trim(); }).filter(Boolean).map(function (s2) { return '• ' + s2; }).join('\n'));
+        blk(t('cv_langs'), (D.langs || '').split(',').map(function (s2) { return s2.trim(); }).filter(Boolean).join('\n'));
+      }
+      page(); if (side) sidebar(true);
+      if (!side && photoImg) { x.save(); x.beginPath(); x.arc(W - M - 110, M + 110, 110, 0, 7); x.clip(); x.drawImage(photoImg, W - M - 220, M, 220, 220); x.restore(); }
+      var nw = side ? XW : XW - (photoImg ? 260 : 0);
+      put(wrap(D.name || t('cv_name'), X0, nw, 64, '#111', 800, 1.15));
+      put(wrap(D.title, X0, nw, 32, C, 600)); y += 6;
+      if (!side) { put(wrap([D.email, D.phone, D.city, D.link].filter(Boolean).join('  ·  '), X0, nw, 24, '#555')); if (photoImg && y < M + 240) y = M + 240; }
+      if (D.about) { head(t('cv_about')); put(wrap(D.about, X0, XW, 25, '#333')); }
+      var ex = D.exp.filter(function (e) { return e.a || e.b; }); if (ex.length) { head(t('cv_exp')); ex.forEach(function (e) { put(wrap(e.a, X0, XW - 220, 28, '#111', 700)); font(23); x.fillStyle = '#777'; x.textAlign = 'right'; x.fillText(e.c || '', X0 + XW, y - 8); x.textAlign = 'left'; put(wrap(e.b, X0, XW, 25, C, 600)); if (e.d) put(wrap(e.d, X0, XW, 24, '#444')); y += 18; }); }
+      var ed = D.edu.filter(function (e) { return e.a || e.b; }); if (ed.length) { head(t('cv_edu')); ed.forEach(function (e) { put(wrap(e.a, X0, XW - 220, 27, '#111', 700)); font(23); x.fillStyle = '#777'; x.textAlign = 'right'; x.fillText(e.c || '', X0 + XW, y - 8); x.textAlign = 'left'; if (e.b) put(wrap(e.b, X0, XW, 24, '#444')); y += 14; }); }
+      if (!side) { if (D.skills) { head(t('cv_skills_h')); put(wrap(D.skills, X0, XW, 24, '#333')); } if (D.langs) { head(t('cv_langs')); put(wrap(D.langs, X0, XW, 24, '#333')); } }
+    }
+    function pdf() {
+      script('pdf-lib.min.js').then(function () {
+        var L = window.PDFLib; return L.PDFDocument.create().then(function (doc) {
+          return Promise.all(pages.map(function (c) { return K.canvasBlob(c, 'image/jpeg', 0.93).then(function (b) { return b.arrayBuffer(); }); })).then(function (abs) {
+            var ch = Promise.resolve(); abs.forEach(function (ab) { ch = ch.then(function () { return doc.embedJpg(ab).then(function (im) { doc.addPage([595.28, 841.89]).drawImage(im, { x: 0, y: 0, width: 595.28, height: 841.89 }); }); }); });
+            return ch.then(function () { doc.setTitle('CV ' + (D.name || '')); return doc.save(); });
+          });
+        });
+      }).then(function (bytes) { K.download(new Blob([bytes], { type: 'application/pdf' }), 'CV-' + (((D.name || '').replace(/[^A-Za-z0-9]+/g, '_').replace(/^_+|_+$/g, '')) || 'resume') + '.pdf'); });
+    }
+    loadPhoto(); render();
   }
 });

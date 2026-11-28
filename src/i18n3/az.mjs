@@ -171,6 +171,11 @@ export default {
    "Videonu kəs",
    "Lazım olan hissəni kəsin: başlanğıc və sonu seçin, baxın və yükləyin. Su nişanı yoxdur.",
    "videonu kəs onlayn"
+  ],
+  "resume-builder": [
+   "Pulsuz CV (rezüme) hazırla",
+   "Şəkilli peşəkar CV-ni bir neçə dəqiqəyə hazırlayın və PDF yükləyin. Qeydiyyat və su nişanı yoxdur.",
+   "cv hazırla pulsuz rezüme pdf"
   ]
  },
  "faqx": {
@@ -400,6 +405,29 @@ export default {
   "w2p_note": "Çap pəncərəsində “PDF kimi saxla” seçin.",
   "w2p_only": ".docx faylı seçin (köhnə .doc dəstəklənmir).",
   "vt_cut": "Kəs",
-  "vt_working": "Kəsilir…"
+  "vt_working": "Kəsilir…",
+  "cv_name": "Ad və soyad",
+  "cv_title": "Vəzifə",
+  "cv_phone": "Telefon",
+  "cv_city": "Şəhər",
+  "cv_link": "Sayt / LinkedIn",
+  "cv_photo": "Şəkil əlavə et",
+  "cv_about": "Haqqımda",
+  "cv_exp": "İş təcrübəsi",
+  "cv_edu": "Təhsil",
+  "cv_role": "Vəzifə",
+  "cv_company": "Şirkət",
+  "cv_period": "Dövr",
+  "cv_duties": "Vəzifələr",
+  "cv_school": "Təhsil müəssisəsi",
+  "cv_degree": "İxtisas",
+  "cv_skills": "Bacarıqlar (vergüllə)",
+  "cv_langs": "Dillər",
+  "cv_contacts": "Əlaqə",
+  "cv_add": "Əlavə et",
+  "cv_tpl_side": "Yan panelli",
+  "cv_tpl_classic": "Klassik",
+  "cv_del": "Sil",
+  "cv_skills_h": "Bacarıqlar"
  }
 };

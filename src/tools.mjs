@@ -188,6 +188,7 @@ TOOLS.push(
   N('text-summarizer', 'text', 'align', 'tools4', { mode: 'summary' }, 'text', { pop: 1 }),
   N('compress-image-to-kb', 'image', 'compress', 'tools3', { mode: 'kb' }, 'file', { pop: 1 }),
   N('pdf-to-word', 'pdf', 'filetext', 'tools3', { mode: 'pdfword' }, 'file', { pop: 1 }),
+  N('resume-builder', 'gen', 'briefcase', 'tools5', { mode: 'cv' }, 'gen', { pop: 1 }),
   N('invoice-generator', 'gen', 'receipt', 'tools3', { mode: 'invoice' }, 'gen', { pop: 1 }),
   N('photo-to-sketch', 'image', 'pen', 'tools3', { mode: 'sketch' }, 'file'),
   N('heic-to-jpg', 'image', 'convert', 'tools3', { mode: 'heic' }, 'file', { pop: 1 }),

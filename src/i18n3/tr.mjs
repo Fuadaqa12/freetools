@@ -171,6 +171,11 @@ export default {
    "Video kesici",
    "İhtiyacınız olan kısmı kesin: başlangıç ve bitişi seçin, izleyin ve indirin. Filigransız.",
    "video kesme online"
+  ],
+  "resume-builder": [
+   "Ücretsiz CV oluşturucu",
+   "Fotoğraflı profesyonel CV’nizi dakikalar içinde oluşturup PDF indirin. Kayıt ve filigran yok.",
+   "cv hazırlama ücretsiz özgeçmiş pdf"
   ]
  },
  "faqx": {
@@ -400,6 +405,29 @@ export default {
   "w2p_note": "Yazdırma penceresinde “PDF olarak kaydet” seçin.",
   "w2p_only": "Lütfen .docx seçin (eski .doc desteklenmez).",
   "vt_cut": "Kes",
-  "vt_working": "Kesiliyor…"
+  "vt_working": "Kesiliyor…",
+  "cv_name": "Ad soyad",
+  "cv_title": "Unvan",
+  "cv_phone": "Telefon",
+  "cv_city": "Şehir",
+  "cv_link": "Web sitesi / LinkedIn",
+  "cv_photo": "Fotoğraf ekle",
+  "cv_about": "Hakkımda",
+  "cv_exp": "Deneyim",
+  "cv_edu": "Eğitim",
+  "cv_role": "Pozisyon",
+  "cv_company": "Şirket",
+  "cv_period": "Dönem",
+  "cv_duties": "Görevler",
+  "cv_school": "Okul / Üniversite",
+  "cv_degree": "Bölüm",
+  "cv_skills": "Beceriler (virgülle)",
+  "cv_langs": "Diller",
+  "cv_contacts": "İletişim",
+  "cv_add": "Ekle",
+  "cv_tpl_side": "Yan panelli",
+  "cv_tpl_classic": "Klasik",
+  "cv_del": "Sil",
+  "cv_skills_h": "Beceriler"
  }
 };

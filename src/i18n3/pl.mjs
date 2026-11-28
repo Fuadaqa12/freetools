@@ -171,6 +171,11 @@ export default {
    "Przytnij wideo",
    "Wytnij potrzebny fragment: ustaw początek i koniec, obejrzyj i pobierz. Bez znaku wodnego.",
    "przytnij wideo online"
+  ],
+  "resume-builder": [
+   "Kreator CV za darmo",
+   "Stwórz profesjonalne CV ze zdjęciem w kilka minut i pobierz PDF. Bez rejestracji i znaków wodnych.",
+   "kreator cv za darmo pdf"
   ]
  },
  "faqx": {
@@ -400,6 +405,29 @@ export default {
   "w2p_note": "W oknie drukowania wybierz „Zapisz jako PDF”.",
   "w2p_only": "Wybierz plik .docx (stary .doc nie jest obsługiwany).",
   "vt_cut": "Przytnij",
-  "vt_working": "Przycinanie…"
+  "vt_working": "Przycinanie…",
+  "cv_name": "Imię i nazwisko",
+  "cv_title": "Stanowisko",
+  "cv_phone": "Telefon",
+  "cv_city": "Miasto",
+  "cv_link": "Strona / LinkedIn",
+  "cv_photo": "Dodaj zdjęcie",
+  "cv_about": "O mnie",
+  "cv_exp": "Doświadczenie",
+  "cv_edu": "Wykształcenie",
+  "cv_role": "Stanowisko",
+  "cv_company": "Firma",
+  "cv_period": "Okres",
+  "cv_duties": "Obowiązki",
+  "cv_school": "Szkoła / Uczelnia",
+  "cv_degree": "Kierunek",
+  "cv_skills": "Umiejętności (po przecinku)",
+  "cv_langs": "Języki",
+  "cv_contacts": "Kontakt",
+  "cv_add": "Dodaj",
+  "cv_tpl_side": "Z paskiem bocznym",
+  "cv_tpl_classic": "Klasyczny",
+  "cv_del": "Usuń",
+  "cv_skills_h": "Umiejętności"
  }
 };

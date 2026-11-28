@@ -171,6 +171,11 @@ export default {
    "Video schneiden",
    "Schneiden Sie den gewünschten Teil: Start und Ende wählen, ansehen, herunterladen. Ohne Wasserzeichen.",
    "video schneiden online"
+  ],
+  "resume-builder": [
+   "Lebenslauf erstellen kostenlos",
+   "Erstellen Sie in Minuten einen professionellen Lebenslauf mit Foto als PDF. Ohne Anmeldung und Wasserzeichen.",
+   "lebenslauf erstellen kostenlos pdf"
   ]
  },
  "faqx": {
@@ -400,6 +405,29 @@ export default {
   "w2p_note": "Im Druckfenster „Als PDF speichern“ wählen.",
   "w2p_only": "Bitte .docx wählen (altes .doc wird nicht unterstützt).",
   "vt_cut": "Schneiden",
-  "vt_working": "Schneide…"
+  "vt_working": "Schneide…",
+  "cv_name": "Vollständiger Name",
+  "cv_title": "Berufsbezeichnung",
+  "cv_phone": "Telefon",
+  "cv_city": "Stadt",
+  "cv_link": "Website / LinkedIn",
+  "cv_photo": "Foto hinzufügen",
+  "cv_about": "Über mich",
+  "cv_exp": "Berufserfahrung",
+  "cv_edu": "Ausbildung",
+  "cv_role": "Position",
+  "cv_company": "Firma",
+  "cv_period": "Zeitraum",
+  "cv_duties": "Aufgaben",
+  "cv_school": "Schule / Hochschule",
+  "cv_degree": "Abschluss / Fach",
+  "cv_skills": "Fähigkeiten (mit Komma)",
+  "cv_langs": "Sprachen",
+  "cv_contacts": "Kontakt",
+  "cv_add": "Hinzufügen",
+  "cv_tpl_side": "Mit Seitenleiste",
+  "cv_tpl_classic": "Klassisch",
+  "cv_del": "Entfernen",
+  "cv_skills_h": "Fähigkeiten"
  }
 };

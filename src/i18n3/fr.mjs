@@ -171,6 +171,11 @@ export default {
    "Couper une vidéo",
    "Coupez la partie voulue : début, fin, aperçu et téléchargement. Sans filigrane.",
    "couper vidéo en ligne"
+  ],
+  "resume-builder": [
+   "Créer un CV gratuit",
+   "Créez un CV professionnel avec photo en quelques minutes et téléchargez-le en PDF. Sans inscription ni filigrane.",
+   "créer cv gratuit pdf"
   ]
  },
  "faqx": {
@@ -400,6 +405,29 @@ export default {
   "w2p_note": "Dans la fenêtre d’impression, choisissez « Enregistrer au format PDF ».",
   "w2p_only": "Choisissez un fichier .docx (.doc n’est pas pris en charge).",
   "vt_cut": "Couper",
-  "vt_working": "Découpe…"
+  "vt_working": "Découpe…",
+  "cv_name": "Nom complet",
+  "cv_title": "Poste",
+  "cv_phone": "Téléphone",
+  "cv_city": "Ville",
+  "cv_link": "Site / LinkedIn",
+  "cv_photo": "Ajouter une photo",
+  "cv_about": "À propos",
+  "cv_exp": "Expérience",
+  "cv_edu": "Formation",
+  "cv_role": "Poste",
+  "cv_company": "Entreprise",
+  "cv_period": "Période",
+  "cv_duties": "Missions",
+  "cv_school": "Établissement",
+  "cv_degree": "Diplôme / Domaine",
+  "cv_skills": "Compétences (séparées par des virgules)",
+  "cv_langs": "Langues",
+  "cv_contacts": "Contact",
+  "cv_add": "Ajouter",
+  "cv_tpl_side": "Avec colonne",
+  "cv_tpl_classic": "Classique",
+  "cv_del": "Supprimer",
+  "cv_skills_h": "Compétences"
  }
 };

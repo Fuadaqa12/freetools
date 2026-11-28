@@ -171,6 +171,11 @@ export default {
    "Cortar vídeo",
    "Corte o trecho do vídeo que precisa: escolha início e fim e baixe. Sem marca d’água.",
    "cortar video online"
+  ],
+  "resume-builder": [
+   "Criar currículo (CV) grátis",
+   "Crie um currículo profissional com foto em minutos e baixe em PDF. Sem cadastro nem marca d’água.",
+   "criar currículo grátis cv pdf"
   ]
  },
  "faqx": {
@@ -400,6 +405,29 @@ export default {
   "w2p_note": "Na janela de impressão escolha “Salvar como PDF”.",
   "w2p_only": "Escolha um arquivo .docx (.doc antigo não é suportado).",
   "vt_cut": "Cortar",
-  "vt_working": "Cortando…"
+  "vt_working": "Cortando…",
+  "cv_name": "Nome completo",
+  "cv_title": "Cargo",
+  "cv_phone": "Telefone",
+  "cv_city": "Cidade",
+  "cv_link": "Site / LinkedIn",
+  "cv_photo": "Adicionar foto",
+  "cv_about": "Sobre mim",
+  "cv_exp": "Experiência",
+  "cv_edu": "Formação",
+  "cv_role": "Cargo",
+  "cv_company": "Empresa",
+  "cv_period": "Período",
+  "cv_duties": "O que fez",
+  "cv_school": "Instituição",
+  "cv_degree": "Curso",
+  "cv_skills": "Habilidades (separadas por vírgula)",
+  "cv_langs": "Idiomas",
+  "cv_contacts": "Contato",
+  "cv_add": "Adicionar",
+  "cv_tpl_side": "Com barra lateral",
+  "cv_tpl_classic": "Clássico",
+  "cv_del": "Remover",
+  "cv_skills_h": "Habilidades"
  }
 };

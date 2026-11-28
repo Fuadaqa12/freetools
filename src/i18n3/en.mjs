@@ -171,6 +171,11 @@ export default {
    "Video Trimmer",
    "Cut the part of a video you need: set start and end, preview and download. No app, no watermark.",
    "trim video cut video online video cutter"
+  ],
+  "resume-builder": [
+   "Free Resume (CV) Builder",
+   "Create a professional resume with photo in minutes and download it as PDF. Two clean templates, no sign-up, no watermark.",
+   "resume builder cv maker free resume template pdf"
   ]
  },
  "faqx": {
@@ -400,6 +405,29 @@ export default {
   "w2p_note": "In the print window choose “Save as PDF” as the printer.",
   "w2p_only": "Please choose a .docx file (old .doc is not supported).",
   "vt_cut": "Cut video",
-  "vt_working": "Cutting…"
+  "vt_working": "Cutting…",
+  "cv_name": "Full name",
+  "cv_title": "Job title",
+  "cv_phone": "Phone",
+  "cv_city": "City",
+  "cv_link": "Website / LinkedIn",
+  "cv_photo": "Add photo",
+  "cv_about": "About me",
+  "cv_exp": "Experience",
+  "cv_edu": "Education",
+  "cv_role": "Position",
+  "cv_company": "Company",
+  "cv_period": "Period",
+  "cv_duties": "What you did",
+  "cv_school": "School / University",
+  "cv_degree": "Degree / Field",
+  "cv_skills": "Skills (comma separated)",
+  "cv_langs": "Languages",
+  "cv_contacts": "Contacts",
+  "cv_add": "Add more",
+  "cv_tpl_side": "Sidebar",
+  "cv_tpl_classic": "Classic",
+  "cv_del": "Remove",
+  "cv_skills_h": "Skills"
  }
 };

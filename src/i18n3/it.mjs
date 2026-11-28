@@ -171,6 +171,11 @@ export default {
    "Taglia video",
    "Taglia la parte che ti serve: scegli inizio e fine, guarda e scarica. Senza filigrana.",
    "tagliare video online"
+  ],
+  "resume-builder": [
+   "Crea curriculum (CV) gratis",
+   "Crea un curriculum professionale con foto in pochi minuti e scaricalo in PDF. Senza registrazione né filigrana.",
+   "creare curriculum gratis cv pdf"
   ]
  },
  "faqx": {
@@ -400,6 +405,29 @@ export default {
   "w2p_note": "Nella finestra di stampa scegli “Salva come PDF”.",
   "w2p_only": "Scegli un file .docx (.doc non supportato).",
   "vt_cut": "Taglia",
-  "vt_working": "Taglio…"
+  "vt_working": "Taglio…",
+  "cv_name": "Nome e cognome",
+  "cv_title": "Ruolo",
+  "cv_phone": "Telefono",
+  "cv_city": "Città",
+  "cv_link": "Sito / LinkedIn",
+  "cv_photo": "Aggiungi foto",
+  "cv_about": "Su di me",
+  "cv_exp": "Esperienza",
+  "cv_edu": "Istruzione",
+  "cv_role": "Posizione",
+  "cv_company": "Azienda",
+  "cv_period": "Periodo",
+  "cv_duties": "Mansioni",
+  "cv_school": "Scuola / Università",
+  "cv_degree": "Titolo / Indirizzo",
+  "cv_skills": "Competenze (separate da virgola)",
+  "cv_langs": "Lingue",
+  "cv_contacts": "Contatti",
+  "cv_add": "Aggiungi",
+  "cv_tpl_side": "Con barra laterale",
+  "cv_tpl_classic": "Classico",
+  "cv_del": "Rimuovi",
+  "cv_skills_h": "Competenze"
  }
 };
