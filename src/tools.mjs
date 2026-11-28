@@ -170,4 +170,5 @@ TOOLS.push(
   N('passport-photo-maker', 'ai', 'id', 'ai', { mode: 'passport' }, 'file', { pop: 1 }),
   N('blur-background', 'ai', 'droplet', 'ai', { mode: 'blurbg' }, 'file'),
   N('image-to-text', 'ai', 'filetext', 'ai', { mode: 'ocr' }, 'file', { pop: 1, vendor: ['ocr/tesseract.min.js'] }),
+  N('video-to-mp3', 'media', 'music', 'media2', { mode: 'mp3' }, 'file', { pop: 1 }),
 );

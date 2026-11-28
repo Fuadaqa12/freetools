@@ -31,6 +31,11 @@ export default {
    "Desenfocar fondo (IA)",
    "Efecto modo retrato: la IA detecta a la persona u objeto y desenfoca solo el fondo.",
    "desenfocar fondo modo retrato bokeh foto ia"
+  ],
+  "video-to-mp3": [
+   "Convertir video a MP3",
+   "Extrae el audio de cualquier vídeo (MP4, MOV, WEBM, MKV) y guárdalo en MP3, sin subir nada.",
+   "mp4 a mp3 extraer audio de video convertir"
   ]
  },
  "faqx": {
@@ -89,6 +94,10 @@ export default {
   "move_v": "Mover arriba / abajo",
   "move_h": "Mover izquierda / derecha",
   "photo_size": "Tamaño de foto",
-  "print_sheet": "Hoja 10×15 para imprimir"
+  "print_sheet": "Hoja 10×15 para imprimir",
+  "drop_hint_video": "o arrastra un vídeo aquí · MP4, MOV, WEBM, MKV",
+  "reading_file": "Leyendo archivo…",
+  "converting": "Convirtiendo…",
+  "no_audio_track": "No se pudo leer el audio de este archivo. Prueba otro vídeo."
  }
 };

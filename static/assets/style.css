@@ -510,3 +510,6 @@ kbd{font:600 12px/1 var(--font);padding:4px 7px;border-radius:7px;border:1px sol
 .aichips a{display:flex;gap:10px;align-items:center;padding:12px 14px;border-radius:14px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);color:#fff;text-decoration:none;font-weight:600;font-size:14px;transition:background .15s,transform .15s}
 .aichips a:hover{background:rgba(255,255,255,.26);transform:translateY(-2px)}.aichips svg{width:20px;height:20px;flex:none}
 @media (max-width:760px){.aiban{grid-template-columns:1fr;padding:20px}.aiban h2{font-size:22px}.aichips{grid-template-columns:1fr 1fr}}
+.acts{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end;align-items:center;margin-top:4px}
+.acts .btn{min-height:46px;margin:0}
+@media (max-width:560px){.acts .btn{flex:1 1 100%;justify-content:center}}

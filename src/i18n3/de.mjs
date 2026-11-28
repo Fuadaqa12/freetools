@@ -31,6 +31,11 @@ export default {
    "Hintergrund unscharf machen (KI)",
    "Porträtmodus-Effekt: KI erkennt Person oder Objekt und macht nur den Hintergrund unscharf.",
    "hintergrund unscharf porträtmodus bokeh foto ki"
+  ],
+  "video-to-mp3": [
+   "Video in MP3 umwandeln",
+   "Extrahieren Sie den Ton aus jedem Video (MP4, MOV, WEBM, MKV) als MP3 – ohne Upload.",
+   "mp4 zu mp3 audio aus video extrahieren konvertieren"
   ]
  },
  "faqx": {
@@ -89,6 +94,10 @@ export default {
   "move_v": "Nach oben / unten",
   "move_h": "Nach links / rechts",
   "photo_size": "Fotoformat",
-  "print_sheet": "Druckbogen 10×15"
+  "print_sheet": "Druckbogen 10×15",
+  "drop_hint_video": "oder Video hierher ziehen · MP4, MOV, WEBM, MKV",
+  "reading_file": "Datei wird gelesen…",
+  "converting": "Konvertierung…",
+  "no_audio_track": "Ton konnte nicht gelesen werden. Versuchen Sie ein anderes Video."
  }
 };

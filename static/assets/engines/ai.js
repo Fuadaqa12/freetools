@@ -39,10 +39,10 @@ TK.register('ai', function (root, o, K) {
     top.append(K.sel(t('ocr_lang'), LANGS, lang, function (v) { lang = v; if (file) run(); }));
     top.append(el('<p class="muted" style="margin:0;font-size:13px">' + esc(t('ai_local_note')) + '</p>'));
     var prog = progress();
-    var view = el('<div class="stack hide"></div>');
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
     var prev = el('<img alt="" style="max-width:100%;max-height:320px;border-radius:12px;object-fit:contain;align-self:center;background:var(--soft)">');
     var out = el('<textarea class="inp" rows="12" dir="auto" style="width:100%"></textarea>');
-    var bar = el('<div class="row end"></div>');
+    var bar = el('<div class="acts"></div>');
     bar.append(
       K.btn('copy', t('copy'), 'sec', function () { K.copy(out.value); }),
       K.btn('download', t('download') + ' TXT', '', function () { K.download(new Blob([out.value], { type: 'text/plain;charset=utf-8' }), K.baseName(file ? file.name : 'text') + '.txt'); }),
@@ -80,7 +80,7 @@ TK.register('ai', function (root, o, K) {
     var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
     var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + '</p>');
     var prog = progress();
-    var view = el('<div class="stack hide"></div>');
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
     var cmp = el('<div class="row" style="gap:12px;align-items:stretch;flex-wrap:wrap"></div>');
     var a = el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px"></figcaption><img alt="" style="width:100%;max-height:420px;object-fit:contain;border-radius:12px;background:var(--soft)"></figure>');
     var b = el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px"></figcaption><canvas style="width:100%;max-height:420px;object-fit:contain;border-radius:12px;background:repeating-conic-gradient(#e5e7eb 0 25%,#fff 0 50%) 0 0/20px 20px"></canvas></figure>');
@@ -92,7 +92,7 @@ TK.register('ai', function (root, o, K) {
     var colWrap = el('<div class="row hide" style="gap:8px;align-items:center"></div>'); colWrap.append(colIn);
     opts.append(K.seg([['none', t('transparent')], ['white', t('white')], ['color', t('bg_color')]], 'none', function (v) { bgMode = v; colWrap.classList.toggle('hide', v !== 'color'); draw(); }), colWrap);
     colIn.oninput = function () { bgCol = colIn.value; draw(); };
-    var bar = el('<div class="row end"></div>');
+    var bar = el('<div class="acts"></div>');
     bar.append(
       K.btn('upload', t('start_over'), 'sec', function () { file = cut = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
       K.btn('download', t('download') + ' PNG', '', function () { var c = b.querySelector('canvas'); K.canvasBlob(c, 'image/png').then(function (bl) { K.download(bl, K.baseName(file.name) + '-no-bg.png'); }); })
@@ -131,10 +131,10 @@ TK.register('ai', function (root, o, K) {
     var top = el('<div class="panel stack"></div>');
     top.append(K.seg([['2', '2×'], ['4', '4×']], '2', function (v) { scale = +v; if (img) run(); }), el('<p class="muted" style="margin:0;font-size:13px">' + esc(t('ai_local_note')) + '</p>'));
     var prog = progress();
-    var view = el('<div class="stack hide"></div>');
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
     var info = el('<div class="row" style="gap:10px;flex-wrap:wrap"></div>');
     var box = el('<div style="overflow:auto;max-height:520px;border-radius:12px;background:var(--soft)"></div>');
-    var bar = el('<div class="row end"></div>');
+    var bar = el('<div class="acts"></div>');
     bar.append(
       K.btn('upload', t('start_over'), 'sec', function () { file = img = outC = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
       K.btn('download', t('download') + ' PNG', '', function () { K.canvasBlob(outC, 'image/png').then(function (b) { K.download(b, K.baseName(file.name) + '-' + scale + 'x.png'); }); })
@@ -179,11 +179,11 @@ TK.register('ai', function (root, o, K) {
     var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
     var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + '</p>');
     var prog = progress();
-    var view = el('<div class="stack hide"></div>');
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
     var out = imgBox(t('result'));
     var opts = el('<div class="panel stack"></div>');
     opts.append(K.rng(t('strength'), 2, 40, amt, 'px', function (v) { amt = v; draw(); }));
-    var bar = el('<div class="row end"></div>');
+    var bar = el('<div class="acts"></div>');
     bar.append(
       K.btn('upload', t('start_over'), 'sec', function () { file = cut = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
       K.btn('download', t('download') + ' JPG', '', function () { K.canvasBlob(out.querySelector('canvas'), 'image/jpeg', 0.92).then(function (b) { K.download(b, K.baseName(file.name) + '-portrait.jpg'); }); })
@@ -211,7 +211,7 @@ TK.register('ai', function (root, o, K) {
     var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
     var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('passport_tip')) + '</p>');
     var prog = progress();
-    var view = el('<div class="stack hide"></div>');
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
     var wrap = el('<div class="row" style="gap:16px;align-items:flex-start;flex-wrap:wrap"></div>');
     var pc = el('<canvas style="width:220px;max-width:100%;border-radius:6px;box-shadow:0 4px 18px rgba(0,0,0,.15)"></canvas>');
     var opts = el('<div class="stack" style="flex:1 1 260px"></div>');
@@ -227,7 +227,7 @@ TK.register('ai', function (root, o, K) {
     var xr = K.rng(t('move_h'), -20, 20, 0, '', function (v) { dx = v / 100; draw(); });
     opts.append(K.sel(t('photo_size'), SIZES, size, function (v) { size = v; draw(); }), el('<b style="font-size:14px">' + esc(t('bg_color')) + '</b>'), bgRow, zr, yr, xr);
     wrap.append(pc, opts);
-    var bar = el('<div class="row end"></div>');
+    var bar = el('<div class="acts"></div>');
     bar.append(
       K.btn('upload', t('start_over'), 'sec', function () { file = cut = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
       K.btn('grid2', t('print_sheet'), 'sec', function () { sheet().then(function (b) { K.download(b, 'passport-photos-10x15.jpg'); }); }),

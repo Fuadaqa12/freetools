@@ -31,6 +31,11 @@ export default {
    "Blur Photo Background (AI)",
    "Get a portrait-mode effect: AI finds the person or object and blurs only the background.",
    "blur background portrait mode bokeh photo ai"
+  ],
+  "video-to-mp3": [
+   "Video to MP3 Converter",
+   "Extract the audio from any video (MP4, MOV, WEBM, MKV) and save it as MP3 — no upload, any file size.",
+   "mp4 to mp3 extract audio from video convert video to audio music"
   ]
  },
  "faqx": {
@@ -89,6 +94,10 @@ export default {
   "move_v": "Move up / down",
   "move_h": "Move left / right",
   "photo_size": "Photo size",
-  "print_sheet": "Print sheet 10×15"
+  "print_sheet": "Print sheet 10×15",
+  "drop_hint_video": "or drag & drop a video here · MP4, MOV, WEBM, MKV",
+  "reading_file": "Reading file…",
+  "converting": "Converting…",
+  "no_audio_track": "Could not read audio from this file. Try another video."
  }
 };

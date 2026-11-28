@@ -31,6 +31,11 @@ export default {
    "Rozmyj tło zdjęcia (AI)",
    "Efekt trybu portretowego: AI wykrywa osobę lub obiekt i rozmywa tylko tło.",
    "rozmycie tła tryb portretowy bokeh zdjęcie ai"
+  ],
+  "video-to-mp3": [
+   "Wideo na MP3",
+   "Wyodrębnij dźwięk z dowolnego wideo (MP4, MOV, WEBM, MKV) i zapisz jako MP3 — bez wysyłania.",
+   "mp4 na mp3 wyodrębnij dźwięk z wideo konwerter"
   ]
  },
  "faqx": {
@@ -89,6 +94,10 @@ export default {
   "move_v": "Góra / dół",
   "move_h": "Lewo / prawo",
   "photo_size": "Rozmiar zdjęcia",
-  "print_sheet": "Arkusz 10×15"
+  "print_sheet": "Arkusz 10×15",
+  "drop_hint_video": "lub przeciągnij wideo tutaj · MP4, MOV, WEBM, MKV",
+  "reading_file": "Odczyt pliku…",
+  "converting": "Konwertowanie…",
+  "no_audio_track": "Nie udało się odczytać dźwięku. Spróbuj innego wideo."
  }
 };

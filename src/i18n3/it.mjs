@@ -31,6 +31,11 @@ export default {
    "Sfoca lo sfondo (IA)",
    "Effetto modalità ritratto: l’IA trova la persona o l’oggetto e sfoca solo lo sfondo.",
    "sfocare sfondo modalità ritratto bokeh foto ia"
+  ],
+  "video-to-mp3": [
+   "Convertire video in MP3",
+   "Estrai l’audio da qualsiasi video (MP4, MOV, WEBM, MKV) e salvalo in MP3, senza caricare nulla.",
+   "mp4 in mp3 estrarre audio da video convertire"
   ]
  },
  "faqx": {
@@ -89,6 +94,10 @@ export default {
   "move_v": "Su / giù",
   "move_h": "Sinistra / destra",
   "photo_size": "Formato foto",
-  "print_sheet": "Foglio 10×15"
+  "print_sheet": "Foglio 10×15",
+  "drop_hint_video": "o trascina qui un video · MP4, MOV, WEBM, MKV",
+  "reading_file": "Lettura file…",
+  "converting": "Conversione…",
+  "no_audio_track": "Impossibile leggere l’audio. Prova un altro video."
  }
 };

@@ -31,6 +31,11 @@ export default {
    "Fonu bulanıqlaşdır (Sİ)",
    "Portret rejimi effekti: Sİ insanı və ya obyekti tapır və yalnız fonu bulanıqlaşdırır.",
    "fonu bulanıqlaşdırma portret rejimi bokeh"
+  ],
+  "video-to-mp3": [
+   "Videonu MP3-ə çevir",
+   "İstənilən videodan (MP4, MOV, WEBM, MKV) səsi çıxarıb MP3 kimi saxlayın, serverə yükləmədən.",
+   "mp4 mp3 videodan səs çıxarmaq çevirici"
   ]
  },
  "faqx": {
@@ -89,6 +94,10 @@ export default {
   "move_v": "Yuxarı / aşağı",
   "move_h": "Sola / sağa",
   "photo_size": "Foto ölçüsü",
-  "print_sheet": "10×15 çap vərəqi"
+  "print_sheet": "10×15 çap vərəqi",
+  "drop_hint_video": "və ya videonu bura sürüşdürün · MP4, MOV, WEBM, MKV",
+  "reading_file": "Fayl oxunur…",
+  "converting": "Çevrilir…",
+  "no_audio_track": "Bu fayldan səs oxunmadı. Başqa video yoxlayın."
  }
 };

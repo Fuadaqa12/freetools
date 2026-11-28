@@ -31,6 +31,11 @@ export default {
    "Arka planı bulanıklaştır (YZ)",
    "Portre modu efekti: yapay zekâ kişiyi veya nesneyi bulur ve sadece arka planı bulanıklaştırır.",
    "arka plan bulanıklaştırma portre modu bokeh"
+  ],
+  "video-to-mp3": [
+   "Videoyu MP3’e dönüştür",
+   "Herhangi bir videonun (MP4, MOV, WEBM, MKV) sesini çıkarıp MP3 olarak kaydedin, yükleme yok.",
+   "mp4 mp3 videodan ses çıkarma dönüştürücü"
   ]
  },
  "faqx": {
@@ -89,6 +94,10 @@ export default {
   "move_v": "Yukarı / aşağı",
   "move_h": "Sola / sağa",
   "photo_size": "Fotoğraf boyutu",
-  "print_sheet": "10×15 baskı sayfası"
+  "print_sheet": "10×15 baskı sayfası",
+  "drop_hint_video": "veya videoyu buraya sürükleyin · MP4, MOV, WEBM, MKV",
+  "reading_file": "Dosya okunuyor…",
+  "converting": "Dönüştürülüyor…",
+  "no_audio_track": "Bu dosyadan ses okunamadı. Başka bir video deneyin."
  }
 };

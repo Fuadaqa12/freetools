@@ -31,6 +31,11 @@ export default {
    "Flouter l’arrière-plan (IA)",
    "Effet mode portrait : l’IA détecte la personne ou l’objet et floute uniquement l’arrière-plan.",
    "flouter arrière-plan mode portrait bokeh photo ia"
+  ],
+  "video-to-mp3": [
+   "Convertir une vidéo en MP3",
+   "Extrayez le son de n’importe quelle vidéo (MP4, MOV, WEBM, MKV) en MP3, sans envoi de fichier.",
+   "mp4 en mp3 extraire audio vidéo convertir"
   ]
  },
  "faqx": {
@@ -89,6 +94,10 @@ export default {
   "move_v": "Déplacer haut / bas",
   "move_h": "Déplacer gauche / droite",
   "photo_size": "Format de photo",
-  "print_sheet": "Planche 10×15"
+  "print_sheet": "Planche 10×15",
+  "drop_hint_video": "ou glissez une vidéo ici · MP4, MOV, WEBM, MKV",
+  "reading_file": "Lecture du fichier…",
+  "converting": "Conversion…",
+  "no_audio_track": "Impossible de lire l’audio de ce fichier. Essayez une autre vidéo."
  }
 };
