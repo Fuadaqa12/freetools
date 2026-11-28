@@ -46,6 +46,16 @@ export default {
    "Fotoğrafta yüz bulanıklaştır (YZ)",
    "Yapay zekâ tüm yüzleri bulur ve bulanıklık, piksel, siyah kutu veya emojiyle gizler.",
    "yüz bulanıklaştırma fotoğraf pikselleştir"
+  ],
+  "compress-video": [
+   "Video sıkıştır",
+   "Videoları WhatsApp, Telegram, e-posta veya Discord için küçültün. Hiçbir şey yüklenmez.",
+   "video sıkıştırma boyut küçültme mp4"
+  ],
+  "video-to-gif": [
+   "Videodan GIF",
+   "Video parçasını hareketli GIF’e çevirin: başlangıç, süre, boyut ve fps seçin.",
+   "videodan gif mp4 gif yapma"
   ]
  },
  "faqx": {
@@ -115,6 +125,18 @@ export default {
   "sticker_tip": "Telegram: WEBP dosyasını @Stickers botuna gönderin. WhatsApp: bir çıkartma uygulamasıyla ekleyin.",
   "faces_found": "Gizlenen yüz: {n}",
   "faces_none": "Yüz bulunamadı. Alan eklemek için fotoğrafa dokunun.",
-  "faces_tip": "Göstermek veya gizlemek için yüze dokunun. Yeni alan için boş bir yere dokunun."
+  "faces_tip": "Göstermek veya gizlemek için yüze dokunun. Yeni alan için boş bir yere dokunun.",
+  "vq_small": "En küçük",
+  "vq_balanced": "Dengeli",
+  "vq_best": "En iyi kalite",
+  "resolution": "Çözünürlük",
+  "original": "Orijinal",
+  "compress_video": "Sıkıştır",
+  "compressing": "Sıkıştırılıyor",
+  "vc_note": "Sıkıştırma sırasında video bir kez oynatılır, bu yüzden videonun süresi kadar sürer. Sekmeyi açık tutun.",
+  "vc_bigger": "Video zaten iyi sıkıştırılmış. Daha düşük çözünürlük deneyin.",
+  "make_gif": "GIF oluştur",
+  "start_sec": "Başlangıç",
+  "length_sec": "Süre"
  }
 };

@@ -46,6 +46,16 @@ export default {
    "Gesichter unkenntlich machen (KI)",
    "KI findet jedes Gesicht und verbirgt es mit Unschärfe, Pixeln, schwarzem Balken oder Emoji.",
    "gesichter verpixeln unscharf foto anonymisieren"
+  ],
+  "compress-video": [
+   "Video komprimieren",
+   "Videos für WhatsApp, Telegram, E-Mail oder Discord verkleinern. Nichts wird hochgeladen.",
+   "video komprimieren verkleinern mp4"
+  ],
+  "video-to-gif": [
+   "Video zu GIF",
+   "Machen Sie aus einem Videoclip ein animiertes GIF: Start, Länge, Größe und fps wählbar.",
+   "video zu gif mp4 zu gif"
   ]
  },
  "faqx": {
@@ -115,6 +125,18 @@ export default {
   "sticker_tip": "Telegram: WEBP an @Stickers senden. WhatsApp: mit einer Sticker-App hinzufügen.",
   "faces_found": "Verborgene Gesichter: {n}",
   "faces_none": "Keine Gesichter gefunden. Tippen Sie aufs Foto, um Bereiche hinzuzufügen.",
-  "faces_tip": "Tippen Sie auf ein Gesicht, um es ein- oder auszublenden. Tippen Sie auf eine leere Stelle für einen neuen Bereich."
+  "faces_tip": "Tippen Sie auf ein Gesicht, um es ein- oder auszublenden. Tippen Sie auf eine leere Stelle für einen neuen Bereich.",
+  "vq_small": "Kleinste Datei",
+  "vq_balanced": "Ausgewogen",
+  "vq_best": "Beste Qualität",
+  "resolution": "Auflösung",
+  "original": "Original",
+  "compress_video": "Komprimieren",
+  "compressing": "Komprimiere",
+  "vc_note": "Das Video wird beim Komprimieren einmal abgespielt, es dauert also etwa so lange wie das Video. Tab offen lassen.",
+  "vc_bigger": "Das Video ist schon gut komprimiert. Versuchen Sie eine niedrigere Auflösung.",
+  "make_gif": "GIF erstellen",
+  "start_sec": "Start",
+  "length_sec": "Länge"
  }
 };

@@ -46,6 +46,16 @@ export default {
    "Şəkildə üzləri bulanıqlaşdır (Sİ)",
    "Sİ bütün üzləri tapır və bulanıqlıq, piksel, qara qutu və ya emoji ilə gizlədir.",
    "üzü bulanıqlaşdır şəkil piksel gizlət"
+  ],
+  "compress-video": [
+   "Videonu sıx",
+   "Videoların ölçüsünü WhatsApp, Telegram, poçt və ya Discord üçün kiçildin. Heç nə yüklənmir.",
+   "video sıxma ölçü kiçiltmə mp4"
+  ],
+  "video-to-gif": [
+   "Videodan GIF",
+   "Video parçasını animasiyalı GIF-ə çevirin: başlanğıc, uzunluq, ölçü və fps seçin.",
+   "videodan gif mp4 gif"
   ]
  },
  "faqx": {
@@ -115,6 +125,18 @@ export default {
   "sticker_tip": "Telegram: WEBP faylını @Stickers botuna göndərin. WhatsApp: istənilən stiker tətbiqi ilə əlavə edin.",
   "faces_found": "Gizlədilən üz: {n}",
   "faces_none": "Üz tapılmadı. Sahə əlavə etmək üçün şəklə toxunun.",
-  "faces_tip": "Göstərmək və ya gizlətmək üçün üzə toxunun. Yeni sahə üçün boş yerə toxunun."
+  "faces_tip": "Göstərmək və ya gizlətmək üçün üzə toxunun. Yeni sahə üçün boş yerə toxunun.",
+  "vq_small": "Ən kiçik",
+  "vq_balanced": "Optimal",
+  "vq_best": "Ən yaxşı keyfiyyət",
+  "resolution": "Ölçü",
+  "original": "Orijinal",
+  "compress_video": "Sıx",
+  "compressing": "Sıxılır",
+  "vc_note": "Sıxma zamanı video bir dəfə oynadılır, ona görə videonun uzunluğu qədər çəkir. Tabı bağlamayın.",
+  "vc_bigger": "Video artıq yaxşı sıxılıb. Daha kiçik ölçü seçin.",
+  "make_gif": "GIF yarat",
+  "start_sec": "Başlanğıc",
+  "length_sec": "Uzunluq"
  }
 };

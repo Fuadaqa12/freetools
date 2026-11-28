@@ -46,6 +46,16 @@ export default {
    "Desfocar rostos na foto (IA)",
    "A IA encontra cada rosto e o esconde com desfoque, pixels, tarja preta ou emoji.",
    "desfocar rosto foto pixelar anonimizar"
+  ],
+  "compress-video": [
+   "Comprimir vídeo",
+   "Diminua o tamanho dos vídeos para WhatsApp, Telegram, e-mail ou Discord. Nada é enviado.",
+   "comprimir video reduzir tamanho mp4"
+  ],
+  "video-to-gif": [
+   "Vídeo para GIF",
+   "Transforme um trecho de vídeo em GIF animado: escolha início, duração, tamanho e fps.",
+   "video para gif mp4 para gif"
   ]
  },
  "faqx": {
@@ -115,6 +125,18 @@ export default {
   "sticker_tip": "Telegram: envie o WEBP para @Stickers. WhatsApp: adicione com qualquer app de figurinhas.",
   "faces_found": "Rostos ocultos: {n}",
   "faces_none": "Nenhum rosto encontrado. Toque na foto para adicionar áreas.",
-  "faces_tip": "Toque num rosto para mostrar ou ocultar. Toque num ponto vazio para adicionar uma área."
+  "faces_tip": "Toque num rosto para mostrar ou ocultar. Toque num ponto vazio para adicionar uma área.",
+  "vq_small": "Menor arquivo",
+  "vq_balanced": "Equilibrado",
+  "vq_best": "Melhor qualidade",
+  "resolution": "Resolução",
+  "original": "Original",
+  "compress_video": "Comprimir vídeo",
+  "compressing": "Comprimindo",
+  "vc_note": "O vídeo é reproduzido uma vez durante a compressão, então leva o mesmo tempo que sua duração. Mantenha a aba aberta.",
+  "vc_bigger": "O vídeo já está bem comprimido. Tente uma resolução menor ou “Menor arquivo”.",
+  "make_gif": "Criar GIF",
+  "start_sec": "Início",
+  "length_sec": "Duração"
  }
 };

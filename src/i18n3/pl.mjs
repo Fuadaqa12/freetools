@@ -46,6 +46,16 @@ export default {
    "Rozmyj twarze na zdjęciu (AI)",
    "AI znajduje każdą twarz i ukrywa ją rozmyciem, pikselami, czarnym paskiem lub emoji.",
    "rozmycie twarzy zdjęcie pikselizacja anonimizacja"
+  ],
+  "compress-video": [
+   "Kompresuj wideo",
+   "Zmniejsz rozmiar filmów dla WhatsAppa, Telegrama, e-maila lub Discorda. Nic nie jest wysyłane.",
+   "kompresja wideo zmniejszyć rozmiar mp4"
+  ],
+  "video-to-gif": [
+   "Wideo na GIF",
+   "Zamień fragment wideo w animowany GIF: wybierz początek, długość, rozmiar i fps.",
+   "wideo na gif mp4 na gif"
   ]
  },
  "faqx": {
@@ -115,6 +125,18 @@ export default {
   "sticker_tip": "Telegram: wyślij plik WEBP do @Stickers. WhatsApp: dodaj przez dowolną aplikację z naklejkami.",
   "faces_found": "Ukryte twarze: {n}",
   "faces_none": "Nie znaleziono twarzy. Dotknij zdjęcia, aby dodać obszar.",
-  "faces_tip": "Dotknij twarzy, aby ją pokazać lub ukryć. Dotknij pustego miejsca, aby dodać obszar."
+  "faces_tip": "Dotknij twarzy, aby ją pokazać lub ukryć. Dotknij pustego miejsca, aby dodać obszar.",
+  "vq_small": "Najmniejszy",
+  "vq_balanced": "Optymalnie",
+  "vq_best": "Najlepsza jakość",
+  "resolution": "Rozdzielczość",
+  "original": "Oryginał",
+  "compress_video": "Kompresuj",
+  "compressing": "Kompresja",
+  "vc_note": "Wideo odtwarza się raz podczas kompresji, więc trwa to mniej więcej tyle, co film. Nie zamykaj karty.",
+  "vc_bigger": "Wideo jest już dobrze skompresowane. Spróbuj niższej rozdzielczości.",
+  "make_gif": "Utwórz GIF",
+  "start_sec": "Początek",
+  "length_sec": "Długość"
  }
 };

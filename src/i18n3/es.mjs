@@ -46,6 +46,16 @@ export default {
    "Difuminar caras en fotos (IA)",
    "La IA detecta cada cara y la oculta con desenfoque, píxeles, recuadro negro o emoji.",
    "difuminar caras foto pixelar anonimizar"
+  ],
+  "compress-video": [
+   "Comprimir vídeo",
+   "Reduce el tamaño de tus vídeos para WhatsApp, Telegram, email o Discord. No se sube nada.",
+   "comprimir video reducir tamaño mp4"
+  ],
+  "video-to-gif": [
+   "Vídeo a GIF",
+   "Convierte un fragmento de vídeo en GIF animado: elige inicio, duración, tamaño y fps.",
+   "video a gif mp4 a gif"
   ]
  },
  "faqx": {
@@ -115,6 +125,18 @@ export default {
   "sticker_tip": "Telegram: envía el WEBP a @Stickers. WhatsApp: añádelo con cualquier app de stickers.",
   "faces_found": "Caras ocultas: {n}",
   "faces_none": "No se encontraron caras. Toca la foto para añadir zonas.",
-  "faces_tip": "Toca una cara para mostrarla u ocultarla. Toca un punto vacío para añadir una zona."
+  "faces_tip": "Toca una cara para mostrarla u ocultarla. Toca un punto vacío para añadir una zona.",
+  "vq_small": "Más pequeño",
+  "vq_balanced": "Equilibrado",
+  "vq_best": "Mejor calidad",
+  "resolution": "Resolución",
+  "original": "Original",
+  "compress_video": "Comprimir vídeo",
+  "compressing": "Comprimiendo",
+  "vc_note": "El vídeo se reproduce una vez mientras se comprime, así que tarda lo mismo que dura. Mantén la pestaña abierta.",
+  "vc_bigger": "El vídeo ya está bien comprimido. Prueba menor resolución o «Más pequeño».",
+  "make_gif": "Crear GIF",
+  "start_sec": "Inicio",
+  "length_sec": "Duración"
  }
 };

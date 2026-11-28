@@ -172,5 +172,7 @@ TOOLS.push(
   N('sticker-maker', 'ai', 'smile', 'ai', { mode: 'sticker' }, 'file', { pop: 1 }),
   N('auto-blur-faces', 'ai', 'nouser', 'ai', { mode: 'faces' }, 'file'),
   N('image-to-text', 'ai', 'filetext', 'ai', { mode: 'ocr' }, 'file', { pop: 1, vendor: ['ocr/tesseract.min.js'] }),
+  N('compress-video', 'media', 'zap', 'media2', { mode: 'vcompress' }, 'file', { pop: 1 }),
+  N('video-to-gif', 'media', 'image', 'media2', { mode: 'gif' }, 'file'),
   N('video-to-mp3', 'media', 'music', 'media2', { mode: 'mp3' }, 'file', { pop: 1 }),
 );

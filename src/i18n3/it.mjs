@@ -46,6 +46,16 @@ export default {
    "Sfoca i volti nelle foto (IA)",
    "L’IA trova ogni volto e lo nasconde con sfocatura, pixel, riquadro nero o emoji.",
    "sfocare volti foto pixelare anonimizzare"
+  ],
+  "compress-video": [
+   "Comprimi video",
+   "Riduci le dimensioni dei video per WhatsApp, Telegram, email o Discord. Nulla viene caricato.",
+   "comprimere video ridurre dimensioni mp4"
+  ],
+  "video-to-gif": [
+   "Da video a GIF",
+   "Trasforma una clip video in GIF animata: scegli inizio, durata, dimensione e fps.",
+   "video in gif mp4 in gif"
   ]
  },
  "faqx": {
@@ -115,6 +125,18 @@ export default {
   "sticker_tip": "Telegram: invia il WEBP a @Stickers. WhatsApp: aggiungilo con un’app di sticker.",
   "faces_found": "Volti nascosti: {n}",
   "faces_none": "Nessun volto trovato. Tocca la foto per aggiungere aree.",
-  "faces_tip": "Tocca un volto per mostrarlo o nasconderlo. Tocca un punto vuoto per aggiungere un’area."
+  "faces_tip": "Tocca un volto per mostrarlo o nasconderlo. Tocca un punto vuoto per aggiungere un’area.",
+  "vq_small": "Più piccolo",
+  "vq_balanced": "Bilanciato",
+  "vq_best": "Qualità migliore",
+  "resolution": "Risoluzione",
+  "original": "Originale",
+  "compress_video": "Comprimi",
+  "compressing": "Compressione",
+  "vc_note": "Il video viene riprodotto una volta durante la compressione, quindi serve circa la sua durata. Tieni aperta la scheda.",
+  "vc_bigger": "Il video è già ben compresso. Prova una risoluzione più bassa.",
+  "make_gif": "Crea GIF",
+  "start_sec": "Inizio",
+  "length_sec": "Durata"
  }
 };

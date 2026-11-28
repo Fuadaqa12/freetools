@@ -46,6 +46,16 @@ export default {
    "Blur Faces in Photo (AI)",
    "AI finds every face and hides it with blur, pixels, a black box or an emoji. Tap to add or remove areas.",
    "blur faces photo anonymize pixelate face censor privacy ai"
+  ],
+  "compress-video": [
+   "Compress Video",
+   "Make videos smaller for WhatsApp, Telegram, email or Discord. Pick size and quality, nothing is uploaded.",
+   "compress video reduce video size smaller mp4 whatsapp discord"
+  ],
+  "video-to-gif": [
+   "Video to GIF",
+   "Turn a video clip into an animated GIF: pick the start, length, size and frame rate.",
+   "video to gif mp4 to gif animated gif maker"
   ]
  },
  "faqx": {
@@ -115,6 +125,18 @@ export default {
   "sticker_tip": "Telegram: send the WEBP file to @Stickers. WhatsApp: add it with any sticker-maker app.",
   "faces_found": "Faces hidden: {n}",
   "faces_none": "No faces found. Tap the photo to add areas manually.",
-  "faces_tip": "Tap a face to show or hide it. Tap an empty spot to add a new area."
+  "faces_tip": "Tap a face to show or hide it. Tap an empty spot to add a new area.",
+  "vq_small": "Smallest file",
+  "vq_balanced": "Balanced",
+  "vq_best": "Best quality",
+  "resolution": "Resolution",
+  "original": "Original",
+  "compress_video": "Compress video",
+  "compressing": "Compressing",
+  "vc_note": "The video plays through once while compressing, so it takes about as long as the video itself. Keep this tab open.",
+  "vc_bigger": "This video is already well compressed. Try a lower resolution or “Smallest file”.",
+  "make_gif": "Make GIF",
+  "start_sec": "Start",
+  "length_sec": "Length"
  }
 };
