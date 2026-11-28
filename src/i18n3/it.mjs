@@ -86,6 +86,31 @@ export default {
    "Da audio a testo (IA)",
    "Trascrivi vocali, audio e video in testo con l’IA Whisper in oltre 90 lingue. Esporta TXT o SRT.",
    "audio in testo trascrizione whisper sottotitoli"
+  ],
+  "compress-image-to-kb": [
+   "Comprimi immagine a 20, 50, 100 KB",
+   "Riduci una foto a una dimensione esatta in KB per moduli e domande: 20, 50, 100 KB o qualsiasi valore.",
+   "comprimere immagine 100kb ridurre foto kb"
+  ],
+  "pdf-to-word": [
+   "Da PDF a Word",
+   "Converti PDF in un documento Word (DOCX) modificabile con paragrafi e titoli. Gratis.",
+   "pdf in word convertire docx"
+  ],
+  "invoice-generator": [
+   "Generatore di fatture",
+   "Crea una fattura in un minuto e scaricala in PDF. IVA e totali calcolati in automatico.",
+   "generatore fatture gratis pdf"
+  ],
+  "photo-to-sketch": [
+   "Foto in disegno a matita",
+   "Trasforma qualsiasi foto in un disegno a matita realistico, in bianco e nero o a colori.",
+   "foto in disegno a matita"
+  ],
+  "profile-picture-maker": [
+   "Crea foto profilo (IA)",
+   "L’IA ti scontorna da qualsiasi foto e ti mette su un gradiente elegante: avatar pronto.",
+   "foto profilo avatar ia"
   ]
  },
  "faqx": {
@@ -197,6 +222,29 @@ export default {
   "stt_accurate": "Più preciso",
   "stt_note": "Al primo avvio scarica ~80 MB (~250 MB per “Più preciso”).",
   "stt_working": "Trascrizione…",
-  "stt_nothing": "Nessun parlato trovato."
+  "stt_nothing": "Nessun parlato trovato.",
+  "kb_custom": "O la tua dimensione, KB",
+  "pdfword_note": "Testo, paragrafi e titoli vengono mantenuti. Tabelle complesse e immagini no.",
+  "pdfword_scan": "Questo PDF non ha testo (è una scansione). Usa “Da immagine a testo (OCR)”.",
+  "sketch_color": "Matite colorate",
+  "pfp_circle": "Cerchio",
+  "pfp_square": "Quadrato",
+  "pfp_ring": "Anello bianco",
+  "inv_title": "Fattura",
+  "inv_from": "Da",
+  "inv_to": "A",
+  "inv_num": "Numero fattura",
+  "inv_date": "Data",
+  "inv_due": "Scadenza",
+  "inv_cur": "Valuta",
+  "inv_tax": "Imposta",
+  "inv_items": "Voci",
+  "inv_add": "Aggiungi voce",
+  "inv_desc": "Descrizione",
+  "inv_qty": "Q.tà",
+  "inv_price": "Prezzo",
+  "inv_sub": "Subtotale",
+  "inv_total": "Totale",
+  "inv_note": "Note e dati di pagamento"
  }
 };

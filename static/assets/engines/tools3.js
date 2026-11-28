@@ -4,7 +4,7 @@ TK.register('tools3', function (root, o, K) {
   var V = new URL(K.root + 'assets/vendor/', location.href).href;
   function script(src) { return new Promise(function (res, rej) { if (document.querySelector('script[data-s="' + src + '"]')) return res(); var x = document.createElement('script'); x.src = V + src; x.dataset.s = src; x.onload = res; x.onerror = rej; document.head.appendChild(x); }); }
   function fmt(s) { var m = Math.floor(s / 60), r = s - m * 60; return m + ':' + (r < 10 ? '0' : '') + r.toFixed(1); }
-  ({ heic: heic, qrscan: qrscan, audiocut: audiocut, collage: collage })[o.mode]();
+  ({ heic: heic, qrscan: qrscan, audiocut: audiocut, collage: collage, kb: kb, pdfword: pdfword, invoice: invoice, sketch: sketch })[o.mode]();
 
   /* ---------- HEIC → JPG/PNG ---------- */
   function heic() {
@@ -17,7 +17,7 @@ TK.register('tools3', function (root, o, K) {
     bar.append(K.btn('download', t('download_all') + ' (ZIP)', '', function () {
       var ok = items.filter(function (i) { return i.out; }); if (!ok.length) return;
       if (ok.length === 1) return K.download(ok[0].out, ok[0].name);
-      K.zip(ok.map(function (i) { return { name: i.name, blob: i.out }; })).then(function (z) { K.download(z, 'photos.zip'); });
+      Promise.all(ok.map(function (i) { return K.blobBytes(i.out).then(function (d) { return { name: i.name, data: d }; }); })).then(function (fs) { K.download(K.zip(fs), 'photos.zip'); });
     }));
     root.append(top, dz, list, bar);
     function add(files) {
@@ -192,6 +192,158 @@ TK.register('tools3', function (root, o, K) {
         x.save(); x.beginPath(); if (x.roundRect) x.roundRect(cx, cy, cw, ch, radius * 2); else x.rect(cx, cy, cw, ch); x.clip();
         x.drawImage(im, (im.naturalWidth - sw) / 2, (im.naturalHeight - sh) / 2, sw, sh, cx, cy, cw, ch); x.restore();
       });
+    }
+  }
+
+  /* ---------- compress image to exact KB ---------- */
+  function kb() {
+    var target = 50, file = null, img = null, out = null, custom = null;
+    var top = el('<div class="panel stack"></div>');
+    var inp = el('<input type="number" class="inp" min="5" max="5000" placeholder="KB" style="max-width:140px">');
+    inp.oninput = function () { var v = +inp.value; if (v >= 5) { target = v; if (img) run(); } };
+    var segW = K.seg([['20', '20 KB'], ['50', '50 KB'], ['100', '100 KB'], ['200', '200 KB'], ['500', '500 KB']], '50', function (v) { target = +v; inp.value = ''; if (img) run(); });
+    var row = el('<label class="f" style="flex-direction:row;align-items:center;gap:10px"><span>' + esc(t('kb_custom')) + '</span></label>'); row.append(inp);
+    top.append(segW, row);
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { file = f[0]; K.loadImage(file).then(function (im) { img = im; run(); }); } });
+    var view = el('<div class="stack hide" style="margin-top:12px"></div>'), head = el('<div class="file"></div>'), pic = el('<img alt="" style="max-width:100%;max-height:420px;border-radius:12px;align-self:center">');
+    var bar = el('<div class="acts"></div>');
+    bar.append(K.btn('upload', t('start_over'), 'sec', function () { img = null; view.classList.add('hide'); dz.classList.remove('hide'); }), K.btn('download', t('download'), '', function () { if (out) K.download(out, K.baseName(file.name) + '-' + target + 'kb.jpg'); }));
+    view.append(head, pic, bar); root.append(top, dz, view);
+    function enc(scale, q) { var c = document.createElement('canvas'); c.width = Math.max(1, Math.round(img.naturalWidth * scale)); c.height = Math.max(1, Math.round(img.naturalHeight * scale)); var x = c.getContext('2d'); x.fillStyle = '#fff'; x.fillRect(0, 0, c.width, c.height); x.drawImage(img, 0, 0, c.width, c.height); return K.canvasBlob(c, 'image/jpeg', q).then(function (b) { return { b: b, w: c.width, h: c.height }; }); }
+    function run() {
+      dz.classList.add('hide'); var lim = target * 1024 * 0.98, scale = Math.min(1, 4000 / Math.max(img.naturalWidth, img.naturalHeight));
+      function tryScale(sc, n) {
+        var lo = 0.05, hi = 0.95, best = null, i = 0;
+        return (function bs() { var q = (lo + hi) / 2; return enc(sc, q).then(function (r) { if (r.b.size <= lim) { best = r; lo = q; } else hi = q; if (++i < 7) return bs(); return best ? best : (n < 12 ? tryScale(sc * 0.8, n + 1) : r); }); })();
+      }
+      tryScale(scale, 0).then(function (r) {
+        out = r.b; if (pic.src) URL.revokeObjectURL(pic.src); pic.src = URL.createObjectURL(out);
+        head.innerHTML = '<div class="th">JPG</div><div class="meta"><div class="nm">' + esc(K.baseName(file.name)) + '.jpg</div><div class="sz"><bdi>' + K.bytes(file.size) + '</bdi> → <b style="color:#16a34a">' + K.bytes(out.size) + '</b> · ' + r.w + '×' + r.h + '</div></div>';
+        view.classList.remove('hide');
+      });
+    }
+  }
+
+  /* ---------- PDF → Word (.docx, text + paragraphs) ---------- */
+  function pdfword() {
+    var dz = K.dropzone({ accept: 'application/pdf,.pdf', hint: t('drop_hint_pdf'), onFiles: function (f) { go(f[0]); } });
+    var st = el('<div class="row hide" style="justify-content:center;padding:30px;gap:10px"><span class="spin dark"></span><span class="muted"></span></div>');
+    var view = el('<div class="stack hide"></div>'), head = el('<div class="file"></div>'), pre = el('<textarea class="inp" readonly style="min-height:220px"></textarea>');
+    var bar = el('<div class="acts"></div>'), out = null, name = '';
+    bar.append(K.btn('upload', t('start_over'), 'sec', function () { view.classList.add('hide'); dz.classList.remove('hide'); }), K.btn('download', t('download') + ' DOCX', '', function () { K.download(out, name + '.docx'); }));
+    view.append(head, pre, bar, el('<p class="muted" style="margin:0;font-size:13px">' + esc(t('pdfword_note')) + '</p>'));
+    root.append(dz, st, view);
+    function X(s) { return s.replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, ''); }
+    function go(f) {
+      name = K.baseName(f.name); dz.classList.add('hide'); st.classList.remove('hide'); st.querySelector('.muted').textContent = t('processing');
+      f.arrayBuffer().then(function (ab) { return K.pdfjs().then(function (pj) { return pj.getDocument({ data: new Uint8Array(ab), isEvalSupported: false }).promise; }); })
+        .then(function (doc) {
+          var pages = [], ch = Promise.resolve();
+          for (var n = 1; n <= doc.numPages; n++) (function (n) { ch = ch.then(function () { st.querySelector('.muted').textContent = t('processing') + ' ' + n + '/' + doc.numPages; return doc.getPage(n).then(function (p) { return p.getTextContent(); }).then(function (tc) {
+            var lines = [], last = null, cur = null;
+            tc.items.forEach(function (it) { if (!it.str && !it.hasEOL) return; var y = it.transform[5], h = Math.abs(it.transform[3]) || 10;
+              if (!cur || Math.abs(y - cur.y) > h * 0.5) { cur = { y: y, h: h, t: '', gap: last ? last.y - y : 0 }; lines.push(cur); last = cur; }
+              cur.t += it.str; if (it.hasEOL) cur = null; });
+            var paras = [], P = null;
+            lines.forEach(function (l) { var txt = l.t.replace(/\s+/g, ' ').trim(); if (!txt) { P = null; return; } if (!P || l.gap > l.h * 1.8 || Math.abs(l.h - P.h) > 1.5) { P = { h: l.h, t: txt }; paras.push(P); } else P.t += (/-$/.test(P.t) ? '' : ' ') + txt.replace(/^/, ''); });
+            pages.push(paras); }); }); })(n);
+          return ch.then(function () { return pages; });
+        }).then(function (pages) {
+          var body = '', txt = [], sizes = []; pages.forEach(function (ps) { ps.forEach(function (p) { sizes.push(p.h); }); }); sizes.sort(function (a, b) { return a - b; }); var base = sizes[Math.floor(sizes.length / 2)] || 11;
+          pages.forEach(function (ps, i) {
+            ps.forEach(function (p) { var big = p.h > base * 1.25, sz = Math.round(Math.min(48, Math.max(9, p.h)) * 2);
+              body += '<w:p>' + (big ? '<w:pPr><w:spacing w:before="240" w:after="120"/></w:pPr>' : '<w:pPr><w:spacing w:after="120"/></w:pPr>') + '<w:r><w:rPr>' + (big ? '<w:b/>' : '') + '<w:sz w:val="' + sz + '"/></w:rPr><w:t xml:space="preserve">' + X(p.t) + '</w:t></w:r></w:p>'; txt.push(p.t); });
+            if (i < pages.length - 1) body += '<w:p><w:r><w:br w:type="page"/></w:r></w:p>';
+          });
+          var E = new TextEncoder();
+          var files = [
+            ['[Content_Types].xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>'],
+            ['_rels/.rels', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'],
+            ['word/document.xml', '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>' + body + '<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134"/></w:sectPr></w:body></w:document>']];
+          out = new Blob([K.zip(files.map(function (f) { return { name: f[0], data: E.encode(f[1]) }; }))], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+          st.classList.add('hide');
+          if (!txt.length) { K.toast(t('pdfword_scan')); dz.classList.remove('hide'); return; }
+          head.innerHTML = '<div class="th">DOCX</div><div class="meta"><div class="nm">' + esc(name) + '.docx</div><div class="sz"><bdi>' + K.bytes(out.size) + '</bdi> · ' + esc(t('n_pages', { n: pages.length })) + '</div></div>';
+          pre.value = txt.join('\n\n'); view.classList.remove('hide');
+        }).catch(function (e) { console.error(e); st.classList.add('hide'); K.toast(t('error')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- invoice generator ---------- */
+  function invoice() {
+    var LS = 'tk_invoice', D;
+    try { D = JSON.parse(localStorage.getItem(LS)); } catch (e) { }
+    var today = new Date().toISOString().slice(0, 10);
+    D = D || { from: '', to: '', num: 'INV-001', date: today, due: '', cur: '$', tax: 0, note: '', items: [{ d: '', q: 1, p: 0 }] };
+    D.date = D.date || today;
+    var form = el('<div class="stack"></div>');
+    function fld(label, key, ta, type) { var w = el('<label class="f"><span>' + esc(label) + '</span></label>'), i = el(ta ? '<textarea class="inp" style="min-height:90px"></textarea>' : '<input class="inp" type="' + (type || 'text') + '">'); i.value = D[key]; i.oninput = function () { D[key] = type === 'number' ? +i.value : i.value; save(); }; w.append(i); return w; }
+    var g1 = el('<div class="fields"></div>'); g1.append(fld(t('inv_from'), 'from', 1), fld(t('inv_to'), 'to', 1));
+    var g2 = el('<div class="fields"></div>'); g2.append(fld(t('inv_num'), 'num'), fld(t('inv_date'), 'date', 0, 'date'), fld(t('inv_due'), 'due', 0, 'date'), fld(t('inv_cur'), 'cur'), fld(t('inv_tax') + ' %', 'tax', 0, 'number'));
+    var tbl = el('<div class="stack" style="gap:8px"></div>'), tot = el('<div style="text-align:end;font-size:18px"></div>');
+    form.append(g1, g2, el('<b>' + esc(t('inv_items')) + '</b>'), tbl, K.btn('plus', t('inv_add'), 'sec sm', function () { D.items.push({ d: '', q: 1, p: 0 }); rows(); save(); }), tot, fld(t('inv_note'), 'note', 1));
+    var bar = el('<div class="acts"></div>'); bar.append(K.btn('download', t('download') + ' PDF', 'big', pdf));
+    root.append(form, bar);
+    function money(v) { return D.cur + ' ' + (Math.round(v * 100) / 100).toLocaleString(K.lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+    function sums() { var s = D.items.reduce(function (a, i) { return a + (+i.q || 0) * (+i.p || 0); }, 0), tx = s * (+D.tax || 0) / 100; return [s, tx, s + tx]; }
+    function save() { try { localStorage.setItem(LS, JSON.stringify(D)); } catch (e) { } var s = sums(); tot.innerHTML = esc(t('inv_sub')) + ': ' + esc(money(s[0])) + (D.tax ? '<br>' + esc(t('inv_tax')) + ': ' + esc(money(s[1])) : '') + '<br><b>' + esc(t('inv_total')) + ': ' + esc(money(s[2])) + '</b>'; }
+    function rows() {
+      tbl.innerHTML = '';
+      D.items.forEach(function (it, i) {
+        var r = el('<div style="display:grid;grid-template-columns:minmax(0,1fr) 64px 96px 40px;gap:6px"></div>');
+        var d = el('<input class="inp" placeholder="' + esc(t('inv_desc')) + '">'), q = el('<input class="inp" type="number" min="0" step="any">'), p = el('<input class="inp" type="number" min="0" step="any" placeholder="0">');
+        d.value = it.d; q.value = it.q; p.value = it.p || '';
+        d.oninput = function () { it.d = d.value; save(); }; q.oninput = function () { it.q = +q.value; save(); }; p.oninput = function () { it.p = +p.value; save(); };
+        var x = el('<button class="ibtn" type="button" aria-label="remove">' + K.svg('x') + '</button>'); x.onclick = function () { D.items.splice(i, 1); if (!D.items.length) D.items.push({ d: '', q: 1, p: 0 }); rows(); save(); };
+        r.append(d, q, p, x); tbl.append(r);
+      });
+    }
+    rows(); save();
+    function pdf() {
+      var W = 1654, H = 2339, c = document.createElement('canvas'); c.width = W; c.height = H; var x = c.getContext('2d'), F = '"Inter","Segoe UI",Roboto,Arial,sans-serif', m = 120, y = 150;
+      x.fillStyle = '#fff'; x.fillRect(0, 0, W, H); x.fillStyle = '#5b4cf5'; x.fillRect(0, 0, W, 18);
+      function txt(s, X, Y, sz, b, col, al) { x.font = (b ? '700 ' : '400 ') + sz + 'px ' + F; x.fillStyle = col || '#111'; x.textAlign = al || 'left'; x.fillText(s, X, Y); }
+      function multi(s, X, Y, sz, col) { (s || '').split('\n').forEach(function (l, i) { txt(l, X, Y + i * sz * 1.4, sz, 0, col); }); return Y + (s || '').split('\n').length * sz * 1.4; }
+      txt(t('inv_title').toUpperCase(), m, y, 64, 1, '#5b4cf5'); txt(D.num, W - m, y - 10, 34, 1, '#111', 'right');
+      txt(t('inv_date') + ': ' + D.date, W - m, y + 40, 28, 0, '#555', 'right'); if (D.due) txt(t('inv_due') + ': ' + D.due, W - m, y + 80, 28, 0, '#555', 'right');
+      y += 170; txt(t('inv_from'), m, y, 24, 1, '#888'); txt(t('inv_to'), W / 2 + 20, y, 24, 1, '#888');
+      var y1 = multi(D.from, m, y + 44, 30), y2 = multi(D.to, W / 2 + 20, y + 44, 30); y = Math.max(y1, y2) + 60;
+      x.fillStyle = '#f3f2ff'; x.fillRect(m, y, W - 2 * m, 64); var cq = W - m - 520, cp = W - m - 300, ct = W - m - 24;
+      txt(t('inv_desc'), m + 24, y + 42, 26, 1); txt(t('inv_qty'), cq, y + 42, 26, 1, '#111', 'right'); txt(t('inv_price'), cp, y + 42, 26, 1, '#111', 'right'); txt(t('inv_total'), ct, y + 42, 26, 1, '#111', 'right');
+      y += 64;
+      D.items.forEach(function (it) { if (!it.d && !it.p) return; y += 58; txt(it.d, m + 24, y, 28); txt(String(it.q), cq, y, 28, 0, '#111', 'right'); txt(money(+it.p || 0), cp, y, 28, 0, '#111', 'right'); txt(money((+it.q || 0) * (+it.p || 0)), ct, y, 28, 0, '#111', 'right'); x.fillStyle = '#eee'; x.fillRect(m, y + 22, W - 2 * m, 2); });
+      var s = sums(); y += 90;
+      txt(t('inv_sub'), cp, y, 28, 0, '#555', 'right'); txt(money(s[0]), ct, y, 28, 0, '#111', 'right');
+      if (D.tax) { y += 50; txt(t('inv_tax') + ' ' + D.tax + '%', cp, y, 28, 0, '#555', 'right'); txt(money(s[1]), ct, y, 28, 0, '#111', 'right'); }
+      y += 70; x.fillStyle = '#5b4cf5'; x.fillRect(cp - 260, y - 50, ct - cp + 284, 74); txt(t('inv_total'), cp, y, 32, 1, '#fff', 'right'); txt(money(s[2]), ct, y, 32, 1, '#fff', 'right');
+      if (D.note) multi(D.note, m, y + 140, 26, '#555');
+      script('pdf-lib.min.js').then(function () { return K.canvasBlob(c, 'image/jpeg', 0.92); }).then(function (b) { return b.arrayBuffer(); }).then(function (ab) {
+        var L = window.PDFLib; return L.PDFDocument.create().then(function (doc) { return doc.embedJpg(ab).then(function (im) { var pg = doc.addPage([595.28, 841.89]); pg.drawImage(im, { x: 0, y: 0, width: 595.28, height: 841.89 }); doc.setTitle(t('inv_title') + ' ' + D.num); return doc.save(); }); });
+      }).then(function (bytes) { K.download(new Blob([bytes], { type: 'application/pdf' }), (D.num || 'invoice').replace(/[^\w.-]+/g, '_') + '.pdf'); });
+    }
+  }
+
+  /* ---------- photo to pencil sketch ---------- */
+  function sketch() {
+    var img = null, file = null, depth = 70, col = false;
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { file = f[0]; K.loadImage(file).then(function (im) { img = im; dz.classList.add('hide'); view.classList.remove('hide'); draw(); }); } });
+    var view = el('<div class="stack hide"></div>'), cv = el('<canvas style="width:100%;max-height:520px;object-fit:contain;border-radius:12px;background:#fff"></canvas>');
+    var opts = el('<div class="panel stack"></div>');
+    opts.append(K.rng(t('strength'), 20, 100, depth, '%', function (v) { depth = v; draw(); }), K.chk(t('sketch_color'), col, function (v) { col = v; draw(); }));
+    var bar = el('<div class="acts"></div>'); bar.append(K.btn('upload', t('start_over'), 'sec', function () { view.classList.add('hide'); dz.classList.remove('hide'); }), K.btn('download', t('download'), '', function () { K.canvasBlob(cv, 'image/jpeg', 0.93).then(function (b) { K.download(b, K.baseName(file.name) + '-sketch.jpg'); }); }));
+    view.append(cv, opts, bar); root.append(dz, view);
+    var tm = 0; function draw() { clearTimeout(tm); tm = setTimeout(render, 60); }
+    function render() {
+      var k = Math.min(1, 1800 / Math.max(img.naturalWidth, img.naturalHeight)), w = Math.round(img.naturalWidth * k), h = Math.round(img.naturalHeight * k);
+      cv.width = w; cv.height = h; var x = cv.getContext('2d', { willReadFrequently: true });
+      x.filter = 'grayscale(1)'; x.drawImage(img, 0, 0, w, h); x.filter = 'none'; var g = x.getImageData(0, 0, w, h);
+      var b = document.createElement('canvas'); b.width = w; b.height = h; var bx = b.getContext('2d'); bx.filter = 'grayscale(1) invert(1) blur(' + Math.max(2, w / 220) + 'px)'; bx.drawImage(img, 0, 0, w, h); var bl = bx.getImageData(0, 0, w, h).data;
+      var c0 = null; if (col) { x.drawImage(img, 0, 0, w, h); c0 = x.getImageData(0, 0, w, h).data; }
+      var d = g.data, gam = 0.4 + depth / 90;
+      for (var i = 0; i < d.length; i += 4) { var a = d[i], bb = bl[i], v = bb >= 255 ? 255 : Math.min(255, a * 255 / (255 - bb)); v = 255 * Math.pow(v / 255, gam);
+        if (c0) { var f = v / 255; d[i] = 255 - (255 - c0[i]) * 0.55 * (1 - f * 0.4); d[i + 1] = 255 - (255 - c0[i + 1]) * 0.55 * (1 - f * 0.4); d[i + 2] = 255 - (255 - c0[i + 2]) * 0.55 * (1 - f * 0.4); d[i] *= f; d[i + 1] *= f; d[i + 2] *= f; }
+        else d[i] = d[i + 1] = d[i + 2] = v; }
+      x.putImageData(g, 0, 0);
     }
   }
 });

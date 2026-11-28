@@ -86,6 +86,31 @@ export default {
    "Səsi mətnə çevir (Sİ)",
    "Səsli mesajları, audio və videonu Whisper Sİ ilə 90+ dildə mətnə çevirin. TXT və ya SRT yükləyin.",
    "səsi mətnə çevir transkripsiya whisper"
+  ],
+  "compress-image-to-kb": [
+   "Şəkli 20, 50, 100 KB-a sıx",
+   "Şəkli anketlər və saytlar üçün dəqiq KB ölçüsünə salın: 20, 50, 100 KB və ya istənilən ölçü.",
+   "şəkli 100 kb sıx ölçüsünü kiçilt"
+  ],
+  "pdf-to-word": [
+   "PDF-dən Word-ə",
+   "PDF-i abzas və başlıqlarla redaktə edilə bilən Word (DOCX) sənədinə çevirin. Pulsuz.",
+   "pdf word çevir docx"
+  ],
+  "invoice-generator": [
+   "Hesab-faktura yaradıcı",
+   "Bir dəqiqəyə səliqəli hesab-faktura yaradın və PDF yükləyin. Vergi və cəm avtomatik hesablanır.",
+   "hesab faktura yarat invoice pdf"
+  ],
+  "photo-to-sketch": [
+   "Şəkli karandaş rəsminə çevir",
+   "İstənilən şəkli ağ-qara və ya rəngli real karandaş rəsminə çevirin.",
+   "şəkli rəsmə çevir karandaş"
+  ],
+  "profile-picture-maker": [
+   "Profil şəkli düzəldici (Sİ)",
+   "Sİ sizi şəkildən kəsir və gözəl qradiyentə qoyur: Instagram, Telegram üçün hazır avatar.",
+   "profil şəkli avatar düzəlt"
   ]
  },
  "faqx": {
@@ -197,6 +222,29 @@ export default {
   "stt_accurate": "Daha dəqiq",
   "stt_note": "İlk dəfə ~80 MB yüklənir (“Daha dəqiq” üçün ~250 MB).",
   "stt_working": "Mətnə çevrilir…",
-  "stt_nothing": "Bu faylda nitq tapılmadı."
+  "stt_nothing": "Bu faylda nitq tapılmadı.",
+  "kb_custom": "Və ya öz ölçünüz, KB",
+  "pdfword_note": "Mətn, abzaslar və başlıqlar saxlanılır. Mürəkkəb cədvəllər və şəkillər köçürülmür.",
+  "pdfword_scan": "Bu PDF-də mətn yoxdur (skandır). “Şəkildən mətnə (OCR)” istifadə edin.",
+  "sketch_color": "Rəngli karandaşlar",
+  "pfp_circle": "Dairə",
+  "pfp_square": "Kvadrat",
+  "pfp_ring": "Ağ çərçivə",
+  "inv_title": "Hesab-faktura",
+  "inv_from": "Kimdən",
+  "inv_to": "Kimə",
+  "inv_num": "Faktura nömrəsi",
+  "inv_date": "Tarix",
+  "inv_due": "Ödəniş tarixi",
+  "inv_cur": "Valyuta",
+  "inv_tax": "Vergi",
+  "inv_items": "Mövqelər",
+  "inv_add": "Mövqe əlavə et",
+  "inv_desc": "Təsvir",
+  "inv_qty": "Say",
+  "inv_price": "Qiymət",
+  "inv_sub": "Ara cəm",
+  "inv_total": "Cəmi",
+  "inv_note": "Qeydlər və rekvizitlər"
  }
 };

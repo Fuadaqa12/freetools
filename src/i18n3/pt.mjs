@@ -86,6 +86,31 @@ export default {
    "Áudio para texto (IA)",
    "Transcreva áudios, mensagens de voz e vídeos com a IA Whisper em mais de 90 idiomas. Exporte TXT ou SRT.",
    "audio para texto transcrever whisper legendas"
+  ],
+  "compress-image-to-kb": [
+   "Comprimir imagem para 20, 50, 100 KB",
+   "Reduza uma foto para um tamanho exato em KB para formulários e cadastros: 20, 50, 100 KB ou qualquer valor.",
+   "comprimir imagem para 50kb 100kb reduzir foto kb"
+  ],
+  "pdf-to-word": [
+   "PDF para Word",
+   "Converta PDF em documento Word (DOCX) editável com parágrafos e títulos. Grátis.",
+   "pdf para word converter pdf em docx"
+  ],
+  "invoice-generator": [
+   "Gerador de faturas",
+   "Crie uma fatura em um minuto e baixe em PDF. Impostos e totais calculados automaticamente.",
+   "gerador de fatura invoice pdf grátis"
+  ],
+  "photo-to-sketch": [
+   "Foto para desenho a lápis",
+   "Transforme qualquer foto em um desenho a lápis realista, preto e branco ou colorido.",
+   "foto para desenho a lapis"
+  ],
+  "profile-picture-maker": [
+   "Criador de foto de perfil (IA)",
+   "A IA recorta você de qualquer foto e coloca num degradê estiloso: avatar pronto para Instagram ou LinkedIn.",
+   "foto de perfil avatar ia"
   ]
  },
  "faqx": {
@@ -197,6 +222,29 @@ export default {
   "stt_accurate": "Mais preciso",
   "stt_note": "Na primeira vez baixa ~80 MB (ou ~250 MB no “Mais preciso”).",
   "stt_working": "Transcrevendo…",
-  "stt_nothing": "Nenhuma fala encontrada."
+  "stt_nothing": "Nenhuma fala encontrada.",
+  "kb_custom": "Ou seu tamanho, KB",
+  "pdfword_note": "Texto, parágrafos e títulos são mantidos. Tabelas complexas e imagens não são copiadas.",
+  "pdfword_scan": "Este PDF não tem texto (é uma digitalização). Use “Imagem para texto (OCR)”.",
+  "sketch_color": "Lápis de cor",
+  "pfp_circle": "Círculo",
+  "pfp_square": "Quadrado",
+  "pfp_ring": "Anel branco",
+  "inv_title": "Fatura",
+  "inv_from": "De",
+  "inv_to": "Para",
+  "inv_num": "Número da fatura",
+  "inv_date": "Data",
+  "inv_due": "Vencimento",
+  "inv_cur": "Moeda",
+  "inv_tax": "Imposto",
+  "inv_items": "Itens",
+  "inv_add": "Adicionar item",
+  "inv_desc": "Descrição",
+  "inv_qty": "Qtd",
+  "inv_price": "Preço",
+  "inv_sub": "Subtotal",
+  "inv_total": "Total",
+  "inv_note": "Observações e dados de pagamento"
  }
 };

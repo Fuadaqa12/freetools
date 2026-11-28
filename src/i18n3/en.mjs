@@ -86,6 +86,31 @@ export default {
    "Speech to Text (AI)",
    "Transcribe voice messages, audio and video to text with Whisper AI in 90+ languages. Export TXT or SRT subtitles.",
    "speech to text transcribe audio voice message to text whisper subtitles srt"
+  ],
+  "compress-image-to-kb": [
+   "Compress Image to 20, 50, 100 KB",
+   "Reduce a photo to an exact file size in KB for forms, exams and job portals: 20 KB, 50 KB, 100 KB or any size.",
+   "compress image to 20kb 50kb 100kb reduce photo size in kb resize image to kb"
+  ],
+  "pdf-to-word": [
+   "PDF to Word",
+   "Convert PDF to an editable Word document (DOCX) with paragraphs and headings. Free, no email needed.",
+   "pdf to word pdf to docx convert pdf to editable word"
+  ],
+  "invoice-generator": [
+   "Invoice Generator",
+   "Create a clean invoice in a minute and download it as PDF. Items, tax and totals are calculated for you.",
+   "invoice generator free invoice maker pdf bill template"
+  ],
+  "photo-to-sketch": [
+   "Photo to Pencil Sketch",
+   "Turn any photo into a realistic pencil drawing, in black and white or color.",
+   "photo to sketch pencil drawing image to sketch converter"
+  ],
+  "profile-picture-maker": [
+   "Profile Picture Maker (AI)",
+   "AI cuts you out of any photo and puts you on a stylish gradient: a ready avatar for Instagram, Telegram, LinkedIn or Discord.",
+   "profile picture maker pfp avatar maker ai background"
   ]
  },
  "faqx": {
@@ -197,6 +222,29 @@ export default {
   "stt_accurate": "More accurate",
   "stt_note": "First run downloads ~80 MB (or ~250 MB for “More accurate”).",
   "stt_working": "Transcribing…",
-  "stt_nothing": "No speech found in this file."
+  "stt_nothing": "No speech found in this file.",
+  "kb_custom": "Or your size, KB",
+  "pdfword_note": "Text, paragraphs and headings are kept. Complex tables and images are not copied.",
+  "pdfword_scan": "This PDF has no text layer (it is a scan). Use “Image to Text (OCR)” instead.",
+  "sketch_color": "Colored pencils",
+  "pfp_circle": "Circle",
+  "pfp_square": "Square",
+  "pfp_ring": "White ring",
+  "inv_title": "Invoice",
+  "inv_from": "From",
+  "inv_to": "Bill to",
+  "inv_num": "Invoice number",
+  "inv_date": "Date",
+  "inv_due": "Due date",
+  "inv_cur": "Currency",
+  "inv_tax": "Tax",
+  "inv_items": "Items",
+  "inv_add": "Add item",
+  "inv_desc": "Description",
+  "inv_qty": "Qty",
+  "inv_price": "Price",
+  "inv_sub": "Subtotal",
+  "inv_total": "Total",
+  "inv_note": "Notes and payment details"
  }
 };

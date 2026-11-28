@@ -26,7 +26,7 @@ TK.register('ai', function (root, o, K) {
     return el('<figure style="flex:1 1 240px;margin:0"><figcaption class="muted" style="font-size:13px;margin-bottom:6px">' + esc(label) + '</figcaption><canvas style="width:100%;max-height:440px;object-fit:contain;border-radius:12px;' + (checker ? 'background:repeating-conic-gradient(#e5e7eb 0 25%,#fff 0 50%) 0 0/20px 20px' : 'background:var(--soft)') + '"></canvas></figure>');
   }
 
-  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport, faces: faces, sticker: sticker, stt: stt })[o.mode]();
+  ({ ocr: ocr, bg: bg, up: up, blurbg: blurbg, passport: passport, faces: faces, sticker: sticker, stt: stt, pfp: pfp })[o.mode]();
 
   /* ---------- OCR ---------- */
   function ocr() {
@@ -462,6 +462,45 @@ TK.register('ai', function (root, o, K) {
         };
         w.postMessage({ audio: audio, lang: lang, model: model }, [audio.buffer]);
       }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('no_audio_track')); dz.classList.remove('hide'); });
+    }
+  }
+
+  /* ---------- AI profile picture maker ---------- */
+  function pfp() {
+    var file = null, cut = null, bgi = 0, shape = 'circle', zoom = 100, ring = true, oy = 0;
+    var BG = [['#8b5cf6', '#ec4899'], ['#06b6d4', '#3b82f6'], ['#f59e0b', '#ef4444'], ['#10b981', '#84cc16'], ['#111827', '#4b5563'], ['#fde68a', '#fca5a5'], ['#e0e7ff', '#c7d2fe'], ['#ffffff', '#ffffff']];
+    var dz = K.dropzone({ accept: 'image/*', hint: t('drop_hint_img'), paste: true, onFiles: function (f) { load(f[0]); } });
+    var note = el('<p class="muted" style="margin:0 0 4px;font-size:13px">' + esc(t('ai_local_note')) + '</p>');
+    var prog = progress();
+    var view = el('<div class="stack hide" style="margin-top:14px"></div>');
+    var cv = el('<canvas width="1024" height="1024" style="width:300px;max-width:100%;align-self:center"></canvas>');
+    var sw = el('<div class="row" style="gap:8px;flex-wrap:wrap;justify-content:center"></div>');
+    BG.forEach(function (g, i) { var b = el('<button type="button" aria-label="bg" style="width:38px;height:38px;border-radius:50%;cursor:pointer;border:2px solid var(--line);background:linear-gradient(135deg,' + g[0] + ',' + g[1] + ')"></button>'); b.onclick = function () { bgi = i; draw(); }; sw.append(b); });
+    var opts = el('<div class="panel stack"></div>');
+    opts.append(sw, K.seg([['circle', t('pfp_circle')], ['square', t('pfp_square')]], shape, function (v) { shape = v; draw(); }),
+      K.rng(t('zoom'), 60, 180, zoom, '%', function (v) { zoom = v; draw(); }), K.rng(t('move_v'), -40, 40, 0, '', function (v) { oy = v; draw(); }), K.chk(t('pfp_ring'), ring, function (v) { ring = v; draw(); }));
+    var bar = el('<div class="acts"></div>');
+    bar.append(K.btn('upload', t('start_over'), 'sec', function () { cut = null; view.classList.add('hide'); dz.classList.remove('hide'); }),
+      K.btn('download', 'PNG', '', function () { K.canvasBlob(cv, 'image/png').then(function (b) { K.download(b, K.baseName(file.name) + '-avatar.png'); }); }));
+    view.append(cv, opts, bar); root.append(note, dz, prog, view);
+    function draw() {
+      if (!cut) return; var S = 1024, x = cv.getContext('2d'), g = BG[bgi]; x.clearRect(0, 0, S, S);
+      x.save(); x.beginPath(); if (shape === 'circle') x.arc(S / 2, S / 2, S / 2, 0, Math.PI * 2); else if (x.roundRect) x.roundRect(0, 0, S, S, 90); else x.rect(0, 0, S, S); x.clip();
+      var gr = x.createLinearGradient(0, 0, S, S); gr.addColorStop(0, g[0]); gr.addColorStop(1, g[1]); x.fillStyle = gr; x.fillRect(0, 0, S, S);
+      var b = cut.box, k = (S * 0.86 / Math.max(b.w, b.h * 0.85)) * zoom / 100, w = b.w * k, h = b.h * k;
+      x.drawImage(cut.c, b.x, b.y, b.w, b.h, (S - w) / 2, S - h + h * 0.04 + oy * S / 100, w, h); x.restore();
+      if (ring) { x.lineWidth = 22; x.strokeStyle = 'rgba(255,255,255,.9)'; x.beginPath(); if (shape === 'circle') x.arc(S / 2, S / 2, S / 2 - 11, 0, Math.PI * 2); else if (x.roundRect) x.roundRect(11, 11, S - 22, S - 22, 80); x.stroke(); }
+    }
+    function load(f) {
+      if (!/^image\//.test(f.type)) { K.toast(t('cannot_read')); return; }
+      file = f; dz.classList.add('hide');
+      segment(f, prog).then(function (bmp) {
+        var c = document.createElement('canvas'); c.width = bmp.width; c.height = bmp.height; var x = c.getContext('2d'); x.drawImage(bmp, 0, 0);
+        var d = x.getImageData(0, 0, c.width, c.height).data, x0 = c.width, y0 = c.height, x1 = 0, y1 = 0;
+        for (var y = 0; y < c.height; y += 2) for (var i = 0; i < c.width; i += 2) if (d[(y * c.width + i) * 4 + 3] > 30) { if (i < x0) x0 = i; if (i > x1) x1 = i; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+        cut = { c: c, box: x1 > x0 ? { x: x0, y: y0, w: x1 - x0 + 1, h: y1 - y0 + 1 } : { x: 0, y: 0, w: c.width, h: c.height } };
+        prog.hide(); draw(); view.classList.remove('hide');
+      }).catch(function (e) { console.error(e); prog.hide(); K.toast(t('error')); dz.classList.remove('hide'); });
     }
   }
 });

@@ -86,6 +86,31 @@ export default {
    "Sprache zu Text (KI)",
    "Sprachnachrichten, Audio und Video mit Whisper-KI in über 90 Sprachen transkribieren. Export als TXT oder SRT.",
    "sprache zu text transkribieren whisper untertitel"
+  ],
+  "compress-image-to-kb": [
+   "Bild auf 20, 50, 100 KB komprimieren",
+   "Foto auf eine genaue Dateigröße in KB verkleinern, für Formulare und Bewerbungen: 20, 50, 100 KB oder beliebig.",
+   "bild auf 100 kb komprimieren foto verkleinern kb"
+  ],
+  "pdf-to-word": [
+   "PDF zu Word",
+   "PDF in ein bearbeitbares Word-Dokument (DOCX) mit Absätzen und Überschriften umwandeln. Kostenlos.",
+   "pdf zu word pdf in docx umwandeln"
+  ],
+  "invoice-generator": [
+   "Rechnungsgenerator",
+   "Erstellen Sie in einer Minute eine Rechnung und laden Sie sie als PDF. Steuern und Summen automatisch.",
+   "rechnung erstellen kostenlos pdf"
+  ],
+  "photo-to-sketch": [
+   "Foto zu Bleistiftzeichnung",
+   "Machen Sie aus jedem Foto eine realistische Bleistiftzeichnung, schwarz-weiß oder farbig.",
+   "foto zu zeichnung bleistift"
+  ],
+  "profile-picture-maker": [
+   "Profilbild-Ersteller (KI)",
+   "KI schneidet Sie aus jedem Foto aus und setzt Sie auf einen stylischen Verlauf: fertiges Profilbild.",
+   "profilbild erstellen avatar ki"
   ]
  },
  "faqx": {
@@ -197,6 +222,29 @@ export default {
   "stt_accurate": "Genauer",
   "stt_note": "Beim ersten Mal werden ~80 MB geladen (~250 MB für „Genauer“).",
   "stt_working": "Transkribiere…",
-  "stt_nothing": "Keine Sprache gefunden."
+  "stt_nothing": "Keine Sprache gefunden.",
+  "kb_custom": "Oder eigene Größe, KB",
+  "pdfword_note": "Text, Absätze und Überschriften bleiben erhalten. Komplexe Tabellen und Bilder nicht.",
+  "pdfword_scan": "Dieses PDF hat keinen Text (Scan). Nutzen Sie „Bild zu Text (OCR)“.",
+  "sketch_color": "Buntstifte",
+  "pfp_circle": "Kreis",
+  "pfp_square": "Quadrat",
+  "pfp_ring": "Weißer Ring",
+  "inv_title": "Rechnung",
+  "inv_from": "Von",
+  "inv_to": "An",
+  "inv_num": "Rechnungsnummer",
+  "inv_date": "Datum",
+  "inv_due": "Fällig am",
+  "inv_cur": "Währung",
+  "inv_tax": "Steuer",
+  "inv_items": "Positionen",
+  "inv_add": "Position hinzufügen",
+  "inv_desc": "Beschreibung",
+  "inv_qty": "Menge",
+  "inv_price": "Preis",
+  "inv_sub": "Zwischensumme",
+  "inv_total": "Gesamt",
+  "inv_note": "Hinweise und Zahlungsdaten"
  }
 };

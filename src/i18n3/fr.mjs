@@ -86,6 +86,31 @@ export default {
    "Audio en texte (IA)",
    "Transcrivez vocaux, audio et vidéo en texte avec l’IA Whisper dans plus de 90 langues. Export TXT ou SRT.",
    "audio en texte transcription whisper sous-titres"
+  ],
+  "compress-image-to-kb": [
+   "Compresser une image à 20, 50, 100 Ko",
+   "Réduisez une photo à une taille exacte en Ko pour vos formulaires : 20, 50, 100 Ko ou toute taille.",
+   "compresser image 50 ko 100 ko réduire photo"
+  ],
+  "pdf-to-word": [
+   "PDF en Word",
+   "Convertissez un PDF en document Word (DOCX) modifiable avec paragraphes et titres. Gratuit.",
+   "pdf en word convertir pdf docx"
+  ],
+  "invoice-generator": [
+   "Générateur de factures",
+   "Créez une facture propre en une minute et téléchargez-la en PDF. TVA et totaux calculés.",
+   "générateur de facture gratuit pdf"
+  ],
+  "photo-to-sketch": [
+   "Photo en dessin au crayon",
+   "Transformez une photo en dessin au crayon réaliste, en noir et blanc ou en couleur.",
+   "photo en dessin crayon"
+  ],
+  "profile-picture-maker": [
+   "Créateur de photo de profil (IA)",
+   "L’IA vous détoure et vous place sur un dégradé stylé : avatar prêt pour Instagram ou LinkedIn.",
+   "photo de profil avatar ia"
   ]
  },
  "faqx": {
@@ -197,6 +222,29 @@ export default {
   "stt_accurate": "Plus précis",
   "stt_note": "Le premier lancement télécharge ~80 Mo (~250 Mo en « Plus précis »).",
   "stt_working": "Transcription…",
-  "stt_nothing": "Aucune parole trouvée."
+  "stt_nothing": "Aucune parole trouvée.",
+  "kb_custom": "Ou votre taille, Ko",
+  "pdfword_note": "Texte, paragraphes et titres sont conservés. Tableaux complexes et images non copiés.",
+  "pdfword_scan": "Ce PDF n’a pas de texte (c’est un scan). Utilisez « Image en texte (OCR) ».",
+  "sketch_color": "Crayons de couleur",
+  "pfp_circle": "Cercle",
+  "pfp_square": "Carré",
+  "pfp_ring": "Anneau blanc",
+  "inv_title": "Facture",
+  "inv_from": "De",
+  "inv_to": "Facturé à",
+  "inv_num": "Numéro de facture",
+  "inv_date": "Date",
+  "inv_due": "Échéance",
+  "inv_cur": "Devise",
+  "inv_tax": "Taxe",
+  "inv_items": "Articles",
+  "inv_add": "Ajouter un article",
+  "inv_desc": "Description",
+  "inv_qty": "Qté",
+  "inv_price": "Prix",
+  "inv_sub": "Sous-total",
+  "inv_total": "Total",
+  "inv_note": "Notes et coordonnées bancaires"
  }
 };

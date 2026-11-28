@@ -86,6 +86,31 @@ export default {
    "Sesi yazıya çevir (YZ)",
    "Sesli mesajları, ses ve videoları Whisper yapay zekâsıyla 90+ dilde yazıya dökün. TXT veya SRT indirin.",
    "sesi yazıya çevirme transkript whisper altyazı"
+  ],
+  "compress-image-to-kb": [
+   "Fotoğrafı 20, 50, 100 KB’ye küçült",
+   "Fotoğrafı formlar ve başvurular için tam KB boyutuna küçültün: 20, 50, 100 KB veya istediğiniz boyut.",
+   "fotoğraf 100 kb küçültme 50 kb sıkıştırma"
+  ],
+  "pdf-to-word": [
+   "PDF’den Word’e",
+   "PDF’i paragraf ve başlıklarla düzenlenebilir Word (DOCX) belgesine çevirin. Ücretsiz.",
+   "pdf word çevirme pdf docx"
+  ],
+  "invoice-generator": [
+   "Fatura oluşturucu",
+   "Bir dakikada düzgün bir fatura oluşturup PDF indirin. Vergi ve toplam otomatik hesaplanır.",
+   "fatura oluşturma online pdf"
+  ],
+  "photo-to-sketch": [
+   "Fotoğrafı karakalem çizime çevir",
+   "Her fotoğrafı siyah-beyaz veya renkli gerçekçi bir karakalem çizime dönüştürün.",
+   "fotoğrafı karakalem yapma"
+  ],
+  "profile-picture-maker": [
+   "Profil fotoğrafı yapıcı (YZ)",
+   "Yapay zekâ sizi fotoğraftan keser ve şık bir gradyana yerleştirir: Instagram, LinkedIn için hazır avatar.",
+   "profil fotoğrafı yapma avatar"
   ]
  },
  "faqx": {
@@ -197,6 +222,29 @@ export default {
   "stt_accurate": "Daha doğru",
   "stt_note": "İlk çalıştırmada ~80 MB iner (“Daha doğru” için ~250 MB).",
   "stt_working": "Yazıya dökülüyor…",
-  "stt_nothing": "Bu dosyada konuşma bulunamadı."
+  "stt_nothing": "Bu dosyada konuşma bulunamadı.",
+  "kb_custom": "Veya kendi boyutunuz, KB",
+  "pdfword_note": "Metin, paragraflar ve başlıklar korunur. Karmaşık tablolar ve resimler aktarılmaz.",
+  "pdfword_scan": "Bu PDF’te metin yok (tarama). “Resimden metne (OCR)” kullanın.",
+  "sketch_color": "Renkli kalemler",
+  "pfp_circle": "Daire",
+  "pfp_square": "Kare",
+  "pfp_ring": "Beyaz çerçeve",
+  "inv_title": "Fatura",
+  "inv_from": "Gönderen",
+  "inv_to": "Alıcı",
+  "inv_num": "Fatura numarası",
+  "inv_date": "Tarih",
+  "inv_due": "Son ödeme",
+  "inv_cur": "Para birimi",
+  "inv_tax": "Vergi",
+  "inv_items": "Kalemler",
+  "inv_add": "Kalem ekle",
+  "inv_desc": "Açıklama",
+  "inv_qty": "Adet",
+  "inv_price": "Fiyat",
+  "inv_sub": "Ara toplam",
+  "inv_total": "Toplam",
+  "inv_note": "Notlar ve ödeme bilgileri"
  }
 };

@@ -86,6 +86,31 @@ export default {
    "Mowa na tekst (AI)",
    "Transkrybuj wiadomości głosowe, audio i wideo z AI Whisper w ponad 90 językach. Eksport TXT lub SRT.",
    "mowa na tekst transkrypcja whisper napisy"
+  ],
+  "compress-image-to-kb": [
+   "Kompresuj zdjęcie do 20, 50, 100 KB",
+   "Zmniejsz zdjęcie do dokładnego rozmiaru w KB dla formularzy i urzędów: 20, 50, 100 KB lub dowolnie.",
+   "zmniejszyć zdjęcie do 100 kb kompresja kb"
+  ],
+  "pdf-to-word": [
+   "PDF na Word",
+   "Zamień PDF na edytowalny dokument Word (DOCX) z akapitami i nagłówkami. Za darmo.",
+   "pdf na word konwerter docx"
+  ],
+  "invoice-generator": [
+   "Generator faktur",
+   "Utwórz fakturę w minutę i pobierz PDF. Podatek i suma liczą się automatycznie.",
+   "generator faktur online pdf"
+  ],
+  "photo-to-sketch": [
+   "Zdjęcie na rysunek ołówkiem",
+   "Zamień dowolne zdjęcie w realistyczny rysunek ołówkiem, czarno-biały lub kolorowy.",
+   "zdjęcie na rysunek ołówkiem"
+  ],
+  "profile-picture-maker": [
+   "Kreator zdjęcia profilowego (AI)",
+   "AI wycina Cię z dowolnego zdjęcia i umieszcza na stylowym gradiencie: gotowy awatar.",
+   "zdjęcie profilowe awatar ai"
   ]
  },
  "faqx": {
@@ -197,6 +222,29 @@ export default {
   "stt_accurate": "Dokładniej",
   "stt_note": "Za pierwszym razem pobiera ~80 MB (~250 MB dla „Dokładniej”).",
   "stt_working": "Transkrypcja…",
-  "stt_nothing": "Nie znaleziono mowy."
+  "stt_nothing": "Nie znaleziono mowy.",
+  "kb_custom": "Lub własny rozmiar, KB",
+  "pdfword_note": "Tekst, akapity i nagłówki zostają. Złożone tabele i obrazy nie są kopiowane.",
+  "pdfword_scan": "Ten PDF nie ma tekstu (to skan). Użyj „Obraz na tekst (OCR)”.",
+  "sketch_color": "Kredki",
+  "pfp_circle": "Koło",
+  "pfp_square": "Kwadrat",
+  "pfp_ring": "Biała obwódka",
+  "inv_title": "Faktura",
+  "inv_from": "Od",
+  "inv_to": "Dla",
+  "inv_num": "Numer faktury",
+  "inv_date": "Data",
+  "inv_due": "Termin płatności",
+  "inv_cur": "Waluta",
+  "inv_tax": "Podatek",
+  "inv_items": "Pozycje",
+  "inv_add": "Dodaj pozycję",
+  "inv_desc": "Opis",
+  "inv_qty": "Ilość",
+  "inv_price": "Cena",
+  "inv_sub": "Suma częściowa",
+  "inv_total": "Razem",
+  "inv_note": "Uwagi i dane do płatności"
  }
 };
